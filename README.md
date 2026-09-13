@@ -2,7 +2,7 @@
 
 Reusable, versioned policies and agent-definition foundations for software projects across a Digital Factory.
 
-This repository is currently a policy and agent-definition foundation, not a collection of executable agents. Version `0.2.0` includes shared policies and Backend Agent Foundation v0.1. It includes no orchestration framework, runtime integration, stack-specific rules, project-specific rules, or dependencies.
+This repository is currently a policy and agent-definition foundation, not a collection of executable agents. Version `0.3.0` includes shared policies and Backend, Security, and Audit Agent foundations. It includes no orchestration framework, runtime integration, stack-specific rules, project-specific rules, or dependencies.
 
 ## Inheritance model
 
@@ -55,7 +55,7 @@ digital-factory-ai-agents/
 └── scripts/
 ```
 
-`shared/` contains the policies applicable to every future role. `agents/` separates role boundaries; the [Backend Agent Foundation](agents/backend/README.md) contains technology-agnostic core definitions and reusable lifecycle prompts, with separate placeholder stack directories. Security and Audit are independent second-line control roles, separate from implementation roles.
+`shared/` contains the policies applicable to every future role. `agents/` separates role boundaries; the [Backend Agent Foundation](agents/backend/README.md) contains technology-agnostic core definitions and reusable lifecycle prompts, with separate placeholder stack directories. [Security](agents/security/README.md) independently verifies technical security controls; [Audit](agents/audit/README.md) verifies evidence, traceability, and governance. Both are separate from implementation roles, and humans remain the final approval authority.
 
 `project-template/` is reserved for a generic project-context template; `workflows/` for process definitions; `evals/` for policy and behavior evaluations; and `scripts/` for supporting utilities. These directories are empty except for `.gitkeep` files used to preserve them in Git. Their presence does not introduce an implementation commitment.
 
@@ -81,4 +81,4 @@ Project-specific knowledge stays in the project layer. A lesson may be proposed 
 
 ## Current scope
 
-This release includes shared policies and the declarative Backend Agent Foundation v0.1. Implemented stack profiles (including Laravel), other role definitions, project templates, shared workflows, evaluations, scripts, and runtime integrations require a separately authorized phase.
+This release includes shared policies and declarative Backend, Security, and Audit Agent foundations. Implemented stack profiles (including Laravel), other role definitions, project templates, shared workflows, evaluations, scripts, and runtime integrations require a separately authorized phase.

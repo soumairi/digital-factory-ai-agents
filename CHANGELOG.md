@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.3.0 — 2026-09-13
+
+### Added
+
+- Independent Security Agent Foundation v0.1 with systematic review workflow, 38-area vulnerability checklist, guardrails, and finding/report contract.
+- Independent Audit Agent Foundation v0.1 with evidence policy, traceability checklist, workflow, guardrails, and standard report template.
+
+### Changed
+
+- Shared security development policy now assigns Backend, Security, Audit, and human responsibilities and defines finding severity/status governance.
+- **Incompatible policy tightening:** every backend story, API endpoint, or backend change requires independent Security review; unresolved Critical/High findings block approval even if marked ACCEPTED_RISK. Medium/Low dispositions require defined project governance and authorized human risk decisions where applicable.
+- Root documentation describes all three foundations; removed obsolete Security/Audit directory placeholders.
+
+No executable agents, runtime enforcement, project/stack-specific rules, or dependencies were added. Human review and release processes remain required; this change does not itself certify independent review or approval.
+
 ## 0.2.0 — 2026-09-13
 
 ### Added
