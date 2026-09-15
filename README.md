@@ -104,3 +104,21 @@ Keep project-specific experience local. Generalize useful lessons, remove secret
 Updates are opt-in: each project reviews changes, reassesses exceptions, evaluates the candidate with its own context, and adopts through a human-reviewed project PR updating both snapshot/reference and version pin. No automatic synchronization with main. Preserve the previous version and evidence for rollback.
 
 Before a first real Backend Agent trial, supply a consuming repository, completed context, approved story, concrete evaluation fixtures/assertions, safe commands and an isolated environment. Select/configure a runtime with enforced permissions and assign independent Security/Audit reviewers and human authorities. Run the initial nine-case suite and inspect failures before claiming readiness. Scores and maturity never authorize autonomous production deployment.
+
+## Documentation
+
+Start with the [developer documentation index](docs/README.md) or [quick start](docs/quick-start.md). These practical guides explain manual and coding-tool use without changing agent policies.
+
+- [Agentic AI basics](docs/01-agentic-ai-basics.md)
+- [Foundation architecture and rule priority](docs/02-foundation-architecture.md)
+- [Create a project agent](docs/03-create-project-agent.md)
+- [Use with conversational AI](docs/04-use-agent-with-chat-ai.md)
+- [Use with coding AI](docs/05-use-agent-with-coding-ai.md)
+- [Security, Audit and human approval](docs/06-security-and-audit-workflow.md)
+- [Create a new agent type](docs/07-create-new-agent.md)
+- [Create a stack profile](docs/08-create-stack-profile.md)
+- [Update and adopt the foundation](docs/09-update-foundation.md)
+- [Team workflow and remaining setup](docs/10-team-workflow.md)
+- [Laravel example](docs/examples/backend-laravel-agent-example.md)
+- [Chat session example](docs/examples/chat-session-example.md)
+- [Coding agent example](docs/examples/coding-agent-example.md)
