@@ -60,7 +60,7 @@ digital-factory-ai-agents/
 
 `shared/` contains the policies applicable to every future role. `agents/` separates role boundaries; the [Backend Agent Foundation](agents/backend/README.md) contains technology-agnostic core definitions and reusable lifecycle prompts, with a separate Laravel specialization and placeholders for other stacks. [Security](agents/security/README.md) independently verifies technical security controls; [Audit](agents/audit/README.md) verifies evidence, traceability, and governance. Both are separate from implementation roles, and humans remain the final approval authority.
 
-`project-template/` contains [copyable project context templates](project-template/README.md) and a foundation version pin. `evals/backend/` contains [nine evaluation cases and the common scoring/maturity model](evals/backend/README.md). These are specifications, not an executable harness. `workflows/` and `scripts/` remain reserved directories retained by `.gitkeep` files.
+`project-template/` contains [copyable project context templates](project-template/README.md) and a foundation version pin. `evals/backend/` contains [nine evaluation cases and the common scoring/maturity model](evals/backend/README.md). These are specifications, not an executable harness. `workflows/` remains reserved. `scripts/` contains the local project bootstrap helper; `tests/scripts/` contains its temporary-directory tests.
 
 ## Shared policy map
 
@@ -122,3 +122,14 @@ Start with the [developer documentation index](docs/README.md) or [quick start](
 - [Laravel example](docs/examples/backend-laravel-agent-example.md)
 - [Chat session example](docs/examples/chat-session-example.md)
 - [Coding agent example](docs/examples/coding-agent-example.md)
+
+## Project Bootstrap
+
+Prepare an existing local Laravel project without configuring an AI runtime:
+
+```sh
+./scripts/init-project-agent.sh backend laravel ../customer-portal --dry-run
+./scripts/init-project-agent.sh backend laravel ../customer-portal
+```
+
+See the [bootstrap guide](docs/11-project-agent-bootstrap.md) for the compact layout, prerequisites and safe refresh. Existing `.ai/` is refused unless `--force` is explicit; existing project files are always preserved. This local filesystem helper does not run Git, application commands, AI APIs or deployments. The evaluation framework remains specification-only; the bootstrap has its own temporary-directory shell tests.

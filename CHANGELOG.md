@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- Filesystem-only Backend/Laravel bootstrap with preflight validation, dry-run and project-preserving force refresh.
+- Temporary-directory shell tests and project bootstrap documentation.
+
+No runtime integration, remote synchronization or policy changes. VERSION remains the source for installed manifests.
+
 ## 0.5.0 — 2026-09-15
 
 ### Added
