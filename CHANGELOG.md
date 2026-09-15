@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.5.0 — 2026-09-15
+
+### Added
+
+- Reusable project integration template with explicit foundation pin, additive constraints, and governed exception request records.
+- Nine backend evaluation specifications with a weighted 0–100 score, hard security gates, maturity bands, and manual evidence protocol.
+- Full inheritance model and project-to-foundation feedback/adoption workflow.
+
+### Changed
+
+- Root documentation now describes integration and evaluation scope; removed obsolete project-template and evals placeholders.
+
+Core, stack and shared security policies remain authoritative and unchanged. No evaluation results, executable fixtures, orchestration framework or dependencies are introduced.
+
+## 0.4.0 — 2026-09-14
+
+### Added
+
+- Laravel Backend Profile v0.1 extending Backend Core with architecture, coding, security, testing, database, API and command guidance.
+- Version/context discovery requirements without assuming authentication packages or architectural patterns.
+- Human authorization and verified sandbox gates for destructive commands, including indirect test/script resets; destructive production execution remains outside the agent profile.
+
+### Changed
+
+- Replaced the Laravel README placeholder and updated root/backend documentation to distinguish the implemented profile from remaining placeholders.
+
+Backend Core, shared policies, lifecycle prompts, and independent Security/Audit definitions are unchanged. No Laravel application, dependencies or executable agents were added.
+
 ## 0.3.0 — 2026-09-13
 
 ### Added

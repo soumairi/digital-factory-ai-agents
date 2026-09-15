@@ -2,21 +2,24 @@
 
 Reusable, versioned policies and agent-definition foundations for software projects across a Digital Factory.
 
-This repository is currently a policy and agent-definition foundation, not a collection of executable agents. Version `0.3.0` includes shared policies and Backend, Security, and Audit Agent foundations. It includes no orchestration framework, runtime integration, stack-specific rules, project-specific rules, or dependencies.
+This repository is currently a policy and agent-definition foundation, not a collection of executable agents. Version `0.5.0` includes shared policies, Backend, Security, and Audit Agent foundations, a Laravel Backend profile, reusable project integration templates, and manual backend evaluation specifications. It includes no orchestration framework, runtime integration, project-specific rules, or dependencies.
 
 ## Inheritance model
 
 ```text
 Global Foundation
++ Agent Core
 + Stack Profile
 + Project Context
-= Project Agent
+===============
+Project-Specific Agent
 ```
 
-- **Foundation** = rules reusable across multiple projects: shared policies and generic role definitions.
-- **Stack Profile** = reusable specialization for a technology stack, defined separately from generic role rules. No profiles are implemented yet.
+- **Global Foundation** = shared rules reusable across multiple projects. The repository also versions the cores, profiles, templates and evaluations together.
+- **Agent Core** = reusable role mission, responsibilities, lifecycle, guardrails, Done criteria and output contract.
+- **Stack Profile** = reusable specialization for a technology stack, defined separately from generic role rules. The [Laravel profile](agents/backend/stacks/laravel/README.md) is implemented; other stack directories remain placeholders.
 - **Project Layer** = rules valid only for one project, including its context, constraints, conventions, and approval assignments. Keep these in the consuming project's repository.
-- **Project Agent** = the resulting combination, consumed by a selected tool or runtime. Composition and execution are outside this initial release.
+- **Project-Specific Agent** = the resulting combination, consumed by a selected tool or runtime. Composition and execution are outside this initial release.
 
 Specialization adds context and may tighten controls; it must not weaken shared security, least-privilege, approval, or independence requirements. Stop and seek human resolution when rules conflict. A human approval cannot authorize an agent to merge directly to `main` or deploy to production.
 
@@ -55,9 +58,9 @@ digital-factory-ai-agents/
 └── scripts/
 ```
 
-`shared/` contains the policies applicable to every future role. `agents/` separates role boundaries; the [Backend Agent Foundation](agents/backend/README.md) contains technology-agnostic core definitions and reusable lifecycle prompts, with separate placeholder stack directories. [Security](agents/security/README.md) independently verifies technical security controls; [Audit](agents/audit/README.md) verifies evidence, traceability, and governance. Both are separate from implementation roles, and humans remain the final approval authority.
+`shared/` contains the policies applicable to every future role. `agents/` separates role boundaries; the [Backend Agent Foundation](agents/backend/README.md) contains technology-agnostic core definitions and reusable lifecycle prompts, with a separate Laravel specialization and placeholders for other stacks. [Security](agents/security/README.md) independently verifies technical security controls; [Audit](agents/audit/README.md) verifies evidence, traceability, and governance. Both are separate from implementation roles, and humans remain the final approval authority.
 
-`project-template/` is reserved for a generic project-context template; `workflows/` for process definitions; `evals/` for policy and behavior evaluations; and `scripts/` for supporting utilities. These directories are empty except for `.gitkeep` files used to preserve them in Git. Their presence does not introduce an implementation commitment.
+`project-template/` contains [copyable project context templates](project-template/README.md) and a foundation version pin. `evals/backend/` contains [nine evaluation cases and the common scoring/maturity model](evals/backend/README.md). These are specifications, not an executable harness. `workflows/` and `scripts/` remain reserved directories retained by `.gitkeep` files.
 
 ## Shared policy map
 
@@ -81,4 +84,23 @@ Project-specific knowledge stays in the project layer. A lesson may be proposed 
 
 ## Current scope
 
-This release includes shared policies and declarative Backend, Security, and Audit Agent foundations. Implemented stack profiles (including Laravel), other role definitions, project templates, shared workflows, evaluations, scripts, and runtime integrations require a separately authorized phase.
+This release includes shared policies and declarative Backend, Security, and Audit Agent foundations. The Laravel profile extends Backend Core. Project integration templates and manual backend evaluation specifications are included. Other stack profiles, additional roles, shared workflows, executable evaluation fixtures/harnesses, scripts, and runtime integrations require a separately authorized phase.
+
+## Project consumption and feedback
+
+For a new Laravel project, copy `project-template/` into the project repository and fill its context from actual code and approved requirements. Obtain a reviewed foundation snapshot, record its exact version in `FOUNDATION_VERSION` and immutable source in project-context.md, and combine shared policies, Backend Core, the Laravel profile and completed project context. The Security and Audit roles consume their own independent definitions and the same governing context; they do not inherit implementation authority. See the [integration steps](project-template/README.md).
+
+```text
+Project experience
+→ Lessons learned
+→ Foundation Pull Request
+→ Evaluation
+→ New Foundation version
+→ Adoption by projects
+```
+
+Keep project-specific experience local. Generalize useful lessons, remove secrets and identifying project details, and propose a focused foundation PR. Evaluate the candidate with relevant cases and regressions, obtain independent review for affected controls and human review, then release through the defined human-controlled process. Agents do not merge directly or publish a release implicitly.
+
+Updates are opt-in: each project reviews changes, reassesses exceptions, evaluates the candidate with its own context, and adopts through a human-reviewed project PR updating both snapshot/reference and version pin. No automatic synchronization with main. Preserve the previous version and evidence for rollback.
+
+Before a first real Backend Agent trial, supply a consuming repository, completed context, approved story, concrete evaluation fixtures/assertions, safe commands and an isolated environment. Select/configure a runtime with enforced permissions and assign independent Security/Audit reviewers and human authorities. Run the initial nine-case suite and inspect failures before claiming readiness. Scores and maturity never authorize autonomous production deployment.

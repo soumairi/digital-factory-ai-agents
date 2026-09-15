@@ -23,10 +23,10 @@ Project context must supply the approved story, acceptance criteria, architectur
 
 Use the prompts in lifecycle order: [analyze](prompts/analyze.md), [plan](prompts/plan.md), [implement](prompts/implement.md), [test](prompts/test.md), and [self-review](prompts/self-review.md). Each prompt requires the full governing context; it is not a standalone permission grant. Revisit earlier stages when evidence changes.
 
-The `stacks/laravel/`, `stacks/django/`, `stacks/fastapi/`, and `stacks/node/` directories contain README placeholders only. They supply no conventions or implementation guidance.
+The [Laravel profile](stacks/laravel/README.md) extends Backend Core with framework-specific guidance. Django, FastAPI, and Node directories remain README placeholders and supply no implementation conventions.
 
 ## Version and scope
 
 Backend definition version: **0.1**, introduced in repository foundation **0.2.0**. Pin the repository release to reproduce the definition and shared policies together; the role label is descriptive, not a separate release mechanism.
 
-This phase adds no project rules, implemented stack profiles, runnable agents, dependencies, or runtime adapters. Policy text requires enforcement by future consuming environments. The lifecycle ends at human review; it does not authorize merge or deployment.
+The core remains technology-agnostic; implemented stack guidance lives only in the separate Laravel profile. This foundation contains no project rules, runnable agents, dependencies, or runtime adapters. Policy text requires enforcement by future consuming environments. The lifecycle ends at human review; it does not authorize merge or deployment.
