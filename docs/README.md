@@ -17,6 +17,8 @@ These guides explain existing behavior. The pinned shared/core/profile policies 
 - [Update and adopt the foundation](09-update-foundation.md)
 - [Team workflow and remaining setup](10-team-workflow.md)
 
+- [Project agent bootstrap](11-project-agent-bootstrap.md)
+
 ## Examples
 
 - [Laravel Backend Agent](examples/backend-laravel-agent-example.md)
