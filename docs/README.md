@@ -32,3 +32,5 @@ The repository provides Backend, Security and Audit definitions, a Laravel profi
 Never put production credentials, passwords, tokens or private keys in conversational tools or context documents. Use approved organizational mechanisms for secrets and sensitive information. See [human approval boundaries](06-security-and-audit-workflow.md#human-approval-boundaries).
 
 [Return to repository README](../README.md).
+
+- [Update an installed project Foundation](12-update-project-foundation.md): preview, integrity checks, backups, force and rollback without replacing project context.

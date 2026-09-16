@@ -18,12 +18,13 @@ for f in shared/security-baseline.md backend/core/agent.md backend/laravel/secur
     [ -f "$ai/foundation/$f" ]
 done
 [ ! -e "$ai/foundation/frontend" ]; ok 'selected content and dependencies only'
-for f in "$root"/project-template/*; do [ -f "$ai/project/$(basename "$f")" ]; done
+for f in "$root"/project-template/*; do [ "$(basename "$f")" != FOUNDATION_VERSION ] || continue; [ -f "$ai/project/$(basename "$f")" ]; done
 ok 'all project templates installed'
 version=$(cat "$root/VERSION")
-grep -q "\"foundation_version\": \"$version\"" "$ai/agent-manifest.json"
+! grep -q foundation_version "$ai/agent-manifest.json"
+[ ! -e "$ai/project/FOUNDATION_VERSION" ]
 cmp "$root/VERSION" "$ai/foundation/VERSION"
-ok 'manifest and copied VERSION match source'
+ok 'configuration-only manifest and authoritative Foundation VERSION'
 reject "$script" backend laravel "$work/project"
 ok 'repeat without force refused'
 printf 'CUSTOM CONTEXT\n' > "$ai/project/project-context.md"
@@ -34,7 +35,7 @@ rm "$ai/project/architecture.md"
 grep -q '^CUSTOM CONTEXT$' "$ai/project/project-context.md"
 grep -q '^0.0.1$' "$ai/project/FOUNDATION_VERSION"
 grep -q 'Backend Agent Contract' "$ai/foundation/backend/core/agent.md"
-[ -f "$ai/project/architecture.md" ]; ok 'force refresh preserves project content/pin and adds missing template'
+[ -f "$ai/project/architecture.md" ]; ok 'force refresh preserves project content/legacy version file and adds missing template'
 "$script" backend laravel "$work/dry" --dry-run > "$work/dry-output"
 [ ! -e "$work/dry/.ai" ]; ok 'dry run writes nothing'
 "$script" backend laravel "$work/project" --force --dry-run > "$work/force-dry"

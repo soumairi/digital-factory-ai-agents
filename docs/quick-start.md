@@ -16,3 +16,20 @@ With an approved AI tool and repository access already available, you can begin 
 Never paste passwords, tokens, private keys or production credentials into AI tools. Use approved secret-management and sensitive-information channels. No orchestration platform, framework installation or broad production permissions are needed for this first analysis.
 
 Next: [project setup](03-create-project-agent.md), [chat example](examples/chat-session-example.md), or [coding example](examples/coding-agent-example.md).
+
+## Keep an existing project's Foundation current
+
+```text
+Create project → Initialize Agent Foundation → Configure .ai/project/ → Use Agent
+→ Foundation evolves → Preview update → Update Foundation → Review
+→ Continue development
+```
+
+When the central team releases a new Foundation, review its CHANGELOG, then run:
+
+```sh
+./scripts/update-project-foundation.sh ../customer-portal --dry-run
+./scripts/update-project-foundation.sh ../customer-portal
+```
+
+The update uses Bash and standard Unix utilities, backs up the previous Foundation and preserves all project context. `.ai/foundation/VERSION` is the authoritative installed version; the manifest describes configuration only. Run applicable agent evaluations and review new rules against project constraints before continuing. The updater does not record approval state. Updates are explicit team actions, never background synchronization. Do not edit `.ai/foundation/` directly; use `.ai/project/` for project constraints and contribute reusable improvements centrally. See [Foundation updates](12-update-project-foundation.md).

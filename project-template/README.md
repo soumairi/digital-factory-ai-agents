@@ -15,7 +15,7 @@ Project rules ADD constraints or supply context. They cannot silently replace gl
 ## Manual integration
 
 1. Obtain an approved foundation release as a read-only checkout or versioned snapshot outside application source. Keep the selected release intact; do not modify it to customize a project.
-2. Copy this template to the project. Set `FOUNDATION_VERSION` to the exact adopted foundation version and record the source and immutable commit/digest in `project-context.md`. The shipped value identifies the release containing this template; it does not prove that release has been published or approved.
+2. Copy this template to the project. Record the source and immutable commit/digest in `project-context.md`. For script-managed installations, `.ai/foundation/VERSION` alone identifies the installed version; the initializer does not copy the legacy `FOUNDATION_VERSION` template file. Its shipped value identifies only the template release, not project approval.
 3. Fill all context documents using actual repository evidence. Mark non-applicable fields with reasons; unresolved `TBD` items block dependent work.
 4. Select Backend Core and, for Laravel projects, the Laravel profile. Follow their README links to load all required documents and shared policies. Resolve those links within the foundation checkout, not the copied template directory.
 5. Assign separate implementation, Security and Audit reviewers and human approval authorities. Configure an isolated test environment and enforce least privilege in the chosen tool before execution.
@@ -35,8 +35,8 @@ Project rules ADD constraints or supply context. They cannot silently replace gl
 | compliance-context.md | Applicable policies, authorities and evidence handling |
 | definition-of-done.md | Additional project acceptance and evidence gates |
 | agent-overrides.md | Additive rules, conflicts and exception requests |
-| FOUNDATION_VERSION | Exact pinned foundation version |
+| FOUNDATION_VERSION | Legacy template release reference; omitted by initialization and not installed-version authority |
 
 ## Adoption of updates
 
-Review the candidate changelog/diff, compare local additions and exceptions, run relevant evaluations and project regressions against the candidate, and obtain human adoption approval. Update the foundation artifact, version pin and immutable source reference together in a project PR. Preserve prior results and the previous pin for rollback; do not auto-track a moving branch. Template updates are reviewed field by field, never copied over completed project context blindly.
+Review the candidate changelog/diff, compare local additions and exceptions, run relevant evaluations and project regressions against the candidate, and obtain human adoption approval. Update the foundation artifact and immutable source reference through team review. The installed artifact’s VERSION records its version. Preserve prior results and the previous artifact for rollback; do not auto-track a moving branch. Template updates are reviewed field by field, never copied over completed project context blindly.

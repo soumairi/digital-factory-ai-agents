@@ -48,7 +48,6 @@ A fresh run requires `.ai/` to be absent. Preflight verifies required source fil
 │   └── audit/                   # seven role documents
 └── project/
     ├── README.md
-    ├── FOUNDATION_VERSION
     ├── project-context.md
     ├── tech-stack.md
     ├── architecture.md
@@ -64,15 +63,15 @@ This is a compact bundle, unlike the full snapshot in the older [manual guide](0
 
 ## Foundation versus project layer
 
-The manifest records Backend, Laravel, included Security/Audit roles and the actual source VERSION. The initial project pin also uses that VERSION. These values do not certify review, publish a tag or configure a runtime.
+The manifest records Backend, Laravel and included Security/Audit roles. `.ai/foundation/VERSION` is the sole authoritative installed version. No project-layer version file is generated. Existing project-layer `FOUNDATION_VERSION` files remain untouched as legacy content, not installed-version authority or approval state. These scripts do not certify review, publish a tag or configure a runtime.
 
 Do not customize `.ai/foundation/` for project needs. Complete `.ai/project/` using actual evidence; database, authentication, authorization libraries, architecture, cloud and domain remain placeholders. Read the generated `.ai/README.md` for the actual load paths. References to central repository structure inside copied explanatory prose still describe the source repository, not additional installed files.
 
 ## Force refresh and foundation updates
 
-`--force` refreshes managed foundation files and generated README/manifest files. **Every existing file under `.ai/project/` is preserved byte-for-byte**, including README and FOUNDATION_VERSION; missing template files are added. Unrecognized/stale files are not deleted anywhere. Force is an explicit local copy operation, not remote synchronization or automatic adoption.
+`--force` refreshes managed foundation files and generated README/manifest files. **Every existing file under `.ai/project/` is preserved byte-for-byte**, including README and any legacy FOUNDATION_VERSION; missing template files are added. Unrecognized/stale files are not deleted anywhere. Force is an explicit local copy operation, not remote synchronization or automatic adoption.
 
-Review the source changelog/diff and back up project work before refreshing. Preview with `--force --dry-run`. Then compare the preserved project pin with the manifest and foundation/VERSION, evaluate the candidate, resolve conflicts/exceptions, and adopt through the established human review process. Record the immutable source revision manually in project context; the script never runs Git. Do not assume preserved project context is compatible with a new version.
+Review the source changelog/diff and back up project work before refreshing. Preview with `--force --dry-run`. Then check foundation/VERSION, evaluate the updated rules and resolve conflicts/exceptions through team review. Record the immutable source revision manually in project context; the script never runs Git. Do not assume preserved project context is compatible with a new version.
 
 ## Security behavior
 
@@ -93,3 +92,5 @@ Symbolic source components and symbolic/special nodes anywhere under existing `.
 Validate with `bash tests/scripts/test-init-project-agent.sh`. Tests use temporary fixtures, never real projects. Linux/macOS are the intended platforms; validate on your own OS before adoption.
 
 After initialization complete context, permissions and review assignments, prepare isolated fixtures and run the [evaluation protocol](../evals/backend/README.md) from the central repository. Then follow [coding mode](05-use-agent-with-coding-ai.md) or [chat mode](04-use-agent-with-chat-ai.md), substituting compact paths. No orchestration or runtime integration is installed.
+
+For existing installations, prefer the [Foundation updater](12-update-project-foundation.md), which adds whole-Foundation staging, backups, integrity checks and rollback while preserving the entire project layer. New bootstraps generate `foundation/checksums.sha256` when `sha256sum` or `shasum` is available. The older bootstrap `--force` behavior described above remains compatible, but does not provide the updater's recovery guarantees.

@@ -88,7 +88,7 @@ This release includes shared policies and declarative Backend, Security, and Aud
 
 ## Project consumption and feedback
 
-For a new Laravel project, copy `project-template/` into the project repository and fill its context from actual code and approved requirements. Obtain a reviewed foundation snapshot, record its exact version in `FOUNDATION_VERSION` and immutable source in project-context.md, and combine shared policies, Backend Core, the Laravel profile and completed project context. The Security and Audit roles consume their own independent definitions and the same governing context; they do not inherit implementation authority. See the [integration steps](project-template/README.md).
+For a new Laravel project, copy `project-template/` into the project repository and fill its context from actual code and approved requirements. Obtain a reviewed foundation snapshot, use its `.ai/foundation/VERSION` as the installed-version record and record its immutable source in project-context.md, and combine shared policies, Backend Core, the Laravel profile and completed project context. The Security and Audit roles consume their own independent definitions and the same governing context; they do not inherit implementation authority. See the [integration steps](project-template/README.md).
 
 ```text
 Project experience
@@ -133,3 +133,17 @@ Prepare an existing local Laravel project without configuring an AI runtime:
 ```
 
 See the [bootstrap guide](docs/11-project-agent-bootstrap.md) for the compact layout, prerequisites and safe refresh. Existing `.ai/` is refused unless `--force` is explicit; existing project files are always preserved. This local filesystem helper does not run Git, application commands, AI APIs or deployments. The evaluation framework remains specification-only; the bootstrap has its own temporary-directory shell tests.
+
+## Updating a Project Foundation
+
+Use `init-project-agent.sh` for initialization and `update-project-foundation.sh` for an existing project:
+
+```sh
+# Preview
+./scripts/update-project-foundation.sh /path/to/project --dry-run
+
+# Update
+./scripts/update-project-foundation.sh /path/to/project
+```
+
+The updater uses Bash and standard Unix utilities, reads configuration from the manifest and the authoritative installed version from `.ai/foundation/VERSION`, checks local Foundation integrity, stages a complete replacement and backs up the previous Foundation. **`.ai/project/` is never modified**, including with `--force`. Review the changelog before adoption and run applicable evaluations afterward. See the [update guide](docs/12-update-project-foundation.md) for rollback, compatibility and limitations.
