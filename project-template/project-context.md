@@ -1,11 +1,11 @@
 # Project Context — PROJECT-SPECIFIC
 
-Status: TEMPLATE; complete in the consuming repository. GLOBAL FOUNDATION is pinned separately in FOUNDATION_VERSION; no project field overrides its controls.
+Status: TEMPLATE; complete in the consuming repository. The installed GLOBAL FOUNDATION version is recorded in .ai/foundation/VERSION; no project field overrides its controls.
 
 - Project name / purpose / repository: [TBD]
 - Scope and explicit non-goals: [TBD]
 - Human product, engineering and approval owners: [TBD]
-- Foundation source and immutable commit/digest matching FOUNDATION_VERSION: [TBD]
+- Foundation source and immutable commit/digest matching .ai/foundation/VERSION: [TBD]
 - Context revision / owner / last review: [TBD]
 - Selected agent core(s), stack profile(s) and source paths within foundation: [TBD]
 - Authorized workspace, environment and resource boundaries: [TBD]

@@ -60,7 +60,7 @@ digital-factory-ai-agents/
 
 `shared/` contains the policies applicable to every future role. `agents/` separates role boundaries; the [Backend Agent Foundation](agents/backend/README.md) contains technology-agnostic core definitions and reusable lifecycle prompts, with a separate Laravel specialization and placeholders for other stacks. [Security](agents/security/README.md) independently verifies technical security controls; [Audit](agents/audit/README.md) verifies evidence, traceability, and governance. Both are separate from implementation roles, and humans remain the final approval authority.
 
-`project-template/` contains [copyable project context templates](project-template/README.md) and a foundation version pin. `evals/backend/` contains [nine evaluation cases and the common scoring/maturity model](evals/backend/README.md). These are specifications, not an executable harness. `workflows/` and `scripts/` remain reserved directories retained by `.gitkeep` files.
+`project-template/` contains [copyable project context templates](project-template/README.md) and a foundation version pin. `evals/backend/` contains [nine evaluation cases and the common scoring/maturity model](evals/backend/README.md). These are specifications, not an executable harness. `workflows/` remains reserved. `scripts/` contains the local project bootstrap helper; `tests/scripts/` contains its temporary-directory tests.
 
 ## Shared policy map
 
@@ -88,7 +88,7 @@ This release includes shared policies and declarative Backend, Security, and Aud
 
 ## Project consumption and feedback
 
-For a new Laravel project, copy `project-template/` into the project repository and fill its context from actual code and approved requirements. Obtain a reviewed foundation snapshot, record its exact version in `FOUNDATION_VERSION` and immutable source in project-context.md, and combine shared policies, Backend Core, the Laravel profile and completed project context. The Security and Audit roles consume their own independent definitions and the same governing context; they do not inherit implementation authority. See the [integration steps](project-template/README.md).
+For a new Laravel project, copy `project-template/` into the project repository and fill its context from actual code and approved requirements. Obtain a reviewed foundation snapshot, use its `.ai/foundation/VERSION` as the installed-version record and record its immutable source in project-context.md, and combine shared policies, Backend Core, the Laravel profile and completed project context. The Security and Audit roles consume their own independent definitions and the same governing context; they do not inherit implementation authority. See the [integration steps](project-template/README.md).
 
 ```text
 Project experience
@@ -122,3 +122,28 @@ Start with the [developer documentation index](docs/README.md) or [quick start](
 - [Laravel example](docs/examples/backend-laravel-agent-example.md)
 - [Chat session example](docs/examples/chat-session-example.md)
 - [Coding agent example](docs/examples/coding-agent-example.md)
+
+## Project Bootstrap
+
+Prepare an existing local Laravel project without configuring an AI runtime:
+
+```sh
+./scripts/init-project-agent.sh backend laravel ../customer-portal --dry-run
+./scripts/init-project-agent.sh backend laravel ../customer-portal
+```
+
+See the [bootstrap guide](docs/11-project-agent-bootstrap.md) for the compact layout, prerequisites and safe refresh. Existing `.ai/` is refused unless `--force` is explicit; existing project files are always preserved. This local filesystem helper does not run Git, application commands, AI APIs or deployments. The evaluation framework remains specification-only; the bootstrap has its own temporary-directory shell tests.
+
+## Updating a Project Foundation
+
+Use `init-project-agent.sh` for initialization and `update-project-foundation.sh` for an existing project:
+
+```sh
+# Preview
+./scripts/update-project-foundation.sh /path/to/project --dry-run
+
+# Update
+./scripts/update-project-foundation.sh /path/to/project
+```
+
+The updater uses Bash and standard Unix utilities, reads configuration from the manifest and the authoritative installed version from `.ai/foundation/VERSION`, checks local Foundation integrity, stages a complete replacement and backs up the previous Foundation. **`.ai/project/` is never modified**, including with `--force`. Review the changelog before adoption and run applicable evaluations afterward. See the [update guide](docs/12-update-project-foundation.md) for rollback, compatibility and limitations.

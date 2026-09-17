@@ -1,0 +1,10 @@
+PHPUnit 12.5.35 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/digital-factory-laravel-agent-sandbox-phWIwZ/app/phpunit.xml
+
+...................................                               35 / 35 (100%)
+
+Time: 00:14.491, Memory: 54.50 MB
+
+OK (35 tests, 437 assertions)

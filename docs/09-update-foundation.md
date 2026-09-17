@@ -1,6 +1,6 @@
 # 9. Update the foundation safely
 
-A **version pin** records the exact foundation adopted by a project. A **tag** names a Git revision for a release; a version written in a file is not proof that a corresponding tag has been published. Record both FOUNDATION_VERSION and an immutable source commit/digest in project-context.md.
+The installed snapshot’s `.ai/foundation/VERSION` is the authoritative technical version record. It does not encode team approval. A **tag** names a Git revision for a release; a version written in a file does not prove that a corresponding tag has been published. Record the immutable source commit/digest in project-context.md. For initialized projects, use the [local Foundation updater](12-update-project-foundation.md).
 
 ```text
 Project experience → Identify lesson → Is it reusable?
@@ -24,7 +24,7 @@ Examples, not promised releases: `0.1.0` is an early baseline; `0.1.1` could cor
 2. Keep the old pinned snapshot and completed project context intact while evaluating the candidate separately.
 3. Check additions, conflicts and exceptions against the candidate rule versions; do not automatically carry exceptions forward.
 4. Run applicable foundation cases and project regressions with revision-bound evidence. Reassess runtime behavior if tools/models changed too.
-5. Obtain human adoption approval through a project PR updating the snapshot/reference, FOUNDATION_VERSION and context source record together.
-6. Preserve prior evidence and pin for an explicit rollback if needed. Review template updates field by field; never overwrite filled project context with a fresh template.
+5. Obtain human adoption approval through a project PR updating the snapshot/reference and context source record together.
+6. Preserve prior evidence and snapshot for an explicit rollback if needed. Review template updates field by field; never overwrite filled project context with a fresh template.
 
 Do not track a moving main branch as the active foundation. Project-specific rules remain local, so a global update does not replace them. If new controls conflict with local behavior, report and resolve the conflict before dependent work; do not silently weaken them to complete an upgrade.
