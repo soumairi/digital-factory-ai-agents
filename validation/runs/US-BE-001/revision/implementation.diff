@@ -1,0 +1,453 @@
+--- baseline/app/Http/Controllers/CustomerController.php
++++ app/app/Http/Controllers/CustomerController.php
+@@ -0,0 +1,22 @@
++<?php
++
++namespace App\Http\Controllers;
++
++use App\Http\Requests\ListCustomersRequest;
++use App\Http\Resources\CustomerResource;
++use App\Models\Customer;
++use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
++
++class CustomerController extends Controller
++{
++    public function index(ListCustomersRequest $request): AnonymousResourceCollection
++    {
++        $input = $request->validated();
++        $customers = Customer::query()
++            ->select(['id', 'name', 'email', 'created_at'])
++            ->orderBy('id')
++            ->paginate((int) ($input['per_page'] ?? 20), ['*'], 'page', (int) ($input['page'] ?? 1));
++
++        return CustomerResource::collection($customers);
++    }
++}
+--- baseline/app/Http/Middleware/SandboxBasicAuthentication.php
++++ app/app/Http/Middleware/SandboxBasicAuthentication.php
+@@ -0,0 +1,25 @@
++<?php
++
++namespace App\Http\Middleware;
++
++use Closure;
++use Illuminate\Http\Request;
++use Illuminate\Support\Facades\Auth;
++use Illuminate\Support\Facades\Log;
++use Symfony\Component\HttpFoundation\Response;
++use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
++
++class SandboxBasicAuthentication
++{
++    public function handle(Request $request, Closure $next): Response
++    {
++        try {
++            $response = Auth::onceBasic();
++        } catch (UnauthorizedHttpException $exception) {
++            Log::notice('sandbox.authentication.denied', ['endpoint' => 'customers']);
++            throw $exception;
++        }
++
++        return $response ?: $next($request);
++    }
++}
+--- baseline/app/Http/Requests/ListCustomersRequest.php
++++ app/app/Http/Requests/ListCustomersRequest.php
+@@ -0,0 +1,38 @@
++<?php
++
++namespace App\Http\Requests;
++
++use Illuminate\Foundation\Http\FormRequest;
++use Illuminate\Support\Facades\Gate;
++use Illuminate\Support\Facades\Log;
++use Illuminate\Validation\Validator;
++
++class ListCustomersRequest extends FormRequest
++{
++    public function authorize(): bool
++    {
++        $allowed = Gate::allows('view-customers');
++        if (! $allowed) {
++            Log::notice('sandbox.authorization.denied', ['user_id' => $this->user()?->id, 'endpoint' => 'customers']);
++        }
++
++        return $allowed;
++    }
++
++    public function rules(): array
++    {
++        return [
++            'page' => ['sometimes', 'required', 'integer', 'min:1', 'max:1000'],
++            'per_page' => ['sometimes', 'required', 'integer', 'min:1', 'max:100'],
++        ];
++    }
++
++    public function after(): array
++    {
++        return [function (Validator $validator): void {
++            if (array_diff(array_keys($this->all()), ['page', 'per_page'])) {
++                $validator->errors()->add('parameters', 'Unexpected parameters.');
++            }
++        }];
++    }
++}
+--- baseline/app/Http/Resources/CustomerResource.php
++++ app/app/Http/Resources/CustomerResource.php
+@@ -0,0 +1,19 @@
++<?php
++
++namespace App\Http\Resources;
++
++use Illuminate\Http\Request;
++use Illuminate\Http\Resources\Json\JsonResource;
++
++class CustomerResource extends JsonResource
++{
++    public function toArray(Request $request): array
++    {
++        return [
++            'id' => $this->id,
++            'name' => $this->name,
++            'email' => $this->email,
++            'created_at' => $this->created_at?->toISOString(),
++        ];
++    }
++}
+--- baseline/app/Models/Customer.php
++++ app/app/Models/Customer.php
+@@ -0,0 +1,10 @@
++<?php
++
++namespace App\Models;
++
++use Illuminate\Database\Eloquent\Model;
++
++class Customer extends Model
++{
++    protected $guarded = ['*'];
++}
+--- baseline/app/Models/User.php
++++ app/app/Models/User.php
+@@ -27,6 +27,7 @@
+         return [
+             'email_verified_at' => 'datetime',
+             'password' => 'hashed',
++            'is_admin' => 'boolean',
+         ];
+     }
+ }
+--- baseline/app/Providers/AppServiceProvider.php
++++ app/app/Providers/AppServiceProvider.php
+@@ -2,6 +2,11 @@
+ 
+ namespace App\Providers;
+ 
++use App\Models\User;
++use Illuminate\Cache\RateLimiting\Limit;
++use Illuminate\Http\Request;
++use Illuminate\Support\Facades\Gate;
++use Illuminate\Support\Facades\RateLimiter;
+ use Illuminate\Support\ServiceProvider;
+ 
+ class AppServiceProvider extends ServiceProvider
+@@ -19,6 +24,7 @@
+      */
+     public function boot(): void
+     {
+-        //
++        Gate::define('view-customers', fn (User $user): bool => $user->is_admin === true);
++        RateLimiter::for('customers', fn (Request $request) => Limit::perMinute(60)->by($request->ip()));
+     }
+ }
+--- baseline/bootstrap/app.php
++++ app/bootstrap/app.php
+@@ -8,6 +8,7 @@
+ return Application::configure(basePath: dirname(__DIR__))
+     ->withRouting(
+         web: __DIR__.'/../routes/web.php',
++        api: __DIR__.'/../routes/api.php',
+         commands: __DIR__.'/../routes/console.php',
+         health: '/up',
+     )
+--- baseline/config/cors.php
++++ app/config/cors.php
+@@ -0,0 +1,12 @@
++<?php
++
++return [
++    'paths' => ['api/*'],
++    'allowed_methods' => ['GET'],
++    'allowed_origins' => [],
++    'allowed_origins_patterns' => [],
++    'allowed_headers' => ['Accept', 'Authorization'],
++    'exposed_headers' => [],
++    'max_age' => 0,
++    'supports_credentials' => false,
++];
+--- baseline/database/migrations/2026_09_16_000001_create_customer_sandbox.php
++++ app/database/migrations/2026_09_16_000001_create_customer_sandbox.php
+@@ -0,0 +1,30 @@
++<?php
++
++use Illuminate\Database\Migrations\Migration;
++use Illuminate\Database\Schema\Blueprint;
++use Illuminate\Support\Facades\Schema;
++
++return new class extends Migration
++{
++    public function up(): void
++    {
++        Schema::table('users', function (Blueprint $table) {
++            $table->boolean('is_admin')->default(false);
++        });
++        Schema::create('customers', function (Blueprint $table) {
++            $table->id();
++            $table->string('name');
++            $table->string('email');
++            $table->text('internal_notes')->nullable();
++            $table->timestamps();
++        });
++    }
++
++    public function down(): void
++    {
++        Schema::dropIfExists('customers');
++        Schema::table('users', function (Blueprint $table) {
++            $table->dropColumn('is_admin');
++        });
++    }
++};
+--- baseline/routes/api.php
++++ app/routes/api.php
+@@ -0,0 +1,8 @@
++<?php
++
++use App\Http\Controllers\CustomerController;
++use App\Http\Middleware\SandboxBasicAuthentication;
++use Illuminate\Support\Facades\Route;
++
++Route::get('/customers', [CustomerController::class, 'index'])
++    ->middleware(['throttle:customers', SandboxBasicAuthentication::class]);
+--- baseline/tests/Feature/ListCustomersTest.php
++++ app/tests/Feature/ListCustomersTest.php
+@@ -0,0 +1,194 @@
++<?php
++
++namespace Tests\Feature;
++
++use App\Models\Customer;
++use App\Models\User;
++use Illuminate\Support\Facades\DB;
++use Illuminate\Support\Facades\Hash;
++use Illuminate\Support\Facades\Log;
++use PHPUnit\Framework\Attributes\DataProvider;
++use Tests\TestCase;
++
++class ListCustomersTest extends TestCase
++{
++    private string $password;
++
++    private User $admin;
++
++    private User $ordinary;
++
++    protected function setUp(): void
++    {
++        parent::setUp();
++        $this->assertSame('sqlite', config('database.default'));
++        $this->assertSame(':memory:', config('database.connections.sqlite.database'));
++        $this->assertEmpty(config('database.connections.sqlite.url'));
++        // Fresh in-memory connection per test; additive migrations only, no reset trait.
++        $this->artisan('migrate', ['--force' => true])->assertSuccessful();
++        $this->password = bin2hex(random_bytes(24));
++        $this->admin = $this->user(true, 'admin@example.test');
++        $this->ordinary = $this->user(false, 'reader@example.test');
++        $rows = [];
++        for ($i = 1; $i <= 250; $i++) {
++            $rows[] = ['name' => 'Synthetic Customer '.$i, 'email' => 'customer'.$i.'@example.test',
++                'internal_notes' => 'SYNTHETIC_INTERNAL_MARKER', 'created_at' => '2026-09-16 00:00:00',
++                'updated_at' => '2026-09-16 00:00:00'];
++        }
++        DB::table('customers')->insert($rows);
++    }
++
++    private function user(bool $admin, string $email): User
++    {
++        $user = new User;
++        $user->name = 'Synthetic Test User';
++        $user->email = $email;
++        $user->password = Hash::make($this->password);
++        $user->is_admin = $admin;
++        $user->save();
++
++        return $user;
++    }
++
++    private function asUser(User $user, string $url = '/api/customers')
++    {
++        // Authentication happens through the real framework credential path.
++        return $this->withServerVariables(['PHP_AUTH_USER' => $user->email, 'PHP_AUTH_PW' => $this->password])->getJson($url);
++    }
++
++    public function test_admin_receives_default_page_and_exact_safe_schema(): void
++    {
++        $result = $this->asUser($this->admin)->assertOk()->assertJsonCount(20, 'data')
++            ->assertJsonPath('meta.total', 250)->assertJsonPath('meta.per_page', 20);
++        foreach ($result->json('data') as $row) {
++            $this->assertEqualsCanonicalizing(['id', 'name', 'email', 'created_at'], array_keys($row));
++            $this->assertIsInt($row['id']);
++            $this->assertIsString($row['created_at']);
++        }
++        $result->assertDontSee('SYNTHETIC_INTERNAL_MARKER')->assertDontSee('internal_notes')->assertDontSee('password');
++    }
++
++    public function test_anonymous_is_denied_without_data_or_trace(): void
++    {
++        $this->getJson('/api/customers')->assertUnauthorized()->assertJsonMissingPath('data')
++            ->assertJsonMissingPath('trace')->assertDontSee('customer1@example.test');
++        $this->assertDatabaseCount('customers', 250);
++    }
++
++    public function test_invalid_credentials_are_denied(): void
++    {
++        $this->withServerVariables(['PHP_AUTH_USER' => $this->admin->email, 'PHP_AUTH_PW' => 'invalid-synthetic-input'])
++            ->getJson('/api/customers')->assertUnauthorized()->assertJsonMissingPath('data');
++    }
++
++    public function test_non_admin_cannot_enumerate_or_promote_self(): void
++    {
++        $this->asUser($this->ordinary, '/api/customers?is_admin=1&role=admin&owner_id=1&tenant_id=1')
++            ->assertForbidden()->assertJsonMissingPath('data')->assertJsonMissingPath('meta')
++            ->assertJsonMissingPath('trace')->assertDontSee('SYNTHETIC_INTERNAL_MARKER');
++        $this->assertFalse($this->ordinary->fresh()->is_admin);
++        $this->assertDatabaseCount('customers', 250);
++    }
++
++    public function test_maximum_and_stable_traversal_without_duplicates(): void
++    {
++        $ids = [];
++        for ($page = 1; $page <= 3; $page++) {
++            $response = $this->asUser($this->admin, '/api/customers?per_page=100&page='.$page)
++                ->assertOk()->assertJsonPath('meta.per_page', 100)->assertJsonPath('meta.current_page', $page);
++            $this->assertCount($page === 3 ? 50 : 100, $response->json('data'));
++            $ids = array_merge($ids, array_column($response->json('data'), 'id'));
++        }
++        $this->assertSame(range(1, 250), $ids);
++    }
++
++    public function test_empty_page_is_safe_and_minimum_page_size_works(): void
++    {
++        $this->asUser($this->admin, '/api/customers?per_page=1')->assertOk()->assertJsonCount(1, 'data');
++        $this->asUser($this->admin, '/api/customers?page=1000')->assertOk()->assertJsonCount(0, 'data');
++    }
++
++    public static function invalidInputs(): array
++    {
++        return array_map(fn ($query) => [$query], [
++            'per_page=101', 'per_page=0', 'per_page=-1', 'per_page=1.5', 'per_page=abc',
++            'per_page[]=20', 'per_page=', 'per_page=999999999999999999999999',
++            'page=0', 'page=-1', 'page=1001', 'page=1.5', 'page[]=1',
++            'page=1%20OR%201%3D1', 'sort=name%3BDROP%20TABLE%20customers',
++            'is_admin=1', 'owner_id=2', 'tenant_id=2', 'filter[role]=admin', 'unknown=value',
++        ]);
++    }
++
++    #[DataProvider('invalidInputs')]
++    public function test_invalid_and_malicious_input_has_no_side_effects(string $query): void
++    {
++        $before = DB::table('customers')->get()->toJson();
++        $this->asUser($this->admin, '/api/customers?'.$query)->assertUnprocessable()
++            ->assertJsonMissingPath('data')->assertJsonMissingPath('trace')->assertDontSee('SQLSTATE');
++        $this->assertSame($before, DB::table('customers')->get()->toJson());
++        $this->assertFalse($this->ordinary->fresh()->is_admin);
++    }
++
++    public function test_request_rate_limit_bounds_anonymous_attempts(): void
++    {
++        for ($i = 0; $i < 60; $i++) {
++            $this->getJson('/api/customers')->assertUnauthorized();
++        }
++        $this->getJson('/api/customers')->assertTooManyRequests()->assertJsonMissingPath('data');
++    }
++
++    public function test_read_only_endpoint_rejects_writes(): void
++    {
++        $this->postJson('/api/customers', ['is_admin' => true])->assertStatus(405);
++        $this->assertDatabaseCount('customers', 250);
++        $this->assertFalse($this->ordinary->fresh()->is_admin);
++    }
++
++    public function test_untrusted_origin_gets_no_cors_permission(): void
++    {
++        $this->withHeader('Origin', 'https://untrusted.example.test');
++        $this->asUser($this->admin)->assertOk()->assertHeaderMissing('Access-Control-Allow-Origin');
++    }
++
++    public function test_model_cannot_mass_assign_protected_fields(): void
++    {
++        $this->assertFalse($this->ordinary->isFillable('is_admin'));
++        $this->assertFalse((new Customer)->isFillable('internal_notes'));
++    }
++
++    public function test_non_admin_without_tampering_is_forbidden_and_event_is_redacted(): void
++    {
++        $events = [];
++        Log::listen(function ($event) use (&$events): void {
++            $events[] = ['message' => $event->message, 'context' => $event->context];
++        });
++        $this->asUser($this->ordinary)->assertForbidden()->assertJsonMissingPath('data');
++        $this->assertContains(['message' => 'sandbox.authorization.denied', 'context' => ['user_id' => $this->ordinary->id, 'endpoint' => 'customers']], $events);
++        $this->assertStringNotContainsString($this->password, json_encode($events));
++        $this->assertStringNotContainsString($this->ordinary->email, json_encode($events));
++    }
++
++    public function test_authentication_event_is_redacted_and_api_errors_are_always_json(): void
++    {
++        $events = [];
++        Log::listen(function ($event) use (&$events): void {
++            $events[] = ['message' => $event->message, 'context' => $event->context];
++        });
++        $this->get('/api/customers', ['Accept' => 'text/html'])->assertUnauthorized()->assertHeader('Content-Type', 'application/json');
++        $this->assertContains(['message' => 'sandbox.authentication.denied', 'context' => ['endpoint' => 'customers']], $events);
++        $this->assertStringNotContainsString($this->password, json_encode($events));
++    }
++
++    public function test_list_query_is_bounded_without_internal_columns_or_n_plus_one(): void
++    {
++        DB::enableQueryLog();
++        $this->asUser($this->admin, '/api/customers?per_page=100')->assertOk();
++        $queries = array_values(array_filter(DB::getQueryLog(), fn ($q) => str_contains($q['query'], '"customers"')));
++        DB::disableQueryLog();
++        $this->assertCount(2, $queries);
++        $this->assertStringContainsString('count(*)', $queries[0]['query']);
++        $this->assertStringContainsString('limit 100', $queries[1]['query']);
++        $this->assertStringNotContainsString('internal_notes', $queries[1]['query']);
++        $this->assertStringNotContainsString('select *', $queries[1]['query']);
++    }
++}
+--- baseline/tests/TestCase.php
++++ app/tests/TestCase.php
+@@ -6,5 +6,9 @@
+ 
+ abstract class TestCase extends BaseTestCase
+ {
+-    //
++    protected function setUp(): void
++    {
++        parent::setUp();
++        config(['app.key' => 'base64:'.base64_encode(random_bytes(32)), 'app.debug' => false]);
++    }
+ }
+--- baseline/validation/run-tests.sh
++++ app/validation/run-tests.sh
+@@ -0,0 +1,9 @@
++#!/usr/bin/env bash
++set -euo pipefail
++cd -- "$(dirname -- "$0")/.."
++# No inherited database URLs, credentials, Composer hooks, or user .env files.
++exec env -i PATH=/opt/homebrew/opt/php@8.3/bin:/usr/bin:/bin TMPDIR=/private/tmp \
++    APP_ENV=testing APP_DEBUG=false APP_URL=http://localhost \
++    DB_CONNECTION=sqlite DB_DATABASE=:memory: DB_URL= \
++    CACHE_STORE=array SESSION_DRIVER=array QUEUE_CONNECTION=sync MAIL_MAILER=array \
++    /opt/homebrew/opt/php@8.3/bin/php -d sys_temp_dir=/private/tmp vendor/bin/phpunit "$@"

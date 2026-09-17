@@ -1,0 +1,16 @@
+[
+  "app/Http/Controllers/CustomerController.php",
+  "app/Http/Middleware/SandboxBasicAuthentication.php",
+  "app/Http/Requests/ListCustomersRequest.php",
+  "app/Http/Resources/CustomerResource.php",
+  "app/Models/Customer.php",
+  "app/Models/User.php",
+  "app/Providers/AppServiceProvider.php",
+  "bootstrap/app.php",
+  "config/cors.php",
+  "database/migrations/2026_09_16_000001_create_customer_sandbox.php",
+  "routes/api.php",
+  "tests/Feature/ListCustomersTest.php",
+  "tests/TestCase.php",
+  "validation/run-tests.sh"
+]
