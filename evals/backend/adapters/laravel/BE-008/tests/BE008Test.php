@@ -1,9 +1,11 @@
 <?php
 namespace Reviewer;
 require_once __DIR__.'/../../common/AdapterTestCase.php';
+require_once __DIR__.'/BoundedReads.php';
 use Illuminate\Support\Facades\DB;
 class BE008Test extends AdapterTestCase
 {
+    use BE008BoundedReads;
     public function test_BE008_relationship_query_budget_and_correct_serialization(): void {
         foreach([1,2] as $tenant) {
             DB::table('authors')->insert(['id'=>$tenant,'tenant_id'=>$tenant,'name'=>"Author$tenant"]);
@@ -34,5 +36,31 @@ class BE008Test extends AdapterTestCase
         }
         $this->req('GET','articles',[],null)->assertUnauthorized();
         $this->req('GET','articles?per_page=101')->assertStatus(422);
+    }
+
+    public function test_BE008_bounded_database_reads_and_growth(): void {
+        foreach([1,2] as $tenant) {
+            DB::table('authors')->insert(['id'=>$tenant,'tenant_id'=>$tenant,'name'=>"Author$tenant"]);
+            DB::table('categories')->insert(['id'=>$tenant,'tenant_id'=>$tenant,'name'=>"Category$tenant"]);
+        }
+        $previous=0;
+        foreach([120,600] as $count) {
+            for($i=$previous;$i<$count;$i++) foreach([1,2] as $tenant) DB::table('articles')->insert(['tenant_id'=>$tenant,'title'=>"Article$i",'author_id'=>$tenant,'category_id'=>$tenant]);
+            $previous=$count;$before=$this->state('articles');
+            foreach([5,50,100] as $size) {
+                DB::enableQueryLog();DB::flushQueryLog();
+                // Fixed fixture overhead: auth + count + one author + one category.
+                [$response,$reads]=$this->measuredRead("articles?per_page=$size",$size,4);
+                $response->assertJsonCount($size,'data')->assertJsonPath('total',$count);
+                $this->assertLessThanOrEqual(5,count($reads),'Query growth exceeds four domain reads plus authentication');
+                foreach($response->json('data') as $article) {
+                    $this->assertSame(['id'=>1,'name'=>'Author1'],$article['author']);
+                    $this->assertSame(['id'=>1,'name'=>'Category1'],$article['category']);
+                }
+                fwrite(STDOUT,"\nGROWTH_EVIDENCE dataset=$count page=$size statements=".count($reads)."\n");
+                DB::disableQueryLog();
+            }
+            $this->assertSame($before,$this->state('articles'));
+        }
     }
 }

@@ -1,9 +1,11 @@
 <?php
 namespace Reviewer;
 require_once __DIR__.'/../../common/AdapterTestCase.php';
+require_once __DIR__.'/BoundedReads.php';
 use Illuminate\Support\Facades\DB;
 class BE007Test extends AdapterTestCase
 {
+    use BE007BoundedReads;
     public function test_BE007_pagination_traversal_scope_and_resource_limits(): void {
         for($i=1;$i<=250;$i++) DB::table('records')->insert(['id'=>$i,'owner_id'=>$i%2?1:2,'title'=>'Duplicate']);
         $this->req('GET','records')->assertOk()->assertJsonCount(20,'data')->assertJsonPath('total',125);
@@ -29,5 +31,18 @@ class BE007Test extends AdapterTestCase
             $res->assertStatus(422)->assertExactJson(['message'=>'Invalid input.']);$this->assertSame($before,$this->state('records'));
         }
         $this->req('GET','records',[],null)->assertUnauthorized();
+    }
+
+    public function test_BE007_bounded_database_reads(): void {
+        for($i=1;$i<=250;$i++) DB::table('records')->insert(['id'=>$i,'owner_id'=>$i%2?1:2,'title'=>'Duplicate']);
+        $before=$this->state('records');
+        foreach([['records',20,1],['records?per_page=100',100,1],['records?per_page=7&page=2',7,2]] as [$path,$size,$page]) {
+            // One auth row and one scalar count row, beyond the actual page.
+            [$response]=$this->measuredRead($path,$size,2);
+            $response->assertJsonCount($size,'data')->assertJsonPath('total',125);
+            $this->assertSame(range(1+2*($page-1)*$size,2*$page*$size-1,2),array_column($response->json('data'),'id'));
+        }
+        foreach(['per_page=101','per_page=1000000','page_size=101'] as $query) $this->req('GET','records?'.$query)->assertStatus(422);
+        $this->assertSame($before,$this->state('records'));
     }
 }

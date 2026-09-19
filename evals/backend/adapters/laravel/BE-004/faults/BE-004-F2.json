@@ -15,7 +15,7 @@
       "expected_occurrences": 1
     }
   ],
-  "adapter_version": "1.0.0",
+  "adapter_version": "1.0.1",
   "mutation_binding": "Exact canonical source binding. Different candidate source requires a separately reviewer-frozen equivalent binding; no silent fuzzy patch.",
   "required_failure_prefix": "test_BE004"
 }

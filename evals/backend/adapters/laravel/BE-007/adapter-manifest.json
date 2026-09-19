@@ -1,9 +1,9 @@
 {
   "evaluation_id": "BE-007",
   "adapter_id": "laravel-be-007",
-  "adapter_version": "1.0.0",
+  "adapter_version": "1.0.1",
   "stack": "Laravel",
-  "fixture_version": "1.0.0",
+  "fixture_version": "1.0.1",
   "owner_role": "Evaluation Reviewer",
   "supported_environment": {
     "php": "8.3.x (tested8.3.33)",
@@ -41,6 +41,14 @@
       "expected_clean": "PASS",
       "expected_fault": "FAIL",
       "required_test": "BE-007-limits"
+    },
+    {
+      "id": "BE-007-F4",
+      "command": "python3 -B evals/backend/adapters/laravel/runner.py fault --evaluation BE-007 --workspace WORKSPACE --fault-id BE-007-F4",
+      "definition": "faults/BE-007-F4.json",
+      "expected_clean": "PASS",
+      "expected_fault": "FAIL",
+      "required_test": "BE-007-limits"
     }
   ],
   "security_review_required": true,
@@ -54,7 +62,8 @@
   "required_tests_mapping": {
     "BE-007-limits": [
       "test_BE007_pagination_traversal_scope_and_resource_limits",
-      "test_BE007_raw_null_whitespace_types_and_metadata"
+      "test_BE007_raw_null_whitespace_types_and_metadata",
+      "test_BE007_bounded_database_reads"
     ],
     "BE-007-traversal": [
       "test_BE007_pagination_traversal_scope_and_resource_limits",
@@ -65,6 +74,6 @@
       "test_BE007_raw_null_whitespace_types_and_metadata"
     ]
   },
-  "reviewer_approval": "PENDING independent handoff; READY is executability, not campaign PASS",
+  "reviewer_approval": "PENDING separate independent re-review after IR-001/IR-002 remediation; no self-approval",
   "candidate_negative_suite": "Candidate regressions run in BE001; other cases use reviewer controls"
 }

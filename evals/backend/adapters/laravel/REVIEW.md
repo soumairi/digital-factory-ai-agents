@@ -1,4 +1,4 @@
-# Independent reviewer handoff — Laravel adapters1.0.0
+# Independent reviewer handoff — Laravel bundle1.0.1
 
 This package is a new evaluation asset on Foundation0.6.0. It does not rerun or rescore BACKEND-EVAL-001/002, start BACKEND-EVAL-003, create a Release Candidate or authorize integration/deployment. READY means the adapter setup, clean calibration, all required fault detection, cleanup and repeatability were tested. It does **not** mean independent reviewer approval or Backend Agent readiness. The author did not perform the future independent review.
 
@@ -40,3 +40,11 @@ Only reviewed, authorized synthetic candidate code is supported. A fresh workspa
 This is not an OS sandbox for malicious PHP. A native network-denial sandbox probe was unavailable under current host permissions; arbitrary hostile candidate code must not be passed to this runner. The future coordinator must inspect approved source and enforce any stronger filesystem/network containment externally. Do not claim distributed/production rate limits or production PostgreSQL semantics from local tests. Existing customer-route limiter/logging regressions are baseline regressions, not evidence for unrelated eval routes.
 
 Mutation bindings are exact and fail closed. Constructor/source hooks, models and middleware in an alternate application may require a new frozen adapter binding. Full Security review, source-level architecture judgment, L1 provenance verification and final campaign scoring remain outside this calibration task. Framework unit tests and build logs are in tests/adapters/ and validation/laravel-adapter-build/; they are not campaign outcomes.
+
+## Remediation and external review output
+
+BE-004, BE-007 and BE-008 adapter/fixture versions are1.0.1; other adapters remain1.0.0. Targeted calibration may establish READY FOR RE-REVIEW, never independent approval. The remediator cannot independently approve these changes; a separate future context must adopt and verify the revised assertions and all19 mandatory faults across the bundle.
+
+Save reviewer-generated output only in `validation/adapter-reviews/<REVIEW-ID>/independent-review.md` and `independent-review.json`, outside this adapter directory. The original rejected review is preserved byte-for-byte at `validation/adapter-reviews/LARAVEL-2026-09-19-001/`; its verdict is not rewritten by remediation. See its relocation README for original evidence paths. Freeze protection is unchanged: every adapter-owned file and unexpected file in this directory remains checked; there are no report-name exclusions. Do not place reports here or regenerate checksums to accommodate review output.
+
+BE-004 now requires a changed title reloaded from persistent storage, exact response/read-back values and unchanged unrelated/denied rows. BE-007/008 measure actual PDO-fetched rows through their case-local statement instrumentation, including fetchAll and cursor fetch, without SQL-string matching. BE-007 allows page size plus2 scalar/auth rows; BE-008 allows page size plus4 auth/count/relation rows and at most5 read statements including auth at datasets120/600 per tenant and pages5/50/100. Existing domain/relationship query budgets remain. New faults cover a non-persisting owner update (BE-004-F3), load-all records (BE-007-F4), and load-all articles (BE-008-F2). This measures materialized result rows, not database scan cost, and is bound to the fixture's SQLite connection. PostgreSQL remains NOT EXECUTED.

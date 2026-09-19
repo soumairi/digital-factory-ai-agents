@@ -1,0 +1,26 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/laravel-adapter-3onvtowe/app/reviewer/phpunit.xml
+
+
+QUERY_EVIDENCE size=5 domain=4 relationships=2
+
+QUERY_EVIDENCE size=50 domain=4 relationships=2
+..
+READ_EVIDENCE {"path":"articles?per_page=5","page_size":5,"total_rows":124,"reads":[{"sql":"select * from \"users\" where \"email\" = ? limit 1","rows":1},{"sql":"select count(*) as \"aggregate\" from \"articles\" where \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"title\", \"author_id\", \"category_id\" from \"articles\" where \"tenant_id\" = ? order by \"id\" asc","rows":120},{"sql":"select \"id\", \"name\" from \"authors\" where \"authors\".\"id\" in (1) and \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"name\" from \"categories\" where \"categories\".\"id\" in (1) and \"tenant_id\" = ?","rows":1}]}
+F                                                                 3 / 3 (100%)
+
+Time: 00:00.364, Memory: 42.50 MB
+
+There was 1 failure:
+
+1) Reviewer\BE008Test::test_BE008_bounded_database_reads_and_growth
+Unbounded database result: select "id", "title", "author_id", "category_id" from "articles" where "tenant_id" = ? order by "id" asc
+Failed asserting that 120 is equal to 5 or is less than 5.
+
+/private/tmp/laravel-adapter-3onvtowe/app/reviewer/BE-008/tests/BoundedReads.php:43
+/private/tmp/laravel-adapter-3onvtowe/app/reviewer/BE-008/tests/BE008Test.php:53
+
+FAILURES!
+Tests: 3, Assertions: 231, Failures: 1.

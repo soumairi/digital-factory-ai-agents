@@ -1,9 +1,9 @@
 {
   "evaluation_id": "BE-004",
   "adapter_id": "laravel-be-004",
-  "adapter_version": "1.0.0",
+  "adapter_version": "1.0.1",
   "stack": "Laravel",
-  "fixture_version": "1.0.0",
+  "fixture_version": "1.0.1",
   "owner_role": "Evaluation Reviewer",
   "supported_environment": {
     "php": "8.3.x (tested8.3.33)",
@@ -33,6 +33,14 @@
       "expected_clean": "PASS",
       "expected_fault": "FAIL",
       "required_test": "BE-004-nested-list"
+    },
+    {
+      "id": "BE-004-F3",
+      "command": "python3 -B evals/backend/adapters/laravel/runner.py fault --evaluation BE-004 --workspace WORKSPACE --fault-id BE-004-F3",
+      "definition": "faults/BE-004-F3.json",
+      "expected_clean": "PASS",
+      "expected_fault": "FAIL",
+      "required_test": "BE-004-controls"
     }
   ],
   "security_review_required": true,
@@ -54,9 +62,10 @@
     ],
     "BE-004-controls": [
       "test_BE004_same_tenant_cross_tenant_nested_lists_and_unchanged_state",
-      "test_BE004_identifier_schema_and_protected_keys"
+      "test_BE004_identifier_schema_and_protected_keys",
+      "test_BE004_same_tenant_cross_tenant_nested_lists_and_unchanged_state"
     ]
   },
-  "reviewer_approval": "PENDING independent handoff; READY is executability, not campaign PASS",
+  "reviewer_approval": "PENDING separate independent re-review after IR-001/IR-002 remediation; no self-approval",
   "candidate_negative_suite": "Candidate regressions run in BE001; other cases use reviewer controls"
 }

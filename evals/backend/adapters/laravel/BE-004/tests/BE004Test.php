@@ -9,7 +9,14 @@ class BE004Test extends AdapterTestCase
             $this->req('GET','documents',[],$actor)->assertExactJson(['data'=>[['id'=>$actor,'title'=>"Document$actor"]],'total'=>1]);
             $this->req('GET',"documents/$actor",[],$actor)->assertOk();
             $this->req('GET',"documents/$actor/attachments/$actor",[],$actor)->assertExactJson(['id'=>$actor,'name'=>"Attachment$actor"]);
-            $this->req('PATCH',"documents/$actor",['title'=>"Document$actor"],$actor)->assertOk();
+            $unrelated=DB::table('documents')->where('id','!=',$actor)->orderBy('id')->get()->toJson();
+            $title="Persisted owner $actor";
+            $response=$this->req('PATCH',"documents/$actor",['title'=>$title],$actor)->assertOk();
+            // A fresh database query, independent of the response or any model cache.
+            $this->assertSame($title,DB::table('documents')->where('id',$actor)->value('title'),'Owner update must persist');
+            $response->assertExactJson(['id'=>$actor,'title'=>$title]);
+            $this->req('GET',"documents/$actor",[],$actor)->assertExactJson(['id'=>$actor,'title'=>$title]);
+            $this->assertSame($unrelated,DB::table('documents')->where('id','!=',$actor)->orderBy('id')->get()->toJson());
             foreach(array_diff([1,2,3,4],[$actor]) as $foreign) {
                 $before=DB::table('documents')->get()->toJson();
                 $this->req('GET',"documents/$foreign",[],$actor)->assertNotFound()->assertJsonMissingPath('title');

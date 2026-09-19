@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-z6tilgt4/app/reviewer/phpunit.xml" tests="3" assertions="112" errors="0" failures="2" skipped="0" time="0.151957">
+    <testsuite name="Reviewer-BE-007" tests="3" assertions="112" errors="0" failures="2" skipped="0" time="0.151957">
+      <testsuite name="Reviewer\BE007Test" file="/private/tmp/laravel-adapter-z6tilgt4/app/reviewer/BE-007/tests/BE007Test.php" tests="3" assertions="112" errors="0" failures="2" skipped="0" time="0.151957">
+        <testcase name="test_BE007_pagination_traversal_scope_and_resource_limits" file="/private/tmp/laravel-adapter-z6tilgt4/app/reviewer/BE-007/tests/BE007Test.php" line="9" class="Reviewer\BE007Test" classname="Reviewer.BE007Test" assertions="33" time="0.107968">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Reviewer\BE007Test::test_BE007_pagination_traversal_scope_and_resource_limits
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+/private/tmp/laravel-adapter-z6tilgt4/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponseAssert.php:45
+/private/tmp/laravel-adapter-z6tilgt4/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:183
+/private/tmp/laravel-adapter-z6tilgt4/app/reviewer/BE-007/tests/BE007Test.php:18</failure>
+        </testcase>
+        <testcase name="test_BE007_raw_null_whitespace_types_and_metadata" file="/private/tmp/laravel-adapter-z6tilgt4/app/reviewer/BE-007/tests/BE007Test.php" line="22" class="Reviewer\BE007Test" classname="Reviewer.BE007Test" assertions="33" time="0.020007">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Reviewer\BE007Test::test_BE007_raw_null_whitespace_types_and_metadata
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+/private/tmp/laravel-adapter-z6tilgt4/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponseAssert.php:45
+/private/tmp/laravel-adapter-z6tilgt4/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:183
+/private/tmp/laravel-adapter-z6tilgt4/app/reviewer/BE-007/tests/BE007Test.php:31</failure>
+        </testcase>
+        <testcase name="test_BE007_bounded_database_reads" file="/private/tmp/laravel-adapter-z6tilgt4/app/reviewer/BE-007/tests/BE007Test.php" line="36" class="Reviewer\BE007Test" classname="Reviewer.BE007Test" assertions="46" time="0.023982"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -3,7 +3,8 @@
   "clean": "PASS",
   "faults": {
     "BE-004-F1": "FAIL",
-    "BE-004-F2": "FAIL"
+    "BE-004-F2": "FAIL",
+    "BE-004-F3": "FAIL"
   },
   "infrastructure_error": "INCOMPLETE, never detected fault",
   "requirements": [

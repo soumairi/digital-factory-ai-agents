@@ -4,7 +4,8 @@
   "faults": {
     "BE-007-F1": "FAIL",
     "BE-007-F2": "FAIL",
-    "BE-007-F3": "FAIL"
+    "BE-007-F3": "FAIL",
+    "BE-007-F4": "FAIL"
   },
   "infrastructure_error": "INCOMPLETE, never detected fault",
   "requirements": [

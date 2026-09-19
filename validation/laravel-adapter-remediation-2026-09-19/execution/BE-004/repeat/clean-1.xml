@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-_sdxpf_x/app/reviewer/phpunit.xml" tests="2" assertions="166" errors="0" failures="0" skipped="0" time="0.408532">
+    <testsuite name="Reviewer-BE-004" tests="2" assertions="166" errors="0" failures="0" skipped="0" time="0.408532">
+      <testsuite name="Reviewer\BE004Test" file="/private/tmp/laravel-adapter-_sdxpf_x/app/reviewer/BE-004/tests/BE004Test.php" tests="2" assertions="166" errors="0" failures="0" skipped="0" time="0.408532">
+        <testcase name="test_BE004_same_tenant_cross_tenant_nested_lists_and_unchanged_state" file="/private/tmp/laravel-adapter-_sdxpf_x/app/reviewer/BE-004/tests/BE004Test.php" line="7" class="Reviewer\BE004Test" classname="Reviewer.BE004Test" assertions="107" time="0.160927"/>
+        <testcase name="test_BE004_identifier_schema_and_protected_keys" file="/private/tmp/laravel-adapter-_sdxpf_x/app/reviewer/BE-004/tests/BE004Test.php" line="30" class="Reviewer\BE004Test" classname="Reviewer.BE004Test" assertions="59" time="0.247605"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

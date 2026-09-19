@@ -1,5 +1,5 @@
 {
-  "adapter_bundle_version": "1.0.0",
+  "adapter_bundle_version": "1.0.1",
   "foundation_version": "0.6.0",
   "hash_algorithm": "SHA-256",
   "verification_hash_definition": "SHA256 of compact sorted JSON path:SHA256 for case tests/faults/fixture/expected-results plus common files, runner.py and postgres.py",
@@ -33,10 +33,10 @@
     },
     {
       "evaluation_id": "BE-004",
-      "adapter_version": "1.0.0",
-      "fixture_hash": "fbc3f24ff757e83629ebce0ea694b6df4640f0d6b2e670ad1ad3e8ee109d209b",
-      "verification_hash": "43f4e65fdbbf45fa773f6b36ef1ccd762294b19006a6b87cb329dca4bd830a85",
-      "status": "READY",
+      "adapter_version": "1.0.1",
+      "fixture_hash": "36ebb1fb291cdce3170f2ab74a3f72523ef3e519776238646dab65d5353118fc",
+      "verification_hash": "0472988944f5eeaaced4102ba0acf9cdb2318353c291e11704118691c718dcaf",
+      "status": "READY FOR RE-REVIEW",
       "validation_scope": "Adapter calibration only; not an evaluation campaign or independent review",
       "postgresql_validation": "NOT EXECUTED"
     },
@@ -60,19 +60,19 @@
     },
     {
       "evaluation_id": "BE-007",
-      "adapter_version": "1.0.0",
-      "fixture_hash": "a7e993da5f2901dd8ad4ec2c674be3ed9a23e56640cdb7b229b6b6a73c40dad2",
-      "verification_hash": "032acd79195104c49b738ba8c60d66ee3c04abea0510e04ea0357c02798ee3f6",
-      "status": "READY",
+      "adapter_version": "1.0.1",
+      "fixture_hash": "aee0d9d847c1adef4a7123952d89f738214d3468ab51d66bb0f5a4d0e0ca6547",
+      "verification_hash": "8d7163a08a02318460bd683a11aedbc36fe7c030380140a7a5f988b8b1f8edf0",
+      "status": "READY FOR RE-REVIEW",
       "validation_scope": "Adapter calibration only; not an evaluation campaign or independent review",
       "postgresql_validation": "NOT EXECUTED"
     },
     {
       "evaluation_id": "BE-008",
-      "adapter_version": "1.0.0",
-      "fixture_hash": "baa47154ce0f32177010b25de5212a1b906d5da1f53a8200669928cd78691b92",
-      "verification_hash": "45320f5bd7f5ff04445964941c14e00d70630810de971d4bf6c2351b4ce6b792",
-      "status": "READY",
+      "adapter_version": "1.0.1",
+      "fixture_hash": "2b223cd3d16b6d053c3d098889c81a431d18097f94728b2efff946ce4378f43a",
+      "verification_hash": "7eff71a56edac5a3faded24e5f6385b2680baedde40a0225d6952f6692445aab",
+      "status": "READY FOR RE-REVIEW",
       "validation_scope": "Adapter calibration only; not an evaluation campaign or independent review",
       "postgresql_validation": "NOT EXECUTED"
     },

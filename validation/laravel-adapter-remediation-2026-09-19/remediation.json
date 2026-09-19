@@ -1,0 +1,75 @@
+{
+  "status": "READY FOR RE-REVIEW",
+  "independent_approval": "NOT PERFORMED; separate future reviewer required",
+  "foundation_version": "0.6.0",
+  "bundle_version": "1.0.1",
+  "modified_adapters": [
+    {
+      "evaluation_id": "BE-004",
+      "adapter_version": "1.0.1",
+      "fixture_version": "1.0.1",
+      "clean": "PASS",
+      "faults_detected": 3,
+      "faults_expected": 3,
+      "repeatability": "PASS",
+      "cleanup": "PASS",
+      "tests": 2,
+      "assertions": 166
+    },
+    {
+      "evaluation_id": "BE-007",
+      "adapter_version": "1.0.1",
+      "fixture_version": "1.0.1",
+      "clean": "PASS",
+      "faults_detected": 4,
+      "faults_expected": 4,
+      "repeatability": "PASS",
+      "cleanup": "PASS",
+      "tests": 3,
+      "assertions": 162
+    },
+    {
+      "evaluation_id": "BE-008",
+      "adapter_version": "1.0.1",
+      "fixture_version": "1.0.1",
+      "clean": "PASS",
+      "faults_detected": 2,
+      "faults_expected": 2,
+      "repeatability": "PASS",
+      "cleanup": "PASS",
+      "tests": 3,
+      "assertions": 953
+    }
+  ],
+  "finding_ids": [
+    "IR-001",
+    "IR-002",
+    "IR-003"
+  ],
+  "findings_status": "Implemented and calibrated; independent closure pending",
+  "framework_tests": {
+    "adapter_tests": 8,
+    "evaluation_tests": 15,
+    "result": "PASS"
+  },
+  "frozen_inventory": {
+    "freeze": "15c729443169c68fe8969b8abd48a18182587a81d94e4e405185ce635952a448",
+    "status": "PASS"
+  },
+  "original_review_preserved": {
+    "independent-review.md": true,
+    "independent-review.json": true
+  },
+  "unrelated_adapters_and_manifest_entries": "UNCHANGED",
+  "calibration_implementation": "UNCHANGED",
+  "historical_campaigns": "PRESERVED",
+  "postgresql": "NOT EXECUTED",
+  "backend_eval_003": "NOT RUN",
+  "release_candidate": "NOT CREATED",
+  "context_id": "01a0ba52-2eaf-73f1-af31-a833539eb597",
+  "limitations": [
+    "Separate independent re-review required; no self-approval.",
+    "SQLite PDO result-row measurement does not measure database scan cost; alternate connections/interfaces need reviewer rebinding. PostgreSQL NOT EXECUTED.",
+    "Untrusted code requires external containment; provenance, Security and campaign gates remain external."
+  ]
+}

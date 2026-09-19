@@ -2,7 +2,8 @@
   "evaluation_id": "BE-008",
   "clean": "PASS",
   "faults": {
-    "BE-008-F1": "FAIL"
+    "BE-008-F1": "FAIL",
+    "BE-008-F2": "FAIL"
   },
   "infrastructure_error": "INCOMPLETE, never detected fault",
   "requirements": [

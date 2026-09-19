@@ -1,9 +1,9 @@
 {
   "evaluation_id": "BE-008",
   "adapter_id": "laravel-be-008",
-  "adapter_version": "1.0.0",
+  "adapter_version": "1.0.1",
   "stack": "Laravel",
-  "fixture_version": "1.0.0",
+  "fixture_version": "1.0.1",
   "owner_role": "Evaluation Reviewer",
   "supported_environment": {
     "php": "8.3.x (tested8.3.33)",
@@ -25,6 +25,14 @@
       "expected_clean": "PASS",
       "expected_fault": "FAIL",
       "required_test": "BE-008-budget"
+    },
+    {
+      "id": "BE-008-F2",
+      "command": "python3 -B evals/backend/adapters/laravel/runner.py fault --evaluation BE-008 --workspace WORKSPACE --fault-id BE-008-F2",
+      "definition": "faults/BE-008-F2.json",
+      "expected_clean": "PASS",
+      "expected_fault": "FAIL",
+      "required_test": "BE-008-regression"
     }
   ],
   "security_review_required": true,
@@ -46,9 +54,10 @@
     ],
     "BE-008-regression": [
       "test_BE008_relationship_query_budget_and_correct_serialization",
-      "test_BE008_pagination_types_and_query_limit"
+      "test_BE008_pagination_types_and_query_limit",
+      "test_BE008_bounded_database_reads_and_growth"
     ]
   },
-  "reviewer_approval": "PENDING independent handoff; READY is executability, not campaign PASS",
+  "reviewer_approval": "PENDING separate independent re-review after IR-001/IR-002 remediation; no self-approval",
   "candidate_negative_suite": "Candidate regressions run in BE001; other cases use reviewer controls"
 }

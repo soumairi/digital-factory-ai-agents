@@ -1,6 +1,6 @@
-# BE-004 Laravel adapter1.0.0
+# BE-004 Laravel adapter1.0.1
 
-Original source: `evals/backend/BE-004-bola-idor.md`; definition1.0.0 is copied byte-for-byte into fixture.json. Objective and criteria are unchanged. This is a reviewer-owned verification asset; Backend candidates do not set expected values. Independent evaluator adoption/review is pending, not self-certified here.
+Original source: `evals/backend/BE-004-bola-idor.md`; definition1.0.1 is copied byte-for-byte into fixture.json. Objective and criteria are unchanged. This is a reviewer-owned verification asset; Backend candidates do not set expected values. Independent evaluator adoption/review is pending, not self-certified here.
 
 | Contract | Binding |
 |---|---|
@@ -34,3 +34,7 @@ For a future evaluation, add `--candidate /approved/candidate` to setup and pres
 | BE-004 | BE-004-F2 | PASS | FAIL — relevant assertions, no setup errors |
 
 Faults apply exact reviewer-owned bindings only to disposable copies. If an alternate implementation lacks a source anchor, the runner reports INCOMPLETE rather than silently skipping/fuzzy-patching; a new independently approved frozen binding is required. See ../REVIEW.md for immutability, safety, scope and independent-review limitations.
+
+## Review remediation
+
+Adapter/fixture1.0.1 addresses IR-002. New mandatory fault `BE-004-F3`: Accept owner update without persisting it. Expected clean PASS / mutant FAIL. Run it with the same runner fault command above and its own fault ID. Status is READY FOR RE-REVIEW only after targeted calibration; separate independent approval is required.

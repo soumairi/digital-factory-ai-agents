@@ -1,0 +1,21 @@
+{
+  "id": "BE-004-F3",
+  "mutation": "Accept owner update without persisting it",
+  "target_test": "BE-004-controls",
+  "expected_clean_result": "PASS",
+  "expected_fault_result": "FAIL",
+  "required": true,
+  "isolation": "New disposable copy per fault; no clean-source overwrite; hash mutation and unchanged tests.",
+  "detection": "Relevant assertion failure with zero infrastructure errors; clean baseline and rerun PASS.",
+  "changes": [
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "old": "$q=$this->documents($r)->where('id',$id); abort_unless($q->exists(),404);\n        if($r->isMethod('PATCH')) $q->update(EvalInput::fields($r,['title'=>'required|string|max:100']));",
+      "new": "$q=$this->documents($r)->where('id',$id); abort_unless($q->exists(),404);\n        if($r->isMethod('PATCH')) EvalInput::fields($r,['title'=>'required|string|max:100']);",
+      "expected_occurrences": 1
+    }
+  ],
+  "adapter_version": "1.0.1",
+  "mutation_binding": "Exact canonical source binding; separately reviewer-frozen rebinding required for alternate implementations.",
+  "required_failure_prefix": "test_BE004_same_tenant_cross_tenant_nested_lists_and_unchanged_state"
+}

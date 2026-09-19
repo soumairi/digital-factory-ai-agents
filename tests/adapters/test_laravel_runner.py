@@ -26,7 +26,7 @@ class RunnerTests(unittest.TestCase):
                 self.assertEqual(fault['target_test'],f['target_test'])
             for name in ['setup.sh','verify.sh','cleanup.sh','expected-results.json']:
                 self.assertTrue((d/name).is_file())
-        self.assertEqual(16,len(ids));self.assertEqual(len(ids),len(set(ids)))
+        self.assertEqual(19,len(ids));self.assertEqual(len(ids),len(set(ids)))
 
     def test_environment_does_not_inherit_credentials(self):
         with patch.dict('os.environ',{'DB_URL':'DO_NOT_INHERIT','AWS_SECRET_ACCESS_KEY':'DO_NOT_INHERIT','APP_ENV':'production'}):
@@ -66,6 +66,26 @@ class RunnerTests(unittest.TestCase):
             with patch.object(R.subprocess,'run',return_value=Result()):
                 result=R.execute(root,{'php':'/synthetic/php'},'clean')
             self.assertEqual('FAIL',result['status'])
+
+    def test_external_review_output_preserves_exact_asset_inventory(self):
+        with tempfile.TemporaryDirectory() as name:
+            root=Path(name);assets=root/'evals/backend/adapters/laravel';assets.mkdir(parents=True)
+            owned=assets/'owned.php';owned.write_text('frozen evaluator')
+            (assets/'checksums.json').write_text(json.dumps(R.inventory(assets)))
+            with patch.object(R,'ASSETS',assets):
+                before=R.check_assets()
+                output=root/'validation/adapter-reviews/REVIEW-TEST';output.mkdir(parents=True)
+                for filename in ['independent-review.md','independent-review.json']:
+                    (output/filename).write_text('separate review')
+                self.assertEqual(before,R.check_assets())
+                # No filename exemption: an internal report is still rejected.
+                internal=assets/'independent-review.json';internal.write_text('{}')
+                with self.assertRaises(ValueError):R.check_assets()
+                internal.unlink()
+                owned.write_text('changed evaluator')
+                with self.assertRaises(ValueError):R.check_assets()
+                owned.unlink()
+                with self.assertRaises(ValueError):R.check_assets()
 
     def test_asset_freeze_matches_inventory(self):
         self.assertEqual(64,len(R.check_assets()))
