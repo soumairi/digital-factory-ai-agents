@@ -1,0 +1,65 @@
+[
+  {
+    "evaluation_id": "BE-001",
+    "fixture_hash": true,
+    "verification_hash": true,
+    "original_fixture_identical": true,
+    "version_consistent": true
+  },
+  {
+    "evaluation_id": "BE-002",
+    "fixture_hash": true,
+    "verification_hash": true,
+    "original_fixture_identical": true,
+    "version_consistent": true
+  },
+  {
+    "evaluation_id": "BE-003",
+    "fixture_hash": true,
+    "verification_hash": true,
+    "original_fixture_identical": true,
+    "version_consistent": true
+  },
+  {
+    "evaluation_id": "BE-004",
+    "fixture_hash": true,
+    "verification_hash": true,
+    "original_fixture_identical": true,
+    "version_consistent": true
+  },
+  {
+    "evaluation_id": "BE-005",
+    "fixture_hash": true,
+    "verification_hash": true,
+    "original_fixture_identical": true,
+    "version_consistent": true
+  },
+  {
+    "evaluation_id": "BE-006",
+    "fixture_hash": true,
+    "verification_hash": true,
+    "original_fixture_identical": true,
+    "version_consistent": true
+  },
+  {
+    "evaluation_id": "BE-007",
+    "fixture_hash": true,
+    "verification_hash": true,
+    "original_fixture_identical": true,
+    "version_consistent": true
+  },
+  {
+    "evaluation_id": "BE-008",
+    "fixture_hash": true,
+    "verification_hash": true,
+    "original_fixture_identical": true,
+    "version_consistent": true
+  },
+  {
+    "evaluation_id": "BE-009",
+    "fixture_hash": true,
+    "verification_hash": true,
+    "original_fixture_identical": true,
+    "version_consistent": true
+  }
+]

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-ike1h3jo/app/reviewer/phpunit.xml" tests="2" assertions="116" errors="0" failures="0" skipped="0" time="0.363420">
+    <testsuite name="Reviewer-BE-007" tests="2" assertions="116" errors="0" failures="0" skipped="0" time="0.363420">
+      <testsuite name="Reviewer\BE007Test" file="/private/tmp/laravel-adapter-ike1h3jo/app/reviewer/BE-007/tests/BE007Test.php" tests="2" assertions="116" errors="0" failures="0" skipped="0" time="0.363420">
+        <testcase name="test_BE007_pagination_traversal_scope_and_resource_limits" file="/private/tmp/laravel-adapter-ike1h3jo/app/reviewer/BE-007/tests/BE007Test.php" line="7" class="Reviewer\BE007Test" classname="Reviewer.BE007Test" assertions="35" time="0.111572"/>
+        <testcase name="test_BE007_raw_null_whitespace_types_and_metadata" file="/private/tmp/laravel-adapter-ike1h3jo/app/reviewer/BE-007/tests/BE007Test.php" line="20" class="Reviewer\BE007Test" classname="Reviewer.BE007Test" assertions="81" time="0.251848"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

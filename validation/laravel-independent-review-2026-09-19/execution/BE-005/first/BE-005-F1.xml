@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-nn67d3ct/app/reviewer/phpunit.xml" tests="2" assertions="10" errors="0" failures="2" skipped="0" time="0.088674">
+    <testsuite name="Reviewer-BE-005" tests="2" assertions="10" errors="0" failures="2" skipped="0" time="0.088674">
+      <testsuite name="Reviewer\BE005Test" file="/private/tmp/laravel-adapter-nn67d3ct/app/reviewer/BE-005/tests/BE005Test.php" tests="2" assertions="10" errors="0" failures="2" skipped="0" time="0.088674">
+        <testcase name="test_BE005_protected_fields_and_alternate_paths" file="/private/tmp/laravel-adapter-nn67d3ct/app/reviewer/BE-005/tests/BE005Test.php" line="7" class="Reviewer\BE005Test" classname="Reviewer.BE005Test" assertions="5" time="0.076100">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Reviewer\BE005Test::test_BE005_protected_fields_and_alternate_paths
+Protected state changed
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'[{"id":1,"owner_id":1,"tenant_id":1,"display_name":"Valid","role":"reader","is_admin":0},{"id":2,"owner_id":2,"tenant_id":1,"display_name":"Profile2","role":"editor","is_admin":0},{"id":3,"owner_id":3,"tenant_id":2,"display_name":"Profile3","role":"reader","is_admin":0},{"id":4,"owner_id":4,"tenant_id":2,"display_name":"Profile4","role":"reader","is_admin":0}]'
++'[{"id":1,"owner_id":1,"tenant_id":1,"display_name":"Attack","role":"editor","is_admin":0},{"id":2,"owner_id":2,"tenant_id":1,"display_name":"Profile2","role":"editor","is_admin":0},{"id":3,"owner_id":3,"tenant_id":2,"display_name":"Profile3","role":"reader","is_admin":0},{"id":4,"owner_id":4,"tenant_id":2,"display_name":"Profile4","role":"reader","is_admin":0}]'
+
+/private/tmp/laravel-adapter-nn67d3ct/app/reviewer/BE-005/tests/BE005Test.php:12</failure>
+        </testcase>
+        <testcase name="test_BE005_all_protected_value_shapes_and_display_boundaries" file="/private/tmp/laravel-adapter-nn67d3ct/app/reviewer/BE-005/tests/BE005Test.php" line="19" class="Reviewer\BE005Test" classname="Reviewer.BE005Test" assertions="5" time="0.012574">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Reviewer\BE005Test::test_BE005_all_protected_value_shapes_and_display_boundaries
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+/private/tmp/laravel-adapter-nn67d3ct/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponseAssert.php:45
+/private/tmp/laravel-adapter-nn67d3ct/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:183
+/private/tmp/laravel-adapter-nn67d3ct/app/reviewer/common/AdapterTestCase.php:62
+/private/tmp/laravel-adapter-nn67d3ct/app/reviewer/BE-005/tests/BE005Test.php:20</failure>
+        </testcase>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

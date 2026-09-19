@@ -1,0 +1,46 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+    "-n",
+    "-d",
+    "allow_url_fopen=0",
+    "-d",
+    "ffi.enable=0",
+    "vendor/bin/phpunit",
+    "-c",
+    "reviewer/phpunit.xml",
+    "--colors=never",
+    "--log-junit",
+    "/private/tmp/laravel-adapter-bshlgvd4/evidence/clean-1.xml"
+  ],
+  "cwd": "/private/tmp/laravel-adapter-bshlgvd4/app",
+  "exit_code": 0,
+  "log_sha256": "d0a77db45b4f3160a8d903f3909eb43eb7c83ba1111ff24d57705eb425f8ee26",
+  "elapsed_seconds": 0.42841029167175293,
+  "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+  "fault": null,
+  "log_path": "evidence/clean-1.txt",
+  "junit_path": "evidence/clean-1.xml",
+  "adapter_freeze": "d592ba263d82a988774f9c22e52d98b20f1ffa95d7e0f7a8aabd4203e6caceed",
+  "calibration_only": true,
+  "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/adapters/laravel/calibration/application",
+  "tests": 2,
+  "assertions": 61,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "failed_tests": [],
+  "candidate_negative_tests": [],
+  "candidate_negative_failures": [],
+  "junit_sha256": "71dcc045ef3acbd7c47acfe5dade8f6d6f568acc7d96a9b02f827e3a2c435911",
+  "status": "PASS",
+  "concurrency": {
+    "command": [
+      "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+      "-n",
+      "reviewer/common/concurrency.php"
+    ],
+    "exit_code": 0,
+    "log_sha256": "43d75be0a635ac341613590ab4ce030d4800c32ffd302bd3471e8f7823796751"
+  }
+}

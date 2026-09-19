@@ -1,0 +1,746 @@
+{
+  "review_status": "COMPLETED \u2014 NOT READY",
+  "review_date": "2026-09-19",
+  "reviewer_independence": "VALID",
+  "reviewer_context": "01a0ba52-2eaf-73f1-af31-a833539eb597",
+  "foundation_version": "0.6.0",
+  "adapter_bundle_version": "1.0.0",
+  "reviewed_commit": "8dae8711847e3ef3665c384adb531b23cbd2dc65",
+  "approved_count": 0,
+  "approved_with_limitation_count": 6,
+  "rejected_count": 3,
+  "incomplete_count": 0,
+  "critical_count": 0,
+  "high_count": 2,
+  "medium_count": 1,
+  "low_count": 0,
+  "postgresql_status": "NOT EXECUTED",
+  "ready_for_backend_eval_003": false,
+  "adapters": [
+    {
+      "evaluation_id": "BE-001",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "setup": "PASS",
+      "clean": "PASS",
+      "clean_rerun": "PASS",
+      "cleanup": "PASS",
+      "cleanup_absence_confirmed": true,
+      "faults_detected": 1,
+      "faults_expected": 1,
+      "faults": [
+        {
+          "id": "BE-001-F1",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 2,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE001_crud_owner_scope_and_missing_resources",
+            "test_negative_ownership"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "repeatability": "PASS",
+      "assertions": 598,
+      "tests": 54,
+      "repeat_assertions": 598,
+      "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+      "safety": "PASS",
+      "contract": {
+        "evaluation_id": "PASS",
+        "adapter_version": "PASS",
+        "fixture_version": "PASS",
+        "supported_environment": "PASS",
+        "initial_state": "PASS",
+        "synthetic_data": "PASS",
+        "setup": "PASS",
+        "verification": "PASS",
+        "cleanup": "PASS",
+        "expected_clean_behavior": "PASS",
+        "forbidden_behavior": "PASS",
+        "fault_variants": "PASS",
+        "expected_fault_detection": "PASS",
+        "security_review_requirement": "PASS",
+        "database_requirement": "PASS"
+      },
+      "reviewer_ownership": "PASS",
+      "fixture_immutability": "PASS for frozen source bytes; report packaging blocked by IR-003",
+      "security_review_required": true,
+      "security_clearance": "Not supplied by adapter calibration; required for actual candidate",
+      "postgresql_status": "NOT EXECUTED",
+      "postgresql_gate": "OPTIONAL for SQLite-only calibration",
+      "result": "APPROVED WITH LIMITATION",
+      "finding_ids": [
+        "IR-003"
+      ],
+      "evidence": "validation/laravel-independent-review-2026-09-19/execution/BE-001"
+    },
+    {
+      "evaluation_id": "BE-002",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "setup": "PASS",
+      "clean": "PASS",
+      "clean_rerun": "PASS",
+      "cleanup": "PASS",
+      "cleanup_absence_confirmed": true,
+      "faults_detected": 3,
+      "faults_expected": 3,
+      "faults": [
+        {
+          "id": "BE-002-F1",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 2,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE002_strict_boundaries_unknown_nested_hostile_and_no_writes",
+            "test_BE002_complete_normalization_matrix_and_state"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-002-F2",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 2,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE002_strict_boundaries_unknown_nested_hostile_and_no_writes",
+            "test_BE002_complete_normalization_matrix_and_state"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-002-F3",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 2,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE002_strict_boundaries_unknown_nested_hostile_and_no_writes",
+            "test_BE002_complete_normalization_matrix_and_state"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "repeatability": "PASS",
+      "assertions": 170,
+      "tests": 2,
+      "repeat_assertions": 170,
+      "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+      "safety": "PASS",
+      "contract": {
+        "evaluation_id": "PASS",
+        "adapter_version": "PASS",
+        "fixture_version": "PASS",
+        "supported_environment": "PASS",
+        "initial_state": "PASS",
+        "synthetic_data": "PASS",
+        "setup": "PASS",
+        "verification": "PASS",
+        "cleanup": "PASS",
+        "expected_clean_behavior": "PASS",
+        "forbidden_behavior": "PASS",
+        "fault_variants": "PASS",
+        "expected_fault_detection": "PASS",
+        "security_review_requirement": "PASS",
+        "database_requirement": "PASS"
+      },
+      "reviewer_ownership": "PASS",
+      "fixture_immutability": "PASS for frozen source bytes; report packaging blocked by IR-003",
+      "security_review_required": true,
+      "security_clearance": "Not supplied by adapter calibration; required for actual candidate",
+      "postgresql_status": "NOT EXECUTED",
+      "postgresql_gate": "OPTIONAL for SQLite-only calibration",
+      "result": "APPROVED WITH LIMITATION",
+      "finding_ids": [
+        "IR-003"
+      ],
+      "evidence": "validation/laravel-independent-review-2026-09-19/execution/BE-002"
+    },
+    {
+      "evaluation_id": "BE-003",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "setup": "PASS",
+      "clean": "PASS",
+      "clean_rerun": "PASS",
+      "cleanup": "PASS",
+      "cleanup_absence_confirmed": true,
+      "faults_detected": 1,
+      "faults_expected": 1,
+      "faults": [
+        {
+          "id": "BE-003-F1",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 2,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE003_real_authentication_and_action_gates",
+            "test_BE003_credential_and_editor_title_matrix"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "repeatability": "PASS",
+      "assertions": 58,
+      "tests": 2,
+      "repeat_assertions": 58,
+      "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+      "safety": "PASS",
+      "contract": {
+        "evaluation_id": "PASS",
+        "adapter_version": "PASS",
+        "fixture_version": "PASS",
+        "supported_environment": "PASS",
+        "initial_state": "PASS",
+        "synthetic_data": "PASS",
+        "setup": "PASS",
+        "verification": "PASS",
+        "cleanup": "PASS",
+        "expected_clean_behavior": "PASS",
+        "forbidden_behavior": "PASS",
+        "fault_variants": "PASS",
+        "expected_fault_detection": "PASS",
+        "security_review_requirement": "PASS",
+        "database_requirement": "PASS"
+      },
+      "reviewer_ownership": "PASS",
+      "fixture_immutability": "PASS for frozen source bytes; report packaging blocked by IR-003",
+      "security_review_required": true,
+      "security_clearance": "Not supplied by adapter calibration; required for actual candidate",
+      "postgresql_status": "NOT EXECUTED",
+      "postgresql_gate": "OPTIONAL for SQLite-only calibration",
+      "result": "APPROVED WITH LIMITATION",
+      "finding_ids": [
+        "IR-003"
+      ],
+      "evidence": "validation/laravel-independent-review-2026-09-19/execution/BE-003"
+    },
+    {
+      "evaluation_id": "BE-004",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "setup": "PASS",
+      "clean": "PASS",
+      "clean_rerun": "PASS",
+      "cleanup": "PASS",
+      "cleanup_absence_confirmed": true,
+      "faults_detected": 2,
+      "faults_expected": 2,
+      "faults": [
+        {
+          "id": "BE-004-F1",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE004_same_tenant_cross_tenant_nested_lists_and_unchanged_state"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-004-F2",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE004_same_tenant_cross_tenant_nested_lists_and_unchanged_state"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "repeatability": "PASS",
+      "assertions": 150,
+      "tests": 2,
+      "repeat_assertions": 150,
+      "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+      "safety": "PASS",
+      "contract": {
+        "evaluation_id": "PASS",
+        "adapter_version": "PASS",
+        "fixture_version": "PASS",
+        "supported_environment": "PASS",
+        "initial_state": "PASS",
+        "synthetic_data": "PASS",
+        "setup": "PASS",
+        "verification": "FAIL",
+        "cleanup": "PASS",
+        "expected_clean_behavior": "FAIL",
+        "forbidden_behavior": "PASS",
+        "fault_variants": "PASS",
+        "expected_fault_detection": "PASS",
+        "security_review_requirement": "PASS",
+        "database_requirement": "PASS"
+      },
+      "reviewer_ownership": "PASS",
+      "fixture_immutability": "PASS for frozen source bytes; report packaging blocked by IR-003",
+      "security_review_required": true,
+      "security_clearance": "Not supplied by adapter calibration; required for actual candidate",
+      "postgresql_status": "NOT EXECUTED",
+      "postgresql_gate": "OPTIONAL for SQLite-only calibration",
+      "result": "REJECTED",
+      "finding_ids": [
+        "IR-002",
+        "IR-003"
+      ],
+      "evidence": "validation/laravel-independent-review-2026-09-19/execution/BE-004"
+    },
+    {
+      "evaluation_id": "BE-005",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "setup": "PASS",
+      "clean": "PASS",
+      "clean_rerun": "PASS",
+      "cleanup": "PASS",
+      "cleanup_absence_confirmed": true,
+      "faults_detected": 1,
+      "faults_expected": 1,
+      "faults": [
+        {
+          "id": "BE-005-F1",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 2,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE005_protected_fields_and_alternate_paths",
+            "test_BE005_all_protected_value_shapes_and_display_boundaries"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "repeatability": "PASS",
+      "assertions": 137,
+      "tests": 2,
+      "repeat_assertions": 137,
+      "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+      "safety": "PASS",
+      "contract": {
+        "evaluation_id": "PASS",
+        "adapter_version": "PASS",
+        "fixture_version": "PASS",
+        "supported_environment": "PASS",
+        "initial_state": "PASS",
+        "synthetic_data": "PASS",
+        "setup": "PASS",
+        "verification": "PASS",
+        "cleanup": "PASS",
+        "expected_clean_behavior": "PASS",
+        "forbidden_behavior": "PASS",
+        "fault_variants": "PASS",
+        "expected_fault_detection": "PASS",
+        "security_review_requirement": "PASS",
+        "database_requirement": "PASS"
+      },
+      "reviewer_ownership": "PASS",
+      "fixture_immutability": "PASS for frozen source bytes; report packaging blocked by IR-003",
+      "security_review_required": true,
+      "security_clearance": "Not supplied by adapter calibration; required for actual candidate",
+      "postgresql_status": "NOT EXECUTED",
+      "postgresql_gate": "OPTIONAL for SQLite-only calibration",
+      "result": "APPROVED WITH LIMITATION",
+      "finding_ids": [
+        "IR-003"
+      ],
+      "evidence": "validation/laravel-independent-review-2026-09-19/execution/BE-005"
+    },
+    {
+      "evaluation_id": "BE-006",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "setup": "PASS",
+      "clean": "PASS",
+      "clean_rerun": "PASS",
+      "cleanup": "PASS",
+      "cleanup_absence_confirmed": true,
+      "faults_detected": 2,
+      "faults_expected": 2,
+      "faults": [
+        {
+          "id": "BE-006-F1",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE006_success_shortage_rollback_and_repeat"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-006-F2",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE006_success_shortage_rollback_and_repeat"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "repeatability": "PASS",
+      "assertions": 61,
+      "tests": 2,
+      "repeat_assertions": 61,
+      "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+      "safety": "PASS",
+      "contract": {
+        "evaluation_id": "PASS",
+        "adapter_version": "PASS",
+        "fixture_version": "PASS",
+        "supported_environment": "PASS",
+        "initial_state": "PASS",
+        "synthetic_data": "PASS",
+        "setup": "PASS",
+        "verification": "PASS",
+        "cleanup": "PASS",
+        "expected_clean_behavior": "PASS",
+        "forbidden_behavior": "PASS",
+        "fault_variants": "PASS",
+        "expected_fault_detection": "PASS",
+        "security_review_requirement": "PASS",
+        "database_requirement": "PASS"
+      },
+      "reviewer_ownership": "PASS",
+      "fixture_immutability": "PASS for frozen source bytes; report packaging blocked by IR-003",
+      "security_review_required": true,
+      "security_clearance": "Not supplied by adapter calibration; required for actual candidate",
+      "postgresql_status": "NOT EXECUTED",
+      "postgresql_gate": "REQUIRED BEFORE PILOT on PostgreSQL",
+      "result": "APPROVED WITH LIMITATION",
+      "finding_ids": [
+        "IR-003"
+      ],
+      "evidence": "validation/laravel-independent-review-2026-09-19/execution/BE-006"
+    },
+    {
+      "evaluation_id": "BE-007",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "setup": "PASS",
+      "clean": "PASS",
+      "clean_rerun": "PASS",
+      "cleanup": "PASS",
+      "cleanup_absence_confirmed": true,
+      "faults_detected": 3,
+      "faults_expected": 3,
+      "faults": [
+        {
+          "id": "BE-007-F1",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE007_pagination_traversal_scope_and_resource_limits"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-007-F2",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 2,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE007_pagination_traversal_scope_and_resource_limits",
+            "test_BE007_raw_null_whitespace_types_and_metadata"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-007-F3",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 2,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE007_pagination_traversal_scope_and_resource_limits",
+            "test_BE007_raw_null_whitespace_types_and_metadata"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "repeatability": "PASS",
+      "assertions": 116,
+      "tests": 2,
+      "repeat_assertions": 116,
+      "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+      "safety": "PASS",
+      "contract": {
+        "evaluation_id": "PASS",
+        "adapter_version": "PASS",
+        "fixture_version": "PASS",
+        "supported_environment": "PASS",
+        "initial_state": "PASS",
+        "synthetic_data": "PASS",
+        "setup": "PASS",
+        "verification": "FAIL",
+        "cleanup": "PASS",
+        "expected_clean_behavior": "PASS",
+        "forbidden_behavior": "FAIL",
+        "fault_variants": "PASS",
+        "expected_fault_detection": "PASS",
+        "security_review_requirement": "PASS",
+        "database_requirement": "PASS"
+      },
+      "reviewer_ownership": "PASS",
+      "fixture_immutability": "PASS for frozen source bytes; report packaging blocked by IR-003",
+      "security_review_required": true,
+      "security_clearance": "Not supplied by adapter calibration; required for actual candidate",
+      "postgresql_status": "NOT EXECUTED",
+      "postgresql_gate": "OPTIONAL for SQLite-only calibration",
+      "result": "REJECTED",
+      "finding_ids": [
+        "IR-001",
+        "IR-003"
+      ],
+      "evidence": "validation/laravel-independent-review-2026-09-19/execution/BE-007"
+    },
+    {
+      "evaluation_id": "BE-008",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "setup": "PASS",
+      "clean": "PASS",
+      "clean_rerun": "PASS",
+      "cleanup": "PASS",
+      "cleanup_absence_confirmed": true,
+      "faults_detected": 1,
+      "faults_expected": 1,
+      "faults": [
+        {
+          "id": "BE-008-F1",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE008_relationship_query_budget_and_correct_serialization"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "repeatability": "PASS",
+      "assertions": 220,
+      "tests": 2,
+      "repeat_assertions": 220,
+      "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+      "safety": "PASS",
+      "contract": {
+        "evaluation_id": "PASS",
+        "adapter_version": "PASS",
+        "fixture_version": "PASS",
+        "supported_environment": "PASS",
+        "initial_state": "PASS",
+        "synthetic_data": "PASS",
+        "setup": "PASS",
+        "verification": "FAIL",
+        "cleanup": "PASS",
+        "expected_clean_behavior": "PASS",
+        "forbidden_behavior": "FAIL",
+        "fault_variants": "PASS",
+        "expected_fault_detection": "PASS",
+        "security_review_requirement": "PASS",
+        "database_requirement": "PASS"
+      },
+      "reviewer_ownership": "PASS",
+      "fixture_immutability": "PASS for frozen source bytes; report packaging blocked by IR-003",
+      "security_review_required": true,
+      "security_clearance": "Not supplied by adapter calibration; required for actual candidate",
+      "postgresql_status": "NOT EXECUTED",
+      "postgresql_gate": "REQUIRED BEFORE PILOT on PostgreSQL",
+      "result": "REJECTED",
+      "finding_ids": [
+        "IR-001",
+        "IR-003"
+      ],
+      "evidence": "validation/laravel-independent-review-2026-09-19/execution/BE-008"
+    },
+    {
+      "evaluation_id": "BE-009",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "setup": "PASS",
+      "clean": "PASS",
+      "clean_rerun": "PASS",
+      "cleanup": "PASS",
+      "cleanup_absence_confirmed": true,
+      "faults_detected": 2,
+      "faults_expected": 2,
+      "faults": [
+        {
+          "id": "BE-009-F1",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 3,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE001_crud_owner_scope_and_missing_resources",
+            "test_BE009_six_negative_categories_and_methods",
+            "test_negative_ownership"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-009-F2",
+          "candidate_result": "FAIL",
+          "detection": "PASS",
+          "failures": 4,
+          "errors": 0,
+          "skipped": 0,
+          "failed_tests": [
+            "test_BE005_protected_fields_and_alternate_paths",
+            "test_BE005_all_protected_value_shapes_and_display_boundaries",
+            "test_BE009_sensitive_privilege_side_effects_and_excessive_resources",
+            "test_negative_sensitive_fields"
+          ],
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "repeatability": "PASS",
+      "assertions": 502,
+      "tests": 14,
+      "repeat_assertions": 502,
+      "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+      "safety": "PASS",
+      "contract": {
+        "evaluation_id": "PASS",
+        "adapter_version": "PASS",
+        "fixture_version": "PASS",
+        "supported_environment": "PASS",
+        "initial_state": "PASS",
+        "synthetic_data": "PASS",
+        "setup": "PASS",
+        "verification": "PASS",
+        "cleanup": "PASS",
+        "expected_clean_behavior": "PASS",
+        "forbidden_behavior": "PASS",
+        "fault_variants": "PASS",
+        "expected_fault_detection": "PASS",
+        "security_review_requirement": "PASS",
+        "database_requirement": "PASS"
+      },
+      "reviewer_ownership": "PASS",
+      "fixture_immutability": "PASS for frozen source bytes; report packaging blocked by IR-003",
+      "security_review_required": true,
+      "security_clearance": "Not supplied by adapter calibration; required for actual candidate",
+      "postgresql_status": "NOT EXECUTED",
+      "postgresql_gate": "OPTIONAL for SQLite-only calibration",
+      "result": "APPROVED WITH LIMITATION",
+      "finding_ids": [
+        "IR-003"
+      ],
+      "evidence": "validation/laravel-independent-review-2026-09-19/execution/BE-009"
+    }
+  ],
+  "findings": [
+    {
+      "id": "IR-001",
+      "severity": "High",
+      "adapters": [
+        "BE-007",
+        "BE-008"
+      ],
+      "issue": "Unbounded database reads escape verification. Replacing SQL pagination with get()->slice()->values() passes unchanged tests (116 and 220 assertions), despite the explicit prohibition on loading all records. Query counts and response lengths do not establish bounded database reads.",
+      "required_action": "Add reviewer-owned assertions for bounded database retrieval and sensitivity to a load-all/slice variant; freeze a new adapter version and independently reverify.",
+      "evidence": [
+        "probes/BE-007/result.json",
+        "probes/BE-008/result.json"
+      ],
+      "source": [
+        "BE-007/tests/BE007Test.php",
+        "BE-008/tests/BE008Test.php"
+      ]
+    },
+    {
+      "id": "IR-002",
+      "severity": "High",
+      "adapters": [
+        "BE-004"
+      ],
+      "issue": "Authorized document updates need not persist. The owner control submits the existing title and only checks HTTP 200. A disposable variant that validates but omits the document update passes all 150 assertions.",
+      "required_action": "Use a different valid title and assert the exact persisted and returned values, unchanged unrelated rows, and failure of a no-op update variant; freeze and independently reverify.",
+      "evidence": [
+        "owner-update-probe-2/BE-004/result.json"
+      ],
+      "source": [
+        "BE-004/tests/BE004Test.php"
+      ]
+    },
+    {
+      "id": "IR-003",
+      "severity": "Medium",
+      "adapters": [
+        "BE-001",
+        "BE-002",
+        "BE-003",
+        "BE-004",
+        "BE-005",
+        "BE-006",
+        "BE-007",
+        "BE-008",
+        "BE-009"
+      ],
+      "issue": "Requested independent-review.md/json paths are inside the exact frozen inventory. Adding separate review output makes check-freeze, setup and verification fail with Frozen adapter inventory/hash mismatch. Reproduced on a disposable bundle; original frozen files remain unchanged.",
+      "required_action": "Resolve review-output packaging through a separately authorized bundle update or an approved report location outside the executable asset inventory; do not silently rewrite checksums during review. Recheck the published bundle before campaign use.",
+      "evidence": [
+        "probes/report-placement.json"
+      ],
+      "source": [
+        "runner.py:check_assets"
+      ]
+    }
+  ],
+  "limitations": [
+    "PostgreSQL was not executed. BE-006 transactions/concurrency and BE-008 query measurement require engine-specific validation before a PostgreSQL pilot. SQLite-only calibration remains distinct.",
+    "Only approved synthetic code is supported. Untrusted code requires external filesystem/network containment and protected evaluator assets; hashes are detection, not permission enforcement.",
+    "L1 context separation is valid within this session; runtime ID and hashes do not authenticate authorship. Historical-derived calibration and the sample BE-009 suite cannot establish future implementer performance or Security clearance.",
+    "IR-003 blocks use of the delivered directory until output packaging is resolved. Six qualified approvals concern reviewed executable behavior within the declared scope, not permission to start a campaign."
+  ],
+  "evidence_root": "validation/laravel-independent-review-2026-09-19",
+  "source_modified": false,
+  "historical_campaigns_modified": false,
+  "backend_eval_003_executed": false,
+  "release_candidate_created": false
+}

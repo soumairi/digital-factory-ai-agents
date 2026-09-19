@@ -1,0 +1,18 @@
+{
+  "reviewer_context": "01a0ba52-2eaf-73f1-af31-a833539eb597",
+  "provenance_note": "Runtime context ID if exposed; not independent authentication. Reviewer did not author or fix implementation in this execution context.",
+  "python": "3.14.4",
+  "php": "PHP 8.3.33 (cli) (built: Jul 28 2026 17:56:10) (NTS)\nCopyright (c) The PHP Group\nZend Engine v4.3.33, Copyright (c) Zend Technologies\n",
+  "foundation_version": "0.6.0",
+  "commit": "8dae8711847e3ef3665c384adb531b23cbd2dc65",
+  "framework_tests": {
+    "adapter": 7,
+    "evaluation": 15,
+    "failures": 0,
+    "command": [
+      "python3 -B -m unittest discover -s tests/adapters -v",
+      "python3 -B -m unittest discover -s tests/evals -v"
+    ]
+  },
+  "selftest_command": "python3 -B evals/backend/adapters/laravel/selftest.py --vendor /private/tmp/backend-eval-001-0v7ydh55/app/vendor --output validation/laravel-independent-review-2026-09-19/execution"
+}

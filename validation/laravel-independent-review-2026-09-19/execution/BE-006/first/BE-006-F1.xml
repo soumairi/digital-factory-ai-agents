@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-fxyzsndk/app/reviewer/phpunit.xml" tests="2" assertions="50" errors="0" failures="1" skipped="0" time="0.322016">
+    <testsuite name="Reviewer-BE-006" tests="2" assertions="50" errors="0" failures="1" skipped="0" time="0.322016">
+      <testsuite name="Reviewer\BE006Test" file="/private/tmp/laravel-adapter-fxyzsndk/app/reviewer/BE-006/tests/BE006Test.php" tests="2" assertions="50" errors="0" failures="1" skipped="0" time="0.322016">
+        <testcase name="test_BE006_success_shortage_rollback_and_repeat" file="/private/tmp/laravel-adapter-fxyzsndk/app/reviewer/BE-006/tests/BE006Test.php" line="7" class="Reviewer\BE006Test" classname="Reviewer.BE006Test" assertions="8" time="0.079095">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Reviewer\BE006Test::test_BE006_success_shortage_rollback_and_repeat
+Failed asserting that a row in the table [inventory] matches the attributes {
+    "id": 1,
+    "stock": 7
+}.
+
+Found similar results: [
+    {
+        "id": 1,
+        "stock": 5
+    }
+].
+
+/private/tmp/laravel-adapter-fxyzsndk/app/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/InteractsWithDatabase.php:51
+/private/tmp/laravel-adapter-fxyzsndk/app/reviewer/BE-006/tests/BE006Test.php:13</failure>
+        </testcase>
+        <testcase name="test_BE006_quantity_normalization_and_persistence" file="/private/tmp/laravel-adapter-fxyzsndk/app/reviewer/BE-006/tests/BE006Test.php" line="24" class="Reviewer\BE006Test" classname="Reviewer.BE006Test" assertions="42" time="0.242921"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

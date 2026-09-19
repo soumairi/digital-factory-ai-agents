@@ -1,0 +1,14 @@
+{
+  "tracked_files_changed": [],
+  "frozen_bytes_unchanged": true,
+  "additional_asset_files": [
+    "independent-review.json",
+    "independent-review.md"
+  ],
+  "post_report_check_freeze": {
+    "exit_code": 2,
+    "stdout": "",
+    "stderr": "{\"status\": \"INCOMPLETE\", \"error\": \"Frozen adapter inventory/hash mismatch\"}\n"
+  },
+  "historical_campaigns_unchanged": true
+}

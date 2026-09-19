@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-vblzusr7/app/reviewer/phpunit.xml" tests="2" assertions="137" errors="0" failures="0" skipped="0" time="0.365640">
+    <testsuite name="Reviewer-BE-005" tests="2" assertions="137" errors="0" failures="0" skipped="0" time="0.365640">
+      <testsuite name="Reviewer\BE005Test" file="/private/tmp/laravel-adapter-vblzusr7/app/reviewer/BE-005/tests/BE005Test.php" tests="2" assertions="137" errors="0" failures="0" skipped="0" time="0.365640">
+        <testcase name="test_BE005_protected_fields_and_alternate_paths" file="/private/tmp/laravel-adapter-vblzusr7/app/reviewer/BE-005/tests/BE005Test.php" line="7" class="Reviewer\BE005Test" classname="Reviewer.BE005Test" assertions="26" time="0.092061"/>
+        <testcase name="test_BE005_all_protected_value_shapes_and_display_boundaries" file="/private/tmp/laravel-adapter-vblzusr7/app/reviewer/BE-005/tests/BE005Test.php" line="19" class="Reviewer\BE005Test" classname="Reviewer.BE005Test" assertions="111" time="0.273579"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
