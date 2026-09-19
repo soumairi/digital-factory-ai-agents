@@ -1,0 +1,11 @@
+--- /private/tmp/backend-eval-001-0v7ydh55/app/app/Http/Requests/EvalInput.php	2026-09-19 15:10:11
++++ /private/tmp/backend-eval-001-0v7ydh55/fault-pagination-cap/app/Http/Requests/EvalInput.php	2026-09-19 15:11:37
+@@ -23,7 +23,7 @@
+     public static function page(Request $r): array {
+         if(array_diff(array_keys($r->query()),['page','per_page'])) self::invalid();
+         $out=[];
+-        foreach(['page'=>[1,1000000],'per_page'=>[20,100]] as $key=>[$default,$max]) {
++        foreach(['page'=>[1,1000000],'per_page'=>[20,1000]] as $key=>[$default,$max]) {
+             $query=$r->query();
+             $value=array_key_exists($key,$query)?$query[$key]:(string)$default;
+             if(!is_string($value)||!preg_match('/^[1-9][0-9]*$/D',$value)||strlen($value)>7||(int)$value>$max) self::invalid();

@@ -1,0 +1,272 @@
+[
+  {
+    "evaluation_id": "BE-001",
+    "command": [
+      "python3",
+      "-B",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/verify.py",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002/cases/BE-001/evidence-manifest.json",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002"
+    ],
+    "exit_code": 0,
+    "manifest_sha256": "2db7775f652596d3d913c941bc9b4916cd464cbd7f4f31dc48075565da4e58e2",
+    "validation": {
+      "status": "NOT RUN",
+      "missing_requirements": [
+        "Frozen executable assertions artifact",
+        "Reviewer assertion ownership frozen before implementation",
+        "Frozen candidate revision/hash evidence",
+        "All original required tests executed",
+        "All original criteria represented exactly",
+        "Passing clean baseline and post-mutation rerun",
+        "All required fault variants",
+        "Independent required Security review",
+        "Seven original score dimensions with evidence",
+        "Original Foundation score"
+      ],
+      "failures": [],
+      "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+    },
+    "application_execution": false
+  },
+  {
+    "evaluation_id": "BE-002",
+    "command": [
+      "python3",
+      "-B",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/verify.py",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002/cases/BE-002/evidence-manifest.json",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002"
+    ],
+    "exit_code": 0,
+    "manifest_sha256": "42fc0b2dacbad57d1c4a2a4ced3f1c588eeb98400b71ae1712cafbb5b0bcc44e",
+    "validation": {
+      "status": "NOT RUN",
+      "missing_requirements": [
+        "Frozen executable assertions artifact",
+        "Reviewer assertion ownership frozen before implementation",
+        "Frozen candidate revision/hash evidence",
+        "All original required tests executed",
+        "All original criteria represented exactly",
+        "Passing clean baseline and post-mutation rerun",
+        "All required fault variants",
+        "Independent required Security review",
+        "Seven original score dimensions with evidence",
+        "Original Foundation score"
+      ],
+      "failures": [],
+      "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+    },
+    "application_execution": false
+  },
+  {
+    "evaluation_id": "BE-003",
+    "command": [
+      "python3",
+      "-B",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/verify.py",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002/cases/BE-003/evidence-manifest.json",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002"
+    ],
+    "exit_code": 0,
+    "manifest_sha256": "624d1d9d60fa4ca6f4b44791eddb52db0311b166b44298f8f6f946c3656f6eaf",
+    "validation": {
+      "status": "NOT RUN",
+      "missing_requirements": [
+        "Frozen executable assertions artifact",
+        "Reviewer assertion ownership frozen before implementation",
+        "Frozen candidate revision/hash evidence",
+        "All original required tests executed",
+        "All original criteria represented exactly",
+        "Passing clean baseline and post-mutation rerun",
+        "All required fault variants",
+        "Independent required Security review",
+        "Seven original score dimensions with evidence",
+        "Original Foundation score"
+      ],
+      "failures": [],
+      "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+    },
+    "application_execution": false
+  },
+  {
+    "evaluation_id": "BE-004",
+    "command": [
+      "python3",
+      "-B",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/verify.py",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002/cases/BE-004/evidence-manifest.json",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002"
+    ],
+    "exit_code": 0,
+    "manifest_sha256": "f8e0b433c83ee5c38436ee5237bf199657109df79344c58b8dc4a8832715cfde",
+    "validation": {
+      "status": "NOT RUN",
+      "missing_requirements": [
+        "Frozen executable assertions artifact",
+        "Reviewer assertion ownership frozen before implementation",
+        "Frozen candidate revision/hash evidence",
+        "All original required tests executed",
+        "All original criteria represented exactly",
+        "Passing clean baseline and post-mutation rerun",
+        "All required fault variants",
+        "Independent required Security review",
+        "Seven original score dimensions with evidence",
+        "Original Foundation score"
+      ],
+      "failures": [],
+      "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+    },
+    "application_execution": false
+  },
+  {
+    "evaluation_id": "BE-005",
+    "command": [
+      "python3",
+      "-B",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/verify.py",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002/cases/BE-005/evidence-manifest.json",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002"
+    ],
+    "exit_code": 0,
+    "manifest_sha256": "3d1a77e46d58fcbfd690a6393dc5d07a8a011b4a72616cadb72dc3594a18a1ab",
+    "validation": {
+      "status": "NOT RUN",
+      "missing_requirements": [
+        "Frozen executable assertions artifact",
+        "Reviewer assertion ownership frozen before implementation",
+        "Frozen candidate revision/hash evidence",
+        "All original required tests executed",
+        "All original criteria represented exactly",
+        "Passing clean baseline and post-mutation rerun",
+        "All required fault variants",
+        "Independent required Security review",
+        "Seven original score dimensions with evidence",
+        "Original Foundation score"
+      ],
+      "failures": [],
+      "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+    },
+    "application_execution": false
+  },
+  {
+    "evaluation_id": "BE-006",
+    "command": [
+      "python3",
+      "-B",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/verify.py",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002/cases/BE-006/evidence-manifest.json",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002"
+    ],
+    "exit_code": 0,
+    "manifest_sha256": "3b3378926941474271e4178e0cb29f0456cf41784228c793fd310bd9f6ad19d0",
+    "validation": {
+      "status": "NOT RUN",
+      "missing_requirements": [
+        "Frozen executable assertions artifact",
+        "Reviewer assertion ownership frozen before implementation",
+        "Frozen candidate revision/hash evidence",
+        "All original required tests executed",
+        "All original criteria represented exactly",
+        "Passing clean baseline and post-mutation rerun",
+        "All required fault variants",
+        "Independent required Security review",
+        "Seven original score dimensions with evidence",
+        "Original Foundation score"
+      ],
+      "failures": [],
+      "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+    },
+    "application_execution": false
+  },
+  {
+    "evaluation_id": "BE-007",
+    "command": [
+      "python3",
+      "-B",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/verify.py",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002/cases/BE-007/evidence-manifest.json",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002"
+    ],
+    "exit_code": 0,
+    "manifest_sha256": "ff3f5d78ae938fc07855b4567eb9a1cf0e5356a01b8463a83a6e9e8abce6726b",
+    "validation": {
+      "status": "NOT RUN",
+      "missing_requirements": [
+        "Frozen executable assertions artifact",
+        "Reviewer assertion ownership frozen before implementation",
+        "Frozen candidate revision/hash evidence",
+        "All original required tests executed",
+        "All original criteria represented exactly",
+        "Passing clean baseline and post-mutation rerun",
+        "All required fault variants",
+        "Independent required Security review",
+        "Seven original score dimensions with evidence",
+        "Original Foundation score"
+      ],
+      "failures": [],
+      "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+    },
+    "application_execution": false
+  },
+  {
+    "evaluation_id": "BE-008",
+    "command": [
+      "python3",
+      "-B",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/verify.py",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002/cases/BE-008/evidence-manifest.json",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002"
+    ],
+    "exit_code": 0,
+    "manifest_sha256": "353ba3a2549444b2e94a6f9e6b92a1855a843cfa2575faa747d94dffac9a0327",
+    "validation": {
+      "status": "NOT RUN",
+      "missing_requirements": [
+        "Frozen executable assertions artifact",
+        "Reviewer assertion ownership frozen before implementation",
+        "Frozen candidate revision/hash evidence",
+        "All original required tests executed",
+        "All original criteria represented exactly",
+        "Passing clean baseline and post-mutation rerun",
+        "All required fault variants",
+        "Independent required Security review",
+        "Seven original score dimensions with evidence",
+        "Original Foundation score"
+      ],
+      "failures": [],
+      "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+    },
+    "application_execution": false
+  },
+  {
+    "evaluation_id": "BE-009",
+    "command": [
+      "python3",
+      "-B",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/verify.py",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002/cases/BE-009/evidence-manifest.json",
+      "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-002"
+    ],
+    "exit_code": 0,
+    "manifest_sha256": "c28cba8e97c863b3b1c2042ac4d63f81a7a74c8d3d04994311c30f491a79a9ab",
+    "validation": {
+      "status": "NOT RUN",
+      "missing_requirements": [
+        "Frozen executable assertions artifact",
+        "Reviewer assertion ownership frozen before implementation",
+        "Frozen candidate revision/hash evidence",
+        "All original required tests executed",
+        "All original criteria represented exactly",
+        "Passing clean baseline and post-mutation rerun",
+        "All required fault variants",
+        "Independent required Security review",
+        "Seven original score dimensions with evidence",
+        "Original Foundation score"
+      ],
+      "failures": [],
+      "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+    },
+    "application_execution": false
+  }
+]

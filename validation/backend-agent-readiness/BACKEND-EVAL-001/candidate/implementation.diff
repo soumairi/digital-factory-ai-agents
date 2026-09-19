@@ -1,0 +1,447 @@
+--- /dev/null	2026-09-19 15:15:01
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/app/Actions/EvalReserve.php	2026-09-19 15:15:00
+@@ -0,0 +1,13 @@
++<?php
++namespace App\Actions;
++use Illuminate\Support\Facades\DB;
++class EvalReserve {
++    public function execute(int $quantity): int {
++        if($quantity<1||$quantity>1000) throw new \InvalidArgumentException('Invalid quantity');
++        return DB::transaction(function() use($quantity) {
++            if(DB::table('inventory')->where('id',1)->where('stock','>=',$quantity)->decrement('stock',$quantity)!==1) throw new \DomainException('Insufficient stock');
++            if(app()->bound('eval.fail-between-writes')&&app('eval.fail-between-writes')===true) throw new \RuntimeException('Synthetic injected failure');
++            return DB::table('reservations')->insertGetId(['inventory_id'=>1,'quantity'=>$quantity]);
++        });
++    }
++}
+--- /dev/null	2026-09-19 15:15:01
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/app/Http/Controllers/EvalController.php	2026-09-19 15:15:00
+@@ -0,0 +1,66 @@
++<?php
++namespace App\Http\Controllers;
++use App\Actions\EvalReserve;
++use App\Http\Requests\EvalInput;
++use App\Models\EvalArticle;
++use App\Models\EvalProfile;
++use Illuminate\Http\Request;
++use Illuminate\Support\Facades\DB;
++use Illuminate\Support\Facades\Gate;
++class EvalController extends Controller {
++    private function notes(Request $r) { return DB::table('notes')->where('owner_id',$r->user()->id); }
++    private function noteFields(Request $r): array { return EvalInput::fields($r,['title'=>'required|string|min:1|max:100','body'=>'required|string|max:500']); }
++    public function noteCreate(Request $r) {
++        $data=$this->noteFields($r); $id=DB::table('notes')->insertGetId($data+['owner_id'=>$r->user()->id]);
++        return response()->json(['id'=>$id]+$data,201);
++    }
++    public function note(Request $r,int $id) {
++        $q=$this->notes($r)->where('id',$id); $n=$q->first(['id','title','body']); abort_unless($n,404);
++        if($r->isMethod('DELETE')) { $q->delete(); return response()->noContent(); }
++        if($r->isMethod('PATCH')) { $q->update($this->noteFields($r)); $n=$q->first(['id','title','body']); }
++        return response()->json($n);
++    }
++    public function product(Request $r) {
++        $data=EvalInput::fields($r,['name'=>'required|string|min:1|max:100','quantity'=>'required|integer|min:0|max:1000','description'=>'sometimes|string|max:500'],['quantity']);
++        $id=DB::table('products')->insertGetId($data); return response()->json(['id'=>$id]+$data,201);
++    }
++    public function report(Request $r,int $id) {
++        Gate::authorize($r->isMethod('PATCH')?'eval-edit-report':'eval-read-report');
++        $q=DB::table('reports')->where('id',$id); abort_unless($q->exists(),404);
++        if($r->isMethod('PATCH')) $q->update(EvalInput::fields($r,['title'=>'required|string|max:100']));
++        return response()->json($q->first(['id','title']));
++    }
++    private function documents(Request $r) { return DB::table('documents')->where('owner_id',$r->user()->id)->where('tenant_id',$r->user()->tenant_id); }
++    public function documentList(Request $r) { $q=$this->documents($r); return response()->json(['data'=>$q->orderBy('id')->limit(100)->get(['id','title']),'total'=>$q->count()]); }
++    public function document(Request $r,int $id) {
++        $q=$this->documents($r)->where('id',$id); abort_unless($q->exists(),404);
++        if($r->isMethod('PATCH')) $q->update(EvalInput::fields($r,['title'=>'required|string|max:100']));
++        return response()->json($q->first(['id','title']));
++    }
++    public function attachment(Request $r,int $id,int $child) {
++        abort_unless($this->documents($r)->where('id',$id)->exists(),404);
++        $a=DB::table('attachments')->where('document_id',$id)->where('id',$child)->first(['id','name']); abort_unless($a,404); return response()->json($a);
++    }
++    public function profile(Request $r) {
++        $data=EvalInput::fields($r,['display_name'=>'required|string|max:100']);
++        $p=EvalProfile::where('owner_id',$r->user()->id)->where('tenant_id',$r->user()->tenant_id)->firstOrFail();
++        $p->fill($data)->save(); return response()->json(['display_name'=>$p->display_name]);
++    }
++    public function reserve(Request $r,EvalReserve $reserve) {
++        $data=EvalInput::fields($r,['quantity'=>'required|integer|min:1|max:1000'],['quantity']);
++        try { return response()->json(['id'=>$reserve->execute($data['quantity'])],201); }
++        catch(\DomainException $e) { return response()->json(['message'=>'Insufficient stock.'],409); }
++        catch(\RuntimeException $e) { return response()->json(['message'=>'Reservation failed.'],500); }
++    }
++    public function records(Request $r) {
++        [$page,$size]=EvalInput::page($r); $q=DB::table('records')->where('owner_id',$r->user()->id);
++        return response()->json(['data'=>$q->orderBy('id')->forPage($page,$size)->get(['id','title']),'total'=>DB::table('records')->where('owner_id',$r->user()->id)->count()]);
++    }
++    public function articles(Request $r) {
++        [$page,$size]=EvalInput::page($r); $tenant=$r->user()->tenant_id;
++        $q=EvalArticle::where('tenant_id',$tenant)->with(['author'=>fn($q)=>$q->where('tenant_id',$tenant)->select('id','name'),'category'=>fn($q)=>$q->where('tenant_id',$tenant)->select('id','name')]);
++        $total=(clone $q)->count();
++        $data=$q->orderBy('id')->forPage($page,$size)->get(['id','title','author_id','category_id'])->map(fn($a)=>['id'=>$a->id,'title'=>$a->title,'author'=>$a->author?->only(['id','name']),'category'=>$a->category?->only(['id','name'])]);
++        return response()->json(['data'=>$data,'total'=>$total]);
++    }
++}
+--- /dev/null	2026-09-19 15:15:01
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/app/Http/Middleware/EvalAuthenticate.php	2026-09-19 15:15:00
+@@ -0,0 +1,12 @@
++<?php
++namespace App\Http\Middleware;
++use Closure;
++use Illuminate\Http\Request;
++use Illuminate\Support\Facades\Auth;
++class EvalAuthenticate {
++    public function handle(Request $request, Closure $next) {
++        Auth::forgetGuards();
++        $failure=Auth::guard('web')->onceBasic();
++        return $failure ?: $next($request);
++    }
++}
+--- /dev/null	2026-09-19 15:15:01
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/app/Http/Requests/EvalInput.php	2026-09-19 15:15:00
+@@ -0,0 +1,34 @@
++<?php
++namespace App\Http\Requests;
++use Illuminate\Http\Request;
++use Illuminate\Http\Exceptions\HttpResponseException;
++use Illuminate\Foundation\Http\FormRequest;
++use Illuminate\Contracts\Validation\Validator;
++class EvalInput extends FormRequest {
++    private array $schema=[];
++    public function authorize(): bool { return true; } // Real route authentication and resource/action checks run before fields().
++    public function rules(): array { return $this->schema; }
++    protected function failedValidation(Validator $validator): never { self::invalid(); }
++    public static function invalid(): never { throw new HttpResponseException(response()->json(['message'=>'Invalid input.'],422)); }
++    public static function fields(Request $r,array $rules,array $integers=[]): array {
++        $data=$r->all();
++        if(array_diff(array_keys($data),array_keys($rules))) self::invalid();
++        foreach($integers as $k) if(isset($data[$k])&&!is_int($data[$k])) self::invalid();
++        $form=self::createFrom($r);
++        $form->schema=$rules;
++        $form->setContainer(app());
++        $form->validateResolved();
++        return $form->validated();
++    }
++    public static function page(Request $r): array {
++        if(array_diff(array_keys($r->query()),['page','per_page'])) self::invalid();
++        $out=[];
++        foreach(['page'=>[1,1000000],'per_page'=>[20,100]] as $key=>[$default,$max]) {
++            $query=$r->query();
++            $value=array_key_exists($key,$query)?$query[$key]:(string)$default;
++            if(!is_string($value)||!preg_match('/^[1-9][0-9]*$/D',$value)||strlen($value)>7||(int)$value>$max) self::invalid();
++            $out[]=(int)$value;
++        }
++        return $out;
++    }
++}
+--- /dev/null	2026-09-19 15:15:01
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/app/Models/EvalArticle.php	2026-09-19 15:15:00
+@@ -0,0 +1,8 @@
++<?php
++namespace App\Models;
++use Illuminate\Database\Eloquent\Model;
++class EvalArticle extends Model {
++    protected $table='articles'; public $timestamps=false; protected $guarded=['*'];
++    public function author() { return $this->belongsTo(EvalAuthor::class,'author_id'); }
++    public function category() { return $this->belongsTo(EvalCategory::class,'category_id'); }
++}
+--- /dev/null	2026-09-19 15:15:01
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/app/Models/EvalAuthor.php	2026-09-19 15:15:00
+@@ -0,0 +1,4 @@
++<?php
++namespace App\Models;
++use Illuminate\Database\Eloquent\Model;
++class EvalAuthor extends Model { protected $table='authors'; public $timestamps=false; protected $guarded=['*']; }
+--- /dev/null	2026-09-19 15:15:01
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/app/Models/EvalCategory.php	2026-09-19 15:15:00
+@@ -0,0 +1,4 @@
++<?php
++namespace App\Models;
++use Illuminate\Database\Eloquent\Model;
++class EvalCategory extends Model { protected $table='categories'; public $timestamps=false; protected $guarded=['*']; }
+--- /dev/null	2026-09-19 15:15:01
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/app/Models/EvalProfile.php	2026-09-19 15:15:00
+@@ -0,0 +1,8 @@
++<?php
++namespace App\Models;
++use Illuminate\Database\Eloquent\Model;
++class EvalProfile extends Model {
++    protected $table='profiles';
++    public $timestamps=false;
++    protected $fillable=['display_name'];
++}
+--- /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/runs/RUN-002-US-BE-001/revision/source/app/Providers/AppServiceProvider.php	2026-09-19 14:36:31
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/app/Providers/AppServiceProvider.php	2026-09-19 15:15:00
+@@ -18,6 +18,8 @@
+ 
+     public function boot(): void
+     {
++        Gate::define('eval-read-report', fn (User $user): bool => in_array($user->role, ['reader', 'editor'], true));
++        Gate::define('eval-edit-report', fn (User $user): bool => $user->role === 'editor');
+         Gate::define('list-customers', fn (User $user): bool => $user->is_admin === true);
+         RateLimiter::for('customer-list', fn (Request $request) => Limit::perMinute(60)->by($request->ip()));
+     }
+--- /dev/null	2026-09-19 15:15:01
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/preflight/concurrency.php	2026-09-19 15:15:00
+@@ -0,0 +1,44 @@
++<?php
++// Disposable SQLite process race. No external service or customer data.
++use Illuminate\Contracts\Console\Kernel;
++use Illuminate\Support\Facades\DB;
++require __DIR__.'/../vendor/autoload.php';
++$app=require __DIR__.'/../bootstrap/app.php';
++$app->make(Kernel::class)->bootstrap();
++if (!str_starts_with(realpath(__DIR__.'/../..'), '/private/tmp/backend-eval-001-')) throw new RuntimeException('Wrong sandbox');
++$mode=$argv[1]??'parent';
++if($mode==='worker') {
++    $db=$argv[2]; $slot=$argv[3];
++    if(dirname($db)!==realpath(__DIR__.'/../..') || !str_starts_with(basename($db),'race-')) throw new RuntimeException('Wrong database');
++    config(['database.connections.sqlite.database'=>$db]); DB::purge('sqlite'); DB::statement('PRAGMA busy_timeout = 5000');
++    touch($db.'.ready-'.$slot);
++    $deadline=microtime(true)+10;
++    while(!file_exists($db.'.go')) { if(microtime(true)>$deadline) throw new RuntimeException('Barrier timed out'); usleep(1000); }
++    try { $id=app(\App\Actions\EvalReserve::class)->execute(7); echo json_encode(['status'=>201,'id'=>$id]); }
++    catch(DomainException $e) { echo json_encode(['status'=>409]); }
++    exit;
++}
++$results=[];
++for($round=0;$round<5;$round++) {
++    $db=realpath(__DIR__.'/../..').'/race-'.bin2hex(random_bytes(8)).'.sqlite';
++    $pdo=new PDO('sqlite:'.$db);
++    $pdo->exec('CREATE TABLE inventory (id INTEGER PRIMARY KEY, stock INTEGER NOT NULL CHECK(stock >= 0)); CREATE TABLE reservations (id INTEGER PRIMARY KEY, inventory_id INTEGER NOT NULL, quantity INTEGER NOT NULL); INSERT INTO inventory VALUES(1,10)');
++    $children=[];
++    foreach([1,2] as $slot) {
++        $pipes=[];
++        $process=proc_open([PHP_BINARY,'-n',__FILE__,'worker',$db,(string)$slot],[0=>['pipe','r'],1=>['pipe','w'],2=>['pipe','w']],$pipes,dirname(__DIR__));
++        fclose($pipes[0]); $children[]=[$process,$pipes];
++    }
++    $deadline=microtime(true)+10;
++    while(!file_exists($db.'.ready-1')||!file_exists($db.'.ready-2')) { if(microtime(true)>$deadline) throw new RuntimeException('Workers not ready'); usleep(1000); }
++    touch($db.'.go'); $statuses=[];
++    foreach($children as [$process,$pipes]) {
++        $out=stream_get_contents($pipes[1]);$err=stream_get_contents($pipes[2]);fclose($pipes[1]);fclose($pipes[2]);$code=proc_close($process);
++        if($code!==0||$err!=='') throw new RuntimeException('Worker failure');
++        $statuses[]=json_decode($out,true,512,JSON_THROW_ON_ERROR)['status'];
++    }
++    sort($statuses);$stock=(int)$pdo->query('SELECT stock FROM inventory')->fetchColumn();$count=(int)$pdo->query('SELECT COUNT(*) FROM reservations')->fetchColumn();
++    if($statuses!==[201,409]||$stock!==3||$count!==1) throw new RuntimeException('Concurrency invariant failed');
++    $results[]=['round'=>$round+1,'statuses'=>$statuses,'stock'=>$stock,'reservation_count'=>$count];
++}
++echo json_encode(['engine'=>'SQLite','competing_processes'=>2,'barrier'=>'Both workers ready before release','results'=>$results],JSON_PRETTY_PRINT).PHP_EOL;
+--- /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/runs/RUN-002-US-BE-001/revision/source/preflight/run.py	2026-09-19 14:36:31
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/preflight/run.py	2026-09-19 15:15:00
+@@ -7,7 +7,7 @@
+     raise SystemExit('Refusing unreviewed env or cached configuration')
+ env={'PATH':'/usr/bin:/bin','HOME':str(root.parent),'TMPDIR':str(root.parent),'APP_ENV':'testing','APP_DEBUG':'false','APP_URL':'http://localhost','APP_KEY':'base64:'+base64.b64encode(os.urandom(32)).decode(),'DB_CONNECTION':'sqlite','DB_DATABASE':':memory:','DB_URL':'','CACHE_STORE':'array','SESSION_DRIVER':'array','MAIL_MAILER':'array','QUEUE_CONNECTION':'sync','QUEUE_FAILED_DRIVER':'null','BROADCAST_CONNECTION':'null','FILESYSTEM_DISK':'local','LOG_CHANNEL':'single','LOG_LEVEL':'warning','BCRYPT_ROUNDS':'4','PULSE_ENABLED':'false','TELESCOPE_ENABLED':'false','NIGHTWATCH_ENABLED':'false'}
+ mode=sys.argv[1] if len(sys.argv)>1 else ''
+-commands={'inspect':['preflight/inspect.php'],'test-list':['vendor/bin/phpunit','--list-tests'],'test':['vendor/bin/phpunit'],'format-check':['vendor/bin/pint','--test'],'routes':['artisan','route:list','--json']}
++commands={'concurrency':['preflight/concurrency.php'],'inspect':['preflight/inspect.php'],'test-list':['vendor/bin/phpunit','--list-tests'],'test':['vendor/bin/phpunit'],'format-check':['vendor/bin/pint','--test'],'routes':['artisan','route:list','--json']}
+ if mode not in commands or len(sys.argv)!=2:raise SystemExit('Allowed modes: '+', '.join(commands))
+ cmd=[php,'-n','-d','sys_temp_dir='+str(root.parent)]+commands[mode]
+ raise SystemExit(subprocess.call(cmd,cwd=root,env=env))
+--- /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/runs/RUN-002-US-BE-001/revision/source/routes/api.php	2026-09-19 14:36:31
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/routes/api.php	2026-09-19 15:15:00
+@@ -6,3 +6,18 @@
+ 
+ Route::get('/customers', ListCustomersController::class)
+     ->middleware(['throttle:customer-list', AuthenticateCustomerList::class]);
++
++Route::prefix('eval')->middleware([\App\Http\Middleware\EvalAuthenticate::class])->group(function() {
++    $c=\App\Http\Controllers\EvalController::class;
++    Route::post('notes',[$c,'noteCreate']);
++    Route::match(['GET','PATCH','DELETE'],'notes/{id}',[$c,'note'])->whereNumber('id');
++    Route::post('products',[$c,'product']);
++    Route::match(['GET','PATCH'],'report/{id}',[$c,'report'])->whereNumber('id');
++    Route::get('documents',[$c,'documentList']);
++    Route::match(['GET','PATCH'],'documents/{id}',[$c,'document'])->whereNumber('id');
++    Route::get('documents/{id}/attachments/{child}',[$c,'attachment'])->whereNumber(['id','child']);
++    Route::patch('profile',[$c,'profile']);
++    Route::post('reservations',[$c,'reserve']);
++    Route::get('records',[$c,'records']);
++    Route::get('articles',[$c,'articles']);
++});
+--- /dev/null	2026-09-19 15:15:01
++++ /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/candidate/final/tests/Feature/CampaignTest.php	2026-09-19 15:15:00
+@@ -0,0 +1,181 @@
++<?php
++namespace Tests\Feature;
++
++use App\Models\User;
++use Illuminate\Database\Schema\Blueprint;
++use Illuminate\Support\Facades\DB;
++use Illuminate\Support\Facades\Schema;
++use Tests\TestCase;
++
++class CampaignTest extends TestCase
++{
++    private array $actors = [];
++    private string $password;
++    protected function setUp(): void
++    {
++        parent::setUp();
++        $this->assertSame(':memory:', config('database.connections.sqlite.database'));
++        $this->assertSame('sqlite', config('database.default'));
++        $this->assertFalse(config('app.debug'));
++        (require database_path('migrations/0001_01_01_000000_create_users_table.php'))->up();
++        (require database_path('migrations/2026_09_19_000001_add_customer_listing.php'))->up();
++        Schema::table('users', function(Blueprint $t) { $t->integer('tenant_id')->default(1); $t->string('role')->default('reader'); });
++        foreach (['notes','products','reports','documents','attachments','profiles','inventory','reservations','records','authors','categories','articles'] as $name) {
++            Schema::create($name, function(Blueprint $t) use ($name) {
++                $t->id();
++                if (in_array($name,['notes','documents','profiles','records'])) $t->integer('owner_id');
++                if (in_array($name,['documents','profiles','authors','categories','articles'])) $t->integer('tenant_id');
++                if (in_array($name,['notes','reports','documents','records','articles'])) $t->string('title');
++                if ($name==='notes') $t->text('body');
++                if ($name==='products') { $t->string('name'); $t->integer('quantity'); $t->text('description')->nullable(); }
++                if ($name==='attachments') { $t->integer('document_id'); $t->string('name'); }
++                if ($name==='profiles') { $t->string('display_name'); $t->string('role'); $t->boolean('is_admin')->default(false); }
++                if ($name==='inventory') $t->integer('stock');
++                if ($name==='reservations') { $t->integer('inventory_id'); $t->integer('quantity'); }
++                if (in_array($name,['authors','categories'])) $t->string('name');
++                if ($name==='articles') { $t->integer('author_id'); $t->integer('category_id'); }
++            });
++        }
++        $this->password=bin2hex(random_bytes(20));
++        for ($i=1;$i<=4;$i++) {
++            $u=new User; $u->name='Synthetic '.$i; $u->email="actor$i@example.test"; $u->password=$this->password;
++            $u->tenant_id=$i<=2?1:2; $u->role=$i===2?'editor':'reader'; $u->save(); $this->actors[$i]=$u;
++            DB::table('documents')->insert(['id'=>$i,'owner_id'=>$i,'tenant_id'=>$u->tenant_id,'title'=>"Document$i"]);
++            DB::table('attachments')->insert(['id'=>$i,'document_id'=>$i,'name'=>"Attachment$i"]);
++            DB::table('profiles')->insert(['id'=>$i,'owner_id'=>$i,'tenant_id'=>$u->tenant_id,'display_name'=>"Profile$i",'role'=>$u->role,'is_admin'=>false]);
++        }
++        DB::table('reports')->insert(['id'=>1,'title'=>'Report']);
++        DB::table('inventory')->insert(['id'=>1,'stock'=>10]);
++    }
++    private function req(string $method,string $path,array $data=[],?int $actor=1) {
++        // Forget guard state to exercise real Basic authentication on every request.
++        app('auth')->forgetGuards();
++        $headers=$actor===null?[]:['PHP_AUTH_USER'=>$this->actors[$actor]->email,'PHP_AUTH_PW'=>$this->password];
++        return $this->json($method,'/api/eval/'.$path,$data,$headers);
++    }
++    public function test_BE001_crud_owner_scope_and_missing_resources(): void {
++        $r=$this->req('POST','notes',['title'=>'Note','body'=>'Body'])->assertCreated(); $id=$r->json('id');
++        $this->assertSame(['id','title','body'],array_keys($r->json()));
++        $this->assertDatabaseHas('notes',['id'=>$id,'owner_id'=>1]);
++        $this->req('GET',"notes/$id")->assertExactJson(['id'=>$id,'title'=>'Note','body'=>'Body']);
++        foreach(['GET','PATCH','DELETE'] as $m) $this->req($m,"notes/$id",['title'=>'Foreign','body'=>'x'],2)->assertNotFound()->assertJsonMissingPath('title');
++        $this->assertDatabaseHas('notes',['id'=>$id,'title'=>'Note','owner_id'=>1]);
++        $this->req('PATCH',"notes/$id",['title'=>'Updated','body'=>'New'])->assertOk();
++        $this->assertDatabaseHas('notes',['id'=>$id,'title'=>'Updated','body'=>'New']);
++        $this->req('DELETE',"notes/$id")->assertNoContent(); $this->assertDatabaseMissing('notes',['id'=>$id]);
++        foreach(['GET','PATCH','DELETE'] as $m) $this->req($m,"notes/$id",['title'=>'x','body'=>'x'])->assertNotFound();
++    }
++    public function test_BE002_strict_boundaries_unknown_nested_hostile_and_no_writes(): void {
++        foreach ([['name'=>'x','quantity'=>0],['name'=>str_repeat('x',100),'quantity'=>1000,'description'=>str_repeat('d',500)]] as $v) $this->req('POST','products',$v)->assertCreated();
++        $valid=['name'=>'x','quantity'=>1];
++        $bad=[[],['name'=>'x'],['quantity'=>1],['name'=>'','quantity'=>1],['name'=>123,'quantity'=>1],['name'=>str_repeat('x',101),'quantity'=>1]];
++        foreach([-1,1001,1.5,'1',true,null,[],"1 OR 1=1",'<script>'] as $q) $bad[]=['name'=>'x','quantity'=>$q];
++        foreach([['description'=>str_repeat('d',501)],['description'=>['nested'=>'x']],['extra'=>1],['name'=>['nested'=>'x']],['quantity'=>['value'=>1]],['role'=>'admin']] as $extra) $bad[]=array_merge($valid,$extra);
++        foreach($bad as $payload) {
++            $before=DB::table('products')->get()->toJson();
++            $this->req('POST','products',$payload)->assertStatus(422)->assertExactJson(['message'=>'Invalid input.']);
++            $this->assertSame($before,DB::table('products')->get()->toJson());
++        }
++        $this->req('POST','products',['name'=>"' OR 1=1 -- <script>",'quantity'=>1])->assertCreated();
++        $this->assertDatabaseCount('products',3);
++        app('auth')->forgetGuards();
++        $this->call('POST','/api/eval/products',[],[],[],['CONTENT_TYPE'=>'application/json','HTTP_ACCEPT'=>'application/json','PHP_AUTH_USER'=>$this->actors[1]->email,'PHP_AUTH_PW'=>$this->password],'{broken')->assertStatus(422)->assertDontSee('trace');
++        $this->assertDatabaseCount('products',3);
++    }
++    public function test_BE003_real_authentication_and_action_gates(): void {
++        foreach(['GET','PATCH'] as $m) $this->req($m,'report/1',['title'=>'x'],null)->assertUnauthorized();
++        $this->req('GET','report/1')->assertOk()->assertJsonPath('title','Report');
++        $this->req('PATCH','report/1',['title'=>'attack','role'=>'editor'])->assertForbidden();
++        $this->assertDatabaseHas('reports',['id'=>1,'title'=>'Report']);
++        $this->req('GET','report/1',[],2)->assertOk();
++        $this->req('PATCH','report/1',['title'=>'Edited'],2)->assertOk();
++        $this->assertDatabaseHas('reports',['id'=>1,'title'=>'Edited']);
++        app('auth')->forgetGuards();
++        $this->json('GET','/api/eval/report/1',[],['PHP_AUTH_USER'=>$this->actors[1]->email,'PHP_AUTH_PW'=>'synthetic-wrong'])->assertUnauthorized();
++        $this->req('GET','report/1',[],null)->assertUnauthorized();
++    }
++    public function test_BE004_same_tenant_cross_tenant_nested_lists_and_unchanged_state(): void {
++        for($actor=1;$actor<=4;$actor++) {
++            $this->req('GET','documents',[],$actor)->assertExactJson(['data'=>[['id'=>$actor,'title'=>"Document$actor"]],'total'=>1]);
++            $this->req('GET',"documents/$actor",[],$actor)->assertOk();
++            $this->req('GET',"documents/$actor/attachments/$actor",[],$actor)->assertExactJson(['id'=>$actor,'name'=>"Attachment$actor"]);
++            $this->req('PATCH',"documents/$actor",['title'=>"Document$actor"],$actor)->assertOk();
++            foreach(array_diff([1,2,3,4],[$actor]) as $foreign) {
++                $before=DB::table('documents')->get()->toJson();
++                $this->req('GET',"documents/$foreign",[],$actor)->assertNotFound()->assertJsonMissingPath('title');
++                $this->req('PATCH',"documents/$foreign",['title'=>'attack'],$actor)->assertNotFound();
++                $this->req('GET',"documents/$actor/attachments/$foreign",[],$actor)->assertNotFound()->assertJsonMissingPath('name');
++                $this->assertSame($before,DB::table('documents')->get()->toJson());
++            }
++        }
++    }
++    public function test_BE005_protected_fields_and_alternate_paths(): void {
++        $this->req('PATCH','profile',['display_name'=>'Valid'])->assertExactJson(['display_name'=>'Valid']);
++        foreach(['role'=>'editor','is_admin'=>true,'owner_id'=>2,'tenant_id'=>2,'profile'=>['role'=>'editor'],'attributes'=>['is_admin'=>true],'profile.role'=>'editor'] as $k=>$v) {
++            $before=DB::table('profiles')->get()->toJson();
++            $this->req('PATCH','profile',['display_name'=>'Attack',$k=>$v])->assertStatus(422)->assertExactJson(['message'=>'Invalid input.']);
++            $this->assertSame($before,DB::table('profiles')->get()->toJson());
++        }
++        $profile=\App\Models\EvalProfile::find(1); $profile->fill(['display_name'=>'Model','role'=>'editor','is_admin'=>true,'owner_id'=>2,'tenant_id'=>2]); $profile->save();
++        $this->assertDatabaseHas('profiles',['id'=>1,'display_name'=>'Model','role'=>'reader','is_admin'=>false,'owner_id'=>1,'tenant_id'=>1]);
++    }
++    public function test_BE006_success_shortage_rollback_and_repeat(): void {
++        $this->req('POST','reservations',['quantity'=>3])->assertCreated();
++        $this->assertDatabaseHas('inventory',['id'=>1,'stock'=>7]); $this->assertDatabaseCount('reservations',1);
++        app()->instance('eval.fail-between-writes',true);
++        $this->req('POST','reservations',['quantity'=>2])->assertStatus(500)->assertExactJson(['message'=>'Reservation failed.']);
++        $this->assertDatabaseHas('inventory',['id'=>1,'stock'=>7]); $this->assertDatabaseCount('reservations',1);
++        app()->instance('eval.fail-between-writes',false);
++        $this->req('POST','reservations',['quantity'=>8])->assertStatus(409); $this->assertDatabaseCount('reservations',1);
++        $this->req('POST','reservations',['quantity'=>7])->assertCreated();
++        $this->req('POST','reservations',['quantity'=>7])->assertStatus(409);
++        $this->assertDatabaseHas('inventory',['id'=>1,'stock'=>0]); $this->assertDatabaseCount('reservations',2);
++        $this->assertSame(10,(int)DB::table('reservations')->sum('quantity'));
++    }
++    public function test_BE007_pagination_traversal_scope_and_resource_limits(): void {
++        for($i=1;$i<=250;$i++) DB::table('records')->insert(['id'=>$i,'owner_id'=>$i%2?1:2,'title'=>"Record$i"]);
++        $this->req('GET','records')->assertOk()->assertJsonCount(20,'data')->assertJsonPath('total',125);
++        $this->req('GET','records?per_page=100')->assertOk()->assertJsonCount(100,'data');
++        $ids=[];
++        for($page=1;$page<=7;$page++) $ids=array_merge($ids,array_column($this->req('GET',"records?page=$page")->assertOk()->json('data'),'id'));
++        $this->assertSame(range(1,249,2),$ids);
++        $this->req('GET','records?page=1000000')->assertOk()->assertJsonCount(0,'data')->assertJsonPath('total',125);
++        $this->req('GET','records',[],2)->assertJsonPath('total',125)->assertJsonPath('data.0.id',2);
++        foreach(['page=0','page=-1','page=1.5','page[]=1','page=01','page=1000001','per_page=101','per_page=0','per_page=1000000000000','per_page=1e2','per_page=abc','per_page=','owner_id=2'] as $q) $this->req('GET',"records?$q")->assertStatus(422);
++        $this->assertDatabaseCount('records',250);
++    }
++    public function test_BE008_relationship_query_budget_and_correct_serialization(): void {
++        foreach([1,2] as $tenant) {
++            DB::table('authors')->insert(['id'=>$tenant,'tenant_id'=>$tenant,'name'=>"Author$tenant"]);
++            DB::table('categories')->insert(['id'=>$tenant,'tenant_id'=>$tenant,'name'=>"Category$tenant"]);
++            for($i=0;$i<55;$i++) DB::table('articles')->insert(['tenant_id'=>$tenant,'title'=>"Article$i",'author_id'=>$tenant,'category_id'=>$tenant]);
++        }
++        // Same-tenant article must never disclose a foreign relation.
++        DB::table('articles')->insert(['tenant_id'=>1,'title'=>'Mismatch','author_id'=>2,'category_id'=>2]);
++        foreach([5,50] as $size) {
++            DB::enableQueryLog(); DB::flushQueryLog();
++            $r=$this->req('GET',"articles?per_page=$size")->assertOk()->assertJsonCount($size,'data')->assertJsonPath('total',56);
++            $queries=array_filter(DB::getQueryLog(),fn($q)=>str_starts_with(strtolower($q['query']),'select')&&!str_contains($q['query'],'"users"'));
++            $rel=array_filter($queries,fn($q)=>str_contains($q['query'],'"authors"')||str_contains($q['query'],'"categories"'));
++            $this->assertLessThanOrEqual(4,count($queries)); $this->assertLessThanOrEqual(2,count($rel));
++            foreach($r->json('data') as $a) { $this->assertSame(['id','title','author','category'],array_keys($a)); $this->assertSame(['id'=>1,'name'=>'Author1'],$a['author']); $this->assertSame(['id'=>1,'name'=>'Category1'],$a['category']); }
++            fwrite(STDOUT,"\nQUERY_EVIDENCE size=$size domain=".count($queries).' relationships='.count($rel)."\n");
++        }
++        $this->req('GET','articles?page=2&per_page=50')->assertJsonPath('data.5.author',null)->assertJsonPath('data.5.category',null);
++        $this->req('GET','articles?per_page=101')->assertStatus(422);
++    }
++    public function test_BE009_six_negative_categories_and_methods(): void {
++        $id=$this->req('POST','notes',['title'=>'Safe','body'=>'Body'])->assertCreated()->json('id');
++        foreach(['GET','PATCH','DELETE'] as $m) {
++            $this->req($m,"notes/$id",['title'=>'x','body'=>'x'],null)->assertUnauthorized();
++            $this->req($m,"notes/$id",['title'=>'x','body'=>'x'],2)->assertNotFound();
++        }
++        $this->req('PATCH','report/1',['title'=>'Attack'])->assertForbidden();
++        foreach([[],['title'=>[],'body'=>'x'],['title'=>'x','body'=>str_repeat('x',501)],['title'=>'x','body'=>'x','owner_id'=>2],['title'=>'x','body'=>'x','role'=>'editor']] as $payload) $this->req('PATCH',"notes/$id",$payload)->assertStatus(422);
++        $this->req('GET','notes/1%20OR%201=1')->assertNotFound();
++        $this->req('PUT',"notes/$id",['title'=>'Attack'])->assertStatus(405);
++        $this->assertDatabaseHas('notes',['id'=>$id,'title'=>'Safe','body'=>'Body','owner_id'=>1]);
++        $this->assertDatabaseHas('reports',['id'=>1,'title'=>'Report']);
++        $this->assertDatabaseCount('notes',1);
++    }
++}

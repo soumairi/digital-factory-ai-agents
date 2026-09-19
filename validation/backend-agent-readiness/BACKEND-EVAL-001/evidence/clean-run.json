@@ -1,0 +1,14 @@
+{
+  "cwd": "/private/tmp/backend-eval-001-0v7ydh55/app",
+  "command": [
+    "/opt/homebrew/opt/php@8.3/bin/php",
+    "-n",
+    "-d",
+    "sys_temp_dir=/private/tmp/backend-eval-001-0v7ydh55",
+    "vendor/bin/phpunit",
+    "--colors=never",
+    "--log-junit",
+    "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/evidence/clean-junit.xml"
+  ],
+  "exit_code": 0
+}

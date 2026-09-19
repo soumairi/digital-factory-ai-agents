@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "validation/backend-agent-readiness/BACKEND-EVAL-001/campaign/replay.py",
+    "/private/tmp/backend-eval-001-0v7ydh55/app/vendor"
+  ],
+  "exit_code": 0,
+  "log": "evidence/replay.txt",
+  "result": "57 tests / 951 assertions pass; 5 competing-process SQLite rounds pass",
+  "independent": false,
+  "purpose": "Verify retained source can reproduce clean evidence in a fresh disposable copy"
+}

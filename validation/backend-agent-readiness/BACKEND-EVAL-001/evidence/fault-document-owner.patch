@@ -1,0 +1,11 @@
+--- /private/tmp/backend-eval-001-0v7ydh55/app/app/Http/Controllers/EvalController.php	2026-09-19 15:09:16
++++ /private/tmp/backend-eval-001-0v7ydh55/fault-document-owner/app/Http/Controllers/EvalController.php	2026-09-19 15:13:47
+@@ -30,7 +30,7 @@
+         if($r->isMethod('PATCH')) $q->update(EvalInput::fields($r,['title'=>'required|string|max:100']));
+         return response()->json($q->first(['id','title']));
+     }
+-    private function documents(Request $r) { return DB::table('documents')->where('owner_id',$r->user()->id)->where('tenant_id',$r->user()->tenant_id); }
++    private function documents(Request $r) { return DB::table('documents')->where('tenant_id',$r->user()->tenant_id); }
+     public function documentList(Request $r) { $q=$this->documents($r); return response()->json(['data'=>$q->orderBy('id')->limit(100)->get(['id','title']),'total'=>$q->count()]); }
+     public function document(Request $r,int $id) {
+         $q=$this->documents($r)->where('id',$id); abort_unless($q->exists(),404);

@@ -1,0 +1,11 @@
+--- /private/tmp/backend-eval-001-0v7ydh55/app/app/Http/Controllers/EvalController.php	2026-09-19 15:09:16
++++ /private/tmp/backend-eval-001-0v7ydh55/fault-n-plus-one/app/Http/Controllers/EvalController.php	2026-09-19 15:11:39
+@@ -58,7 +58,7 @@
+     }
+     public function articles(Request $r) {
+         [$page,$size]=EvalInput::page($r); $tenant=$r->user()->tenant_id;
+-        $q=EvalArticle::where('tenant_id',$tenant)->with(['author'=>fn($q)=>$q->where('tenant_id',$tenant)->select('id','name'),'category'=>fn($q)=>$q->where('tenant_id',$tenant)->select('id','name')]);
++        $q=EvalArticle::where('tenant_id',$tenant);
+         $total=(clone $q)->count();
+         $data=$q->orderBy('id')->forPage($page,$size)->get(['id','title','author_id','category_id'])->map(fn($a)=>['id'=>$a->id,'title'=>$a->title,'author'=>$a->author?->only(['id','name']),'category'=>$a->category?->only(['id','name'])]);
+         return response()->json(['data'=>$data,'total'=>$total]);

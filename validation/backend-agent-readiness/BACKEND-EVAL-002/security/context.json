@@ -1,0 +1,45 @@
+{
+  "role": "Security Reviewer",
+  "campaign_id": "BACKEND-EVAL-002",
+  "context_id": "/root/eval002_security",
+  "evaluation_ids": [
+    "BE-001",
+    "BE-002",
+    "BE-003",
+    "BE-004",
+    "BE-005",
+    "BE-006",
+    "BE-007",
+    "BE-008",
+    "BE-009"
+  ],
+  "scope": "Read-only security prerequisite and adapter preflight; executable availability discovery only. No candidate security clearance.",
+  "permissions": {
+    "read": [
+      "Foundation policies/specifications/fixtures",
+      "historical adapter inventory",
+      "local executable paths and version output"
+    ],
+    "write": [
+      "validation/backend-agent-readiness/BACKEND-EVAL-002/security/preflight-review.md",
+      "validation/backend-agent-readiness/BACKEND-EVAL-002/security/context.json"
+    ],
+    "prohibited": [
+      "Foundation/history modification",
+      "application execution",
+      "DB connection",
+      "Docker service connection",
+      "production access",
+      "candidate implementation or mutation"
+    ]
+  },
+  "started_at_utc": "2026-09-19T14:49:47Z",
+  "completed_at_utc": "2026-09-19T14:52:02.075115Z",
+  "start_evidence": "Coordinator assignment delivered through collaboration NEW_TASK to canonical context /root/eval002_security; clock tool read 2026-09-19 14:49:47 UTC.",
+  "completion_evidence": "Preflight report and this context record written; no candidate execution occurred. Completion returned to coordinator through collaboration.",
+  "separation": "Distinct delegated AI execution context; coordinator must verify execution separation. Context string is not cryptographic proof.",
+  "candidate_hash": null,
+  "security_gate": "INCOMPLETE",
+  "candidate_review_executed": false,
+  "candidate_review_result": "NOT RUN"
+}

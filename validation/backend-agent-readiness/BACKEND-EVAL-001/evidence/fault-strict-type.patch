@@ -1,0 +1,11 @@
+--- /private/tmp/backend-eval-001-0v7ydh55/app/app/Http/Requests/EvalInput.php	2026-09-19 15:10:11
++++ /private/tmp/backend-eval-001-0v7ydh55/fault-strict-type/app/Http/Requests/EvalInput.php	2026-09-19 15:11:34
+@@ -13,7 +13,7 @@
+     public static function fields(Request $r,array $rules,array $integers=[]): array {
+         $data=$r->all();
+         if(array_diff(array_keys($data),array_keys($rules))) self::invalid();
+-        foreach($integers as $k) if(isset($data[$k])&&!is_int($data[$k])) self::invalid();
++        foreach($integers as $k) if(isset($data[$k])&&!is_scalar($data[$k])) self::invalid();
+         $form=self::createFrom($r);
+         $form->schema=$rules;
+         $form->setContainer(app());

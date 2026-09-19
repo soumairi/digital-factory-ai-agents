@@ -1,0 +1,14 @@
+--- /private/tmp/backend-eval-001-0v7ydh55/app/app/Http/Controllers/EvalController.php	2026-09-19 15:09:16
++++ /private/tmp/backend-eval-001-0v7ydh55/fault-protected-field/app/Http/Controllers/EvalController.php	2026-09-19 15:11:36
+@@ -42,9 +42,9 @@
+         $a=DB::table('attachments')->where('document_id',$id)->where('id',$child)->first(['id','name']); abort_unless($a,404); return response()->json($a);
+     }
+     public function profile(Request $r) {
+-        $data=EvalInput::fields($r,['display_name'=>'required|string|max:100']);
++        $data=$r->all();
+         $p=EvalProfile::where('owner_id',$r->user()->id)->where('tenant_id',$r->user()->tenant_id)->firstOrFail();
+-        $p->fill($data)->save(); return response()->json(['display_name'=>$p->display_name]);
++        $p->forceFill($data)->save(); return response()->json(['display_name'=>$p->display_name]);
+     }
+     public function reserve(Request $r,EvalReserve $reserve) {
+         $data=EvalInput::fields($r,['quantity'=>'required|integer|min:1|max:1000'],['quantity']);

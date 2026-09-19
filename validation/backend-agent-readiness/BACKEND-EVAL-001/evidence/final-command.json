@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python3",
+    "validation/backend-agent-readiness/BACKEND-EVAL-001/campaign/run-evidence.py",
+    "/private/tmp/backend-eval-001-0v7ydh55/app",
+    "--log-junit",
+    "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/evidence/final-junit.xml"
+  ],
+  "cwd": "/Users/mouhssinesoumairi/digital-factory-ai-agents",
+  "exit_code": 0,
+  "stdout_stderr": "evidence/final-tests.txt",
+  "candidate_revision": "sha256:d4b2c4e3897fd15bbd3e9c7276e8209f3cbd49c60a5331124547f33a7b37620c",
+  "framework_command": [
+    "/opt/homebrew/opt/php@8.3/bin/php",
+    "-n",
+    "-d",
+    "sys_temp_dir=/private/tmp/backend-eval-001-0v7ydh55",
+    "vendor/bin/phpunit",
+    "--colors=never",
+    "--log-junit",
+    "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-001/evidence/final-junit.xml"
+  ],
+  "environment": "Allowlisted in campaign/run-evidence.py; no credential values captured"
+}

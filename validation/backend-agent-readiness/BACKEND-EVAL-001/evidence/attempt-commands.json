@@ -1,0 +1,26 @@
+[
+  {
+    "attempt": 1,
+    "command": [
+      "python3",
+      "/private/tmp/backend-eval-001-0v7ydh55/app/preflight/run.py",
+      "test"
+    ],
+    "cwd": "/Users/mouhssinesoumairi/digital-factory-ai-agents",
+    "exit_code": 1,
+    "log": "evidence/attempt-1.txt",
+    "candidate": "candidate/initial overlay on archived RUN-002 source"
+  },
+  {
+    "attempt": 2,
+    "command": [
+      "python3",
+      "/private/tmp/backend-eval-001-0v7ydh55/app/preflight/run.py",
+      "test"
+    ],
+    "cwd": "/Users/mouhssinesoumairi/digital-factory-ai-agents",
+    "exit_code": 0,
+    "log": "evidence/attempt-2.txt",
+    "candidate": "candidate/final application source; before concurrency helper addition"
+  }
+]

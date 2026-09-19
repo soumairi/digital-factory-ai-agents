@@ -1,0 +1,67 @@
+Disposable replay: /private/tmp/backend-eval-001-replay-5j679nh0/app
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/backend-eval-001-replay-5j679nh0/app/phpunit.xml
+
+........
+QUERY_EVIDENCE size=5 domain=4 relationships=2
+
+QUERY_EVIDENCE size=50 domain=4 relationships=2
+.................................................         57 / 57 (100%)
+
+Time: 00:15.672, Memory: 50.50 MB
+
+OK (57 tests, 951 assertions)
+{
+    "engine": "SQLite",
+    "competing_processes": 2,
+    "barrier": "Both workers ready before release",
+    "results": [
+        {
+            "round": 1,
+            "statuses": [
+                201,
+                409
+            ],
+            "stock": 3,
+            "reservation_count": 1
+        },
+        {
+            "round": 2,
+            "statuses": [
+                201,
+                409
+            ],
+            "stock": 3,
+            "reservation_count": 1
+        },
+        {
+            "round": 3,
+            "statuses": [
+                201,
+                409
+            ],
+            "stock": 3,
+            "reservation_count": 1
+        },
+        {
+            "round": 4,
+            "statuses": [
+                201,
+                409
+            ],
+            "stock": 3,
+            "reservation_count": 1
+        },
+        {
+            "round": 5,
+            "statuses": [
+                201,
+                409
+            ],
+            "stock": 3,
+            "reservation_count": 1
+        }
+    ]
+}

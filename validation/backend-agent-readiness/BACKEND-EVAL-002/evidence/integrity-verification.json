@@ -1,0 +1,14 @@
+{
+  "foundation": "UNCHANGED",
+  "foundation_files": 111,
+  "foundation_inventory_equal": true,
+  "history": "UNCHANGED",
+  "historical_files": 268,
+  "historical_inventory_equal": true,
+  "historical_results": {
+    "PASS": 0,
+    "FAIL": 0,
+    "PARTIAL": 9
+  },
+  "checked_at": "2026-09-19T14:55:11.760067+00:00"
+}

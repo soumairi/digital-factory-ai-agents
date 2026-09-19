@@ -1,0 +1,18 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/backend-eval-001-0v7ydh55/fault-n-plus-one/phpunit.xml
+
+F                                                                   1 / 1 (100%)
+
+Time: 00:00.077, Memory: 40.50 MB
+
+There was 1 failure:
+
+1) Tests\Feature\CampaignTest::test_BE008_relationship_query_budget_and_correct_serialization
+Failed asserting that 12 is equal to 4 or is less than 4.
+
+/private/tmp/backend-eval-001-0v7ydh55/fault-n-plus-one/tests/Feature/CampaignTest.php:160
+
+FAILURES!
+Tests: 1, Assertions: 8, Failures: 1.

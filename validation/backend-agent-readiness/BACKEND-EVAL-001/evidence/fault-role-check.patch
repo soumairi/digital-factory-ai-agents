@@ -1,0 +1,11 @@
+--- /private/tmp/backend-eval-001-0v7ydh55/app/app/Providers/AppServiceProvider.php	2026-09-19 15:09:16
++++ /private/tmp/backend-eval-001-0v7ydh55/fault-role-check/app/Providers/AppServiceProvider.php	2026-09-19 15:11:32
+@@ -19,7 +19,7 @@
+     public function boot(): void
+     {
+         Gate::define('eval-read-report', fn (User $user): bool => in_array($user->role, ['reader', 'editor'], true));
+-        Gate::define('eval-edit-report', fn (User $user): bool => $user->role === 'editor');
++        Gate::define('eval-edit-report', fn (User $user): bool => true);
+         Gate::define('list-customers', fn (User $user): bool => $user->is_admin === true);
+         RateLimiter::for('customer-list', fn (Request $request) => Limit::perMinute(60)->by($request->ip()));
+     }

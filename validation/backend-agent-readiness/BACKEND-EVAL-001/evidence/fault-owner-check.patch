@@ -1,0 +1,11 @@
+--- /private/tmp/backend-eval-001-0v7ydh55/app/app/Http/Controllers/EvalController.php	2026-09-19 15:09:16
++++ /private/tmp/backend-eval-001-0v7ydh55/fault-owner-check/app/Http/Controllers/EvalController.php	2026-09-19 15:11:30
+@@ -8,7 +8,7 @@
+ use Illuminate\Support\Facades\DB;
+ use Illuminate\Support\Facades\Gate;
+ class EvalController extends Controller {
+-    private function notes(Request $r) { return DB::table('notes')->where('owner_id',$r->user()->id); }
++    private function notes(Request $r) { return DB::table('notes'); }
+     private function noteFields(Request $r): array { return EvalInput::fields($r,['title'=>'required|string|min:1|max:100','body'=>'required|string|max:500']); }
+     public function noteCreate(Request $r) {
+         $data=$this->noteFields($r); $id=DB::table('notes')->insertGetId($data+['owner_id'=>$r->user()->id]);

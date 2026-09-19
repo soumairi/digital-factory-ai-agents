@@ -1,0 +1,23 @@
+ M CHANGELOG.md
+ M README.md
+ M VERSION
+ M docs/README.md
+ M evals/backend/BE-001-simple-crud.md
+ M evals/backend/BE-002-validation.md
+ M evals/backend/BE-003-authorization.md
+ M evals/backend/BE-004-bola-idor.md
+ M evals/backend/BE-005-mass-assignment.md
+ M evals/backend/BE-006-transaction.md
+ M evals/backend/BE-007-pagination.md
+ M evals/backend/BE-008-n-plus-one.md
+ M evals/backend/BE-009-negative-security-tests.md
+ M evals/backend/README.md
+ M project-template/FOUNDATION_VERSION
+?? docs/14-backend-evaluation-protocol.md
+?? evals/backend/evidence-manifest.template.json
+?? evals/backend/fixtures/
+?? evals/backend/schema/
+?? evals/backend/verify.py
+?? tests/evals/
+?? validation/backend-agent-readiness/
+?? validation/backend-evaluation-framework-hardening/

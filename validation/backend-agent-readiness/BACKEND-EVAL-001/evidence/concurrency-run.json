@@ -1,0 +1,9 @@
+{
+  "command": [
+    "python3",
+    "/private/tmp/backend-eval-001-0v7ydh55/app/preflight/run.py",
+    "concurrency"
+  ],
+  "exit_code": 0,
+  "cwd": "/Users/mouhssinesoumairi/digital-factory-ai-agents"
+}

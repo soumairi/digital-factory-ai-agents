@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "manifests": 9,
+  "all_original_statuses": "NOT RUN",
+  "cases_executed": 0,
+  "required_faults": 16,
+  "faults_executed": 0,
+  "zero_denominator_rates": null,
+  "missing_artifact_sentinels_resolve": false,
+  "independent_behavioral_verification_claimed": false
+}

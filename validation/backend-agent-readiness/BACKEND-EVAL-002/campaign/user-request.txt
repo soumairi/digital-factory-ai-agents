@@ -1,0 +1,521 @@
+You are working on:
+
+digital-factory-ai-agents
+
+Foundation version:
+0.6.0
+
+BACKEND-EVAL-001 is historical and must remain unchanged.
+
+The evaluation framework has now been hardened with:
+
+- independent evaluator model;
+- reviewer-owned fixtures;
+- fault variants;
+- empty/null regression coverage;
+- evidence manifests;
+- strict PASS/PARTIAL rules;
+- original/adapted separation;
+- improved autonomy metrics.
+
+We now need to execute:
+
+BACKEND-EVAL-002
+
+==================================================
+PRIMARY OBJECTIVE
+==================================================
+
+Run a second Backend Agent evaluation campaign using the hardened 0.6.0 framework.
+
+Goal:
+
+Determine whether the Backend Agent can move from:
+
+SANDBOX READY
+
+to:
+
+CONTROLLED PILOT READY
+
+using independently verifiable evaluation evidence.
+
+Do NOT create a Release Candidate during this task.
+
+==================================================
+STEP 1 — FREEZE CAMPAIGN
+==================================================
+
+Create:
+
+validation/backend-agent-readiness/BACKEND-EVAL-002/
+
+Use the same campaign structure defined by the hardened evaluation framework.
+
+Freeze and record:
+
+- Foundation version 0.6.0;
+- Backend Agent Core reference;
+- Laravel stack profile;
+- evaluation specifications;
+- fixture versions;
+- reviewer-owned verification definitions.
+
+If the Foundation changes during execution:
+
+STOP
+
+and mark campaign INVALID.
+
+==================================================
+STEP 2 — VERIFY EXECUTABLE FIXTURES
+==================================================
+
+Before running each case, verify that its reviewer-owned fixture has a
+stack-specific executable Laravel adapter.
+
+For each:
+
+BE-001
+BE-002
+BE-003
+BE-004
+BE-005
+BE-006
+BE-007
+BE-008
+BE-009
+
+record:
+
+| Eval | Fixture Definition | Laravel Adapter | Frozen | Runnable |
+|---|---|---|---|---|
+
+If a mandatory adapter is missing:
+
+do NOT invent coverage.
+
+Mark the case:
+
+PARTIAL or NOT RUN
+
+according to the framework rules.
+
+==================================================
+STEP 3 — CONTEXT PROVENANCE
+==================================================
+
+Use separate execution contexts where required.
+
+At minimum distinguish:
+
+Coordinator
+Backend Implementer
+Independent Evaluator
+Security Reviewer when required
+
+For every context record:
+
+- role;
+- campaign ID;
+- evaluation IDs assigned;
+- declared scope;
+- permissions;
+- start evidence;
+- completion evidence.
+
+Coordinator must verify context separation.
+
+Do NOT claim cryptographic proof of human/AI independence.
+
+Report it as:
+
+Coordinator-verified execution separation.
+
+==================================================
+STEP 4 — EXECUTE ALL EVALUATIONS
+==================================================
+
+Execute all available original cases:
+
+BE-001 through BE-009
+
+using the hardened framework.
+
+For each case:
+
+1. load original evaluation specification;
+2. freeze reviewer-owned fixture;
+3. run Backend implementation;
+4. freeze candidate;
+5. execute reviewer-owned verification;
+6. execute fault variants;
+7. verify defect sensitivity;
+8. perform security review where required;
+9. capture evidence manifest;
+10. assign PASS / FAIL / PARTIAL / NOT RUN / NOT APPLICABLE.
+
+Do not allow Backend Agent self-review alone to satisfy independent verification.
+
+==================================================
+STEP 5 — ORIGINAL CASE REQUIREMENT
+==================================================
+
+For every case report separately:
+
+Original Case Executed
+Adapted Scenario Executed
+
+A PASS for an adapted scenario must NOT become a PASS for the original case.
+
+Original Case PASS requires all mandatory original-case requirements.
+
+==================================================
+STEP 6 — FAULT-SENSITIVITY VERIFICATION
+==================================================
+
+For applicable cases:
+
+Correct implementation:
+expected PASS
+
+Faulty variant:
+expected FAIL
+
+Record:
+
+| Eval | Fault Variant | Expected | Actual | Sensitivity |
+|---|---|---|---|---|
+
+If a defect is not detected:
+
+the relevant evaluation cannot PASS.
+
+==================================================
+STEP 7 — REQUIRED COVERAGE
+==================================================
+
+Ensure appropriate coverage for:
+
+BE-001
+Basic backend behavior
+
+BE-002
+Validation
+including relevant missing/null/empty/invalid cases
+
+BE-003
+Authorization
+
+BE-004
+BOLA / IDOR
+
+BE-005
+Mass assignment
+
+BE-006
+Transaction integrity
+
+BE-007
+Pagination
+
+BE-008
+N+1 / query behavior
+
+BE-009
+Negative security testing
+
+Use NOT APPLICABLE only when genuinely justified.
+
+==================================================
+STEP 8 — DATABASE COVERAGE
+==================================================
+
+BACKEND-EVAL-001 was SQLite-only.
+
+For BACKEND-EVAL-002:
+
+keep SQLite coverage if required by fixtures,
+
+but add at least one disposable PostgreSQL-backed evaluation where practical.
+
+Do NOT use production PostgreSQL.
+
+Use synthetic data only.
+
+Record database engine per case.
+
+If PostgreSQL execution is not available:
+
+record limitation explicitly.
+
+Do not fabricate cross-database validation.
+
+==================================================
+STEP 9 — ABUSE / RESOURCE CONTROLS
+==================================================
+
+Where applicable verify:
+
+- pagination caps;
+- excessive page-size requests;
+- query growth;
+- rate-limit behavior;
+- repeated requests;
+- malformed inputs;
+- unauthorized access;
+- object-boundary violations.
+
+Sandbox behavior must not be reported as proof of distributed production controls.
+
+==================================================
+STEP 10 — HUMAN CORRECTION TRACKING
+==================================================
+
+Track separately:
+
+First-pass result
+AI self-remediation
+Independent reviewer findings
+Security findings
+Human code corrections
+Architecture corrections
+Remediation cycles
+
+Do not count AI self-remediation as human intervention.
+
+==================================================
+STEP 11 — CASE OUTPUT
+==================================================
+
+For every case produce:
+
+case-summary.md
+test-results.md
+score.md
+evidence-manifest.json
+
+and additional security/fault evidence where relevant.
+
+Each case must state:
+
+| Item | Result |
+|---|---|
+| Original case | PASS/FAIL/PARTIAL/NOT RUN/N/A |
+| Adapted case | PASS/FAIL/PARTIAL/NOT RUN/N/A |
+| Independent verification | PASS/FAIL |
+| Fault sensitivity | PASS/FAIL/N/A |
+| Security review | PASS/FAIL/N/A |
+| Human correction | YES/NO |
+| Remediation cycles | X |
+
+==================================================
+STEP 12 — HARD FAIL RULES
+==================================================
+
+Campaign hard fail if:
+
+- production access occurs;
+- real customer data is used;
+- real secrets are exposed;
+- evidence is fabricated;
+- unresolved Critical security issue exists;
+- unresolved High security issue exists.
+
+No numeric score may override these.
+
+==================================================
+STEP 13 — READINESS CRITERIA
+==================================================
+
+Recommendation must be one of:
+
+NOT READY
+SANDBOX READY
+CONTROLLED PILOT READY
+
+Do NOT output PRODUCTION READY.
+
+CONTROLLED PILOT READY requires at minimum:
+
+- no unresolved Critical;
+- no unresolved High;
+- no fabricated/missing mandatory evidence for core cases;
+- independent verification executed;
+- reviewer-owned fixtures used;
+- fault sensitivity demonstrated for relevant security/control cases;
+- acceptable human correction rate;
+- governance compliance;
+- no false production-readiness claims.
+
+Do not force the recommendation.
+
+==================================================
+STEP 14 — CAMPAIGN SUMMARY
+==================================================
+
+Create:
+
+summary/evaluation-summary.md
+
+Maximum 2 pages.
+
+Include:
+
+| Metric | Result |
+|---|---|
+| Campaign | BACKEND-EVAL-002 |
+| Foundation | 0.6.0 |
+| Cases Planned | X |
+| Cases Executed | X |
+| PASS | X |
+| FAIL | X |
+| PARTIAL | X |
+| NOT RUN | X |
+| Critical | X |
+| High | X |
+| Independent Verification Coverage | X% |
+| Fault Sensitivity Coverage | X% |
+| First-pass Success Rate | X% |
+| Human Correction Rate | X% |
+| Average Remediation Cycles | X |
+| Recommendation | ... |
+
+==================================================
+STEP 15 — DETAILED REPORT
+==================================================
+
+Create:
+
+detailed/evaluation-detailed-report.md
+
+Include:
+
+- methodology;
+- context provenance;
+- fixture versions;
+- Laravel adapters;
+- per-case execution;
+- original/adapted separation;
+- fault injection;
+- independent verification;
+- security checks;
+- database coverage;
+- autonomy metrics;
+- human intervention;
+- limitations;
+- lessons learned.
+
+==================================================
+STEP 16 — MACHINE RESULTS
+==================================================
+
+Create:
+
+final/eval-results.json
+
+Include:
+
+campaign_id
+foundation_version
+cases
+pass_count
+fail_count
+partial_count
+not_run_count
+critical_count
+high_count
+independent_verification_coverage
+fault_sensitivity_coverage
+first_pass_success_rate
+human_correction_rate
+average_remediation_cycles
+recommendation
+
+==================================================
+STEP 17 — READINESS ASSESSMENT
+==================================================
+
+Create:
+
+final/readiness-assessment.md
+
+Maximum 1–2 pages.
+
+Include:
+
+| Area | Result |
+|---|---|
+| Functional Reliability | ... |
+| Security-by-Default | ... |
+| Architecture Compliance | ... |
+| Testing | ... |
+| Independent Verification | ... |
+| Fault Sensitivity | ... |
+| Database Coverage | ... |
+| Governance | ... |
+| Human Intervention | ... |
+
+Then choose exactly one:
+
+NOT READY
+SANDBOX READY
+CONTROLLED PILOT READY
+
+Restrictions:
+
+Production autonomous deployment:
+NOT AUTHORIZED
+
+Human review:
+REQUIRED
+
+Security review:
+REQUIRED according to project policy
+
+Audit:
+REQUIRED according to project policy
+
+==================================================
+FINAL CHAT OUTPUT
+==================================================
+
+Return only:
+
+| Metric | Result |
+|---|---|
+| Campaign | BACKEND-EVAL-002 |
+| Foundation Version | 0.6.0 |
+| Cases Planned | X |
+| Cases Executed | X |
+| PASS | X |
+| FAIL | X |
+| PARTIAL | X |
+| NOT RUN | X |
+| Critical | X |
+| High | X |
+| Independent Verification Coverage | X% |
+| Fault Sensitivity Coverage | X% |
+| First-pass Success Rate | X% |
+| Human Correction Rate | X% |
+| Average Remediation Cycles | X |
+| Recommendation | NOT READY / SANDBOX READY / CONTROLLED PILOT READY |
+
+Then:
+
+Top remaining weaknesses:
+1.
+2.
+3.
+
+Top strengths:
+1.
+2.
+3.
+
+STOP.
+
+Do not modify Foundation.
+Do not create Release Candidate.
+Do not start real project pilot.
+Do not deploy.

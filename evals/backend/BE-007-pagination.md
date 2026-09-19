@@ -29,3 +29,7 @@ All criteria require independent evidence and must be met to PASS; unsupported c
 ## Score
 
 **Not run — no score assigned.** Use all seven dimensions and the run record in the [common score model](README.md). Record ratings/points, total /100, evidence, hard-gate result and maturity separately. A Critical security failure causes FAIL regardless of score; all other common gates remain applicable.
+
+## Reviewer fixture and verification
+
+Bind and freeze the [versioned BE-007 fixture](fixtures/BE-007.json) and executable assertions under the [independent evaluation protocol](../../docs/14-backend-evaluation-protocol.md) before implementation. Original criteria above remain unchanged. Record applicable empty/null vectors, every required fault, context separation and original/adapted results in evidence-manifest.json.

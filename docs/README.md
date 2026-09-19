@@ -34,3 +34,5 @@ Never put production credentials, passwords, tokens or private keys in conversat
 [Return to repository README](../README.md).
 
 - [Update an installed project Foundation](12-update-project-foundation.md): preview, integrity checks, backups, force and rollback without replacing project context.
+
+- [Backend evaluation protocol](14-backend-evaluation-protocol.md): reviewer fixtures, L1 independence, evidence and sensitivity gates.

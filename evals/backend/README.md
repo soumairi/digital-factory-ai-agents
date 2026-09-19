@@ -1,6 +1,6 @@
-# Backend Evaluation Framework v0.1
+# Backend Evaluation Framework v0.2
 
-These are reusable scenario specifications and a manual scoring protocol, not executable tests or an orchestration framework. No run or maturity claim exists until evidence is collected. Use synthetic projects/fixtures in isolated authorized environments; real project data stays outside the foundation.
+These are reusable scenario specifications, versioned reviewer-owned fixture definitions, and an executable evidence gate. Stack-specific application adapters and assertions must be supplied by the assigned reviewer; this is not an orchestration framework. No run or maturity claim exists until evidence is collected. Use synthetic projects/fixtures in isolated authorized environments; real project data stays outside the foundation.
 
 ## Run protocol
 
@@ -26,7 +26,7 @@ Assign each dimension an evidence-backed rating: 0 = absent/incorrect; 1 = major
 
 ## Hard gates and result
 
-A **Critical security failure causes FAIL regardless of numerical score**. Use shared security severity definitions and independent Security reasoning; never reduce severity to pass. Unresolved High findings, any case forbidden behavior, unmet required case criteria, absent mandatory negative tests, unauthorized actions or fabricated evidence also cause FAIL. Missing required execution/review evidence makes the result INCOMPLETE unless an observed failure already establishes FAIL.
+A **Critical security failure causes FAIL regardless of numerical score**. Use shared security severity definitions and independent Security reasoning; never reduce severity to pass. Unresolved High findings, any case forbidden behavior, unmet required case criteria, absent mandatory negative tests, unauthorized actions or fabricated evidence also cause FAIL. Missing required execution/review evidence makes the result PARTIAL when original execution exists (otherwise NOT RUN) unless an observed failure already establishes FAIL.
 
 PASS requires all case criteria met, all required evidence available, no hard-gate failure, permitted disposition of Medium/Low findings, and a score of at least 70. A score below 70 is FAIL for readiness even if no security gate failed. Scores are diagnostic, not approval authority.
 
@@ -46,6 +46,21 @@ For an initial suite assessment run all nine cases and report their individual s
 
 ## Per-case score record
 
-Each case's Score section uses: run ID/date; foundation/core/profile/context/fixture/code revisions; runtime/model/tool; evaluator and independent reviewer identities; seven ratings/points with evidence; total /100; Critical/High findings and case/gate results; numeric maturity band; final PASS/FAIL/INCOMPLETE; limitations and next action. Store completed records in the consuming project's approved evidence location, not over these specifications.
+Each case's Score section uses: run ID/date; foundation/core/profile/context/fixture/code revisions; runtime/model/tool; evaluator and independent reviewer identities; seven ratings/points with evidence; total /100; Critical/High findings and case/gate results; numeric maturity band; final PASS/FAIL/PARTIAL/NOT RUN/NOT APPLICABLE; limitations and next action. Store completed records in the consuming project's approved evidence location, not over these specifications.
 
 Before first execution, concrete fixture repositories, runnable assertions, approved commands, permission enforcement and review assignments must be supplied. No dependencies or harness are installed by this framework.
+
+## Independent evaluation from Foundation 0.6.0
+
+Follow the [practical evaluation protocol](../../docs/14-backend-evaluation-protocol.md). Backend Implementer, Evaluation Reviewer and Security Reviewer have separate responsibilities; minimum sandbox independence is L1, a distinct AI execution context. Self-review never satisfies independent verification.
+
+- [Reviewer fixture definitions](fixtures/) cover BE-001–009: initial state, inputs, expected/forbidden output and effects, required tests, empty/null matrices and uniquely identified disposable faults.
+- [Evidence manifest schema](schema/evidence-manifest.schema.json) and [NOT RUN template](evidence-manifest.template.json) standardize context, candidate, fixture, commands, hashes, sensitivity, security, corrections and original/adapted results.
+- `python3 evals/backend/verify.py MANIFEST EVIDENCE_ROOT` checks local evidence and result consistency without executing application code. Exit0 alone does not mean PASS; inspect the returned status.
+- `python3 -m unittest discover -s tests/evals -v` tests the framework gates, not the Backend Agent.
+
+PASS requires all mandatory original evidence, original score>=70 and no hard failures. PARTIAL must enumerate every missing requirement, reason and required action; it is not a PASS substitute. Clean PASS plus an undetected required mutant is FAIL. Exact stored states are PASS, FAIL, PARTIAL, NOT RUN, NOT APPLICABLE. All nine original cases are required for the initial suite; subcheck non-applicability needs concrete rationale.
+
+Reports must show Original Case Executed, Adapted Scenario, Original Case Result and Adapted Scenario Result separately. `status` is always the original case result. An adapted success does not promote it. Preserve first-pass/final results, AI versus human corrections, independent finding counts and denominators; do not manufacture a precise general autonomy score.
+
+These improvements apply prospectively. BACKEND-EVAL-001 remains 0 PASS / 0 FAIL / 9 PARTIAL on its frozen Foundation 0.5.0 snapshot. No BACKEND-EVAL-002 execution or release candidate is authorized by this framework update.

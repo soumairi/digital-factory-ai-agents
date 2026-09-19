@@ -1,0 +1,67 @@
+[
+  {
+    "path": "app/Actions/EvalReserve.php",
+    "change": "added",
+    "sha256": "34ad86ded7b2dc1f2299a1b97fc3894b6f2281780b95305c34f4d59f83e2f6ee"
+  },
+  {
+    "path": "app/Http/Controllers/EvalController.php",
+    "change": "added",
+    "sha256": "e91ec539d60b82dc6d058ba8e00a048bd5478a251e42aa0f456b7e4fe16fb6da"
+  },
+  {
+    "path": "app/Http/Middleware/EvalAuthenticate.php",
+    "change": "added",
+    "sha256": "8f7fe57bcf3fd982cf6bea10bf97ab0a7fc104613d613b33e2b564a078970fe3"
+  },
+  {
+    "path": "app/Http/Requests/EvalInput.php",
+    "change": "added",
+    "sha256": "ed4d58e022a73af94aca56358978990b52901e478dd84422e574aaf5bdfd7bb9"
+  },
+  {
+    "path": "app/Models/EvalArticle.php",
+    "change": "added",
+    "sha256": "a0e1046b77f5b4175edeb58f227d3a4af17e175f3fb137fd202d280eb83443ee"
+  },
+  {
+    "path": "app/Models/EvalAuthor.php",
+    "change": "added",
+    "sha256": "e39c581c740f46a70b058591e0ab174c0965b3999267b56d403d9c8d283596d7"
+  },
+  {
+    "path": "app/Models/EvalCategory.php",
+    "change": "added",
+    "sha256": "9c11fdd7d1089df4cb8ed8206e1aae51b968481f9157a605e02c4db0b841d024"
+  },
+  {
+    "path": "app/Models/EvalProfile.php",
+    "change": "added",
+    "sha256": "6739b3211fb1b82720d67d68a31d75d080b990c72d85de43f13d306c0c390a61"
+  },
+  {
+    "path": "app/Providers/AppServiceProvider.php",
+    "change": "modified",
+    "sha256": "82f345512a7db440c8b8d1ae64b297b88e475a045aff78d20d8bf788a63b0da9"
+  },
+  {
+    "path": "preflight/concurrency.php",
+    "change": "added",
+    "sha256": "ebfbd8b07d1112fc3c7f28978c8be15ae45808770e6736d04b40b6ec5756c77c"
+  },
+  {
+    "path": "preflight/run.py",
+    "change": "modified",
+    "sha256": "8c3d30f65118fbbec9a996b6d07442da9dcf1600ff1ccbd94ce58b797917c51c"
+  },
+  {
+    "path": "routes/api.php",
+    "change": "modified",
+    "sha256": "f5a077b5f339e0e29d664dbaa324693763a909d2cce5c0ff658cc53cf4f32719"
+  },
+  {
+    "path": "tests/Feature/CampaignTest.php",
+    "change": "added",
+    "sha256": "5949e6802f7b395ceaec83d117f502af4a05f6d2856ef26324e443573a21e402"
+  }
+]

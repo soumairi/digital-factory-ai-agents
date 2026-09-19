@@ -1,0 +1,203 @@
+[
+  {
+    "cwd": "/private/tmp/backend-eval-001-0v7ydh55/fault-owner-check",
+    "command": [
+      "/opt/homebrew/opt/php@8.3/bin/php",
+      "-n",
+      "-d",
+      "sys_temp_dir=/private/tmp/backend-eval-001-0v7ydh55",
+      "vendor/bin/phpunit",
+      "--colors=never",
+      "--filter",
+      "BE001|BE009"
+    ],
+    "exit_code": 1,
+    "fault": "owner-check",
+    "cases": [
+      "BE-001",
+      "BE-009"
+    ],
+    "changed_file": "app/Http/Controllers/EvalController.php",
+    "mutated_sha256": "ff0ded77a9d47153181445f71673425d25493836cad97f60878eb4b7f6a4e9bc",
+    "expected": "Assertion failure under unchanged test suite",
+    "detected": true,
+    "log": "evidence/fault-owner-check.txt",
+    "independent_evaluator": false,
+    "timestamp": "2026-09-19T14:11:30.968856+00:00"
+  },
+  {
+    "cwd": "/private/tmp/backend-eval-001-0v7ydh55/fault-role-check",
+    "command": [
+      "/opt/homebrew/opt/php@8.3/bin/php",
+      "-n",
+      "-d",
+      "sys_temp_dir=/private/tmp/backend-eval-001-0v7ydh55",
+      "vendor/bin/phpunit",
+      "--colors=never",
+      "--filter",
+      "BE003|BE009"
+    ],
+    "exit_code": 1,
+    "fault": "role-check",
+    "cases": [
+      "BE-003",
+      "BE-009"
+    ],
+    "changed_file": "app/Providers/AppServiceProvider.php",
+    "mutated_sha256": "8fbd08aeba830bd0ca7c41f5ef27a340342b1b99a8dc090ec5abda9e60e00711",
+    "expected": "Assertion failure under unchanged test suite",
+    "detected": true,
+    "log": "evidence/fault-role-check.txt",
+    "independent_evaluator": false,
+    "timestamp": "2026-09-19T14:11:33.597268+00:00"
+  },
+  {
+    "cwd": "/private/tmp/backend-eval-001-0v7ydh55/fault-strict-type",
+    "command": [
+      "/opt/homebrew/opt/php@8.3/bin/php",
+      "-n",
+      "-d",
+      "sys_temp_dir=/private/tmp/backend-eval-001-0v7ydh55",
+      "vendor/bin/phpunit",
+      "--colors=never",
+      "--filter",
+      "BE002"
+    ],
+    "exit_code": 1,
+    "fault": "strict-type",
+    "cases": [
+      "BE-002"
+    ],
+    "changed_file": "app/Http/Requests/EvalInput.php",
+    "mutated_sha256": "dea1535a63ce3b74bac55eab92e4d51aa6312495f18b71bb1e09154207ad381b",
+    "expected": "Assertion failure under unchanged test suite",
+    "detected": true,
+    "log": "evidence/fault-strict-type.txt",
+    "independent_evaluator": false,
+    "timestamp": "2026-09-19T14:11:35.184741+00:00"
+  },
+  {
+    "cwd": "/private/tmp/backend-eval-001-0v7ydh55/fault-protected-field",
+    "command": [
+      "/opt/homebrew/opt/php@8.3/bin/php",
+      "-n",
+      "-d",
+      "sys_temp_dir=/private/tmp/backend-eval-001-0v7ydh55",
+      "vendor/bin/phpunit",
+      "--colors=never",
+      "--filter",
+      "BE005"
+    ],
+    "exit_code": 1,
+    "fault": "protected-field",
+    "cases": [
+      "BE-005"
+    ],
+    "changed_file": "app/Http/Controllers/EvalController.php",
+    "mutated_sha256": "db318c29c54c869914788ad2ce57f7edc65e40a4d36032d30bb94717fe2197b1",
+    "expected": "Assertion failure under unchanged test suite",
+    "detected": true,
+    "log": "evidence/fault-protected-field.txt",
+    "independent_evaluator": false,
+    "timestamp": "2026-09-19T14:11:36.607128+00:00"
+  },
+  {
+    "cwd": "/private/tmp/backend-eval-001-0v7ydh55/fault-pagination-cap",
+    "command": [
+      "/opt/homebrew/opt/php@8.3/bin/php",
+      "-n",
+      "-d",
+      "sys_temp_dir=/private/tmp/backend-eval-001-0v7ydh55",
+      "vendor/bin/phpunit",
+      "--colors=never",
+      "--filter",
+      "BE007"
+    ],
+    "exit_code": 1,
+    "fault": "pagination-cap",
+    "cases": [
+      "BE-007"
+    ],
+    "changed_file": "app/Http/Requests/EvalInput.php",
+    "mutated_sha256": "aa009daedf45322c4beefbeef7cb9d539c3d5d42425cee445f873cee356821d7",
+    "expected": "Assertion failure under unchanged test suite",
+    "detected": true,
+    "log": "evidence/fault-pagination-cap.txt",
+    "independent_evaluator": false,
+    "timestamp": "2026-09-19T14:11:38.071350+00:00"
+  },
+  {
+    "cwd": "/private/tmp/backend-eval-001-0v7ydh55/fault-n-plus-one",
+    "command": [
+      "/opt/homebrew/opt/php@8.3/bin/php",
+      "-n",
+      "-d",
+      "sys_temp_dir=/private/tmp/backend-eval-001-0v7ydh55",
+      "vendor/bin/phpunit",
+      "--colors=never",
+      "--filter",
+      "BE008"
+    ],
+    "exit_code": 1,
+    "fault": "n-plus-one",
+    "cases": [
+      "BE-008"
+    ],
+    "changed_file": "app/Http/Controllers/EvalController.php",
+    "mutated_sha256": "0dfa1892958645744fc68bae2aab347b95332eb66c6157c041778973846cce22",
+    "expected": "Assertion failure under unchanged test suite",
+    "detected": true,
+    "log": "evidence/fault-n-plus-one.txt",
+    "independent_evaluator": false,
+    "timestamp": "2026-09-19T14:11:39.524564+00:00"
+  },
+  {
+    "cwd": "/private/tmp/backend-eval-001-0v7ydh55/fault-transaction-boundary",
+    "command": [
+      "/opt/homebrew/opt/php@8.3/bin/php",
+      "-n",
+      "-d",
+      "sys_temp_dir=/private/tmp/backend-eval-001-0v7ydh55",
+      "vendor/bin/phpunit",
+      "--colors=never",
+      "--filter",
+      "BE006"
+    ],
+    "exit_code": 1,
+    "fault": "transaction-boundary",
+    "cases": [
+      "BE-006"
+    ],
+    "changed_file": "app/Actions/EvalReserve.php",
+    "mutated_sha256": "018744f680a745255b5bcc08a77364d7ae6cecdf442e780a6ea54fbe89bf4444",
+    "expected": "Assertion failure under unchanged test suite",
+    "detected": true,
+    "log": "evidence/fault-transaction-boundary.txt",
+    "independent_evaluator": false,
+    "timestamp": "2026-09-19T14:11:40.949767+00:00"
+  },
+  {
+    "cwd": "/private/tmp/backend-eval-001-0v7ydh55/fault-document-owner",
+    "command": [
+      "/opt/homebrew/opt/php@8.3/bin/php",
+      "-n",
+      "-d",
+      "sys_temp_dir=/private/tmp/backend-eval-001-0v7ydh55",
+      "vendor/bin/phpunit",
+      "--colors=never",
+      "--filter",
+      "BE004"
+    ],
+    "exit_code": 1,
+    "fault": "document-owner",
+    "cases": [
+      "BE-004"
+    ],
+    "changed_file": "app/Http/Controllers/EvalController.php",
+    "mutated_sha256": "b2fa0204f8d7d6786259751f6c12c9f94f84d179a485f1f0d4baf25725cccd9c",
+    "expected": "Assertion failure under unchanged test suite",
+    "detected": true,
+    "log": "evidence/fault-document-owner.txt",
+    "independent_evaluator": false
+  }
+]

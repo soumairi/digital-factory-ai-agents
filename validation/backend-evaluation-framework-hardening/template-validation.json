@@ -1,0 +1,20 @@
+{
+  "status": "NOT RUN",
+  "missing_requirements": [
+    "Execution-context provenance",
+    "Separate context records",
+    "Foundation snapshot evidence",
+    "Frozen executable assertions artifact",
+    "Reviewer assertion ownership frozen before implementation",
+    "Frozen candidate revision/hash evidence",
+    "All original required tests executed",
+    "All original criteria represented exactly",
+    "Passing clean baseline and post-mutation rerun",
+    "All required fault variants",
+    "Independent required Security review",
+    "Seven original score dimensions with evidence",
+    "Original Foundation score"
+  ],
+  "failures": [],
+  "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+}

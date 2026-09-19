@@ -1,0 +1,242 @@
+{
+  "role": "Independent Evaluator",
+  "campaign_id": "BACKEND-EVAL-002",
+  "evaluation_ids_assigned": [
+    "BE-001",
+    "BE-002",
+    "BE-003",
+    "BE-004",
+    "BE-005",
+    "BE-006",
+    "BE-007",
+    "BE-008",
+    "BE-009"
+  ],
+  "canonical_task_identity": "/root/eval002_evaluator",
+  "declared_scope": "Read-only inspection of original specifications, fixture definitions and repository adapter availability; write independent findings only. No implementation or database execution.",
+  "permissions": {
+    "repository": "read-only except assigned evaluator evidence directory",
+    "write_paths": [
+      "validation/backend-agent-readiness/BACKEND-EVAL-002/evaluator"
+    ],
+    "production_access": false,
+    "database_execution": false,
+    "candidate_implementation": false,
+    "enforcement_note": "Task-declared scope; actual shared workspace tool capability is broader. Coordinator must verify execution and write scope."
+  },
+  "start_evidence": {
+    "utc": "2026-09-19 14:49:38 UTC",
+    "source": "clock__curr_time tool result at first inspection",
+    "task_source": "collaboration assignment from /root"
+  },
+  "completion_evidence": {
+    "utc": "2026-09-19T14:54:26.770877+00:00",
+    "source": "system UTC timestamp at evidence write",
+    "artifacts": [
+      "validation/backend-agent-readiness/BACKEND-EVAL-002/evaluator/adapter-review.md",
+      "validation/backend-agent-readiness/BACKEND-EVAL-002/evaluator/context.json"
+    ],
+    "adapter_review_sha256": "4473362774aae77de65c99397f982efb08ecc9461b6b3f969ae69d5da0b4b63e",
+    "precision_correction": "Coordinator requested clarification of historical mutant availability; inspected retained fault records and corrected current-versus-historical claims."
+  },
+  "separation_claim": "Separate agent execution context; coordinator verification pending. No cryptographic or human independence claim.",
+  "original_execution_count": 0,
+  "adapted_execution_count": 0,
+  "required_fault_count": 16,
+  "cases": [
+    {
+      "evaluation_id": "BE-001",
+      "fixture_definition": "evals/backend/fixtures/BE-001.json",
+      "fixture_version": "1.0.0",
+      "fixture_sha256": "eb9bdb74e34b4975186dcb0dfa42883826455de3aba1bcfdee52199b83334c6e",
+      "laravel_adapter": null,
+      "adapter_frozen": false,
+      "runnable": false,
+      "required_test_ids": [
+        "BE-001-crud",
+        "BE-001-ownership",
+        "BE-001-regression"
+      ],
+      "required_fault_ids": [
+        "BE-001-F1"
+      ],
+      "gaps": "Historical CRUD test lacks complete title/body missing-null-empty-whitespace and type matrix. Historical owner-check patch/log exists, but no current independently owned and frozen 0.6.0 ownership mutation bundle exists.",
+      "recommended_original_result": "NOT RUN"
+    },
+    {
+      "evaluation_id": "BE-002",
+      "fixture_definition": "evals/backend/fixtures/BE-002.json",
+      "fixture_version": "1.0.0",
+      "fixture_sha256": "ce00209e9c53768c504201be9167ccb377bf172f50dbf54689f3f5e815f52f50",
+      "laravel_adapter": null,
+      "adapter_frozen": false,
+      "runnable": false,
+      "required_test_ids": [
+        "BE-002-boundaries",
+        "BE-002-hostile",
+        "BE-002-no-writes"
+      ],
+      "required_fault_ids": [
+        "BE-002-F1",
+        "BE-002-F2",
+        "BE-002-F3"
+      ],
+      "gaps": "Historical Product test lacks explicit-null name, whitespace name, empty/whitespace quantity and optional description empty-versus-null contract. Historical strict-type patch/log exists; it is not the complete current reviewer-frozen required-name, null/empty and unexpected-key three-fault bundle.",
+      "recommended_original_result": "NOT RUN"
+    },
+    {
+      "evaluation_id": "BE-003",
+      "fixture_definition": "evals/backend/fixtures/BE-003.json",
+      "fixture_version": "1.0.0",
+      "fixture_sha256": "7df8356babb91208e7c58d56092a4586e3acbc117817b50488ccf21f5a06cdea",
+      "laravel_adapter": null,
+      "adapter_frozen": false,
+      "runnable": false,
+      "required_test_ids": [
+        "BE-003-actors",
+        "BE-003-no-writes",
+        "BE-003-real-enforcement"
+      ],
+      "required_fault_ids": [
+        "BE-003-F1"
+      ],
+      "gaps": "Historical report tests omit full null/empty/whitespace credential and editor title vectors and exact response coverage. Historical role-check patch/log exists, but no current reviewer-frozen Gate/Policy bypass mutation bundle exists.",
+      "recommended_original_result": "NOT RUN"
+    },
+    {
+      "evaluation_id": "BE-004",
+      "fixture_definition": "evals/backend/fixtures/BE-004.json",
+      "fixture_version": "1.0.0",
+      "fixture_sha256": "fbc3f24ff757e83629ebce0ea694b6df4640f0d6b2e670ad1ad3e8ee109d209b",
+      "laravel_adapter": null,
+      "adapter_frozen": false,
+      "runnable": false,
+      "required_test_ids": [
+        "BE-004-boundaries",
+        "BE-004-nested-list",
+        "BE-004-controls"
+      ],
+      "required_fault_ids": [
+        "BE-004-F1",
+        "BE-004-F2"
+      ],
+      "gaps": "Historical document tests cover boundaries but omit ID zero/negative/noninteger/array-like matrix, title matrix and protected write keys. Historical document-owner patch/log removes only the owner predicate while retaining tenant scope. No current reviewer-frozen two-fault bundle covering owner and parent/child boundaries exists.",
+      "recommended_original_result": "NOT RUN"
+    },
+    {
+      "evaluation_id": "BE-005",
+      "fixture_definition": "evals/backend/fixtures/BE-005.json",
+      "fixture_version": "1.0.0",
+      "fixture_sha256": "37e3da02ff52b8091dd823c6a4b5f88f02f9cb9827e9bfd1babe84c92843445a",
+      "laravel_adapter": null,
+      "adapter_frozen": false,
+      "runnable": false,
+      "required_test_ids": [
+        "BE-005-legitimate",
+        "BE-005-protected",
+        "BE-005-paths"
+      ],
+      "required_fault_ids": [
+        "BE-005-F1"
+      ],
+      "gaps": "Historical profile tests omit full display_name matrix and protected null/zero/false/combined vectors. Historical protected-field patch/log bypasses the request allowlist and uses forceFill. No current reviewer-frozen is_admin mutation bundle exists.",
+      "recommended_original_result": "NOT RUN"
+    },
+    {
+      "evaluation_id": "BE-006",
+      "fixture_definition": "evals/backend/fixtures/BE-006.json",
+      "fixture_version": "1.0.0",
+      "fixture_sha256": "be334bc7560646ad6cbf85861c31b2501326cb7665d8cae8838aedf14832c30c",
+      "laravel_adapter": null,
+      "adapter_frozen": false,
+      "runnable": false,
+      "required_test_ids": [
+        "BE-006-success",
+        "BE-006-rollback",
+        "BE-006-competition"
+      ],
+      "required_fault_ids": [
+        "BE-006-F1",
+        "BE-006-F2"
+      ],
+      "gaps": "Historical main test executes sequential repeat/rollback paths. Historical transaction-boundary patch/log removes the transaction, and a separate SQLite-only concurrency script exists. No current reviewer binding, complete quantity regression matrix or reviewer-frozen two-fault transaction/removal and swallowed-failure bundle exists.",
+      "recommended_original_result": "NOT RUN"
+    },
+    {
+      "evaluation_id": "BE-007",
+      "fixture_definition": "evals/backend/fixtures/BE-007.json",
+      "fixture_version": "1.0.0",
+      "fixture_sha256": "a7e993da5f2901dd8ad4ec2c674be3ed9a23e56640cdb7b229b6b6a73c40dad2",
+      "laravel_adapter": null,
+      "adapter_frozen": false,
+      "runnable": false,
+      "required_test_ids": [
+        "BE-007-limits",
+        "BE-007-traversal",
+        "BE-007-scope-schema"
+      ],
+      "required_fault_ids": [
+        "BE-007-F1",
+        "BE-007-F2",
+        "BE-007-F3"
+      ],
+      "gaps": "Historical pagination tests include empty per_page but omit explicit-null/whitespace/object cases and duplicate nonunique sort values. Historical pagination-cap patch/log exists, but no current reviewer-frozen complete cap/order/empty-default three-fault bundle exists.",
+      "recommended_original_result": "NOT RUN"
+    },
+    {
+      "evaluation_id": "BE-008",
+      "fixture_definition": "evals/backend/fixtures/BE-008.json",
+      "fixture_version": "1.0.0",
+      "fixture_sha256": "baa47154ce0f32177010b25de5212a1b906d5da1f53a8200669928cd78691b92",
+      "laravel_adapter": null,
+      "adapter_frozen": false,
+      "runnable": false,
+      "required_test_ids": [
+        "BE-008-relations",
+        "BE-008-budget",
+        "BE-008-regression"
+      ],
+      "required_fault_ids": [
+        "BE-008-F1"
+      ],
+      "gaps": "Historical article test measures 5/50 query budgets but omits complete null/empty/whitespace/zero/negative/array/object matrix. Historical n-plus-one patch/log exists, but no current reviewer-frozen eager-loading removal bundle exists.",
+      "recommended_original_result": "NOT RUN"
+    },
+    {
+      "evaluation_id": "BE-009",
+      "fixture_definition": "evals/backend/fixtures/BE-009.json",
+      "fixture_version": "1.0.0",
+      "fixture_sha256": "e52b7b5b33336296341e040ef82cedcfde79415d9f53622650e68c18035aeaa5",
+      "laravel_adapter": null,
+      "adapter_frozen": false,
+      "runnable": false,
+      "required_test_ids": [
+        "BE-009-six-categories",
+        "BE-009-sensitivity",
+        "BE-009-provenance"
+      ],
+      "required_fault_ids": [
+        "BE-009-F1",
+        "BE-009-F2"
+      ],
+      "gaps": "Historical test is an adapted six-category scenario. Historical owner-check and role-check variants were run against the adapted negative suite, and protected-field was run against BE-005. They do not constitute a current reviewer-controlled frozen CRUD/auth application, complete inherited regression matrix or evaluator-owned two-fault BE-009 bundle with clean restoration evidence.",
+      "recommended_original_result": "NOT RUN"
+    }
+  ],
+  "historical_fault_review": {
+    "path": "validation/backend-agent-readiness/BACKEND-EVAL-001/evidence/fault-results.json",
+    "sha256": "2ddc01224b44fe5c118f5c4ee98bd65dad901d97856fcfd7d419f409830adb20",
+    "variants": [
+      "owner-check",
+      "role-check",
+      "strict-type",
+      "protected-field",
+      "pagination-cap",
+      "n-plus-one",
+      "transaction-boundary",
+      "document-owner"
+    ],
+    "all_independent_evaluator_flags": false,
+    "interpretation": "Historical same-author artifacts exist; no current reviewer-frozen complete 0.6.0 executable bundles."
+  }
+}

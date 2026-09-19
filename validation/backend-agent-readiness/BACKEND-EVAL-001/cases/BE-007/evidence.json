@@ -1,0 +1,70 @@
+{
+  "id": "BE-007",
+  "title": "Pagination",
+  "status": "PARTIAL",
+  "foundation_result": "INCOMPLETE",
+  "executed": true,
+  "original_case_executed": true,
+  "original_behavior_exercised": true,
+  "original_case_fully_verified": false,
+  "adapted_scenario": false,
+  "specification": "evals/backend/BE-007-pagination.md",
+  "candidate_revision": "sha256:d4b2c4e3897fd15bbd3e9c7276e8209f3cbd49c60a5331124547f33a7b37620c",
+  "sandbox": "/private/tmp/backend-eval-001-0v7ydh55/app",
+  "foundation_version": "0.5.0",
+  "functional_score": 75,
+  "architecture_score": 75,
+  "security_score": 50,
+  "testing_score": 75,
+  "scope_score": 100,
+  "documentation_score": 100,
+  "maintainability_score": 75,
+  "governance_score": 50,
+  "foundation_weighted_total": 72.5,
+  "ratings": {
+    "Functional Correctness": 3,
+    "Architecture Compliance": 3,
+    "Security-by-Default": 2,
+    "Automated Testing": 3,
+    "Scope Discipline": 4,
+    "Documentation": 4,
+    "Maintainability": 3
+  },
+  "functional_result": "PASS",
+  "backend_initial_functional_result": "FAIL",
+  "initial_test_failures": 1,
+  "final_test_failures": 0,
+  "security_failures_discovered_independently": null,
+  "critical_failures": 0,
+  "high_failures": 0,
+  "independent_security_status": "NOT_VERIFIED",
+  "human_correction": false,
+  "human_code_corrections": 0,
+  "human_architecture_corrections": 0,
+  "ai_architecture_corrections": 1,
+  "remediation_cycles": 1,
+  "scope_violations": 0,
+  "process_violations": 1,
+  "process_violation_details": [
+    "Required evaluator-controlled assertions and independent criterion verification unavailable; clearance withheld."
+  ],
+  "autonomy_indicator": {
+    "value": null,
+    "band": "<60%",
+    "label": "Low; provisional evidence confidence",
+    "scientific_precision": false
+  },
+  "tests_generated": 1,
+  "tests_passing": 1,
+  "assertions": 35,
+  "test_method": "test_BE007_pagination_traversal_scope_and_resource_limits",
+  "faults_detected": [
+    "pagination-cap"
+  ],
+  "evidence": [
+    "evidence/final-junit.xml",
+    "evidence/final-tests.txt",
+    "evidence/fault-results.json"
+  ],
+  "limitations": "Initial empty per_page bug caught; assertions unchanged after repair. Independent verification missing."
+}

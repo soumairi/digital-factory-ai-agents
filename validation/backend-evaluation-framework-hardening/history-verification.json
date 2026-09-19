@@ -1,0 +1,12 @@
+{
+  "result": "PRESERVED",
+  "historical_files_compared": 451,
+  "changed_files": [],
+  "BACKEND-EVAL-001": {
+    "PASS": 0,
+    "FAIL": 0,
+    "PARTIAL": 9
+  },
+  "historical_foundation_version": "0.5.0",
+  "new_foundation_version": "0.6.0"
+}

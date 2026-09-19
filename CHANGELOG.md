@@ -9,6 +9,22 @@
 
 No runtime integration, remote synchronization or policy changes. VERSION remains the source for installed manifests.
 
+## 0.6.0 — 2026-09-19
+
+### Added
+
+- Prospective L1 independent evaluation protocol with separate implementer, evaluator and Security responsibilities.
+- Nine versioned reviewer-owned fixture definitions, applicable empty/null regression matrices and uniquely identified disposable fault contracts.
+- JSON evidence manifest schema/template, local hash/context/result validator and framework gate tests.
+- Explicit original/adapted separation, PARTIAL remediation requirements and denominator-based assisted-development metrics.
+
+### Changed
+
+- New evaluation records use exactly PASS, FAIL, PARTIAL, NOT RUN and NOT APPLICABLE. Missing evidence cannot produce PASS; escaped required faults produce FAIL.
+- Foundation and shipped legacy project-template release reference increment to 0.6.0 because reusable evaluation contracts and executable evidence checks add a substantive capability. Original scenario criteria, scoring weights and shared policies are unchanged.
+
+Historical RUN-002 and BACKEND-EVAL-001 evidence stays pinned to 0.5.0 and is not rescored. Reviewer-owned stack-specific executable adapters and authenticated execution-context provenance still need provisioning before BACKEND-EVAL-002. No campaign, Release Candidate, pilot or deployment is initiated.
+
 ## 0.5.0 — 2026-09-15
 
 ### Added

@@ -1,0 +1,102 @@
+{
+  "campaign_id": "BACKEND-EVAL-002",
+  "evaluation_id": "BE-008",
+  "foundation_version": "0.6.0",
+  "foundation_snapshot": {
+    "path": "campaign/foundation-sha256.json",
+    "sha256": "82061366fdfe3b10461d9f03942698436decc08c0db53eed0a2e41afe1a035df"
+  },
+  "implementer_context": {
+    "id": "/root/eval002_implementer",
+    "role": "Backend Implementer",
+    "execution_record": {
+      "path": "backend/context.json",
+      "sha256": "50cb9c7442e0c96d666173e8f6c14ce9ddd2d037e5ef594dc94b604cf2959a88"
+    }
+  },
+  "reviewer_context": {
+    "id": "/root/eval002_evaluator",
+    "role": "Evaluation Reviewer",
+    "execution_record": {
+      "path": "evaluator/context.json",
+      "sha256": "92b1cb2543f83aad6b2f60e57bde9ccbb8ea4b0071c34a3ab6b828d659e15706"
+    }
+  },
+  "security_context": {
+    "id": "/root/eval002_security",
+    "role": "Security Reviewer",
+    "execution_record": {
+      "path": "security/context.json",
+      "sha256": "6adfad6cd647342a85781e4747fbcc70129579a6c2f35a73f98494561e0fda7c"
+    }
+  },
+  "candidate_revision": null,
+  "candidate_hash": null,
+  "candidate_artifact": null,
+  "fixture_version": "1.0.0",
+  "fixture_hash": "baa47154ce0f32177010b25de5212a1b906d5da1f53a8200669928cd78691b92",
+  "fixture_freeze": {
+    "owner_context": "/root/eval002_evaluator",
+    "before_implementation": false,
+    "assertions_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "record": {
+      "path": "MISSING/BE-008/executable-freeze-record.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "assertions_artifact": {
+      "path": "MISSING/BE-008/reviewer-laravel-assertions.tar",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "tests_executed": [],
+  "test_result": "NOT RUN",
+  "criteria": [],
+  "fault_variants": [],
+  "clean_rerun": "NOT RUN",
+  "security_review_required": true,
+  "security_review_result": "NOT RUN",
+  "security_evidence": null,
+  "human_correction": false,
+  "remediation_cycles": 0,
+  "status": "NOT RUN",
+  "original_case_executed": false,
+  "adapted_scenario": false,
+  "original_case_result": "NOT RUN",
+  "adapted_scenario_result": "NOT APPLICABLE",
+  "adaptation_description": "",
+  "missing_requirements": [
+    {
+      "requirement": "Reviewer-owned executable Laravel adapter",
+      "reason": "Fixture definition exists but executable assertions/mutations and reviewer freeze are absent.",
+      "required_action": "Prepare and freeze adapter under independent Evaluation Reviewer before candidate implementation."
+    },
+    {
+      "requirement": "Candidate and original-case execution evidence",
+      "reason": "Mandatory adapter prerequisite prevents implementation and tests.",
+      "required_action": "After adapter preparation, execute full candidate/reviewer/fault/Security lifecycle in an authorized disposable sandbox."
+    }
+  ],
+  "not_applicable_rationale": "",
+  "hard_failures": [],
+  "score": null,
+  "metrics": {
+    "initial_implementation_outcome": "NOT RUN",
+    "ai_self_corrections": 0,
+    "independent_reviewer_findings": null,
+    "security_findings": null,
+    "human_code_corrections": 0,
+    "architecture_corrections": {
+      "ai": 0,
+      "human": 0
+    },
+    "scope_violations": 0,
+    "process_violations": 0
+  },
+  "clean_rerun_evidence": {
+    "path": "MISSING/BE-008/clean-rerun.txt",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "security_candidate_hash": null,
+  "adapted_scenario_evidence": null,
+  "score_dimensions": []
+}

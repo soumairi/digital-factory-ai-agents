@@ -2,7 +2,7 @@
 
 Reusable, versioned policies and agent-definition foundations for software projects across a Digital Factory.
 
-This repository is currently a policy and agent-definition foundation, not a collection of executable agents. Version `0.5.0` includes shared policies, Backend, Security, and Audit Agent foundations, a Laravel Backend profile, reusable project integration templates, and manual backend evaluation specifications. It includes no orchestration framework, runtime integration, project-specific rules, or dependencies.
+This repository is currently a policy and agent-definition foundation, not a collection of executable agents. Version `0.6.0` includes shared policies, Backend, Security, and Audit Agent foundations, a Laravel Backend profile, reusable project integration templates, and backend evaluation specifications with reviewer-owned fixture definitions and a local evidence validator. It includes no orchestration framework, runtime integration, project-specific rules, or dependencies.
 
 ## Inheritance model
 
@@ -84,7 +84,7 @@ Project-specific knowledge stays in the project layer. A lesson may be proposed 
 
 ## Current scope
 
-This release includes shared policies and declarative Backend, Security, and Audit Agent foundations. The Laravel profile extends Backend Core. Project integration templates and manual backend evaluation specifications are included. Other stack profiles, additional roles, shared workflows, executable evaluation fixtures/harnesses, scripts, and runtime integrations require a separately authorized phase.
+This release includes shared policies and declarative Backend, Security, and Audit Agent foundations. The Laravel profile extends Backend Core. Project integration templates, reviewer-owned evaluation fixture definitions, and a local evidence-manifest validator are included. Stack-specific executable application adapters, additional stack profiles/roles, orchestration and runtime integrations require separate authorized work.
 
 ## Project consumption and feedback
 

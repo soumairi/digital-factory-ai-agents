@@ -1,0 +1,52 @@
+{
+    "engine": "SQLite",
+    "competing_processes": 2,
+    "barrier": "Both workers ready before release",
+    "results": [
+        {
+            "round": 1,
+            "statuses": [
+                201,
+                409
+            ],
+            "stock": 3,
+            "reservation_count": 1
+        },
+        {
+            "round": 2,
+            "statuses": [
+                201,
+                409
+            ],
+            "stock": 3,
+            "reservation_count": 1
+        },
+        {
+            "round": 3,
+            "statuses": [
+                201,
+                409
+            ],
+            "stock": 3,
+            "reservation_count": 1
+        },
+        {
+            "round": 4,
+            "statuses": [
+                201,
+                409
+            ],
+            "stock": 3,
+            "reservation_count": 1
+        },
+        {
+            "round": 5,
+            "statuses": [
+                201,
+                409
+            ],
+            "stock": 3,
+            "reservation_count": 1
+        }
+    ]
+}

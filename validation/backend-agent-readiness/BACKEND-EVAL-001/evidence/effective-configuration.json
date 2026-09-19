@@ -1,0 +1,36 @@
+{
+    "php": "8.3.33",
+    "laravel": "13.24.0",
+    "pdo_drivers": [
+        "dblib",
+        "mysql",
+        "odbc",
+        "pgsql",
+        "sqlite"
+    ],
+    "configuration_cached": false,
+    "app.env": "testing",
+    "app.debug": false,
+    "database.default": "sqlite",
+    "database.connections.sqlite.database": ":memory:",
+    "database.connections.sqlite.url": "",
+    "cache.default": "array",
+    "session.driver": "array",
+    "mail.default": "array",
+    "queue.default": "sync",
+    "queue.failed.driver": null,
+    "filesystems.default": "local",
+    "filesystems.disks.local.root": "/private/tmp/backend-eval-001-0v7ydh55/app/storage/app/private",
+    "logging.default": "single",
+    "auth.defaults.guard": "web",
+    "auth.guards.web.driver": "session",
+    "auth.providers.users.driver": "eloquent",
+    "database_probe": [
+        {
+            "seq": 0,
+            "name": "main",
+            "file": ""
+        }
+    ],
+    "database_tables": []
+}

@@ -1,0 +1,15 @@
+{
+  "model": "GPT-6 (session identity; exact serving snapshot unavailable)",
+  "agent": "Codex primary session",
+  "tools": "exec_command via functions.exec; local Python/PHP CLI",
+  "python": "Python 3.14.4",
+  "php": "8.3.33",
+  "phpunit": "12.5.33",
+  "laravel": "13.24.0",
+  "dependencies": "Copied existing local vendor; no network/install; vendor-sha256.json captures bytes",
+  "composer_lock_sha256": "da3c9e451d4e731cf67e1863b9406473c1fdb865ced99b13953c9bb4f65754a5",
+  "php_binary_sha256": "36ba1214702f1e57da8c9b4a3adb35d19793c43f181444e2e4681a7bd775d389",
+  "permissions": "workspace-write; /private/tmp disposable sandboxes; network restricted; no escalation or production access",
+  "independent_reviewers": [],
+  "timestamp": "2026-09-19T14:15:01.413950+00:00"
+}

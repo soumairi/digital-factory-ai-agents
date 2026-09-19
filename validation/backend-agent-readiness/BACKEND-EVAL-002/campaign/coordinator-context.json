@@ -1,0 +1,39 @@
+{
+  "role": "Coordinator",
+  "context": "/root",
+  "campaign_id": "BACKEND-EVAL-002",
+  "evaluation_ids": [
+    "BE-001",
+    "BE-002",
+    "BE-003",
+    "BE-004",
+    "BE-005",
+    "BE-006",
+    "BE-007",
+    "BE-008",
+    "BE-009"
+  ],
+  "scope": "Freeze existing working-tree0.6.0, assign separate contexts, verify adapter prerequisites, consolidate truthful results; no Foundation edits",
+  "permissions": "Read-only Foundation/history; writes restricted to new campaign evidence; no production, real data, credentials or deployment",
+  "start_evidence": {
+    "utc": "2026-09-19T14:50:18.543611+00:00",
+    "git_head": "2fcae8e04c7c68f7fceb556739c9d852adc23989",
+    "foundation_version": "0.6.0"
+  },
+  "completion_evidence": {
+    "utc": "2026-09-19T14:55:11.760401+00:00",
+    "separate_context_records_verified": [
+      "backend",
+      "evaluator",
+      "security"
+    ],
+    "manifests_validated": 9,
+    "original_cases_executed": 0,
+    "recommendation": "SANDBOX READY",
+    "evidence": [
+      "evidence/manifest-validation.json",
+      "evidence/integrity-verification.json",
+      "final/eval-results.json"
+    ]
+  }
+}

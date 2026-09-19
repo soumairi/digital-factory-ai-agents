@@ -1,0 +1,15 @@
+--- /private/tmp/backend-eval-001-0v7ydh55/app/app/Actions/EvalReserve.php	2026-09-19 15:09:16
++++ /private/tmp/backend-eval-001-0v7ydh55/fault-transaction-boundary/app/Actions/EvalReserve.php	2026-09-19 15:11:40
+@@ -4,10 +4,10 @@
+ class EvalReserve {
+     public function execute(int $quantity): int {
+         if($quantity<1||$quantity>1000) throw new \InvalidArgumentException('Invalid quantity');
+-        return DB::transaction(function() use($quantity) {
++        return (function() use($quantity) {
+             if(DB::table('inventory')->where('id',1)->where('stock','>=',$quantity)->decrement('stock',$quantity)!==1) throw new \DomainException('Insufficient stock');
+             if(app()->bound('eval.fail-between-writes')&&app('eval.fail-between-writes')===true) throw new \RuntimeException('Synthetic injected failure');
+             return DB::table('reservations')->insertGetId(['inventory_id'=>1,'quantity'=>$quantity]);
+-        });
++        })();
+     }
+ }

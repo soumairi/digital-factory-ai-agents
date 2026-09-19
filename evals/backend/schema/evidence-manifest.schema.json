@@ -1,0 +1,886 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Backend evidence manifest v1",
+  "type": "object",
+  "properties": {
+    "campaign_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evaluation_id": {
+      "type": "string",
+      "enum": [
+        "BE-001",
+        "BE-002",
+        "BE-003",
+        "BE-004",
+        "BE-005",
+        "BE-006",
+        "BE-007",
+        "BE-008",
+        "BE-009"
+      ]
+    },
+    "foundation_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "foundation_snapshot": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "implementer_context": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "Backend Implementer",
+            "Evaluation Reviewer",
+            "Security Reviewer"
+          ]
+        },
+        "execution_record": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "execution_record"
+      ],
+      "additionalProperties": false
+    },
+    "reviewer_context": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "Backend Implementer",
+            "Evaluation Reviewer",
+            "Security Reviewer"
+          ]
+        },
+        "execution_record": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "execution_record"
+      ],
+      "additionalProperties": false
+    },
+    "security_context": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "Backend Implementer",
+            "Evaluation Reviewer",
+            "Security Reviewer"
+          ]
+        },
+        "execution_record": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "execution_record"
+      ],
+      "additionalProperties": false
+    },
+    "candidate_revision": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "candidate_hash": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "candidate_artifact": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "fixture_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fixture_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "fixture_freeze": {
+      "type": "object",
+      "properties": {
+        "owner_context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "before_implementation": {
+          "type": "boolean"
+        },
+        "assertions_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "record": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        },
+        "assertions_artifact": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "owner_context",
+        "before_implementation",
+        "assertions_hash",
+        "record",
+        "assertions_artifact"
+      ],
+      "additionalProperties": false
+    },
+    "tests_executed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "PASS",
+              "FAIL",
+              "PARTIAL",
+              "NOT RUN",
+              "NOT APPLICABLE"
+            ]
+          },
+          "assertions": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "errors": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "skipped": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "command": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "context_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "candidate_hash": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          "tests_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "id",
+          "result",
+          "assertions",
+          "errors",
+          "skipped",
+          "command",
+          "context_id",
+          "candidate_hash",
+          "evidence",
+          "tests_hash"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "test_result": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "PARTIAL",
+        "NOT RUN",
+        "NOT APPLICABLE"
+      ]
+    },
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "PASS",
+              "FAIL",
+              "PARTIAL",
+              "NOT RUN",
+              "NOT APPLICABLE"
+            ]
+          },
+          "evidence": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "result",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "fault_variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expected_detection": {
+            "const": "FAIL"
+          },
+          "actual_detection": {
+            "type": "string",
+            "enum": [
+              "PASS",
+              "FAIL",
+              "PARTIAL",
+              "NOT RUN",
+              "NOT APPLICABLE"
+            ]
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "PASS",
+              "FAIL",
+              "PARTIAL",
+              "NOT RUN",
+              "NOT APPLICABLE"
+            ]
+          },
+          "assertion_failures": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "errors": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "context_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "candidate_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "mutant_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "tests_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "disposable_copy": {
+            "type": "boolean"
+          },
+          "clean_unchanged": {
+            "type": "boolean"
+          },
+          "evidence": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          "mutant_artifact": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          "detected_test_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "id",
+          "expected_detection",
+          "actual_detection",
+          "result",
+          "assertion_failures",
+          "errors",
+          "context_id",
+          "candidate_hash",
+          "mutant_hash",
+          "tests_hash",
+          "disposable_copy",
+          "clean_unchanged",
+          "evidence",
+          "mutant_artifact",
+          "detected_test_ids"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "clean_rerun": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "PARTIAL",
+        "NOT RUN",
+        "NOT APPLICABLE"
+      ]
+    },
+    "security_review_required": {
+      "type": "boolean"
+    },
+    "security_review_result": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "PARTIAL",
+        "NOT RUN",
+        "NOT APPLICABLE"
+      ]
+    },
+    "security_evidence": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "human_correction": {
+      "type": "boolean"
+    },
+    "remediation_cycles": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "PARTIAL",
+        "NOT RUN",
+        "NOT APPLICABLE"
+      ]
+    },
+    "original_case_executed": {
+      "type": "boolean"
+    },
+    "adapted_scenario": {
+      "type": "boolean"
+    },
+    "original_case_result": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "PARTIAL",
+        "NOT RUN",
+        "NOT APPLICABLE"
+      ]
+    },
+    "adapted_scenario_result": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "PARTIAL",
+        "NOT RUN",
+        "NOT APPLICABLE"
+      ]
+    },
+    "adaptation_description": {
+      "type": "string"
+    },
+    "missing_requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "requirement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required_action": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "requirement",
+          "reason",
+          "required_action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "not_applicable_rationale": {
+      "type": "string"
+    },
+    "hard_failures": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "score": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "initial_implementation_outcome": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "PARTIAL",
+            "NOT RUN",
+            "NOT APPLICABLE"
+          ]
+        },
+        "ai_self_corrections": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "independent_reviewer_findings": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "security_findings": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "human_code_corrections": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "architecture_corrections": {
+          "type": "object",
+          "properties": {
+            "ai": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "human": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "ai",
+            "human"
+          ],
+          "additionalProperties": false
+        },
+        "scope_violations": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "process_violations": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "initial_implementation_outcome",
+        "ai_self_corrections",
+        "independent_reviewer_findings",
+        "security_findings",
+        "human_code_corrections",
+        "architecture_corrections",
+        "scope_violations",
+        "process_violations"
+      ],
+      "additionalProperties": false
+    },
+    "clean_rerun_evidence": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "security_candidate_hash": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "adapted_scenario_evidence": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "score_dimensions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dimension": {
+            "type": "string",
+            "enum": [
+              "Functional correctness",
+              "Architecture compliance",
+              "Security",
+              "Tests",
+              "Scope discipline",
+              "Documentation",
+              "Maintainability"
+            ]
+          },
+          "rating": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4
+          },
+          "evidence": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "dimension",
+          "rating",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "campaign_id",
+    "evaluation_id",
+    "foundation_version",
+    "foundation_snapshot",
+    "implementer_context",
+    "reviewer_context",
+    "security_context",
+    "candidate_revision",
+    "candidate_hash",
+    "candidate_artifact",
+    "fixture_version",
+    "fixture_hash",
+    "fixture_freeze",
+    "tests_executed",
+    "test_result",
+    "criteria",
+    "fault_variants",
+    "clean_rerun",
+    "security_review_required",
+    "security_review_result",
+    "security_evidence",
+    "human_correction",
+    "remediation_cycles",
+    "status",
+    "original_case_executed",
+    "adapted_scenario",
+    "original_case_result",
+    "adapted_scenario_result",
+    "adaptation_description",
+    "missing_requirements",
+    "not_applicable_rationale",
+    "hard_failures",
+    "score",
+    "metrics",
+    "clean_rerun_evidence",
+    "security_candidate_hash",
+    "adapted_scenario_evidence",
+    "score_dimensions"
+  ],
+  "additionalProperties": false
+}

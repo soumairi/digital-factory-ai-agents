@@ -1,0 +1,84 @@
+{
+  "campaign_id": "PENDING-NEXT-CAMPAIGN",
+  "evaluation_id": "BE-001",
+  "foundation_version": "0.6.0",
+  "foundation_snapshot": {
+    "path": "PENDING",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "implementer_context": {
+    "id": "UNASSIGNED-implementer_context",
+    "role": "Backend Implementer",
+    "execution_record": {
+      "path": "PENDING",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "reviewer_context": {
+    "id": "UNASSIGNED-reviewer_context",
+    "role": "Evaluation Reviewer",
+    "execution_record": {
+      "path": "PENDING",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "security_context": null,
+  "candidate_revision": null,
+  "candidate_hash": null,
+  "candidate_artifact": null,
+  "fixture_version": "1.0.0",
+  "fixture_hash": "eb9bdb74e34b4975186dcb0dfa42883826455de3aba1bcfdee52199b83334c6e",
+  "fixture_freeze": {
+    "owner_context": "UNASSIGNED-reviewer_context",
+    "before_implementation": false,
+    "assertions_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "record": {
+      "path": "PENDING",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "assertions_artifact": {
+      "path": "PENDING",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "tests_executed": [],
+  "test_result": "NOT RUN",
+  "criteria": [],
+  "fault_variants": [],
+  "clean_rerun": "NOT RUN",
+  "security_review_required": true,
+  "security_review_result": "NOT RUN",
+  "security_evidence": null,
+  "human_correction": false,
+  "remediation_cycles": 0,
+  "status": "NOT RUN",
+  "original_case_executed": false,
+  "adapted_scenario": false,
+  "original_case_result": "NOT RUN",
+  "adapted_scenario_result": "NOT APPLICABLE",
+  "adaptation_description": "",
+  "missing_requirements": [],
+  "not_applicable_rationale": "",
+  "hard_failures": [],
+  "score": null,
+  "metrics": {
+    "initial_implementation_outcome": "NOT RUN",
+    "ai_self_corrections": 0,
+    "independent_reviewer_findings": null,
+    "security_findings": null,
+    "human_code_corrections": 0,
+    "architecture_corrections": {
+      "ai": 0,
+      "human": 0
+    },
+    "scope_violations": 0,
+    "process_violations": 0
+  },
+  "clean_rerun_evidence": {
+    "path": "PENDING",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "security_candidate_hash": null,
+  "adapted_scenario_evidence": null,
+  "score_dimensions": []
+}
