@@ -1,0 +1,56 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+    "-n",
+    "-d",
+    "allow_url_fopen=0",
+    "-d",
+    "ffi.enable=0",
+    "vendor/bin/phpunit",
+    "-c",
+    "reviewer/phpunit.xml",
+    "--colors=never",
+    "--log-junit",
+    "/private/tmp/laravel-adapter-pmo62gsm/evidence/BE-009-F2.xml"
+  ],
+  "cwd": "/private/tmp/laravel-adapter-pmo62gsm/app",
+  "exit_code": 1,
+  "log_sha256": "4a72b76b124f90d0b50641704838f2b4e1956d1cc8b05e457d75f3616ba61f8c",
+  "elapsed_seconds": 2.4741082191467285,
+  "candidate_hash": "c1ad969f73d9ecd6906d278baf0657165cc55524690893849341ebc832521cbf",
+  "fault": "BE-009-F2",
+  "log_path": "evidence/BE-009-F2.txt",
+  "junit_path": "evidence/BE-009-F2.xml",
+  "adapter_freeze": "d592ba263d82a988774f9c22e52d98b20f1ffa95d7e0f7a8aabd4203e6caceed",
+  "calibration_only": true,
+  "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/adapters/laravel/calibration/application",
+  "tests": 14,
+  "assertions": 336,
+  "failures": 4,
+  "errors": 0,
+  "skipped": 0,
+  "failed_tests": [
+    "test_BE005_protected_fields_and_alternate_paths",
+    "test_BE005_all_protected_value_shapes_and_display_boundaries",
+    "test_BE009_sensitive_privilege_side_effects_and_excessive_resources",
+    "test_negative_sensitive_fields"
+  ],
+  "candidate_negative_tests": [
+    "test_negative_unauthenticated",
+    "test_negative_unauthorized",
+    "test_negative_ownership",
+    "test_negative_invalid",
+    "test_negative_malicious",
+    "test_negative_sensitive_fields"
+  ],
+  "candidate_negative_failures": [
+    "test_negative_sensitive_fields"
+  ],
+  "junit_sha256": "b2f76e03bf3433458885d20af0df493f1d186b4e2a12966f59ac3f58add0ff52",
+  "status": "FAIL",
+  "clean_candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+  "sensitivity": "PASS",
+  "mutant_source_hash": "c1ad969f73d9ecd6906d278baf0657165cc55524690893849341ebc832521cbf",
+  "tests_unchanged": true,
+  "clean_unchanged": true
+}

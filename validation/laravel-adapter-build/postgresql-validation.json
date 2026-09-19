@@ -1,0 +1,17 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "/Users/mouhssinesoumairi/digital-factory-ai-agents/evals/backend/adapters/laravel/postgres.py",
+    "--workspace",
+    "/private/tmp/laravel-adapter-cdh4p412",
+    "--pg-bin",
+    "/opt/homebrew/Cellar/libpq/18.4/bin"
+  ],
+  "exit_code": 2,
+  "stdout": "{\"status\": \"NOT EXECUTED\", \"reason\": \"Complete local PostgreSQL server toolchain missing\", \"checked_directory\": \"/opt/homebrew/Cellar/libpq/18.4/bin\"}\n",
+  "stderr": "",
+  "server_launched": false,
+  "database_connected": false,
+  "status": "NOT EXECUTED"
+}

@@ -84,7 +84,7 @@ Project-specific knowledge stays in the project layer. A lesson may be proposed 
 
 ## Current scope
 
-This release includes shared policies and declarative Backend, Security, and Audit Agent foundations. The Laravel profile extends Backend Core. Project integration templates, reviewer-owned evaluation fixture definitions, and a local evidence-manifest validator are included. Stack-specific executable application adapters, additional stack profiles/roles, orchestration and runtime integrations require separate authorized work.
+This release includes shared policies and declarative Backend, Security, and Audit Agent foundations. The Laravel profile extends Backend Core. Project integration templates, reviewer-owned evaluation fixture definitions, and a local evidence-manifest validator are included. A pinned Laravel executable adapter bundle supports the canonical synthetic evaluation interface. Other stack/project bindings, additional roles, orchestration and runtime integrations require separate authorized work.
 
 ## Project consumption and feedback
 

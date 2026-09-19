@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/phpunit.xml" tests="14" assertions="336" errors="0" failures="4" skipped="0" time="2.389421">
+    <testsuite name="Reviewer-BE-009" tests="14" assertions="336" errors="0" failures="4" skipped="0" time="2.389421">
+      <testsuite name="Reviewer\BE001Test" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-001/tests/BE001Test.php" tests="2" assertions="99" errors="0" failures="0" skipped="0" time="1.005216">
+        <testcase name="test_BE001_crud_owner_scope_and_missing_resources" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-001/tests/BE001Test.php" line="7" class="Reviewer\BE001Test" classname="Reviewer.BE001Test" assertions="22" time="0.083499"/>
+        <testcase name="test_BE001_input_initial_state_and_regression_controls" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-001/tests/BE001Test.php" line="20" class="Reviewer\BE001Test" classname="Reviewer.BE001Test" assertions="77" time="0.921717"/>
+      </testsuite>
+      <testsuite name="Reviewer\BE002Test" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-002/tests/BE002Test.php" tests="2" assertions="170" errors="0" failures="0" skipped="0" time="0.315792">
+        <testcase name="test_BE002_strict_boundaries_unknown_nested_hostile_and_no_writes" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-002/tests/BE002Test.php" line="7" class="Reviewer\BE002Test" classname="Reviewer.BE002Test" assertions="73" time="0.048172"/>
+        <testcase name="test_BE002_complete_normalization_matrix_and_state" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-002/tests/BE002Test.php" line="25" class="Reviewer\BE002Test" classname="Reviewer.BE002Test" assertions="97" time="0.267620"/>
+      </testsuite>
+      <testsuite name="Reviewer\BE005Test" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-005/tests/BE005Test.php" tests="2" assertions="10" errors="0" failures="2" skipped="0" time="0.052603">
+        <testcase name="test_BE005_protected_fields_and_alternate_paths" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-005/tests/BE005Test.php" line="7" class="Reviewer\BE005Test" classname="Reviewer.BE005Test" assertions="5" time="0.035801">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Reviewer\BE005Test::test_BE005_protected_fields_and_alternate_paths
+Protected state changed
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'[{"id":1,"owner_id":1,"tenant_id":1,"display_name":"Valid","role":"reader","is_admin":0},{"id":2,"owner_id":2,"tenant_id":1,"display_name":"Profile2","role":"editor","is_admin":0},{"id":3,"owner_id":3,"tenant_id":2,"display_name":"Profile3","role":"reader","is_admin":0},{"id":4,"owner_id":4,"tenant_id":2,"display_name":"Profile4","role":"reader","is_admin":0}]'
++'[{"id":1,"owner_id":1,"tenant_id":1,"display_name":"Attack","role":"editor","is_admin":0},{"id":2,"owner_id":2,"tenant_id":1,"display_name":"Profile2","role":"editor","is_admin":0},{"id":3,"owner_id":3,"tenant_id":2,"display_name":"Profile3","role":"reader","is_admin":0},{"id":4,"owner_id":4,"tenant_id":2,"display_name":"Profile4","role":"reader","is_admin":0}]'
+
+/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-005/tests/BE005Test.php:12</failure>
+        </testcase>
+        <testcase name="test_BE005_all_protected_value_shapes_and_display_boundaries" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-005/tests/BE005Test.php" line="19" class="Reviewer\BE005Test" classname="Reviewer.BE005Test" assertions="5" time="0.016803">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Reviewer\BE005Test::test_BE005_all_protected_value_shapes_and_display_boundaries
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+/private/tmp/laravel-adapter-u5gs04bg/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponseAssert.php:45
+/private/tmp/laravel-adapter-u5gs04bg/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:183
+/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/common/AdapterTestCase.php:62
+/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-005/tests/BE005Test.php:20</failure>
+        </testcase>
+      </testsuite>
+      <testsuite name="Reviewer\BE009Test" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-009/tests/BE009Test.php" tests="2" assertions="25" errors="0" failures="1" skipped="0" time="0.707886">
+        <testcase name="test_BE009_six_negative_categories_and_methods" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-009/tests/BE009Test.php" line="7" class="Reviewer\BE009Test" classname="Reviewer.BE009Test" assertions="21" time="0.689353"/>
+        <testcase name="test_BE009_sensitive_privilege_side_effects_and_excessive_resources" file="/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-009/tests/BE009Test.php" line="21" class="Reviewer\BE009Test" classname="Reviewer.BE009Test" assertions="4" time="0.018533">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Reviewer\BE009Test::test_BE009_sensitive_privilege_side_effects_and_excessive_resources
+Protected state changed
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'[{"id":1,"owner_id":1,"tenant_id":1,"display_name":"Profile1","role":"reader","is_admin":0},{"id":2,"owner_id":2,"tenant_id":1,"display_name":"Profile2","role":"editor","is_admin":0},{"id":3,"owner_id":3,"tenant_id":2,"display_name":"Profile3","role":"reader","is_admin":0},{"id":4,"owner_id":4,"tenant_id":2,"display_name":"Profile4","role":"reader","is_admin":0}]'
++'[{"id":1,"owner_id":1,"tenant_id":1,"display_name":"Attack","role":"reader","is_admin":1},{"id":2,"owner_id":2,"tenant_id":1,"display_name":"Profile2","role":"editor","is_admin":0},{"id":3,"owner_id":3,"tenant_id":2,"display_name":"Profile3","role":"reader","is_admin":0},{"id":4,"owner_id":4,"tenant_id":2,"display_name":"Profile4","role":"reader","is_admin":0}]'
+
+/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/BE-009/tests/BE009Test.php:24</failure>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Feature\BackendNegativeTest" file="/private/tmp/laravel-adapter-u5gs04bg/app/tests/Feature/BackendNegativeTest.php" tests="6" assertions="32" errors="0" failures="1" skipped="0" time="0.307924">
+        <testcase name="test_negative_unauthenticated" file="/private/tmp/laravel-adapter-u5gs04bg/app/tests/Feature/BackendNegativeTest.php" line="5" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="5" time="0.225715"/>
+        <testcase name="test_negative_unauthorized" file="/private/tmp/laravel-adapter-u5gs04bg/app/tests/Feature/BackendNegativeTest.php" line="6" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="5" time="0.029163"/>
+        <testcase name="test_negative_ownership" file="/private/tmp/laravel-adapter-u5gs04bg/app/tests/Feature/BackendNegativeTest.php" line="7" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="6" time="0.016223"/>
+        <testcase name="test_negative_invalid" file="/private/tmp/laravel-adapter-u5gs04bg/app/tests/Feature/BackendNegativeTest.php" line="8" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="6" time="0.013647"/>
+        <testcase name="test_negative_malicious" file="/private/tmp/laravel-adapter-u5gs04bg/app/tests/Feature/BackendNegativeTest.php" line="9" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="6" time="0.010763"/>
+        <testcase name="test_negative_sensitive_fields" file="/private/tmp/laravel-adapter-u5gs04bg/app/tests/Feature/BackendNegativeTest.php" line="10" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="4" time="0.012414">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\BackendNegativeTest::test_negative_sensitive_fields
+Rejected request changed persisted state
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'[{"id":1,"owner_id":1,"tenant_id":1,"display_name":"Profile1","role":"reader","is_admin":0},{"id":2,"owner_id":2,"tenant_id":1,"display_name":"Profile2","role":"editor","is_admin":0},{"id":3,"owner_id":3,"tenant_id":2,"display_name":"Profile3","role":"reader","is_admin":0},{"id":4,"owner_id":4,"tenant_id":2,"display_name":"Profile4","role":"reader","is_admin":0}]'
++'[{"id":1,"owner_id":1,"tenant_id":1,"display_name":"x","role":"reader","is_admin":1},{"id":2,"owner_id":2,"tenant_id":1,"display_name":"Profile2","role":"editor","is_admin":0},{"id":3,"owner_id":3,"tenant_id":2,"display_name":"Profile3","role":"reader","is_admin":0},{"id":4,"owner_id":4,"tenant_id":2,"display_name":"Profile4","role":"reader","is_admin":0}]'
+
+/private/tmp/laravel-adapter-u5gs04bg/app/reviewer/common/AdapterTestCase.php:61
+/private/tmp/laravel-adapter-u5gs04bg/app/tests/Feature/BackendNegativeTest.php:10</failure>
+        </testcase>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

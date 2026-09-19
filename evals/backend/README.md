@@ -1,6 +1,6 @@
 # Backend Evaluation Framework v0.2
 
-These are reusable scenario specifications, versioned reviewer-owned fixture definitions, and an executable evidence gate. Stack-specific application adapters and assertions must be supplied by the assigned reviewer; this is not an orchestration framework. No run or maturity claim exists until evidence is collected. Use synthetic projects/fixtures in isolated authorized environments; real project data stays outside the foundation.
+These are reusable scenario specifications, versioned reviewer-owned fixture definitions, and an executable evidence gate. A pinned [Laravel adapter bundle](adapters/laravel/REVIEW.md) supplies executable assertions and mutations for the canonical synthetic interface. The assigned reviewer must adopt/freeze it or approve a project-specific binding; this is not an orchestration framework. No run or maturity claim exists until evidence is collected. Use synthetic projects/fixtures in isolated authorized environments; real project data stays outside the foundation.
 
 ## Run protocol
 
@@ -64,3 +64,13 @@ PASS requires all mandatory original evidence, original score>=70 and no hard fa
 Reports must show Original Case Executed, Adapted Scenario, Original Case Result and Adapted Scenario Result separately. `status` is always the original case result. An adapted success does not promote it. Preserve first-pass/final results, AI versus human corrections, independent finding counts and denominators; do not manufacture a precise general autonomy score.
 
 These improvements apply prospectively. BACKEND-EVAL-001 remains 0 PASS / 0 FAIL / 9 PARTIAL on its frozen Foundation 0.5.0 snapshot. No BACKEND-EVAL-002 execution or release candidate is authorized by this framework update.
+
+## Executable Laravel adapter assets1.0.0
+
+The original specifications now bind to [frozen Laravel adapters](adapters/laravel/manifest.json), one per BE-001–009. Each contains setup/verify/cleanup entry points, the original fixture definition, expected results, reviewer tests and exact disposable fault bindings. See the [independent review handoff](adapters/laravel/REVIEW.md) before use.
+
+Evaluation Specification → Frozen Reviewer Adapter → Backend Candidate → Independent Verification → Fault Sensitivity → Security Review if required → PASS / FAIL / PARTIAL.
+
+READY in the adapter manifest means tested executability and sensitivity on the separate calibration application, not reviewer approval, campaign PASS or Backend readiness. Future campaigns must use the actual Backend candidate and L1 reviewer ownership/provenance. BE-009 also verifies that the candidate's own six-category suite detects its faults. PostgreSQL validation is tracked separately; SQLite results do not imply cross-engine assurance.
+
+These evaluation assets retain Foundation0.6.0 and do not change original criteria/weights. BACKEND-EVAL-001 and002 are not rerun or rescored; no third campaign is started by building the adapters.

@@ -1,0 +1,32 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+    "-n",
+    "-d",
+    "allow_url_fopen=0",
+    "-d",
+    "ffi.enable=0",
+    "vendor/bin/phpunit",
+    "-c",
+    "reviewer/phpunit.xml",
+    "--colors=never",
+    "--log-junit",
+    "/private/tmp/laravel-adapter-3g2pmsgq/evidence/clean.xml"
+  ],
+  "cwd": "/private/tmp/laravel-adapter-3g2pmsgq/app",
+  "exit_code": 0,
+  "log_sha256": "337779fe1f45f9090b78c02ca88bdcf6563f2f53c3be5410eb4b83d6f7b77219",
+  "elapsed_seconds": 0.5077519416809082,
+  "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+  "fault": null,
+  "tests": 2,
+  "assertions": 137,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "failed_tests": [],
+  "candidate_negative_tests": [],
+  "candidate_negative_failures": [],
+  "junit_sha256": "41d1077b21d57c1be51dfecf05a467990a1747a78427b4141000b20dafb73af6",
+  "status": "PASS"
+}

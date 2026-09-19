@@ -1,0 +1,10 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/laravel-adapter-qwry5pi1/app/reviewer/phpunit.xml
+
+..                                                                  2 / 2 (100%)
+
+Time: 00:00.377, Memory: 40.50 MB
+
+OK (2 tests, 96 assertions)

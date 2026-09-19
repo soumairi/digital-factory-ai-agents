@@ -1,0 +1,22 @@
+{
+  "evaluation_id": "BE-005",
+  "clean": "PASS",
+  "faults": {
+    "BE-005-F1": "FAIL"
+  },
+  "infrastructure_error": "INCOMPLETE, never detected fault",
+  "requirements": [
+    {
+      "id": "BE-005-legitimate",
+      "requirement": "Legitimate display_name update succeeds."
+    },
+    {
+      "id": "BE-005-protected",
+      "requirement": "All protected attempts preserve privilege/ownership state."
+    },
+    {
+      "id": "BE-005-paths",
+      "requirement": "Inspect DB and output for every supported alternate path and rejected nested path."
+    }
+  ]
+}

@@ -4,6 +4,8 @@
 
 ### Added
 
+- Versioned Laravel evaluation adapter assets1.0.0 with calibration tests, frozen assertions, 16 disposable mutation bindings and independent review handoff. Foundation remains0.6.0; no original criteria or historical campaign outcomes changed.
+
 - Filesystem-only Backend/Laravel bootstrap with preflight validation, dry-run and project-preserving force refresh.
 - Temporary-directory shell tests and project bootstrap documentation.
 

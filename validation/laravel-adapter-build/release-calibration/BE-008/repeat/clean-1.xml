@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-avrhol_g/app/reviewer/phpunit.xml" tests="2" assertions="220" errors="0" failures="0" skipped="0" time="0.330407">
+    <testsuite name="Reviewer-BE-008" tests="2" assertions="220" errors="0" failures="0" skipped="0" time="0.330407">
+      <testsuite name="Reviewer\BE008Test" file="/private/tmp/laravel-adapter-avrhol_g/app/reviewer/BE-008/tests/BE008Test.php" tests="2" assertions="220" errors="0" failures="0" skipped="0" time="0.330407">
+        <testcase name="test_BE008_relationship_query_budget_and_correct_serialization" file="/private/tmp/laravel-adapter-avrhol_g/app/reviewer/BE-008/tests/BE008Test.php" line="7" class="Reviewer\BE008Test" classname="Reviewer.BE008Test" assertions="187" time="0.080821"/>
+        <testcase name="test_BE008_pagination_types_and_query_limit" file="/private/tmp/laravel-adapter-avrhol_g/app/reviewer/BE-008/tests/BE008Test.php" line="29" class="Reviewer\BE008Test" classname="Reviewer.BE008Test" assertions="33" time="0.249586"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

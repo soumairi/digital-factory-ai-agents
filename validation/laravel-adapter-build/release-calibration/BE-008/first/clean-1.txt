@@ -1,0 +1,14 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/laravel-adapter-r62dg060/app/reviewer/phpunit.xml
+
+
+QUERY_EVIDENCE size=5 domain=4 relationships=2
+
+QUERY_EVIDENCE size=50 domain=4 relationships=2
+..                                                                  2 / 2 (100%)
+
+Time: 00:00.331, Memory: 40.50 MB
+
+OK (2 tests, 220 assertions)

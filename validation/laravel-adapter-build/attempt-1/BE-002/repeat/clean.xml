@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-uaf6fa0t/app/reviewer/phpunit.xml" tests="2" assertions="170" errors="0" failures="0" skipped="0" time="0.383731">
+    <testsuite name="Reviewer-BE-002" tests="2" assertions="170" errors="0" failures="0" skipped="0" time="0.383731">
+      <testsuite name="Reviewer\BE002Test" file="/private/tmp/laravel-adapter-uaf6fa0t/app/reviewer/BE-002/tests/BE002Test.php" tests="2" assertions="170" errors="0" failures="0" skipped="0" time="0.383731">
+        <testcase name="test_BE002_strict_boundaries_unknown_nested_hostile_and_no_writes" file="/private/tmp/laravel-adapter-uaf6fa0t/app/reviewer/BE-002/tests/BE002Test.php" line="7" class="Reviewer\BE002Test" classname="Reviewer.BE002Test" assertions="73" time="0.115071"/>
+        <testcase name="test_BE002_complete_normalization_matrix_and_state" file="/private/tmp/laravel-adapter-uaf6fa0t/app/reviewer/BE-002/tests/BE002Test.php" line="25" class="Reviewer\BE002Test" classname="Reviewer.BE002Test" assertions="97" time="0.268660"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

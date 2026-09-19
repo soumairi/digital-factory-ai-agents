@@ -1,0 +1,22 @@
+{
+  "evaluation_id": "BE-008",
+  "clean": "PASS",
+  "faults": {
+    "BE-008-F1": "FAIL"
+  },
+  "infrastructure_error": "INCOMPLETE, never detected fault",
+  "requirements": [
+    {
+      "id": "BE-008-relations",
+      "requirement": "Correct authorized required related fields at both sizes."
+    },
+    {
+      "id": "BE-008-budget",
+      "requirement": "Predeclared relationship query budget constant instead of row-proportional."
+    },
+    {
+      "id": "BE-008-regression",
+      "requirement": "Automated query/response regression; selected ORM relationship keys retained."
+    }
+  ]
+}

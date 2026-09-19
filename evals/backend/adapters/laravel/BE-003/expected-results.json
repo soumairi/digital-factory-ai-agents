@@ -1,0 +1,22 @@
+{
+  "evaluation_id": "BE-003",
+  "clean": "PASS",
+  "faults": {
+    "BE-003-F1": "FAIL"
+  },
+  "infrastructure_error": "INCOMPLETE, never detected fault",
+  "requirements": [
+    {
+      "id": "BE-003-actors",
+      "requirement": "Execute anonymous, reader-update, reader-view and editor-update matrix."
+    },
+    {
+      "id": "BE-003-no-writes",
+      "requirement": "Denied attempts preserve report and actor privileges."
+    },
+    {
+      "id": "BE-003-real-enforcement",
+      "requirement": "Direct requests traverse configured guard and server authorization."
+    }
+  ]
+}

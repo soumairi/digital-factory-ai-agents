@@ -1,0 +1,3 @@
+# Final assertion completeness check
+
+After the full nine-case calibration passed, final specification review added explicit assertions for reservation record quantities (BE006), pagination item field allowlists (BE007), and Articles default page size20 (BE008). No expectations were weakened or objectives changed. These three adapters are fully recalibrated with all faults, cleanup and new-workspace repeatability. Other adapters retain their unchanged verification hashes; final source/freeze comparison verifies that their executable verification inputs are identical to the prior successful run. Development freezes are retained for traceability; only the delivered checksums.json is the release asset freeze.

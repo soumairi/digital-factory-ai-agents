@@ -1,0 +1,23 @@
+{
+  "evaluation_id": "BE-009",
+  "clean": "PASS",
+  "faults": {
+    "BE-009-F1": "FAIL",
+    "BE-009-F2": "FAIL"
+  },
+  "infrastructure_error": "INCOMPLETE, never detected fault",
+  "requirements": [
+    {
+      "id": "BE-009-six-categories",
+      "requirement": "All six negative categories execute and pass clean; persisted state and safe output asserted."
+    },
+    {
+      "id": "BE-009-sensitivity",
+      "requirement": "Evaluator-supplied isolated defects cause relevant assertion failures; clean rerun passes."
+    },
+    {
+      "id": "BE-009-provenance",
+      "requirement": "Revision, commands/results and no secrets/fabricated evidence."
+    }
+  ]
+}

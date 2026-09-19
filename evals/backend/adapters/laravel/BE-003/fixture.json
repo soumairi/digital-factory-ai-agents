@@ -1,0 +1,75 @@
+{
+  "evaluation_id": "BE-003",
+  "fixture_version": "1.0.0",
+  "specification": "evals/backend/BE-003-authorization.md",
+  "owner_role": "Evaluation Reviewer",
+  "independence_minimum": "L1",
+  "initial_application_state": "Report1; reader R and editor E in actual configured guard/Gate/Policy; persisted title baseline.",
+  "required_inputs": [
+    "Anonymous GET/PATCH; R GET/PATCH; E GET/PATCH; caller-supplied role; invalid credentials."
+  ],
+  "expected_outputs": [
+    "Anonymous401; R GET200/PATCH403; E GET/PATCH200; exact id/title; safe errors."
+  ],
+  "forbidden_outputs": [
+    "Secrets, traces, protected or foreign fields; schema deviations."
+  ],
+  "expected_side_effects": [
+    "Only authorized editor update changes report title."
+  ],
+  "forbidden_side_effects": [
+    "Login treated as edit permission, caller role escalation, denied write, frontend-only checks."
+  ],
+  "required_security_behavior": [
+    "Actual configured authentication and server-side authorization, safe output, unchanged denied state.",
+    "Security Reviewer clearance required; no implementation author may provide it."
+  ],
+  "required_tests": [
+    {
+      "id": "BE-003-actors",
+      "requirement": "Execute anonymous, reader-update, reader-view and editor-update matrix."
+    },
+    {
+      "id": "BE-003-no-writes",
+      "requirement": "Denied attempts preserve report and actor privileges."
+    },
+    {
+      "id": "BE-003-real-enforcement",
+      "requirement": "Direct requests traverse configured guard and server authorization."
+    }
+  ],
+  "independent_verification_checks": [
+    "Reviewer freezes executable assertions, adapter and fixture bytes before implementation.",
+    "Reviewer independently reruns clean candidate and relevant mutations; reads DB/response evidence, not implementer claims.",
+    "Hash candidate before/after variants; rerun clean candidate; verify criterion coverage and regression results."
+  ],
+  "input_regressions": {
+    "credentials": [
+      "missing/null/empty/whitespace/invalid deny401"
+    ],
+    "role": [
+      "unknown client role cannot elevate server role; reader update remains403"
+    ],
+    "title": [
+      "editor missing/null/empty/whitespace/array/object reject422; reader authorization precedes validation"
+    ]
+  },
+  "fault_variants": [
+    {
+      "id": "BE-003-F1",
+      "mutation": "Bypass edit Gate/Policy while retaining authentication",
+      "target_test": "BE-003-actors",
+      "expected_clean_result": "PASS",
+      "expected_fault_result": "FAIL",
+      "required": true,
+      "isolation": "New disposable copy per fault; no clean-source overwrite; hash mutation and unchanged tests.",
+      "detection": "Relevant assertion failure with zero infrastructure errors; clean baseline and rerun PASS."
+    }
+  ],
+  "security_review_required": true,
+  "binding_requirements": [
+    "Reviewer assigns concrete project routes/schema/DB/auth/error mappings without weakening original criteria.",
+    "Reviewer implements every required_tests ID and input_regressions vector in executable stack-specific assertions; independent catalog approval before candidate work.",
+    "Freeze fixture+assertion hashes and execution-context provenance. These definitions are not pre-executed Laravel fixtures."
+  ]
+}

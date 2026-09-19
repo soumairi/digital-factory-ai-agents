@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "frozen_bundle_sha256": "d592ba263d82a988774f9c22e52d98b20f1ffa95d7e0f7a8aabd4203e6caceed",
+  "asset_files": 211,
+  "all_fixture_and_verification_hashes_match": true,
+  "all_authoritative_log_and_junit_hashes_match": true,
+  "history_inventory_and_bytes_unchanged": true,
+  "historical_files": 339,
+  "foundation_version": "0.6.0",
+  "historical_results": {
+    "BACKEND-EVAL-001": {
+      "PASS": 0,
+      "FAIL": 0,
+      "PARTIAL": 9
+    },
+    "BACKEND-EVAL-002": {
+      "executed": 0,
+      "NOT RUN": 9
+    }
+  }
+}

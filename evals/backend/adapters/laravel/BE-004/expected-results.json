@@ -1,0 +1,23 @@
+{
+  "evaluation_id": "BE-004",
+  "clean": "PASS",
+  "faults": {
+    "BE-004-F1": "FAIL",
+    "BE-004-F2": "FAIL"
+  },
+  "infrastructure_error": "INCOMPLETE, never detected fault",
+  "requirements": [
+    {
+      "id": "BE-004-boundaries",
+      "requirement": "Deny same-tenant non-owner and cross-tenant reads/writes."
+    },
+    {
+      "id": "BE-004-nested-list",
+      "requirement": "Lists/counts and nested mismatches disclose no foreign data."
+    },
+    {
+      "id": "BE-004-controls",
+      "requirement": "Owner controls succeed; denied writes preserve all documents."
+    }
+  ]
+}

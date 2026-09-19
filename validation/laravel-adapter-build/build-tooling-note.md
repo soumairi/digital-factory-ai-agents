@@ -1,0 +1,5 @@
+# Calibration evidence routing correction
+
+The temporary three-case coverage rerun script initially wrote to the development attempt-1 directory because a path replacement missed the full literal. This affected only adapter-build evidence, not application code, frozen assets, historical campaigns or the complete nine-case final run. Its three case directories and result index were moved unchanged to coverage-final after completion. The older attempt-1 summary was superseded by that script and is not used for readiness evidence. The retained complete final/ run plus coverage-final/ are authoritative, and their JUnit/log checksums are verified. Residual attempt-1 files are development diagnostics only.
+
+Final evidence QA also found that clean reruns reused raw log/JUnit names. The runner now gives every clean run a distinct name and exposes relative artifact paths plus an explicit calibration_only flag. The final release-calibration/ reruns all nine adapters and all16 faults; earlier development runs are not used as final readiness proof. No assertions were weakened; all original criteria and historical evidence remained unchanged.

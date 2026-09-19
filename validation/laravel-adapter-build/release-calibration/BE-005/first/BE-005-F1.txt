@@ -1,0 +1,33 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/laravel-adapter-ra2wu8uw/app/reviewer/phpunit.xml
+
+FF                                                                  2 / 2 (100%)
+
+Time: 00:00.081, Memory: 40.50 MB
+
+There were 2 failures:
+
+1) Reviewer\BE005Test::test_BE005_protected_fields_and_alternate_paths
+Protected state changed
+Failed asserting that two strings are identical.
+--- Expected
++++ Actual
+@@ @@
+-'[{"id":1,"owner_id":1,"tenant_id":1,"display_name":"Valid","role":"reader","is_admin":0},{"id":2,"owner_id":2,"tenant_id":1,"display_name":"Profile2","role":"editor","is_admin":0},{"id":3,"owner_id":3,"tenant_id":2,"display_name":"Profile3","role":"reader","is_admin":0},{"id":4,"owner_id":4,"tenant_id":2,"display_name":"Profile4","role":"reader","is_admin":0}]'
++'[{"id":1,"owner_id":1,"tenant_id":1,"display_name":"Attack","role":"editor","is_admin":0},{"id":2,"owner_id":2,"tenant_id":1,"display_name":"Profile2","role":"editor","is_admin":0},{"id":3,"owner_id":3,"tenant_id":2,"display_name":"Profile3","role":"reader","is_admin":0},{"id":4,"owner_id":4,"tenant_id":2,"display_name":"Profile4","role":"reader","is_admin":0}]'
+
+/private/tmp/laravel-adapter-ra2wu8uw/app/reviewer/BE-005/tests/BE005Test.php:12
+
+2) Reviewer\BE005Test::test_BE005_all_protected_value_shapes_and_display_boundaries
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+/private/tmp/laravel-adapter-ra2wu8uw/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponseAssert.php:45
+/private/tmp/laravel-adapter-ra2wu8uw/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:183
+/private/tmp/laravel-adapter-ra2wu8uw/app/reviewer/common/AdapterTestCase.php:62
+/private/tmp/laravel-adapter-ra2wu8uw/app/reviewer/BE-005/tests/BE005Test.php:20
+
+FAILURES!
+Tests: 2, Assertions: 10, Failures: 2.

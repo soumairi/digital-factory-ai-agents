@@ -1,0 +1,39 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+    "-n",
+    "-d",
+    "allow_url_fopen=0",
+    "-d",
+    "ffi.enable=0",
+    "vendor/bin/phpunit",
+    "-c",
+    "reviewer/phpunit.xml",
+    "--colors=never",
+    "--log-junit",
+    "/private/tmp/laravel-adapter-0rg68h3u/evidence/BE-006-F1.xml"
+  ],
+  "cwd": "/private/tmp/laravel-adapter-0rg68h3u/app",
+  "exit_code": 1,
+  "log_sha256": "9433ca8b9df4fd4b33e345daea1796595890ad31140f34752839cb1757339116",
+  "elapsed_seconds": 0.41780710220336914,
+  "candidate_hash": "d994777b725fa4624d0e8e3d133d17c7346407133551608b80c887f094a7a8b0",
+  "fault": "BE-006-F1",
+  "tests": 2,
+  "assertions": 49,
+  "failures": 1,
+  "errors": 0,
+  "skipped": 0,
+  "failed_tests": [
+    "test_BE006_success_shortage_rollback_and_repeat"
+  ],
+  "candidate_negative_tests": [],
+  "candidate_negative_failures": [],
+  "junit_sha256": "953cbe9897d65b4e107b0cabdacafe96a1f28a9b61454f4d06581d9b484a27fd",
+  "status": "FAIL",
+  "clean_candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+  "sensitivity": "PASS",
+  "mutant_source_hash": "d994777b725fa4624d0e8e3d133d17c7346407133551608b80c887f094a7a8b0",
+  "tests_unchanged": true,
+  "clean_unchanged": true
+}

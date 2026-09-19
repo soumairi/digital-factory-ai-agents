@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-puo14r_0/app/reviewer/phpunit.xml" tests="2" assertions="89" errors="0" failures="1" skipped="0" time="0.361555">
+    <testsuite name="Reviewer-BE-007" tests="2" assertions="89" errors="0" failures="1" skipped="0" time="0.361555">
+      <testsuite name="Reviewer\BE007Test" file="/private/tmp/laravel-adapter-puo14r_0/app/reviewer/BE-007/tests/BE007Test.php" tests="2" assertions="89" errors="0" failures="1" skipped="0" time="0.361555">
+        <testcase name="test_BE007_pagination_traversal_scope_and_resource_limits" file="/private/tmp/laravel-adapter-puo14r_0/app/reviewer/BE-007/tests/BE007Test.php" line="7" class="Reviewer\BE007Test" classname="Reviewer.BE007Test" assertions="28" time="0.103212">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Reviewer\BE007Test::test_BE007_pagination_traversal_scope_and_resource_limits
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+/private/tmp/laravel-adapter-puo14r_0/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponseAssert.php:45
+/private/tmp/laravel-adapter-puo14r_0/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:183
+/private/tmp/laravel-adapter-puo14r_0/app/reviewer/BE-007/tests/BE007Test.php:16</failure>
+        </testcase>
+        <testcase name="test_BE007_raw_null_whitespace_types_and_metadata" file="/private/tmp/laravel-adapter-puo14r_0/app/reviewer/BE-007/tests/BE007Test.php" line="20" class="Reviewer\BE007Test" classname="Reviewer.BE007Test" assertions="61" time="0.258343"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

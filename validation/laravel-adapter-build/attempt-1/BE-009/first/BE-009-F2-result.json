@@ -1,0 +1,51 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+    "-n",
+    "-d",
+    "allow_url_fopen=0",
+    "-d",
+    "ffi.enable=0",
+    "vendor/bin/phpunit",
+    "-c",
+    "reviewer/phpunit.xml",
+    "--colors=never",
+    "--log-junit",
+    "/private/tmp/laravel-adapter-7m7ogmx7/evidence/BE-009-F2.xml"
+  ],
+  "cwd": "/private/tmp/laravel-adapter-7m7ogmx7/app",
+  "exit_code": 1,
+  "log_sha256": "b8b5892fb25acd2c12cbd944106011a8e34778d2971d6c1d03948b8acd312df6",
+  "elapsed_seconds": 2.4919161796569824,
+  "candidate_hash": "c1ad969f73d9ecd6906d278baf0657165cc55524690893849341ebc832521cbf",
+  "fault": "BE-009-F2",
+  "tests": 14,
+  "assertions": 336,
+  "failures": 4,
+  "errors": 0,
+  "skipped": 0,
+  "failed_tests": [
+    "test_BE005_protected_fields_and_alternate_paths",
+    "test_BE005_all_protected_value_shapes_and_display_boundaries",
+    "test_BE009_sensitive_privilege_side_effects_and_excessive_resources",
+    "test_negative_sensitive_fields"
+  ],
+  "candidate_negative_tests": [
+    "test_negative_unauthenticated",
+    "test_negative_unauthorized",
+    "test_negative_ownership",
+    "test_negative_invalid",
+    "test_negative_malicious",
+    "test_negative_sensitive_fields"
+  ],
+  "candidate_negative_failures": [
+    "test_negative_sensitive_fields"
+  ],
+  "junit_sha256": "a1bcf600584d848f4f74adda72153b6dfeaf31202b6725604da8b20a38232bc7",
+  "status": "FAIL",
+  "clean_candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+  "sensitivity": "PASS",
+  "mutant_source_hash": "c1ad969f73d9ecd6906d278baf0657165cc55524690893849341ebc832521cbf",
+  "tests_unchanged": true,
+  "clean_unchanged": true
+}

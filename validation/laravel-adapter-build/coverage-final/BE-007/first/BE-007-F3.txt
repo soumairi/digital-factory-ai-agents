@@ -1,0 +1,29 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/laravel-adapter-soba66mn/app/reviewer/phpunit.xml
+
+FF                                                                  2 / 2 (100%)
+
+Time: 00:00.122, Memory: 40.50 MB
+
+There were 2 failures:
+
+1) Reviewer\BE007Test::test_BE007_pagination_traversal_scope_and_resource_limits
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+/private/tmp/laravel-adapter-soba66mn/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponseAssert.php:45
+/private/tmp/laravel-adapter-soba66mn/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:183
+/private/tmp/laravel-adapter-soba66mn/app/reviewer/BE-007/tests/BE007Test.php:16
+
+2) Reviewer\BE007Test::test_BE007_raw_null_whitespace_types_and_metadata
+Expected response status code [422] but received 200.
+Failed asserting that 200 is identical to 422.
+
+/private/tmp/laravel-adapter-soba66mn/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponseAssert.php:45
+/private/tmp/laravel-adapter-soba66mn/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:183
+/private/tmp/laravel-adapter-soba66mn/app/reviewer/BE-007/tests/BE007Test.php:29
+
+FAILURES!
+Tests: 2, Assertions: 66, Failures: 2.

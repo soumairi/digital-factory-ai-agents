@@ -1,0 +1,41 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+    "-n",
+    "-d",
+    "allow_url_fopen=0",
+    "-d",
+    "ffi.enable=0",
+    "vendor/bin/phpunit",
+    "-c",
+    "reviewer/phpunit.xml",
+    "--colors=never",
+    "--log-junit",
+    "/private/tmp/laravel-adapter-q6n_g1cs/evidence/clean.xml"
+  ],
+  "cwd": "/private/tmp/laravel-adapter-q6n_g1cs/app",
+  "exit_code": 0,
+  "log_sha256": "64ef2fc56bb8ca73185a0bd4b935885c075635414ba8f5e3d9a3ca06779cb18a",
+  "elapsed_seconds": 0.43642592430114746,
+  "candidate_hash": "f5498290f0ec66931043d27c0f7756cc6d391da38e9024e9cbcbd71e0b231cdd",
+  "fault": null,
+  "tests": 2,
+  "assertions": 59,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "failed_tests": [],
+  "candidate_negative_tests": [],
+  "candidate_negative_failures": [],
+  "junit_sha256": "fefb8b834cf94754796c5abf994be27c91ef0c468be959bf6e3ecca27de87693",
+  "status": "PASS",
+  "concurrency": {
+    "command": [
+      "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+      "-n",
+      "reviewer/common/concurrency.php"
+    ],
+    "exit_code": 0,
+    "log_sha256": "43d75be0a635ac341613590ab4ce030d4800c32ffd302bd3471e8f7823796751"
+  }
+}

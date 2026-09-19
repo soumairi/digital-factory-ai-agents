@@ -1,0 +1,21 @@
+{
+  "id": "BE-007-F2",
+  "mutation": "Replace unique ordering with deterministic descending/tied order contrary to contract",
+  "target_test": "BE-007-traversal",
+  "expected_clean_result": "PASS",
+  "expected_fault_result": "FAIL",
+  "required": true,
+  "isolation": "New disposable copy per fault; no clean-source overwrite; hash mutation and unchanged tests.",
+  "detection": "Relevant assertion failure with zero infrastructure errors; clean baseline and rerun PASS.",
+  "changes": [
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "old": "$q->orderBy('id')->forPage($page,$size)->get(['id','title'])",
+      "new": "$q->orderByDesc('id')->forPage($page,$size)->get(['id','title'])",
+      "expected_occurrences": 1
+    }
+  ],
+  "adapter_version": "1.0.0",
+  "mutation_binding": "Exact canonical source binding. Different candidate source requires a separately reviewer-frozen equivalent binding; no silent fuzzy patch.",
+  "required_failure_prefix": "test_BE007"
+}

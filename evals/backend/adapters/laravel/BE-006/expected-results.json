@@ -1,0 +1,23 @@
+{
+  "evaluation_id": "BE-006",
+  "clean": "PASS",
+  "faults": {
+    "BE-006-F1": "FAIL",
+    "BE-006-F2": "FAIL"
+  },
+  "infrastructure_error": "INCOMPLETE, never detected fault",
+  "requirements": [
+    {
+      "id": "BE-006-success",
+      "requirement": "Success stock decrement and exactly intended reservation."
+    },
+    {
+      "id": "BE-006-rollback",
+      "requirement": "Failure after decrement rolls back stock and record; safe error."
+    },
+    {
+      "id": "BE-006-competition",
+      "requirement": "Shortage and genuinely competing reservations preserve invariants on declared project engine."
+    }
+  ]
+}

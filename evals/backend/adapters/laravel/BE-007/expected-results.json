@@ -1,0 +1,24 @@
+{
+  "evaluation_id": "BE-007",
+  "clean": "PASS",
+  "faults": {
+    "BE-007-F1": "FAIL",
+    "BE-007-F2": "FAIL",
+    "BE-007-F3": "FAIL"
+  },
+  "infrastructure_error": "INCOMPLETE, never detected fault",
+  "requirements": [
+    {
+      "id": "BE-007-limits",
+      "requirement": "Default/max and all invalid pagination bounded/rejected."
+    },
+    {
+      "id": "BE-007-traversal",
+      "requirement": "Every authorized ID once in declared unique order."
+    },
+    {
+      "id": "BE-007-scope-schema",
+      "requirement": "Items/totals owner-scoped and exact response schema."
+    }
+  ]
+}

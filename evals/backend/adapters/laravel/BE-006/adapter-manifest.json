@@ -1,0 +1,61 @@
+{
+  "evaluation_id": "BE-006",
+  "adapter_id": "laravel-be-006",
+  "adapter_version": "1.0.0",
+  "stack": "Laravel",
+  "fixture_version": "1.0.0",
+  "owner_role": "Evaluation Reviewer",
+  "supported_environment": {
+    "php": "8.3.x (tested8.3.33)",
+    "laravel": "13.24.0 via pinned composer.lock",
+    "phpunit": "12.5.33",
+    "python": "3.9+",
+    "filesystem": "macOS/private/tmp canonical disposable paths; no symlinks",
+    "dependencies": "Existing vendor tree matching common/vendor-sha256.json; no network install",
+    "security": "Approved synthetic application code only; not an arbitrary/untrusted-code jail"
+  },
+  "setup_command": "bash evals/backend/adapters/laravel/BE-006/setup.sh --vendor /absolute/path/to/pinned/vendor [--candidate /approved/application]",
+  "verification_command": "bash evals/backend/adapters/laravel/BE-006/verify.sh --workspace /private/tmp/laravel-adapter-XXXX",
+  "cleanup_command": "bash evals/backend/adapters/laravel/BE-006/cleanup.sh --workspace /private/tmp/laravel-adapter-XXXX",
+  "fault_variants": [
+    {
+      "id": "BE-006-F1",
+      "command": "python3 -B evals/backend/adapters/laravel/runner.py fault --evaluation BE-006 --workspace WORKSPACE --fault-id BE-006-F1",
+      "definition": "faults/BE-006-F1.json",
+      "expected_clean": "PASS",
+      "expected_fault": "FAIL",
+      "required_test": "BE-006-rollback"
+    },
+    {
+      "id": "BE-006-F2",
+      "command": "python3 -B evals/backend/adapters/laravel/runner.py fault --evaluation BE-006 --workspace WORKSPACE --fault-id BE-006-F2",
+      "definition": "faults/BE-006-F2.json",
+      "expected_clean": "PASS",
+      "expected_fault": "FAIL",
+      "required_test": "BE-006-rollback"
+    }
+  ],
+  "security_review_required": true,
+  "database_requirements": {
+    "default": "SQLite memory + isolated SQLite files for BE006 process race",
+    "postgresql_support": "Disposable Unix-socket transaction probe (success/rollback/shortage); optional",
+    "postgresql_validation": "NOT EXECUTED"
+  },
+  "original_case": true,
+  "adapted_scenario": false,
+  "required_tests_mapping": {
+    "BE-006-success": [
+      "test_BE006_success_shortage_rollback_and_repeat",
+      "test_BE006_quantity_normalization_and_persistence"
+    ],
+    "BE-006-rollback": [
+      "test_BE006_success_shortage_rollback_and_repeat",
+      "test_BE006_quantity_normalization_and_persistence"
+    ],
+    "BE-006-competition": [
+      "common/concurrency.php: five two-process barrier races"
+    ]
+  },
+  "reviewer_approval": "PENDING independent handoff; READY is executability, not campaign PASS",
+  "candidate_negative_suite": "Candidate regressions run in BE001; other cases use reviewer controls"
+}

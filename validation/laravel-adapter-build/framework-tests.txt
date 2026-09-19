@@ -1,0 +1,12 @@
+test_all_original_fixtures_and_faults_bound (test_laravel_runner.RunnerTests.test_all_original_fixtures_and_faults_bound) ... ok
+test_asset_freeze_matches_inventory (test_laravel_runner.RunnerTests.test_asset_freeze_matches_inventory) ... ok
+test_cleanup_refuses_symlink_and_mismatched_marker (test_laravel_runner.RunnerTests.test_cleanup_refuses_symlink_and_mismatched_marker) ... ok
+test_cleanup_refuses_unmarked_or_arbitrary_targets (test_laravel_runner.RunnerTests.test_cleanup_refuses_unmarked_or_arbitrary_targets) ... ok
+test_environment_does_not_inherit_credentials (test_laravel_runner.RunnerTests.test_environment_does_not_inherit_credentials) ... ok
+test_inventory_rejects_symlinks_and_captures_source_changes (test_laravel_runner.RunnerTests.test_inventory_rejects_symlinks_and_captures_source_changes) ... ok
+test_result_parser_does_not_accept_skips_as_clean_success (test_laravel_runner.RunnerTests.test_result_parser_does_not_accept_skips_as_clean_success) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.015s
+
+OK

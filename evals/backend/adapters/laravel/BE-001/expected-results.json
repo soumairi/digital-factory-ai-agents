@@ -1,0 +1,22 @@
+{
+  "evaluation_id": "BE-001",
+  "clean": "PASS",
+  "faults": {
+    "BE-001-F1": "FAIL"
+  },
+  "infrastructure_error": "INCOMPLETE, never detected fault",
+  "requirements": [
+    {
+      "id": "BE-001-crud",
+      "requirement": "All four operations and missing-resource contract; exact DB and response checks."
+    },
+    {
+      "id": "BE-001-ownership",
+      "requirement": "Allowed and denied actors; no protected-field output or foreign effects."
+    },
+    {
+      "id": "BE-001-regression",
+      "requirement": "Existing regressions pass and changed files map to criteria."
+    }
+  ]
+}

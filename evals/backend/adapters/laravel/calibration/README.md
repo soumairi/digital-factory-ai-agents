@@ -1,0 +1,3 @@
+# Calibration application, not an evaluated Backend candidate
+
+Derived read-only from the historical Laravel source archive, copied here and corrected to the already-frozen0.6.0 Product-description/pagination metadata contracts. Historical files and results are unchanged. No historical campaign runner is invoked. This known-good application and candidate negative-test sample calibrate adapter executability and sensitivity only; they do not establish Backend capability, independent review or future candidate PASS. Vendor is supplied separately from the pinned Composer lock, with no automatic installation.

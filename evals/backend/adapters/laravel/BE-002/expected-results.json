@@ -1,0 +1,24 @@
+{
+  "evaluation_id": "BE-002",
+  "clean": "PASS",
+  "faults": {
+    "BE-002-F1": "FAIL",
+    "BE-002-F2": "FAIL",
+    "BE-002-F3": "FAIL"
+  },
+  "infrastructure_error": "INCOMPLETE, never detected fault",
+  "requirements": [
+    {
+      "id": "BE-002-boundaries",
+      "requirement": "Valid boundaries; missing, types, length/range and unknown-key tests."
+    },
+    {
+      "id": "BE-002-hostile",
+      "requirement": "Malformed JSON and hostile payload safely handled with no internal output."
+    },
+    {
+      "id": "BE-002-no-writes",
+      "requirement": "Every rejected payload leaves full product state unchanged."
+    }
+  ]
+}
