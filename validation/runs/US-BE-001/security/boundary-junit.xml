@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="SecurityBoundaryTest" file="/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/runs/US-BE-001/security/SecurityBoundaryTest.php" tests="5" assertions="97" errors="0" failures="0" skipped="0" time="12.966054">
+    <testcase name="test_head_enforces_role_boundary" file="/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/runs/US-BE-001/security/SecurityBoundaryTest.php" line="31" class="SecurityBoundaryTest" classname="SecurityBoundaryTest" assertions="7" time="0.452705"/>
+    <testcase name="test_all_write_methods_reject_admin_and_preserve_state" file="/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/runs/US-BE-001/security/SecurityBoundaryTest.php" line="40" class="SecurityBoundaryTest" classname="SecurityBoundaryTest" assertions="9" time="0.014767"/>
+    <testcase name="test_forwarded_headers_do_not_bypass_loopback_throttle" file="/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/runs/US-BE-001/security/SecurityBoundaryTest.php" line="50" class="SecurityBoundaryTest" classname="SecurityBoundaryTest" assertions="65" time="12.438061"/>
+    <testcase name="test_get_json_body_cannot_override_limits_or_grant_role" file="/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/runs/US-BE-001/security/SecurityBoundaryTest.php" line="59" class="SecurityBoundaryTest" classname="SecurityBoundaryTest" assertions="9" time="0.042835"/>
+    <testcase name="test_database_exception_is_redacted" file="/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/runs/US-BE-001/security/SecurityBoundaryTest.php" line="69" class="SecurityBoundaryTest" classname="SecurityBoundaryTest" assertions="7" time="0.017686"/>
+  </testsuite>
+</testsuites>

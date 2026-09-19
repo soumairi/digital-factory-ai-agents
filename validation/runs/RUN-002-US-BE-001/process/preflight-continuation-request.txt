@@ -1,0 +1,247 @@
+Continue RUN-002-US-BE-001 preflight only.
+
+Do NOT implement application code.
+
+Do NOT perform Backend implementation.
+Do NOT perform Security Review.
+Do NOT perform Audit Review.
+
+The current Implementation Gate is BLOCKED only because these three mandatory
+prerequisites remain incomplete:
+
+1. Project context available
+2. Security context available
+3. Separate Backend execution context identified
+
+Your task is to complete these prerequisites prospectively without rewriting
+or altering any existing Run #2 history.
+
+==================================================
+1. IDENTIFY AND PREPARE THE RUN #2 SANDBOX
+==================================================
+
+Create or identify a NEW disposable Laravel sandbox for RUN-002-US-BE-001.
+
+Do not reuse production or company application repositories.
+
+Do not use:
+
+- production databases;
+- real credentials;
+- real customer data;
+- production secrets;
+- deployment targets.
+
+Record the sandbox path.
+
+Before any application implementation:
+
+- inspect Laravel version;
+- inspect PHP version;
+- inspect database configuration;
+- inspect application structure;
+- inspect applicable project/repository instructions;
+- inspect safe local commands;
+- verify the working branch and baseline.
+
+Do NOT implement US-BE-001.
+
+==================================================
+2. PROJECT CONTEXT
+==================================================
+
+Populate or verify the Run #2 project context using only verified sandbox facts.
+
+Record at minimum:
+
+Project:
+Customer Portal Sandbox — RUN-002
+
+Purpose:
+Backend Agent validation only
+
+Backend:
+Laravel
+
+Database:
+verified sandbox database
+
+Authentication:
+verified sandbox mechanism or explicitly TODO if not yet implemented
+
+Authorization:
+verified sandbox mechanism or planned standard Laravel mechanism
+
+Architecture:
+observed Laravel architecture
+
+Testing:
+verified safe local test commands
+
+Production:
+NONE
+
+Sensitive Data:
+NONE — synthetic data only
+
+Create/update the appropriate Run #2 evidence under:
+
+validation/runs/RUN-002-US-BE-001/process/
+
+Add:
+
+project-context-verification.md
+
+Use a concise table:
+
+| Item | Verified Value | Evidence |
+|---|---|---|
+
+Do not guess unknown values.
+
+If unknown:
+
+mark:
+NOT YET IMPLEMENTED
+or
+NOT APPLICABLE
+
+rather than inventing a value.
+
+==================================================
+3. SECURITY CONTEXT
+==================================================
+
+Verify and document the actual sandbox security boundaries.
+
+Create:
+
+validation/runs/RUN-002-US-BE-001/process/security-context-verification.md
+
+Document at minimum:
+
+| Security Area | Verified State |
+|---|---|
+| Production access | NONE |
+| Production DB | NONE |
+| Real credentials | NONE |
+| Real customer data | NONE |
+| Sandbox DB | ... |
+| Sandbox filesystem scope | ... |
+| Allowed network use | ... |
+| Git push | NOT AUTHORIZED |
+| Merge | NOT AUTHORIZED |
+| Deployment | NOT AUTHORIZED |
+| Destructive production commands | NOT AUTHORIZED |
+| Test data | SYNTHETIC ONLY |
+| Secrets handling | no real secrets |
+| Safe test commands | ... |
+
+Also document:
+
+- disposable-resource boundaries;
+- allowed local filesystem scope;
+- database isolation;
+- test environment assumptions;
+- effective sandbox configuration;
+- commands that Backend Session A may execute safely.
+
+Do not claim production security validation.
+
+==================================================
+4. IDENTIFY BACKEND SESSION A
+==================================================
+
+Define the Backend implementation execution context.
+
+Record:
+
+Backend execution context:
+Session A — NEW independent Backend Agent session
+
+Scope:
+RUN-002-US-BE-001 sandbox only
+
+Permissions:
+
+READ:
+- sandbox repository
+- .ai/foundation
+- .ai/project
+- Run #2 input/process evidence
+
+WRITE:
+- sandbox application code
+- sandbox tests
+- validation/runs/RUN-002-US-BE-001/backend/
+- validation/runs/RUN-002-US-BE-001/revision/
+
+EXECUTE:
+- approved local Laravel/PHP test commands
+- safe formatter/linter commands
+- safe local inspection commands
+
+NOT ALLOWED:
+- production access
+- production database
+- real secrets
+- Git push
+- merge
+- deployment
+- Security report modification
+- Audit report modification
+- human approval
+
+Also preserve:
+
+Security reviewer:
+Session B — separate future execution context
+
+Audit reviewer:
+Session C — separate future execution context
+
+Create:
+
+validation/runs/RUN-002-US-BE-001/process/execution-contexts.md
+
+Use a permissions matrix.
+
+==================================================
+5. RE-EVALUATE PRE-IMPLEMENTATION GATE
+==================================================
+
+After all three prerequisites are verified, re-evaluate:
+
+process/pre-implementation-gate.md
+
+Do not change historical timestamps or previous evidence.
+
+The Gate may become READY only if all mandatory prerequisites are now satisfied.
+
+==================================================
+FINAL OUTPUT
+==================================================
+
+Return only:
+
+| Preflight Item | Result |
+|---|---|
+| Authorization | READY / BLOCKED |
+| Run ID | READY / BLOCKED |
+| Branch-before-edit | READY / BLOCKED |
+| Baseline | READY / BLOCKED |
+| Instructions loaded | READY / BLOCKED |
+| Foundation snapshot | READY / BLOCKED |
+| Project context | READY / BLOCKED |
+| Security context | READY / BLOCKED |
+| Backend Session A identified | READY / BLOCKED |
+| Evidence store | READY / BLOCKED |
+| Security reviewer planned | READY / BLOCKED |
+| Audit reviewer planned | READY / BLOCKED |
+| Implementation Gate | READY / BLOCKED |
+
+Then list only remaining blockers, if any.
+
+STOP.
+
+Do not implement US-BE-001.

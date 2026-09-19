@@ -1,0 +1,23 @@
+{
+  "run_id": "RUN-002-US-BE-001",
+  "verified_at_utc": "2026-09-19T13:15:23.123750+00:00",
+  "gate": "READY",
+  "scope": "preflight only",
+  "sandbox": "/private/tmp/digital-factory-run002-zct1ohhz/app",
+  "setup_baseline": "256b048234e6b40e06a2fff70d2e15c884ed482e",
+  "checks": {
+    "all_prior_run002_files_preserved": true,
+    "gate_old_bytes_preserved_as_prefix": true,
+    "run001_and_other_prior_files_unchanged": true,
+    "sandbox_working_tree_clean": true,
+    "sandbox_remotes_absent": true,
+    "application_source_routes_tests_configs_unchanged_from_scaffold": true,
+    "installed_foundation_checksum_verified": true,
+    "separate_session_a_identified": true
+  },
+  "application_tests_executed": false,
+  "backend_implementation_performed": false,
+  "security_review_performed": false,
+  "audit_review_performed": false,
+  "human_final_approval": "REQUIRED/PENDING"
+}

@@ -1,0 +1,26 @@
+{
+  "package-sha256.digest": {
+    "result": "PASS",
+    "entries": 1
+  },
+  "package-sha256.txt": {
+    "result": "PASS",
+    "entries": 27
+  },
+  "candidate_archive_original_and_test_copy": {
+    "result": "PASS",
+    "entries": 77
+  },
+  "checked_at": "2026-09-17T14:41:25.883819+00:00",
+  "candidate": "78fa5b87b156c1201525d3b097fe68f3c46b9d62fe829dd7087dfa80d8b56695",
+  "installed_lockfile_versions": {
+    "result": "PASS",
+    "packages": 110
+  },
+  "independence": {
+    "reviewer": "Security Agent B",
+    "assignment": "User assignment in this new independent conversation",
+    "implementation_authorship": false,
+    "application_modifications": false
+  }
+}

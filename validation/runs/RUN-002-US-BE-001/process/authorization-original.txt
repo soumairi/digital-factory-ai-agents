@@ -1,0 +1,37 @@
+# Run Authorization
+
+Run:
+RUN-002-US-BE-001
+
+Story:
+US-BE-001
+
+Authorized scope:
+Disposable Laravel sandbox validation.
+
+Authorized actions:
+- inspect repository;
+- create local validation branch;
+- modify sandbox application code;
+- run local tests;
+- create validation evidence.
+
+Forbidden:
+- production access;
+- real credentials;
+- real customer data;
+- git push;
+- merge;
+- deployment.
+
+Backend Agent:
+Session A
+
+Security Reviewer:
+Separate Session B
+
+Audit Reviewer:
+Separate Session C
+
+Human acceptance:
+Required at completion.

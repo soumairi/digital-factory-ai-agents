@@ -1,0 +1,5 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Available tests:
+ - Tests\Unit\ExampleTest::test_that_true_is_true
+ - Tests\Feature\ExampleTest::test_the_application_returns_a_successful_response

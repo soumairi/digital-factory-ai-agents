@@ -1,0 +1,28 @@
+{
+  "run_id": "RUN-002-US-BE-001",
+  "collected_at_utc": "2026-09-19T13:10:24.667188+00:00",
+  "files": {
+    "security/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "input/project-context.md": "00c147a2cc030f20bf45991f42272cf1d6b777c65b45d2e09bfcc56b147257ea",
+    "input/authorization.md": "e964e8bf64b096801cb6ac4c608b60f174d566ac3ad1a25b830def6ef0e13442",
+    "input/acceptance-criteria.md": "91216a9bb137461fb02c6850047541f415eab8af937ebb30ab0770edc10304ec",
+    "input/story.md": "38640bd533e43e0419bd9e77d79a6e2cb9624ca87680cd607ad28ec568e0bd0f",
+    "input/project-security-context.md": "47e21476672289548ef5a58df233ab7e9c85de7e64ef4513c57de036b1aee30e",
+    "input/human-authorization-002.txt": "155cd5d37f51b7fc769d9ab4b86a9c61414a672dfc6dfeb57b0a390888d7a7f7",
+    "backend/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "audit/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "final/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "revision/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "process/preflight-verification.json": "b9304be5f922922e8ea7256d0eff14cd85eec1e93bd5760dd2fdefde0b2587d9",
+    "process/pre-implementation-gate-initial.md": "26c7512d8ed2cbbdc0e81363a102b3f693eda1b1e80e11c8e100e53e3b04bef0",
+    "process/foundation-snapshot.md": "5f59e3605eac5574ec11e3e534ea49c96764ed62accd1c3def4fa58e77fba77f",
+    "process/pre-implementation-gate.md": "17cf87b3190c9dfa26202396dee38d1db0051c73eed49ad9ce5b1157c45f1459",
+    "process/authorization-original.txt": "4f8e5851ec7020ded019588775154c6b67ab849ae820a4364031e38e7461a1af",
+    "process/reviewer-plan.md": "a7cb4ca8427048276e57ab4dd1293454963f197eaa63fe1aef42d68de28bf79e",
+    "process/authorization-reevaluation-verification.json": "2294006c81210cec1d3d91552714081b2b0cd381c9a657a418351e2f7aab8b35",
+    "process/authorization-pre-approval.md": "bd76aa2a4d77c12d0916febcb0866625afa443f7e115e0945d8034ab0f47b4fb",
+    "process/branch-baseline.txt": "b37c40cabdee0d7564be1a659e3a9b6b642a12d4c4844063d477378bedad8dc3",
+    "process/working-tree-after.txt": "a7c251135411e86c7c7d61c70a452dd81de1cb3a3fd1cedaa40092418aead467",
+    "process/instruction-inventory.md": "5e0fc8f591b4de9f4b12da6dfeaf5fc3951f3d65814fda980b2175af84f79f49"
+  }
+}

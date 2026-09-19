@@ -1,0 +1,22 @@
+Run ID: RUN-002-US-BE-001
+Recorded UTC: 2026-09-19T13:14:14.913518+00:00
+New sandbox: /private/tmp/digital-factory-run002-zct1ohhz/app
+Source: locally cached upstream laravel/laravel archive; not Run #1 and not a company application
+Archive: /Users/mouhssinesoumairi/Library/Caches/composer/files/laravel/laravel/0c6c3e26eddfec2330ee5805582713bbe321f997.zip
+Archive SHA-256: f061b1243156eaf63e15ac2f6fd6c6f89092a53f480fced31bf9ed0c16cc9a92
+Scaffold root reference: laravel-laravel-e196bfd (archive directory label, not a fabricated full upstream commit)
+Branch creation: git init -b validation/run-002-us-be-001, before setup changes
+Pristine scaffold baseline: acbfa28f05ec7aac81fc4597c0930833dda00e49
+Pristine baseline recorded UTC: 2026-09-19T13:10:24.667188+00:00
+Setup baseline: 256b048234e6b40e06a2fff70d2e15c884ed482e
+Working branch: validation/run-002-us-be-001
+Working tree: CLEAN (git status --porcelain empty)
+Git remotes: NONE
+Application source/tests: unchanged from pristine scaffold; additions only .ai/, preflight/, composer.lock
+Ignored runtime dependencies/cache: generated locally; vendor installed offline, configuration cache absent
+Dependency installation: env -i; PHP 8.3 explicit path; COMPOSER_HOME under sandbox parent; cache read-only; COMPOSER_DISABLE_NETWORK=1; composer update --no-scripts --no-plugins --no-interaction --prefer-dist --no-progress
+Installation exit: 0; 110 locked/installed packages. Original scaffold had no lockfile; new resolved lockfile is pinned here.
+Composer emitted a temporary-directory warning, then completed. Wrapper fixes sys_temp_dir to sandbox parent.
+Composer's automatic advisory message is not an independent Security Review or a current vulnerability assurance.
+Foundation/evidence baseline remains adbea9fab587c5d12dfa25f6ff25240482e3fcbf; no main-repository commits/push/merge.
+No story implementation, test execution, migrations, seeding, Security Review or Audit Review.

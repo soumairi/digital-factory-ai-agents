@@ -1,0 +1,10 @@
+PHPUnit 12.5.35 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /Users/mouhssinesoumairi/digital-factory-ai-agents/validation/runs/US-BE-001/security/verification-runtime/phpunit.xml
+
+...................................                               35 / 35 (100%)
+
+Time: 00:13.745, Memory: 54.50 MB
+
+[30;42mOK (35 tests, 437 assertions)[0m

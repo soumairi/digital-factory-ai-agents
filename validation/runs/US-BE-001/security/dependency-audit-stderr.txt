@@ -1,0 +1,11 @@
+PHP temp directory (/var/tmp/) does not exist or is not writable to Composer. Set sys_temp_dir in your php.ini
+The following exception probably indicates you are offline or have misconfigured DNS resolver(s)
+
+In CurlDownloader.php line 401:
+                                                                               
+  curl error 6 while downloading https://repo.packagist.org/packages.json: Co  
+  uld not resolve host: repo.packagist.org                                     
+                                                                               
+
+audit [--no-dev] [-f|--format FORMAT] [--locked] [--abandoned ABANDONED] [--ignore-severity IGNORE-SEVERITY] [--ignore-unreachable]
+
