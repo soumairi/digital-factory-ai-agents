@@ -1,0 +1,31 @@
+{
+  "run_id": "RUN-002-US-BE-001",
+  "review_id": "RUN-002-US-BE-001-SEC-B-R2-01",
+  "candidate_revision": "R2-01",
+  "candidate_hash": "b6f595c35d5deda6702771823f0d2bccc382bf250554fc9ba23df18fc301ee65",
+  "gate": "PASS",
+  "critical_count": 0,
+  "high_count": 0,
+  "medium_count": 0,
+  "low_count": 0,
+  "findings": [],
+  "independence": "VALID",
+  "reviewer": "Security Agent B \u2014 fresh conversation /root (context-local identifier)",
+  "reviewed_at_utc": "2026-09-19T13:42:21.596149+00:00",
+  "scope": "Disposable synthetic sandbox only; not production clearance",
+  "foundation_gate": "ELIGIBLE FOR HUMAN REVIEW",
+  "independent_tests": {
+    "tests": 48,
+    "assertions": 467,
+    "exit_code": 0
+  },
+  "limitations": [
+    "Process-local array-cache throttling does not prove production or distributed protection",
+    "Production authentication transport/TLS not verified",
+    "Production monitoring/attribution/retention not verified",
+    "Current dependency advisory scan and clean reinstall not performed",
+    "Production capacity/configuration/permissions not verified"
+  ],
+  "audit_performed": false,
+  "human_approval": "PENDING"
+}

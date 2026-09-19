@@ -1,0 +1,86 @@
+{
+  "candidate": "R2-01",
+  "baseline": "256b048234e6b40e06a2fff70d2e15c884ed482e",
+  "sandbox": "/private/tmp/digital-factory-run002-zct1ohhz/app",
+  "files_changed": 13,
+  "files": [
+    {
+      "path": "app/Http/Controllers/ListCustomersController.php",
+      "status": "added",
+      "sha256": "d484b1007c1ed3b5fd4e503cff962c02582163490aaaf926b69baa4df9f26cd0",
+      "purpose": "Bounded allowlisted customer query and resource response"
+    },
+    {
+      "path": "app/Http/Middleware/AuthenticateCustomerList.php",
+      "status": "added",
+      "sha256": "24fb79aefcde5f0629570a49a26caae9b8ca96418a3741b490dfe3feb81c5855",
+      "purpose": "Stateless existing-guard authentication and fixed denial log"
+    },
+    {
+      "path": "app/Http/Requests/ListCustomersRequest.php",
+      "status": "added",
+      "sha256": "5ed6d8752ea675826feac854b3c67085a67f9cc6f7b6147c1b464ef161d3457c",
+      "purpose": "Administrator authorization and strict pagination validation"
+    },
+    {
+      "path": "app/Http/Resources/CustomerResource.php",
+      "status": "added",
+      "sha256": "e365a996d149048a9c26414f789342556f41d6008a408c676ea479686e296089",
+      "purpose": "Four-field response allowlist"
+    },
+    {
+      "path": "app/Models/Customer.php",
+      "status": "added",
+      "sha256": "eef4f1ada3e5e157b713fbdff20dae767c0ae141556e932939b3a3a36079405f",
+      "purpose": "Guarded customer model"
+    },
+    {
+      "path": "app/Models/User.php",
+      "status": "modified",
+      "sha256": "ec9c0c437725f4fa3d51626fac2bdaa5e8226cca0947e0fee3dd9b0a323396c1",
+      "purpose": "Boolean trusted administrator cast"
+    },
+    {
+      "path": "app/Providers/AppServiceProvider.php",
+      "status": "modified",
+      "sha256": "2087a02396360424eb4efea6071e9bf29e3e7c4f9d70e0a97a4c61bb060ca357",
+      "purpose": "Administrator Gate and request limiter"
+    },
+    {
+      "path": "bootstrap/app.php",
+      "status": "modified",
+      "sha256": "73833519b7084ae8ade2b2b09e523c9dc14b56277e8e2133c725b4e666623b00",
+      "purpose": "API registration, strict whitespace handling and safe cache headers"
+    },
+    {
+      "path": "config/cors.php",
+      "status": "added",
+      "sha256": "ea40c7fce773d96563f79c33485067d381fd90d5688e114873cfd81806a6e6dd",
+      "purpose": "Deny cross-origin API access by default"
+    },
+    {
+      "path": "database/migrations/2026_09_19_000001_add_customer_listing.php",
+      "status": "added",
+      "sha256": "567e85c1841e936044a868583b7db16ff2108d68bd42487ca0f0fcdebf39313d",
+      "purpose": "Customers schema and default-denied administrator flag"
+    },
+    {
+      "path": "preflight/inspect.php",
+      "status": "modified",
+      "sha256": "9262eb3b9e26a264b3fbb0e8560231b5125edffcea894a36efed1310e3523e63",
+      "purpose": "Style-only correction to existing inspection helper"
+    },
+    {
+      "path": "routes/api.php",
+      "status": "added",
+      "sha256": "89529f8d7cc759eda919a3f69f9829c37c83284775fe1a289ac3b30e413d181f",
+      "purpose": "GET customer route with throttle before authentication"
+    },
+    {
+      "path": "tests/Feature/CustomerListTest.php",
+      "status": "added",
+      "sha256": "828c4bc8625701217675308b451e0a705990211ede1168a76bfb27b49d151267",
+      "purpose": "46 story tests including datasets; 2 stock tests remain unchanged"
+    }
+  ]
+}

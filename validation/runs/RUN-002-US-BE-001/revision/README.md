@@ -1,0 +1,7 @@
+# R2-01 frozen Backend candidate
+
+Candidate hash is SHA-256 of artifact-sha256.txt. Manifest paths are relative to the RUN-002-US-BE-001 directory; verify with `shasum -a 256 -c revision/artifact-sha256.txt` from that directory. It binds the full source snapshot, implementation diff, inventory, context digest and Backend evidence. candidate-revision.txt is the manifest pointer and is deliberately outside its own hash.
+
+source/ contains all Git-tracked sandbox source/config/instructions and new implementation files, excluding .git, vendor and ignored runtime caches/logs. Composer lockfile is included; no dependencies changed. Tests ran in the identified sandbox with existing offline-installed dependencies; the snapshot is not claimed independently installed or retested. Context input/process originals are preserved in place; context-sha256.json binds their bytes. Future reviewers should verify source files against the snapshot before executing the approved wrapper. Do not copy live credentials or start a listener.
+
+implementation.diff is relative to setup baseline 256b048234e6b40e06a2fff70d2e15c884ed482e and includes previously untracked added files. No application commit/push/merge/deployment performed. Revision identity is content-based. Source must not change after freeze; remediation requires a new candidate and independent verification. Security B and Audit C are unperformed and have not been impersonated by Backend A. Final human approval remains pending.

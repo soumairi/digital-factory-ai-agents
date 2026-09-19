@@ -1,0 +1,287 @@
+You are Backend Agent A.
+
+This is a NEW execution context dedicated only to:
+
+RUN-002-US-BE-001
+
+Story:
+US-BE-001 — List customers with secure pagination
+
+You did NOT perform the preflight coordination.
+You are now the implementation agent.
+
+==================================================
+STEP 1 — VERIFY GATE
+==================================================
+
+Before doing anything, read:
+
+validation/runs/RUN-002-US-BE-001/process/pre-implementation-gate.md
+
+If:
+
+Implementation Gate != READY
+
+STOP immediately.
+
+Do not implement anything.
+
+Also read:
+
+validation/runs/RUN-002-US-BE-001/input/
+validation/runs/RUN-002-US-BE-001/process/
+
+==================================================
+STEP 2 — LOAD AGENT RULES
+==================================================
+
+Read and follow:
+
+.ai/foundation/shared/
+.ai/foundation/backend/core/
+.ai/foundation/backend/laravel/
+.ai/project/
+
+Respect all security, governance and scope restrictions.
+
+==================================================
+STEP 3 — BACKEND ANALYSIS
+==================================================
+
+Before modifying application code, create:
+
+validation/runs/RUN-002-US-BE-001/backend/analysis.md
+
+Keep it concise.
+
+Include:
+
+| Area | Analysis |
+|---|---|
+| Story understanding | ... |
+| Acceptance criteria | ... |
+| Architecture impact | ... |
+| Security considerations | ... |
+| Files likely to change | ... |
+| Tests required | ... |
+| Assumptions | ... |
+| Implementation plan | ... |
+
+Do not implement before this file exists.
+
+==================================================
+STEP 4 — IMPLEMENT
+==================================================
+
+Implement US-BE-001 only.
+
+Requirements:
+
+- GET /api/customers
+- authenticated access only
+- authorized administrator access only
+- unauthorized users denied
+- paginated response
+- safe maximum page size
+- response fields limited to:
+  - id
+  - name
+  - email
+  - created_at
+- strict server-side validation
+- invalid pagination handled safely
+- no sensitive/internal field exposure
+
+Follow:
+
+Security-by-Default
+Laravel profile
+Project architecture
+Scope discipline
+
+Do not introduce unnecessary abstractions.
+
+==================================================
+STEP 5 — TEST
+==================================================
+
+Run the approved local test commands.
+
+Test at minimum:
+
+- authorized access
+- unauthenticated access
+- unauthorized access
+- pagination
+- max page size
+- invalid pagination
+- response schema
+- sensitive field exclusion
+- important negative cases
+
+Do not hide failures.
+
+If tests fail:
+- investigate
+- fix
+- rerun
+
+==================================================
+STEP 6 — SELF REVIEW
+==================================================
+
+Create:
+
+validation/runs/RUN-002-US-BE-001/backend/backend-self-review.md
+
+Use a concise table:
+
+| Area | Result | Notes |
+|---|---|---|
+| Scope discipline | PASS/WARN/FAIL | ... |
+| Architecture | PASS/WARN/FAIL | ... |
+| Validation | ... | ... |
+| Authorization | ... | ... |
+| BOLA/IDOR relevance | ... | ... |
+| Serialization | ... | ... |
+| Query behavior | ... | ... |
+| N+1 risk | ... | ... |
+| Pagination | ... | ... |
+| Resource limits | ... | ... |
+| Safe errors | ... | ... |
+| Logging | ... | ... |
+| Negative tests | ... | ... |
+
+==================================================
+STEP 7 — LOGGING EVIDENCE
+==================================================
+
+Create:
+
+validation/runs/RUN-002-US-BE-001/backend/logging-evidence.md
+
+Use:
+
+| Topic | Result | Evidence / Limitation |
+|---|---|---|
+
+Cover:
+
+- authentication failures
+- authorization failures
+- passwords not logged
+- tokens not logged
+- secrets not logged
+- sensitive payloads not logged
+- sandbox monitoring limitation
+- production monitoring not claimed
+
+==================================================
+STEP 8 — SHORT REPORTS
+==================================================
+
+Create:
+
+validation/runs/RUN-002-US-BE-001/backend/backend-summary.md
+
+Maximum:
+1 page.
+
+Use tables.
+
+Also create:
+
+validation/runs/RUN-002-US-BE-001/backend/test-results-summary.md
+
+Maximum:
+1 page.
+
+Include:
+
+| Category | Tests | Result |
+|---|---:|---|
+| Authentication | X | PASS/FAIL |
+| Authorization | X | PASS/FAIL |
+| Validation | X | PASS/FAIL |
+| Pagination | X | PASS/FAIL |
+| Negative security tests | X | PASS/FAIL |
+| Total | X | PASS/FAIL |
+
+==================================================
+STEP 9 — FREEZE CANDIDATE REVISION
+==================================================
+
+When implementation and tests are complete:
+
+Freeze candidate:
+
+R2-01
+
+Create:
+
+validation/runs/RUN-002-US-BE-001/revision/candidate-revision.txt
+
+validation/runs/RUN-002-US-BE-001/revision/artifact-sha256.txt
+
+validation/runs/RUN-002-US-BE-001/revision/changed-files.json
+
+validation/runs/RUN-002-US-BE-001/revision/implementation.diff
+
+The candidate revision must be uniquely identifiable.
+
+After freezing:
+
+DO NOT modify application code.
+
+Security Review will apply only to this revision.
+
+==================================================
+STEP 10 — HANDOFF TO SECURITY
+==================================================
+
+Do NOT perform Security Review yourself.
+
+Do NOT perform Audit Review.
+
+Do NOT modify:
+
+validation/runs/RUN-002-US-BE-001/security/
+
+validation/runs/RUN-002-US-BE-001/audit/
+
+Do NOT declare Security PASS.
+
+Do NOT declare Audit PASS.
+
+==================================================
+FINAL CHAT OUTPUT
+==================================================
+
+Return only:
+
+| Area | Result |
+|---|---|
+| Pre-Implementation Gate | PASS / FAIL |
+| Backend implementation | PASS / FAIL |
+| Tests | PASS / FAIL |
+| Self Review | PASS / WARNING / FAIL |
+| Logging Evidence | PASS / WARNING / FAIL |
+| Candidate Revision | R2-01 |
+| Candidate Hash | HASH |
+| Ready for Security | YES / NO |
+
+Then:
+
+Tests: X
+Assertions: X
+Files changed: X
+
+Top remaining risks:
+1.
+2.
+3.
+
+STOP.
+
+Do not perform Security Review.
+Do not perform Audit Review.

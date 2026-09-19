@@ -1,0 +1,7 @@
+{
+  "authentication_events": 192,
+  "authorization_events": 3,
+  "sensitive_markers_present": false,
+  "only_fixed_denial_events": true,
+  "scope": "local synthetic test attempts only; no raw log export"
+}

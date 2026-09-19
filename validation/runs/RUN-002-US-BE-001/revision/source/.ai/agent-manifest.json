@@ -1,0 +1,7 @@
+{
+  "foundation": "digital-factory-ai-agents",
+  "agent": "backend",
+  "stack": "laravel",
+  "security_agent": true,
+  "audit_agent": true
+}

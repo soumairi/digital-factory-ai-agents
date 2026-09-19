@@ -1,0 +1,6 @@
+Initial run: /usr/bin/python3 preflight/run.py test
+PHPUnit 12.5.33 / PHP 8.3.33
+46 tests, 452 assertions, 1 error, 1 failure; exit 2.
+Failure: page=%201%20 expected 422, received 200: global TrimStrings normalized input. Fixed by skipping trimming only for api/customers.
+Error: logging spy count asserted before argument filter; expected once, observed two warnings. Fixed test matcher ordering; application log events unchanged.
+Initial format-check: 35 files, 1 issue in pre-existing preflight/inspect.php. Corrected imports and whitespace only; no runtime effect changes.

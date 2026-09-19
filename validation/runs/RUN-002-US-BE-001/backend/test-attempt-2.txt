@@ -1,0 +1,10 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/digital-factory-run002-zct1ohhz/app/phpunit.xml
+
+..............................................                    46 / 46 (100%)
+
+Time: 00:13.804, Memory: 48.50 MB
+
+[30;42mOK (46 tests, 456 assertions)[0m

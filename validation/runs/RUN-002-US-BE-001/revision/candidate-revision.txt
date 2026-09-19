@@ -1,0 +1,16 @@
+Candidate Revision: R2-01
+Run: RUN-002-US-BE-001
+Story: US-BE-001
+Frozen UTC: 2026-09-19T13:36:31.196700+00:00
+Backend: new Session A, current conversation /root
+Sandbox: /private/tmp/digital-factory-run002-zct1ohhz/app
+Baseline: 256b048234e6b40e06a2fff70d2e15c884ed482e
+Branch: validation/run-002-us-be-001
+Candidate Hash (SHA-256 of artifact-sha256.txt): b6f595c35d5deda6702771823f0d2bccc382bf250554fc9ba23df18fc301ee65
+Tests: 48
+Assertions: 467
+Sandbox files changed: 13
+Security: NOT PERFORMED
+Audit: NOT PERFORMED
+Human final approval: PENDING
+Application code frozen; no further edits permitted for R2-01.
