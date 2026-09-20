@@ -1,0 +1,214 @@
+{
+  "review_id": "LARAVEL-ADAPTER-REREVIEW-001",
+  "review_date": "2026-09-20",
+  "reviewer_independence": "VALID",
+  "foundation_version": "0.6.0",
+  "adapter_bundle_version": "1.0.1",
+  "review_status": "COMPLETED",
+  "adapters": [
+    {
+      "evaluation_id": "BE-004",
+      "adapter_version": "1.0.1",
+      "status": "APPROVED",
+      "clean": "PASS",
+      "tests": 2,
+      "assertions": 166,
+      "faults": [
+        {
+          "id": "BE-004-F1",
+          "candidate_result": "FAIL",
+          "sensitivity": "PASS",
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-004-F2",
+          "candidate_result": "FAIL",
+          "sensitivity": "PASS",
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-004-F3",
+          "candidate_result": "FAIL",
+          "sensitivity": "PASS",
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "clean_rerun": "PASS",
+      "fresh_repeat": "PASS",
+      "cleanup": "PASS"
+    },
+    {
+      "evaluation_id": "BE-007",
+      "adapter_version": "1.0.1",
+      "status": "APPROVED",
+      "clean": "PASS",
+      "tests": 3,
+      "assertions": 162,
+      "faults": [
+        {
+          "id": "BE-007-F1",
+          "candidate_result": "FAIL",
+          "sensitivity": "PASS",
+          "failures": 2,
+          "errors": 0,
+          "skipped": 0,
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-007-F2",
+          "candidate_result": "FAIL",
+          "sensitivity": "PASS",
+          "failures": 3,
+          "errors": 0,
+          "skipped": 0,
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-007-F3",
+          "candidate_result": "FAIL",
+          "sensitivity": "PASS",
+          "failures": 2,
+          "errors": 0,
+          "skipped": 0,
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-007-F4",
+          "candidate_result": "FAIL",
+          "sensitivity": "PASS",
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "clean_rerun": "PASS",
+      "fresh_repeat": "PASS",
+      "cleanup": "PASS"
+    },
+    {
+      "evaluation_id": "BE-008",
+      "adapter_version": "1.0.1",
+      "status": "APPROVED",
+      "clean": "PASS",
+      "tests": 3,
+      "assertions": 953,
+      "faults": [
+        {
+          "id": "BE-008-F1",
+          "candidate_result": "FAIL",
+          "sensitivity": "PASS",
+          "failures": 2,
+          "errors": 0,
+          "skipped": 0,
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        },
+        {
+          "id": "BE-008-F2",
+          "candidate_result": "FAIL",
+          "sensitivity": "PASS",
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "tests_unchanged": true,
+          "clean_unchanged": true
+        }
+      ],
+      "clean_rerun": "PASS",
+      "fresh_repeat": "PASS",
+      "cleanup": "PASS"
+    }
+  ],
+  "carried_forward_adapters": {
+    "BE-001": "PREVIOUSLY APPROVED WITH LIMITATION",
+    "BE-002": "PREVIOUSLY APPROVED WITH LIMITATION",
+    "BE-003": "PREVIOUSLY APPROVED WITH LIMITATION",
+    "BE-005": "PREVIOUSLY APPROVED WITH LIMITATION",
+    "BE-006": "PREVIOUSLY APPROVED WITH LIMITATION",
+    "BE-009": "PREVIOUSLY APPROVED WITH LIMITATION"
+  },
+  "prior_findings": [
+    {
+      "id": "IR-001",
+      "prior_severity": "High",
+      "status": "CLOSED",
+      "evidence": [
+        "execution/BE-007/first/BE-007-F4.txt",
+        "execution/BE-008/first/BE-008-F2.txt",
+        "execution/BE-008/first/BE-008-F1.txt"
+      ]
+    },
+    {
+      "id": "IR-002",
+      "prior_severity": "High",
+      "status": "CLOSED",
+      "evidence": [
+        "execution/BE-004/first/BE-004-F3.txt",
+        "execution/BE-004/first/clean-1.xml"
+      ]
+    },
+    {
+      "id": "IR-003",
+      "prior_severity": "Medium",
+      "status": "CLOSED",
+      "evidence": [
+        "freeze.json",
+        "final-integrity.json"
+      ]
+    }
+  ],
+  "remaining_findings": [],
+  "severity_counts": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0
+  },
+  "frozen_inventory": "PASS",
+  "framework_regression": {
+    "status": "PASS",
+    "adapter_tests": 8,
+    "evaluation_framework_tests": 15
+  },
+  "postgresql": "NOT EXECUTED",
+  "postgresql_assessment": {
+    "backend_eval_003": "Not required for the frozen SQLite contract",
+    "target_engine_validation": "Recommended",
+    "real_postgresql_pilot": "Required before pilot, especially BE-006 and BE-008"
+  },
+  "ready_for_backend_eval_003": true,
+  "backend_eval_003_executed": false,
+  "limitations": [
+    "SQLite fixture scope; fetched rows are measured, not database scan cost or crash durability. PostgreSQL not executed; required validation before a real PostgreSQL pilot.",
+    "Untrusted code requires external containment. No sandbox-boundary violation observed for reviewed synthetic execution.",
+    "Other six adapters retain prior limited approval; candidate provenance, BE-009 actual implementer tests, Security and campaign/human gates remain required."
+  ],
+  "evidence": [
+    "execution-results.json",
+    "hash-checks.json",
+    "freeze.json",
+    "final-integrity.json",
+    "framework-adapters.txt",
+    "framework-evals.txt",
+    "baseline.json",
+    "provenance.json",
+    "execute_review.py"
+  ]
+}

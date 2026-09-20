@@ -1,0 +1,10 @@
+{
+  "preexisting_files_unchanged": true,
+  "files_checked": 1373,
+  "freeze_after_report_publication": {
+    "freeze": "15c729443169c68fe8969b8abd48a18182587a81d94e4e405185ce635952a448",
+    "status": "PASS"
+  },
+  "report_files_present": true,
+  "historical_campaigns": "PRESERVED"
+}

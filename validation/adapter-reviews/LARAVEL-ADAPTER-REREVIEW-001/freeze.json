@@ -1,0 +1,17 @@
+{
+  "before": "15c729443169c68fe8969b8abd48a18182587a81d94e4e405185ce635952a448",
+  "copy_baseline": "15c729443169c68fe8969b8abd48a18182587a81d94e4e405185ce635952a448",
+  "modify": {
+    "status": "PASS",
+    "rejection": "Frozen adapter inventory/hash mismatch"
+  },
+  "remove": {
+    "status": "PASS",
+    "rejection": "Frozen adapter inventory/hash mismatch"
+  },
+  "add": {
+    "status": "PASS",
+    "rejection": "Frozen adapter inventory/hash mismatch"
+  },
+  "after_external_output": "15c729443169c68fe8969b8abd48a18182587a81d94e4e405185ce635952a448"
+}

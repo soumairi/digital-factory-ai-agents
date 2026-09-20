@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-0mt154z4/app/reviewer/phpunit.xml" tests="3" assertions="231" errors="0" failures="1" skipped="0" time="0.358754">
+    <testsuite name="Reviewer-BE-008" tests="3" assertions="231" errors="0" failures="1" skipped="0" time="0.358754">
+      <testsuite name="Reviewer\BE008Test" file="/private/tmp/laravel-adapter-0mt154z4/app/reviewer/BE-008/tests/BE008Test.php" tests="3" assertions="231" errors="0" failures="1" skipped="0" time="0.358754">
+        <testcase name="test_BE008_relationship_query_budget_and_correct_serialization" file="/private/tmp/laravel-adapter-0mt154z4/app/reviewer/BE-008/tests/BE008Test.php" line="9" class="Reviewer\BE008Test" classname="Reviewer.BE008Test" assertions="187" time="0.080502"/>
+        <testcase name="test_BE008_pagination_types_and_query_limit" file="/private/tmp/laravel-adapter-0mt154z4/app/reviewer/BE-008/tests/BE008Test.php" line="31" class="Reviewer\BE008Test" classname="Reviewer.BE008Test" assertions="33" time="0.240696"/>
+        <testcase name="test_BE008_bounded_database_reads_and_growth" file="/private/tmp/laravel-adapter-0mt154z4/app/reviewer/BE-008/tests/BE008Test.php" line="41" class="Reviewer\BE008Test" classname="Reviewer.BE008Test" assertions="11" time="0.037555">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Reviewer\BE008Test::test_BE008_bounded_database_reads_and_growth
+Unbounded database result: select "id", "title", "author_id", "category_id" from "articles" where "tenant_id" = ? order by "id" asc
+Failed asserting that 120 is equal to 5 or is less than 5.
+
+/private/tmp/laravel-adapter-0mt154z4/app/reviewer/BE-008/tests/BoundedReads.php:43
+/private/tmp/laravel-adapter-0mt154z4/app/reviewer/BE-008/tests/BE008Test.php:53</failure>
+        </testcase>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

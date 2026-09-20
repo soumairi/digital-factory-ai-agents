@@ -1,0 +1,16 @@
+{
+  "independence": "Separate execution context; did not implement remediation",
+  "commit": "090e0513538150512fb2fd9ecc11a4b09228b0d0",
+  "initial_git_status": "?? validation/adapter-reviews/LARAVEL-ADAPTER-REREVIEW-001/\n",
+  "foundation": "0.6.0",
+  "read_only": [
+    "existing adapters",
+    "historical campaigns"
+  ],
+  "scope": [
+    "BE-004",
+    "BE-007",
+    "BE-008"
+  ],
+  "campaign_executed": false
+}
