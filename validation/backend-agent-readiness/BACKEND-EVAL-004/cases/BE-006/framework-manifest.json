@@ -1,0 +1,315 @@
+{
+  "campaign_id": "BACKEND-EVAL-004",
+  "evaluation_id": "BE-006",
+  "foundation_version": "0.6.1",
+  "foundation_snapshot": {
+    "path": "campaign/governed-inventory.json",
+    "sha256": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92"
+  },
+  "implementer_context": {
+    "id": "/root/implementer",
+    "role": "Backend Implementer",
+    "execution_record": {
+      "path": "campaign/implementer-context.md",
+      "sha256": "7376a8995c42a4549db316ebcc961799fd1e424b3e874f8030955c4026cef193"
+    }
+  },
+  "reviewer_context": {
+    "id": "/root/evaluator",
+    "role": "Evaluation Reviewer",
+    "execution_record": {
+      "path": "reviews/evaluator-start.md",
+      "sha256": "1ab401d0f41f0a444e958e598986821490ef9f2d9c5d2f15239ba3daaee6431d"
+    }
+  },
+  "security_context": {
+    "id": "/root/security",
+    "role": "Security Reviewer",
+    "execution_record": {
+      "path": "reviews/security-context.md",
+      "sha256": "1a5b13df3d03a526b71d8371b318f1692363a9d828f476d1c9b9faa62575aad4"
+    }
+  },
+  "candidate_revision": "BE-006-C01",
+  "candidate_hash": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39",
+  "candidate_artifact": {
+    "path": "cases/BE-006/candidate-source-manifest.json",
+    "sha256": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39"
+  },
+  "fixture_version": "1.0.0",
+  "fixture_hash": "be334bc7560646ad6cbf85861c31b2501326cb7665d8cae8838aedf14832c30c",
+  "fixture_freeze": {
+    "owner_context": "/root/evaluator",
+    "before_implementation": true,
+    "assertions_hash": "4967140efec884c4cce50a09fdfed863813ff9769f6e72aca66bfdd2d2172461",
+    "record": {
+      "path": "reviews/evaluator-adoption.json",
+      "sha256": "d67f615f70ed7af361b1163f94b54a74ea339cd64b95fca77345f4ac10f2a250"
+    },
+    "assertions_artifact": {
+      "path": "reviews/BE-006/assertions-manifest.json",
+      "sha256": "4967140efec884c4cce50a09fdfed863813ff9769f6e72aca66bfdd2d2172461"
+    }
+  },
+  "tests_executed": [
+    {
+      "id": "BE-006-success",
+      "result": "PASS",
+      "assertions": 19,
+      "errors": 0,
+      "skipped": 0,
+      "command": [
+        "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+        "-n",
+        "-d",
+        "allow_url_fopen=0",
+        "-d",
+        "ffi.enable=0",
+        "vendor/bin/phpunit",
+        "-c",
+        "reviewer/phpunit.xml",
+        "--colors=never",
+        "--log-junit",
+        "/private/tmp/laravel-adapter-44pdx7se/evidence/clean-1.xml"
+      ],
+      "context_id": "/root/evaluator",
+      "candidate_hash": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39",
+      "tests_hash": "4967140efec884c4cce50a09fdfed863813ff9769f6e72aca66bfdd2d2172461",
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    },
+    {
+      "id": "BE-006-rollback",
+      "result": "PASS",
+      "assertions": 19,
+      "errors": 0,
+      "skipped": 0,
+      "command": [
+        "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+        "-n",
+        "-d",
+        "allow_url_fopen=0",
+        "-d",
+        "ffi.enable=0",
+        "vendor/bin/phpunit",
+        "-c",
+        "reviewer/phpunit.xml",
+        "--colors=never",
+        "--log-junit",
+        "/private/tmp/laravel-adapter-44pdx7se/evidence/clean-1.xml"
+      ],
+      "context_id": "/root/evaluator",
+      "candidate_hash": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39",
+      "tests_hash": "4967140efec884c4cce50a09fdfed863813ff9769f6e72aca66bfdd2d2172461",
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    },
+    {
+      "id": "BE-006-competition",
+      "result": "PASS",
+      "assertions": 61,
+      "errors": 0,
+      "skipped": 0,
+      "command": [
+        "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+        "-n",
+        "-d",
+        "allow_url_fopen=0",
+        "-d",
+        "ffi.enable=0",
+        "vendor/bin/phpunit",
+        "-c",
+        "reviewer/phpunit.xml",
+        "--colors=never",
+        "--log-junit",
+        "/private/tmp/laravel-adapter-44pdx7se/evidence/clean-1.xml"
+      ],
+      "context_id": "/root/evaluator",
+      "candidate_hash": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39",
+      "tests_hash": "4967140efec884c4cce50a09fdfed863813ff9769f6e72aca66bfdd2d2172461",
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    }
+  ],
+  "test_result": "PASS",
+  "criteria": [
+    {
+      "id": "BE-006-success",
+      "result": "PASS",
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    },
+    {
+      "id": "BE-006-rollback",
+      "result": "PASS",
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    },
+    {
+      "id": "BE-006-competition",
+      "result": "PASS",
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    }
+  ],
+  "fault_variants": [
+    {
+      "id": "BE-006-F1",
+      "expected_detection": "FAIL",
+      "actual_detection": "FAIL",
+      "result": "PASS",
+      "assertion_failures": 1,
+      "errors": 0,
+      "context_id": "/root/evaluator",
+      "candidate_hash": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39",
+      "mutant_hash": "9d215d263949b47bb1b6a133d4a00045a4731d068046f67d45f31f84b87cbc2e",
+      "tests_hash": "4967140efec884c4cce50a09fdfed863813ff9769f6e72aca66bfdd2d2172461",
+      "disposable_copy": true,
+      "clean_unchanged": true,
+      "evidence": {
+        "path": "reviews/BE-006/execution/BE-006-F1-result.json",
+        "sha256": "c62a5587b5b4f832e6fd7cd8ce758d34b56b0b2378d039c38b34e422cd958203"
+      },
+      "mutant_artifact": {
+        "path": "reviews/BE-006/BE-006-F1-source-manifest.json",
+        "sha256": "9d215d263949b47bb1b6a133d4a00045a4731d068046f67d45f31f84b87cbc2e"
+      },
+      "detected_test_ids": [
+        "BE-006-rollback"
+      ]
+    },
+    {
+      "id": "BE-006-F2",
+      "expected_detection": "FAIL",
+      "actual_detection": "FAIL",
+      "result": "PASS",
+      "assertion_failures": 1,
+      "errors": 0,
+      "context_id": "/root/evaluator",
+      "candidate_hash": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39",
+      "mutant_hash": "474bc3cc81b4934be024ed76955a3040756ceeabb53cac6d7a45e41dabac9683",
+      "tests_hash": "4967140efec884c4cce50a09fdfed863813ff9769f6e72aca66bfdd2d2172461",
+      "disposable_copy": true,
+      "clean_unchanged": true,
+      "evidence": {
+        "path": "reviews/BE-006/execution/BE-006-F2-result.json",
+        "sha256": "8122890018a1249b7e8c2bc961dea5066520f67c63316894631a9503879b5d9f"
+      },
+      "mutant_artifact": {
+        "path": "reviews/BE-006/BE-006-F2-source-manifest.json",
+        "sha256": "474bc3cc81b4934be024ed76955a3040756ceeabb53cac6d7a45e41dabac9683"
+      },
+      "detected_test_ids": [
+        "BE-006-rollback"
+      ]
+    }
+  ],
+  "clean_rerun": "PASS",
+  "security_review_required": true,
+  "security_review_result": "PASS",
+  "security_evidence": {
+    "path": "reviews/security-BE-006.json",
+    "sha256": "ac53b0d5246d19d52ca66e4aacf4308e690b119845c4fd10a19dc9d7c67401c9"
+  },
+  "human_correction": false,
+  "remediation_cycles": 0,
+  "status": "PASS",
+  "original_case_executed": true,
+  "adapted_scenario": false,
+  "original_case_result": "PASS",
+  "adapted_scenario_result": "NOT APPLICABLE",
+  "adaptation_description": "",
+  "missing_requirements": [],
+  "not_applicable_rationale": "",
+  "hard_failures": [],
+  "score": 97.5,
+  "metrics": {
+    "initial_implementation_outcome": "PASS",
+    "ai_self_corrections": 0,
+    "independent_reviewer_findings": 0,
+    "security_findings": 0,
+    "human_code_corrections": 0,
+    "architecture_corrections": {
+      "ai": 0,
+      "human": 0
+    },
+    "scope_violations": 0,
+    "process_violations": 0
+  },
+  "clean_rerun_evidence": {
+    "path": "reviews/BE-006/execution/clean-result.json",
+    "sha256": "f88985b7d22de205053e2bd3b83b083000d5efa1b89f5bf36abd4bb59a7f3a78"
+  },
+  "security_candidate_hash": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39",
+  "adapted_scenario_evidence": null,
+  "score_dimensions": [
+    {
+      "dimension": "Functional correctness",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    },
+    {
+      "dimension": "Architecture compliance",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    },
+    {
+      "dimension": "Security",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    },
+    {
+      "dimension": "Tests",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    },
+    {
+      "dimension": "Scope discipline",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    },
+    {
+      "dimension": "Documentation",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    },
+    {
+      "dimension": "Maintainability",
+      "rating": 3,
+      "evidence": {
+        "path": "reviews/BE-006/evaluator-review.json",
+        "sha256": "b4d17b5517c4bc838ad7994f3ac1c603525498e0ff0e727e521a35026094ac53"
+      }
+    }
+  ]
+}

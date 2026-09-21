@@ -1,0 +1,56 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+    "-n",
+    "-d",
+    "allow_url_fopen=0",
+    "-d",
+    "ffi.enable=0",
+    "vendor/bin/phpunit",
+    "-c",
+    "reviewer/phpunit.xml",
+    "--colors=never",
+    "--log-junit",
+    "/private/tmp/laravel-adapter-1gflcvfg/evidence/BE-009-F2.xml"
+  ],
+  "cwd": "/private/tmp/laravel-adapter-1gflcvfg/app",
+  "exit_code": 1,
+  "log_sha256": "51b0b96c0a407172e7412ff63bcbb3ec91bb0d4e178932af23e0af383593d55e",
+  "elapsed_seconds": 3.020764112472534,
+  "candidate_hash": "6679747d61efde9c8ce837a7b8063a7dab9bfa4cd3525299f2c8d732c3017358",
+  "fault": "BE-009-F2",
+  "log_path": "evidence/BE-009-F2.txt",
+  "junit_path": "evidence/BE-009-F2.xml",
+  "adapter_freeze": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+  "calibration_only": false,
+  "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-004/cases/BE-009/candidate",
+  "tests": 14,
+  "assertions": 389,
+  "failures": 4,
+  "errors": 0,
+  "skipped": 0,
+  "failed_tests": [
+    "test_BE005_protected_fields_and_alternate_paths",
+    "test_BE005_all_protected_value_shapes_and_display_boundaries",
+    "test_BE009_sensitive_privilege_side_effects_and_excessive_resources",
+    "test_negative_sensitive_fields"
+  ],
+  "candidate_negative_tests": [
+    "test_negative_unauthenticated",
+    "test_negative_unauthorized",
+    "test_negative_ownership",
+    "test_negative_invalid",
+    "test_negative_malicious",
+    "test_negative_sensitive_fields"
+  ],
+  "candidate_negative_failures": [
+    "test_negative_sensitive_fields"
+  ],
+  "junit_sha256": "b433010682f87cec50d28dc9317e9fd25aa3ee5056511bd862d3122164504ca7",
+  "status": "FAIL",
+  "clean_candidate_hash": "2d45888c6cd1aff7d77877824bd55ea03d68c959fda75ef4c74fc5de9a0c7771",
+  "sensitivity": "PASS",
+  "mutant_source_hash": "6679747d61efde9c8ce837a7b8063a7dab9bfa4cd3525299f2c8d732c3017358",
+  "tests_unchanged": true,
+  "clean_unchanged": true
+}

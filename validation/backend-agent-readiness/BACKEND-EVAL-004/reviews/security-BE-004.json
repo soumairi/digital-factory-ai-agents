@@ -1,0 +1,84 @@
+{
+  "campaign_id": "BACKEND-EVAL-004",
+  "evaluation_id": "BE-004",
+  "reviewer_context": "/root/security",
+  "role": "Security Reviewer",
+  "candidate_revision": "BE-004-C01",
+  "candidate_hash": "458186741501b9636132fd6350ed9d0d8d197e1fdc6763ca02d174b557c8d7ed",
+  "source_hash_verified": true,
+  "security_review_required": true,
+  "status": "PASS",
+  "security_review_result": "PASS",
+  "assessment": "Document scope binds both owner and tenant before list/count/read/write. Nested attachment access checks the scoped parent and constrains child lookup by that parent. Authorized updates reload durable stored values; output contains only selected fields. Independent same-tenant non-owner and cross-tenant matrices assert denied state is unchanged, valid writes persist, list totals remain scoped, and mismatched child IDs disclose no data. All three faults including non-persistence are detected.",
+  "inspected_paths": [
+    "app/Http/Controllers/EvalController.php",
+    "app/Http/Requests/EvalInput.php",
+    "app/Http/Middleware/EvalAuthenticate.php",
+    "routes/api.php",
+    "app/Providers/AppServiceProvider.php",
+    "tests/Feature/CampaignImplementationTest.php"
+  ],
+  "executed_test_names": [
+    "test_BE004_same_tenant_cross_tenant_nested_lists_and_unchanged_state",
+    "test_BE004_identifier_schema_and_protected_keys"
+  ],
+  "independent_evaluator_context": "/root/evaluator",
+  "evidence_paths": [
+    "reviews/BE-004/execution/clean-1.txt",
+    "reviews/BE-004/execution/clean-1.xml",
+    "reviews/BE-004/execution/clean-2.txt",
+    "reviews/BE-004/execution/clean-2.xml",
+    "reviews/BE-004/repeat/clean-1.txt",
+    "reviews/BE-004/repeat/clean-1.xml",
+    "reviews/BE-004/execution/BE-004-F1.txt",
+    "reviews/BE-004/execution/BE-004-F1.xml",
+    "reviews/BE-004/execution/BE-004-F2.txt",
+    "reviews/BE-004/execution/BE-004-F2.xml",
+    "reviews/BE-004/execution/BE-004-F3.txt",
+    "reviews/BE-004/execution/BE-004-F3.xml"
+  ],
+  "clean_tests": 2,
+  "clean_assertions": 166,
+  "faults": [
+    {
+      "id": "BE-004-F1",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE004_same_tenant_cross_tenant_nested_lists_and_unchanged_state"
+      ]
+    },
+    {
+      "id": "BE-004-F2",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE004_same_tenant_cross_tenant_nested_lists_and_unchanged_state"
+      ]
+    },
+    {
+      "id": "BE-004-F3",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE004_same_tenant_cross_tenant_nested_lists_and_unchanged_state"
+      ]
+    }
+  ],
+  "findings": [],
+  "unresolved_severities": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0
+  },
+  "limitations": [
+    "Approved synthetic local SQLite case only; not hostile-code containment or production assurance.",
+    "Canonical scaffold and fault bindings reused; no claim of unconstrained greenfield capability.",
+    "No external dependency vulnerability service or broad penetration test performed.",
+    "PostgreSQL NOT EXECUTED; target-engine validation REQUIRED BEFORE POSTGRESQL PILOT.",
+    "Human integration approval and Audit remain separate policy gates; this review does not provide either."
+  ],
+  "completed_at": "2026-09-21T09:18:54.500155+00:00",
+  "completion_declaration": "Read-only actual source/diff and independent executed evidence inspected; source and evidence hashes independently checked. No code modification or remediation authorship."
+}

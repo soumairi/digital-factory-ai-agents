@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\CampaignImplementationTest" file="/private/tmp/laravel-adapter-freqy7k8/app/tests/Feature/CampaignImplementationTest.php" tests="1" assertions="13" errors="0" failures="0" skipped="0" time="0.085807">
+    <testcase name="test_owner_scoped_ordered_pages_and_invalid_sizes" file="/private/tmp/laravel-adapter-freqy7k8/app/tests/Feature/CampaignImplementationTest.php" line="6" class="Tests\Feature\CampaignImplementationTest" classname="Tests.Feature.CampaignImplementationTest" assertions="13" time="0.085807"/>
+  </testsuite>
+</testsuites>

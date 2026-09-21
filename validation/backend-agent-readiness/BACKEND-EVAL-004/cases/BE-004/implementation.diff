@@ -1,0 +1,52 @@
+--- baseline/app/Http/Controllers/EvalController.php
++++ candidate/app/Http/Controllers/EvalController.php
+@@ -31,15 +31,24 @@
+         return response()->json($q->first(['id','title']));
+     }
+     private function documents(Request $r) { return DB::table('documents')->where('owner_id',$r->user()->id)->where('tenant_id',$r->user()->tenant_id); }
+-    public function documentList(Request $r) { $q=$this->documents($r); return response()->json(['data'=>$q->orderBy('id')->limit(100)->get(['id','title']),'total'=>$q->count()]); }
++    public function documentList(Request $r) {
++        $scope = $this->documents($r);
++        $total = (clone $scope)->count();
++        $documents = $scope->orderBy('id')->limit(100)->get(['id', 'title']);
++        return response()->json(['data'=>$documents, 'total'=>$total]);
++    }
+     public function document(Request $r,int $id) {
+         $q=$this->documents($r)->where('id',$id); abort_unless($q->exists(),404);
+         if($r->isMethod('PATCH')) $q->update(EvalInput::fields($r,['title'=>'required|string|max:100']));
+-        return response()->json($q->first(['id','title']));
++        $document = $q->first(['id', 'title']);
++        return response()->json(['id'=>$document->id, 'title'=>$document->title]);
+     }
+     public function attachment(Request $r,int $id,int $child) {
+-        abort_unless($this->documents($r)->where('id',$id)->exists(),404);
+-        $a=DB::table('attachments')->where('document_id',$id)->where('id',$child)->first(['id','name']); abort_unless($a,404); return response()->json($a);
++        $parentVisible = $this->documents($r)->where('id', $id)->exists();
++        abort_unless($parentVisible, 404);
++        $attachment = DB::table('attachments')->where('document_id',$id)->where('id',$child)->first(['id', 'name']);
++        abort_unless($attachment, 404);
++        return response()->json(['id'=>$attachment->id, 'name'=>$attachment->name]);
+     }
+     public function profile(Request $r) {
+         $data=EvalInput::fields($r,['display_name'=>'required|string|max:100']);
+--- baseline/tests/Feature/CampaignImplementationTest.php
++++ candidate/tests/Feature/CampaignImplementationTest.php
+@@ -0,0 +1,18 @@
++<?php
++namespace Tests\Feature;
++require_once __DIR__.'/../../reviewer/common/AdapterTestCase.php';
++use Illuminate\Support\Facades\DB;
++class CampaignImplementationTest extends \Reviewer\AdapterTestCase {
++    public function test_document_persistence_and_nested_boundary(): void {
++        $foreign=$this->state('documents');
++        foreach ([2,3,4] as $actor) {
++            $this->req('PATCH','documents/1',['title'=>'Denied'],$actor)->assertNotFound();
++            $this->assertSame($foreign,$this->state('documents'));
++        }
++        $this->req('PATCH','documents/1',['title'=>'Durable'])->assertExactJson(['id'=>1,'title'=>'Durable']);
++        $this->assertDatabaseHas('documents',['id'=>1,'title'=>'Durable','owner_id'=>1,'tenant_id'=>1]);
++        $this->req('GET','documents/1')->assertJsonPath('title','Durable');
++        $this->req('GET','documents/1/attachments/2')->assertNotFound()->assertJsonMissingPath('name');
++        $this->req('GET','documents')->assertExactJson(['data'=>[['id'=>1,'title'=>'Durable']],'total'=>1]);
++    }
++}

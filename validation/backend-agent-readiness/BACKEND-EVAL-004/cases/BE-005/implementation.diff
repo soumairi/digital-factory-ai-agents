@@ -1,0 +1,33 @@
+--- baseline/app/Http/Controllers/EvalController.php
++++ candidate/app/Http/Controllers/EvalController.php
+@@ -43,8 +43,12 @@
+     }
+     public function profile(Request $r) {
+         $data=EvalInput::fields($r,['display_name'=>'required|string|max:100']);
+-        $p=EvalProfile::where('owner_id',$r->user()->id)->where('tenant_id',$r->user()->tenant_id)->firstOrFail();
+-        $p->fill($data)->save(); return response()->json(['display_name'=>$p->display_name]);
++        $actor = $r->user();
++        $p = EvalProfile::query()->where('owner_id', $actor->id)
++            ->where('tenant_id', $actor->tenant_id)->firstOrFail();
++        $p->fill($data)->save();
++        $p->refresh();
++        return response()->json(['display_name'=>$p->display_name]);
+     }
+     public function reserve(Request $r,EvalReserve $reserve) {
+         $data=EvalInput::fields($r,['quantity'=>'required|integer|min:1|max:1000'],['quantity']);
+--- baseline/tests/Feature/CampaignImplementationTest.php
++++ candidate/tests/Feature/CampaignImplementationTest.php
+@@ -0,0 +1,13 @@
++<?php
++namespace Tests\Feature;
++require_once __DIR__.'/../../reviewer/common/AdapterTestCase.php';
++use Illuminate\Support\Facades\DB;
++class CampaignImplementationTest extends \Reviewer\AdapterTestCase {
++    public function test_profile_allowlist_keeps_every_protected_value(): void {
++        $this->req('PATCH','profile',['display_name'=>'Campaign'])->assertExactJson(['display_name'=>'Campaign']);
++        foreach (['role'=>'editor','is_admin'=>true,'owner_id'=>2,'tenant_id'=>2,'profile'=>['is_admin'=>true]] as $key=>$value) {
++            $this->reject('PATCH','profile',['display_name'=>'Denied',$key=>$value],'profiles');
++        }
++        $this->assertDatabaseHas('profiles',['id'=>1,'display_name'=>'Campaign','role'=>'reader','is_admin'=>false,'owner_id'=>1,'tenant_id'=>1]);
++    }
++}

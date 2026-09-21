@@ -1,0 +1,99 @@
+{
+  "campaign_id": "BACKEND-EVAL-004",
+  "evaluation_id": "BE-007",
+  "reviewer_context": "/root/security",
+  "role": "Security Reviewer",
+  "candidate_revision": "BE-007-C01",
+  "candidate_hash": "c2d0a400f9b423d40ef338fc47dbd7fbe6f7dd1d01e214dee0b17609fc165cbb",
+  "source_hash_verified": true,
+  "security_review_required": true,
+  "status": "PASS",
+  "security_review_result": "PASS",
+  "assessment": "Authenticated owner scope applies to both count and item retrieval. Strict query-key and decimal validation rejects excessive or invalid sizes, caps per_page at 100, and stable ID ordering with forPage bounds database retrieval before materialization. Independent traversal, metadata, foreign total isolation and PDO-fetched-row budget tests pass. Four mutants including unbounded database read fail relevant assertions. Measured rows are not a claim about arbitrary database scan cost.",
+  "inspected_paths": [
+    "app/Http/Controllers/EvalController.php",
+    "app/Http/Requests/EvalInput.php",
+    "app/Http/Middleware/EvalAuthenticate.php",
+    "routes/api.php",
+    "app/Providers/AppServiceProvider.php",
+    "tests/Feature/CampaignImplementationTest.php"
+  ],
+  "executed_test_names": [
+    "test_BE007_pagination_traversal_scope_and_resource_limits",
+    "test_BE007_raw_null_whitespace_types_and_metadata",
+    "test_BE007_bounded_database_reads"
+  ],
+  "independent_evaluator_context": "/root/evaluator",
+  "evidence_paths": [
+    "reviews/BE-007/execution/clean-1.txt",
+    "reviews/BE-007/execution/clean-1.xml",
+    "reviews/BE-007/execution/clean-2.txt",
+    "reviews/BE-007/execution/clean-2.xml",
+    "reviews/BE-007/repeat/clean-1.txt",
+    "reviews/BE-007/repeat/clean-1.xml",
+    "reviews/BE-007/execution/BE-007-F1.txt",
+    "reviews/BE-007/execution/BE-007-F1.xml",
+    "reviews/BE-007/execution/BE-007-F2.txt",
+    "reviews/BE-007/execution/BE-007-F2.xml",
+    "reviews/BE-007/execution/BE-007-F3.txt",
+    "reviews/BE-007/execution/BE-007-F3.xml",
+    "reviews/BE-007/execution/BE-007-F4.txt",
+    "reviews/BE-007/execution/BE-007-F4.xml"
+  ],
+  "clean_tests": 3,
+  "clean_assertions": 162,
+  "faults": [
+    {
+      "id": "BE-007-F1",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE007_pagination_traversal_scope_and_resource_limits",
+        "test_BE007_bounded_database_reads"
+      ]
+    },
+    {
+      "id": "BE-007-F2",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE007_pagination_traversal_scope_and_resource_limits",
+        "test_BE007_raw_null_whitespace_types_and_metadata",
+        "test_BE007_bounded_database_reads"
+      ]
+    },
+    {
+      "id": "BE-007-F3",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE007_pagination_traversal_scope_and_resource_limits",
+        "test_BE007_raw_null_whitespace_types_and_metadata"
+      ]
+    },
+    {
+      "id": "BE-007-F4",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE007_bounded_database_reads"
+      ]
+    }
+  ],
+  "findings": [],
+  "unresolved_severities": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0
+  },
+  "limitations": [
+    "Approved synthetic local SQLite case only; not hostile-code containment or production assurance.",
+    "Canonical scaffold and fault bindings reused; no claim of unconstrained greenfield capability.",
+    "No external dependency vulnerability service or broad penetration test performed.",
+    "PostgreSQL NOT EXECUTED; target-engine validation REQUIRED BEFORE POSTGRESQL PILOT.",
+    "Human integration approval and Audit remain separate policy gates; this review does not provide either."
+  ],
+  "completed_at": "2026-09-21T09:18:54.631065+00:00",
+  "completion_declaration": "Read-only actual source/diff and independent executed evidence inspected; source and evidence hashes independently checked. No code modification or remediation authorship."
+}

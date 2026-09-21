@@ -1,0 +1,92 @@
+{
+  "campaign_id": "BACKEND-EVAL-004",
+  "evaluation_id": "BE-009",
+  "reviewer_context": "/root/security",
+  "role": "Security Reviewer",
+  "candidate_revision": "BE-009-C01",
+  "candidate_hash": "2d45888c6cd1aff7d77877824bd55ea03d68c959fda75ef4c74fc5de9a0c7771",
+  "source_hash_verified": true,
+  "security_review_required": true,
+  "status": "PASS",
+  "security_review_result": "PASS",
+  "assessment": "Actual authored BackendNegativeTest replaces the calibration sample with executed response-and-state assertions in all six original categories: unauthenticated, unauthorized, ownership, invalid, malicious and sensitive fields. Real Basic guard, Gates and database state are exercised without mocking enforcement. Candidate ownership and protected-field tests fail alongside reviewer assertions against the respective two evaluator-controlled mutants. All six pass in clean, post-fault and repeat runs; unchanged original case and shared CRUD/validation/profile controls were inspected.",
+  "inspected_paths": [
+    "app/Http/Controllers/EvalController.php",
+    "app/Http/Requests/EvalInput.php",
+    "app/Http/Middleware/EvalAuthenticate.php",
+    "routes/api.php",
+    "app/Providers/AppServiceProvider.php",
+    "tests/Feature/BackendNegativeTest.php",
+    "app/Models/EvalProfile.php"
+  ],
+  "executed_test_names": [
+    "test_BE001_crud_owner_scope_and_missing_resources",
+    "test_BE001_input_initial_state_and_regression_controls",
+    "test_BE002_strict_boundaries_unknown_nested_hostile_and_no_writes",
+    "test_BE002_complete_normalization_matrix_and_state",
+    "test_BE005_protected_fields_and_alternate_paths",
+    "test_BE005_all_protected_value_shapes_and_display_boundaries",
+    "test_BE009_six_negative_categories_and_methods",
+    "test_BE009_sensitive_privilege_side_effects_and_excessive_resources",
+    "test_negative_unauthenticated",
+    "test_negative_unauthorized",
+    "test_negative_ownership",
+    "test_negative_invalid",
+    "test_negative_malicious",
+    "test_negative_sensitive_fields"
+  ],
+  "independent_evaluator_context": "/root/evaluator",
+  "evidence_paths": [
+    "reviews/BE-009/execution/clean-1.txt",
+    "reviews/BE-009/execution/clean-1.xml",
+    "reviews/BE-009/execution/clean-2.txt",
+    "reviews/BE-009/execution/clean-2.xml",
+    "reviews/BE-009/repeat/clean-1.txt",
+    "reviews/BE-009/repeat/clean-1.xml",
+    "reviews/BE-009/execution/BE-009-F1.txt",
+    "reviews/BE-009/execution/BE-009-F1.xml",
+    "reviews/BE-009/execution/BE-009-F2.txt",
+    "reviews/BE-009/execution/BE-009-F2.xml"
+  ],
+  "clean_tests": 14,
+  "clean_assertions": 577,
+  "faults": [
+    {
+      "id": "BE-009-F1",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE001_crud_owner_scope_and_missing_resources",
+        "test_BE009_six_negative_categories_and_methods",
+        "test_negative_ownership"
+      ]
+    },
+    {
+      "id": "BE-009-F2",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE005_protected_fields_and_alternate_paths",
+        "test_BE005_all_protected_value_shapes_and_display_boundaries",
+        "test_BE009_sensitive_privilege_side_effects_and_excessive_resources",
+        "test_negative_sensitive_fields"
+      ]
+    }
+  ],
+  "findings": [],
+  "unresolved_severities": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0
+  },
+  "limitations": [
+    "Approved synthetic local SQLite case only; not hostile-code containment or production assurance.",
+    "Canonical scaffold and fault bindings reused; no claim of unconstrained greenfield capability.",
+    "No external dependency vulnerability service or broad penetration test performed.",
+    "PostgreSQL NOT EXECUTED; target-engine validation REQUIRED BEFORE POSTGRESQL PILOT.",
+    "Human integration approval and Audit remain separate policy gates; this review does not provide either."
+  ],
+  "completed_at": "2026-09-21T09:18:54.708294+00:00",
+  "completion_declaration": "Read-only actual source/diff and independent executed evidence inspected; source and evidence hashes independently checked. No code modification or remediation authorship."
+}

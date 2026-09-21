@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\CampaignImplementationTest" file="/private/tmp/laravel-adapter-9jyx4ihj/app/tests/Feature/CampaignImplementationTest.php" tests="1" assertions="13" errors="0" failures="0" skipped="0" time="0.090341">
+    <testcase name="test_article_relationship_visibility_and_fixed_query_growth" file="/private/tmp/laravel-adapter-9jyx4ihj/app/tests/Feature/CampaignImplementationTest.php" line="6" class="Tests\Feature\CampaignImplementationTest" classname="Tests.Feature.CampaignImplementationTest" assertions="13" time="0.090341"/>
+  </testsuite>
+</testsuites>

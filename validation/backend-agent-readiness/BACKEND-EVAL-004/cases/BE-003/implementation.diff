@@ -1,0 +1,42 @@
+--- baseline/app/Http/Controllers/EvalController.php
++++ candidate/app/Http/Controllers/EvalController.php
+@@ -25,10 +25,16 @@
+         $id=DB::table('products')->insertGetId($data); return response()->json(['id'=>$id]+$data,201);
+     }
+     public function report(Request $r,int $id) {
+-        Gate::authorize($r->isMethod('PATCH')?'eval-edit-report':'eval-read-report');
+-        $q=DB::table('reports')->where('id',$id); abort_unless($q->exists(),404);
+-        if($r->isMethod('PATCH')) $q->update(EvalInput::fields($r,['title'=>'required|string|max:100']));
+-        return response()->json($q->first(['id','title']));
++        $permission = $r->isMethod('PATCH') ? 'eval-edit-report' : 'eval-read-report';
++        Gate::authorize($permission);
++        $query = DB::table('reports')->where('id', $id);
++        abort_unless($query->exists(), 404);
++        if ($r->isMethod('PATCH')) {
++            $payload = EvalInput::fields($r, ['title'=>'required|string|max:100']);
++            $query->update(['title'=>$payload['title']]);
++        }
++        $report = $query->first(['id', 'title']);
++        return response()->json(['id'=>$report->id, 'title'=>$report->title]);
+     }
+     private function documents(Request $r) { return DB::table('documents')->where('owner_id',$r->user()->id)->where('tenant_id',$r->user()->tenant_id); }
+     public function documentList(Request $r) { $q=$this->documents($r); return response()->json(['data'=>$q->orderBy('id')->limit(100)->get(['id','title']),'total'=>$q->count()]); }
+--- baseline/tests/Feature/CampaignImplementationTest.php
++++ candidate/tests/Feature/CampaignImplementationTest.php
+@@ -0,0 +1,16 @@
++<?php
++namespace Tests\Feature;
++require_once __DIR__.'/../../reviewer/common/AdapterTestCase.php';
++use Illuminate\Support\Facades\DB;
++class CampaignImplementationTest extends \Reviewer\AdapterTestCase {
++    public function test_report_permissions_are_server_owned_and_durable(): void {
++        $before=$this->state('reports');
++        $this->req('PATCH','report/1',['title'=>'Denied'],null)->assertUnauthorized();
++        $this->req('PATCH','report/1',['title'=>'Denied','role'=>'editor'])->assertForbidden();
++        $this->assertSame($before,$this->state('reports'));
++        $this->req('GET','report/1')->assertExactJson(['id'=>1,'title'=>'Report']);
++        $this->req('PATCH','report/1',['title'=>'Campaign edit'],2)->assertExactJson(['id'=>1,'title'=>'Campaign edit']);
++        $this->assertDatabaseHas('reports',['id'=>1,'title'=>'Campaign edit']);
++        $this->req('GET','report/1')->assertJsonPath('title','Campaign edit');
++    }
++}

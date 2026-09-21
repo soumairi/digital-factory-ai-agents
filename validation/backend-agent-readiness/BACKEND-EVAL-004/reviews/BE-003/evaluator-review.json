@@ -1,0 +1,278 @@
+{
+  "evaluation_id": "BE-003",
+  "evaluator_context": "/root/evaluator",
+  "candidate_revision": "BE-003-C01",
+  "candidate_hash": "7742f0336ef98073f372c36b0dfa2208cdd9059eea9f61391b2d09683591db56",
+  "candidate_artifact": "reviews/BE-003/candidate-source-manifest.json",
+  "original_case_executed": true,
+  "adapted_scenario": false,
+  "adapted_scenario_result": "NOT APPLICABLE",
+  "independent_verification_result": "PASS",
+  "status": "PARTIAL",
+  "missing_requirement": "Separate mandatory Security review and final evidence assembly are coordinator gates; evaluator execution complete.",
+  "first_pass_result": "PASS",
+  "criteria": [
+    {
+      "id": "BE-003-actors",
+      "result": "MET",
+      "assertions": 58,
+      "tests": [
+        "test_BE003_real_authentication_and_action_gates",
+        "test_BE003_credential_and_editor_title_matrix"
+      ],
+      "rationale": "Execute anonymous, reader-update, reader-view and editor-update matrix. Actual JUnit method assertion counts are shared coverage, not additive across criteria."
+    },
+    {
+      "id": "BE-003-no-writes",
+      "result": "MET",
+      "assertions": 58,
+      "tests": [
+        "test_BE003_real_authentication_and_action_gates",
+        "test_BE003_credential_and_editor_title_matrix"
+      ],
+      "rationale": "Denied attempts preserve report and actor privileges. Actual JUnit method assertion counts are shared coverage, not additive across criteria."
+    },
+    {
+      "id": "BE-003-real-enforcement",
+      "result": "MET",
+      "assertions": 58,
+      "tests": [
+        "test_BE003_real_authentication_and_action_gates",
+        "test_BE003_credential_and_editor_title_matrix"
+      ],
+      "rationale": "Direct requests traverse configured guard and server authorization. Actual JUnit method assertion counts are shared coverage, not additive across criteria."
+    }
+  ],
+  "executed_tests": [
+    {
+      "name": "test_BE003_real_authentication_and_action_gates",
+      "assertions": 14,
+      "class": "Reviewer\\BE003Test"
+    },
+    {
+      "name": "test_BE003_credential_and_editor_title_matrix",
+      "assertions": 44,
+      "class": "Reviewer\\BE003Test"
+    }
+  ],
+  "assertion_count_note": "Counts are exact per JUnit method; shared methods map multiple criteria and must not be summed across criteria.",
+  "score_dimensions": [
+    {
+      "dimension": "Functional correctness",
+      "rating": 4,
+      "maximum": 20,
+      "points": 20.0,
+      "rationale": "Frozen original clean behavior and persistence assertions pass in initial, post-fault and fresh-workspace runs."
+    },
+    {
+      "dimension": "Architecture compliance",
+      "rating": 4,
+      "maximum": 15,
+      "points": 15.0,
+      "rationale": "Scoped actual diff follows existing Laravel controller, FormRequest, Gate/model and Action boundaries; no new framework or infrastructure."
+    },
+    {
+      "dimension": "Security",
+      "rating": 4,
+      "maximum": 25,
+      "points": 25.0,
+      "rationale": "Real guard, server-side authorization, validation, denied-state and safe-output checks pass; exact mandatory faults detected. Required separate Security decision must also clear."
+    },
+    {
+      "dimension": "Tests",
+      "rating": 4,
+      "maximum": 15,
+      "points": 15.0,
+      "rationale": "Independent unchanged frozen assertions execute without errors/skips, all relevant mutants fail, and candidate-owned scoped tests exist with executed implementer evidence."
+    },
+    {
+      "dimension": "Scope discipline",
+      "rating": 4,
+      "maximum": 10,
+      "points": 10.0,
+      "rationale": "Actual source inventory and diff match permitted candidate scope; original candidate unchanged after review."
+    },
+    {
+      "dimension": "Documentation",
+      "rating": 4,
+      "maximum": 5,
+      "points": 5.0,
+      "rationale": "Analysis, explicit scaffold provenance, changed-file diff, own test commands/results, self-review and exact candidate freeze are present."
+    },
+    {
+      "dimension": "Maintainability",
+      "rating": 3,
+      "maximum": 10,
+      "points": 7.5,
+      "rationale": "Small focused changes reuse established code; compact synthetic fixture code and adapter-specific mutation anchors limit transferability beyond this scaffold."
+    }
+  ],
+  "score": 97.5,
+  "findings": [],
+  "clean": {
+    "command": [
+      "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+      "-n",
+      "-d",
+      "allow_url_fopen=0",
+      "-d",
+      "ffi.enable=0",
+      "vendor/bin/phpunit",
+      "-c",
+      "reviewer/phpunit.xml",
+      "--colors=never",
+      "--log-junit",
+      "/private/tmp/laravel-adapter-9v9g4rid/evidence/clean-1.xml"
+    ],
+    "cwd": "/private/tmp/laravel-adapter-9v9g4rid/app",
+    "exit_code": 0,
+    "log_sha256": "a1015a8031259080f6c56c2e3e9c46a744d144527ed8aea2b34e67addb6d89d5",
+    "elapsed_seconds": 1.8798887729644775,
+    "candidate_hash": "7742f0336ef98073f372c36b0dfa2208cdd9059eea9f61391b2d09683591db56",
+    "fault": null,
+    "log_path": "evidence/clean-1.txt",
+    "junit_path": "evidence/clean-1.xml",
+    "adapter_freeze": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+    "calibration_only": false,
+    "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-004/cases/BE-003/candidate",
+    "tests": 2,
+    "assertions": 58,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "failed_tests": [],
+    "candidate_negative_tests": [],
+    "candidate_negative_failures": [],
+    "junit_sha256": "f10abf5dba5e11eee97254e44ae9d77f9f2441e00044c71a5e30492ecd47244a",
+    "status": "PASS"
+  },
+  "faults": [
+    {
+      "command": [
+        "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+        "-n",
+        "-d",
+        "allow_url_fopen=0",
+        "-d",
+        "ffi.enable=0",
+        "vendor/bin/phpunit",
+        "-c",
+        "reviewer/phpunit.xml",
+        "--colors=never",
+        "--log-junit",
+        "/private/tmp/laravel-adapter-5mu_xq89/evidence/BE-003-F1.xml"
+      ],
+      "cwd": "/private/tmp/laravel-adapter-5mu_xq89/app",
+      "exit_code": 1,
+      "log_sha256": "5680887c3b20273d6fbe71d9d1737efbdf68740c93d752987a1e9ae2ffd8beec",
+      "elapsed_seconds": 1.5282728672027588,
+      "candidate_hash": "66313364914189f8b5ce72ebdcc21498aa5d5d5f6bcf1779b9441663cdd9197b",
+      "fault": "BE-003-F1",
+      "log_path": "evidence/BE-003-F1.txt",
+      "junit_path": "evidence/BE-003-F1.xml",
+      "adapter_freeze": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+      "calibration_only": false,
+      "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-004/cases/BE-003/candidate",
+      "tests": 2,
+      "assertions": 52,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "failed_tests": [
+        "test_BE003_real_authentication_and_action_gates",
+        "test_BE003_credential_and_editor_title_matrix"
+      ],
+      "candidate_negative_tests": [],
+      "candidate_negative_failures": [],
+      "junit_sha256": "bffa175186aa01aea2c8a92369261f9239dd44b701dea13c1f945bd8fbd76f08",
+      "status": "FAIL",
+      "clean_candidate_hash": "7742f0336ef98073f372c36b0dfa2208cdd9059eea9f61391b2d09683591db56",
+      "sensitivity": "PASS",
+      "mutant_source_hash": "66313364914189f8b5ce72ebdcc21498aa5d5d5f6bcf1779b9441663cdd9197b",
+      "tests_unchanged": true,
+      "clean_unchanged": true
+    }
+  ],
+  "clean_rerun": {
+    "command": [
+      "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+      "-n",
+      "-d",
+      "allow_url_fopen=0",
+      "-d",
+      "ffi.enable=0",
+      "vendor/bin/phpunit",
+      "-c",
+      "reviewer/phpunit.xml",
+      "--colors=never",
+      "--log-junit",
+      "/private/tmp/laravel-adapter-9v9g4rid/evidence/clean-2.xml"
+    ],
+    "cwd": "/private/tmp/laravel-adapter-9v9g4rid/app",
+    "exit_code": 0,
+    "log_sha256": "ab1c64721db5ce0dbaf3cd9f6bb44cdd6d9af53415bd1ab787904c3d85b6297e",
+    "elapsed_seconds": 1.9542770385742188,
+    "candidate_hash": "7742f0336ef98073f372c36b0dfa2208cdd9059eea9f61391b2d09683591db56",
+    "fault": null,
+    "log_path": "evidence/clean-2.txt",
+    "junit_path": "evidence/clean-2.xml",
+    "adapter_freeze": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+    "calibration_only": false,
+    "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-004/cases/BE-003/candidate",
+    "tests": 2,
+    "assertions": 58,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "failed_tests": [],
+    "candidate_negative_tests": [],
+    "candidate_negative_failures": [],
+    "junit_sha256": "1446a3576c0cf4c51e85a1758f2fd4c7a0baaa8e648da12618c74dd16b59e050",
+    "status": "PASS"
+  },
+  "fresh_repeat": {
+    "command": [
+      "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+      "-n",
+      "-d",
+      "allow_url_fopen=0",
+      "-d",
+      "ffi.enable=0",
+      "vendor/bin/phpunit",
+      "-c",
+      "reviewer/phpunit.xml",
+      "--colors=never",
+      "--log-junit",
+      "/private/tmp/laravel-adapter-_2xf9dbz/evidence/clean-1.xml"
+    ],
+    "cwd": "/private/tmp/laravel-adapter-_2xf9dbz/app",
+    "exit_code": 0,
+    "log_sha256": "17d251bb5bce95d80afffe185e84fd241b46859706b22523633b17a7c0ff7700",
+    "elapsed_seconds": 1.898176908493042,
+    "candidate_hash": "7742f0336ef98073f372c36b0dfa2208cdd9059eea9f61391b2d09683591db56",
+    "fault": null,
+    "log_path": "evidence/clean-1.txt",
+    "junit_path": "evidence/clean-1.xml",
+    "adapter_freeze": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+    "calibration_only": false,
+    "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-004/cases/BE-003/candidate",
+    "tests": 2,
+    "assertions": 58,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "failed_tests": [],
+    "candidate_negative_tests": [],
+    "candidate_negative_failures": [],
+    "junit_sha256": "59d5f945552a494561465c8905f05ac5a57a7a03f82262fd8e69530bb68df30f",
+    "status": "PASS"
+  },
+  "candidate_unchanged": true,
+  "limitations": [
+    "Scaffold-assisted canonical implementation: substantial existing correct behavior reused; does not demonstrate greenfield construction or general autonomy.",
+    "SQLite-only synthetic in-process framework tests; PostgreSQL NOT EXECUTED and target-engine validation REQUIRED BEFORE POSTGRESQL PILOT.",
+    "Harness supports inspected trusted synthetic source and is not an OS hostile-code security boundary."
+  ],
+  "completion_declaration": "I independently inspected the actual candidate/diff, executed clean, all mandatory faults, post-fault clean and fresh-workspace repeat with reviewer-owned frozen adapters; I did not author or remediate candidate code. Governed pin checked at boundaries.",
+  "completed_at": "2026-09-21T09:16:49.378396+00:00"
+}

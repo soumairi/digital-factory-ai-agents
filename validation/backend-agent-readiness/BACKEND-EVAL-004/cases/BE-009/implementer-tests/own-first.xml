@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\BackendNegativeTest" file="/private/tmp/laravel-adapter-ayg_rrvy/app/tests/Feature/BackendNegativeTest.php" tests="6" assertions="109" errors="0" failures="0" skipped="0" time="1.048871">
+    <testcase name="test_negative_unauthenticated" file="/private/tmp/laravel-adapter-ayg_rrvy/app/tests/Feature/BackendNegativeTest.php" line="5" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="14" time="0.918318"/>
+    <testcase name="test_negative_unauthorized" file="/private/tmp/laravel-adapter-ayg_rrvy/app/tests/Feature/BackendNegativeTest.php" line="15" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="7" time="0.025217"/>
+    <testcase name="test_negative_ownership" file="/private/tmp/laravel-adapter-ayg_rrvy/app/tests/Feature/BackendNegativeTest.php" line="21" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="22" time="0.028902"/>
+    <testcase name="test_negative_invalid" file="/private/tmp/laravel-adapter-ayg_rrvy/app/tests/Feature/BackendNegativeTest.php" line="30" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="21" time="0.029231"/>
+    <testcase name="test_negative_malicious" file="/private/tmp/laravel-adapter-ayg_rrvy/app/tests/Feature/BackendNegativeTest.php" line="35" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="17" time="0.017565"/>
+    <testcase name="test_negative_sensitive_fields" file="/private/tmp/laravel-adapter-ayg_rrvy/app/tests/Feature/BackendNegativeTest.php" line="42" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="28" time="0.029637"/>
+  </testsuite>
+</testsuites>

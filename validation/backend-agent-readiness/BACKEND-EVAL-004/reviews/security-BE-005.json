@@ -1,0 +1,66 @@
+{
+  "campaign_id": "BACKEND-EVAL-004",
+  "evaluation_id": "BE-005",
+  "reviewer_context": "/root/security",
+  "role": "Security Reviewer",
+  "candidate_revision": "BE-005-C01",
+  "candidate_hash": "d97afe8a0d056123d6c88fd353fdef40090711dabcb8f43f745fd71019935989",
+  "source_hash_verified": true,
+  "security_review_required": true,
+  "status": "PASS",
+  "security_review_result": "PASS",
+  "assessment": "Profile writes use a display_name-only validated schema, owner and tenant lookup, model fillable allowlist and restricted output. Unknown top-level, nested and alternate fields are rejected. Direct model fill tests independently protect role/is_admin/owner_id/tenant_id; persisted privilege and ownership snapshots remain unchanged for attacker payloads. Mass-assignment mutant causes relevant state assertions to fail.",
+  "inspected_paths": [
+    "app/Http/Controllers/EvalController.php",
+    "app/Http/Requests/EvalInput.php",
+    "app/Http/Middleware/EvalAuthenticate.php",
+    "routes/api.php",
+    "app/Providers/AppServiceProvider.php",
+    "tests/Feature/CampaignImplementationTest.php",
+    "app/Models/EvalProfile.php"
+  ],
+  "executed_test_names": [
+    "test_BE005_protected_fields_and_alternate_paths",
+    "test_BE005_all_protected_value_shapes_and_display_boundaries"
+  ],
+  "independent_evaluator_context": "/root/evaluator",
+  "evidence_paths": [
+    "reviews/BE-005/execution/clean-1.txt",
+    "reviews/BE-005/execution/clean-1.xml",
+    "reviews/BE-005/execution/clean-2.txt",
+    "reviews/BE-005/execution/clean-2.xml",
+    "reviews/BE-005/repeat/clean-1.txt",
+    "reviews/BE-005/repeat/clean-1.xml",
+    "reviews/BE-005/execution/BE-005-F1.txt",
+    "reviews/BE-005/execution/BE-005-F1.xml"
+  ],
+  "clean_tests": 2,
+  "clean_assertions": 137,
+  "faults": [
+    {
+      "id": "BE-005-F1",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE005_protected_fields_and_alternate_paths",
+        "test_BE005_all_protected_value_shapes_and_display_boundaries"
+      ]
+    }
+  ],
+  "findings": [],
+  "unresolved_severities": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0
+  },
+  "limitations": [
+    "Approved synthetic local SQLite case only; not hostile-code containment or production assurance.",
+    "Canonical scaffold and fault bindings reused; no claim of unconstrained greenfield capability.",
+    "No external dependency vulnerability service or broad penetration test performed.",
+    "PostgreSQL NOT EXECUTED; target-engine validation REQUIRED BEFORE POSTGRESQL PILOT.",
+    "Human integration approval and Audit remain separate policy gates; this review does not provide either."
+  ],
+  "completed_at": "2026-09-21T09:18:54.546956+00:00",
+  "completion_declaration": "Read-only actual source/diff and independent executed evidence inspected; source and evidence hashes independently checked. No code modification or remediation authorship."
+}

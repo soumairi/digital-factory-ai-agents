@@ -1,0 +1,60 @@
+--- baseline/tests/Feature/BackendNegativeTest.php
++++ candidate/tests/Feature/BackendNegativeTest.php
+@@ -2,10 +2,51 @@
+ namespace Tests\Feature;
+ require_once __DIR__.'/../../reviewer/common/AdapterTestCase.php';
+ class BackendNegativeTest extends \Reviewer\AdapterTestCase {
+-    public function test_negative_unauthenticated(): void { $before=$this->state('notes');$this->req('PATCH','notes/1',['title'=>'x','body'=>'x'],null)->assertUnauthorized();$this->assertSame($before,$this->state('notes')); }
+-    public function test_negative_unauthorized(): void { $before=$this->state('reports');$this->req('PATCH','report/1',['title'=>'x'])->assertForbidden();$this->assertSame($before,$this->state('reports')); }
+-    public function test_negative_ownership(): void { $before=$this->state('notes');$r=$this->req('PATCH','notes/1',['title'=>'x','body'=>'x'],2);$this->assertSame($before,$this->state('notes'));$r->assertNotFound()->assertJsonMissingPath('title'); }
+-    public function test_negative_invalid(): void { $this->reject('PATCH','notes/1',[],'notes'); }
+-    public function test_negative_malicious(): void { $this->req('GET','notes/1%20OR%201=1')->assertNotFound()->assertDontSee('trace');$this->assertDatabaseHas('notes',['id'=>1,'title'=>'Seed1']); }
+-    public function test_negative_sensitive_fields(): void { $this->reject('PATCH','profile',['display_name'=>'x','is_admin'=>true],'profiles'); }
++    public function test_negative_unauthenticated(): void {
++        $before=$this->state('notes');
++        foreach (['GET','PATCH','DELETE'] as $verb) {
++            $this->req($verb,'notes/1',['title'=>'Denied','body'=>'Denied'],null)->assertUnauthorized()->assertJsonMissingPath('title');
++            $this->assertSame($before,$this->state('notes'));
++        }
++        app('auth')->forgetGuards();
++        $this->json('PATCH','/api/eval/notes/1',['title'=>'Denied','body'=>'Denied'],['PHP_AUTH_USER'=>$this->actors[1]->email,'PHP_AUTH_PW'=>'synthetic-invalid'])->assertUnauthorized();
++        $this->assertSame($before,$this->state('notes'));
++    }
++    public function test_negative_unauthorized(): void {
++        $before=$this->state('reports');
++        $this->req('PATCH','report/1',['title'=>'Denied','role'=>'editor'])->assertForbidden()->assertJsonMissingPath('title');
++        $this->assertSame($before,$this->state('reports'));
++        $this->req('GET','report/1')->assertExactJson(['id'=>1,'title'=>'Report']);
++    }
++    public function test_negative_ownership(): void {
++        $before=$this->state('notes');
++        foreach ([2,3] as $actor) foreach (['GET','PATCH','DELETE'] as $verb) {
++            $response=$this->req($verb,'notes/1',['title'=>'Denied','body'=>'Denied'],$actor);
++            $this->assertSame($before,$this->state('notes'),'Foreign request changed note state');
++            $response->assertNotFound()->assertJsonMissingPath('title');
++        }
++        $this->req('GET','notes/1')->assertExactJson(['id'=>1,'title'=>'Seed1','body'=>'Synthetic seed']);
++    }
++    public function test_negative_invalid(): void {
++        foreach ([[],['title'=>null,'body'=>'x'],['title'=>'   ','body'=>'x'],['title'=>[],'body'=>'x'],['title'=>'x','body'=>str_repeat('x',501)],['title'=>'x','body'=>'x','extra'=>true]] as $payload) {
++            $this->reject('PATCH','notes/1',$payload,'notes');
++        }
++    }
++    public function test_negative_malicious(): void {
++        $before=$this->state('notes');
++        foreach (['1%20OR%201=1','%3Cscript%3E','-1'] as $id) $this->req('GET','notes/'.$id)->assertNotFound()->assertDontSee('trace')->assertJsonMissingPath('title');
++        $this->reject('PATCH','notes/1',['title'=>str_repeat('x',10000),'body'=>'x'],'notes');
++        $this->assertSame($before,$this->state('notes'));
++        $this->req('GET','records?per_page=1000000')->assertStatus(422);
++    }
++    public function test_negative_sensitive_fields(): void {
++        foreach (['role'=>'editor','is_admin'=>true,'owner_id'=>2,'tenant_id'=>2] as $field=>$value) {
++            $before=$this->state('profiles');
++            $response=$this->req('PATCH','profile',['display_name'=>'Denied',$field=>$value]);
++            $this->assertSame($before,$this->state('profiles'),'Protected profile state changed');
++            $response->assertStatus(422)->assertExactJson(['message'=>'Invalid input.']);
++            $this->reject('PATCH','notes/1',['title'=>'Denied','body'=>'Denied',$field=>$value],'notes');
++        }
++        $this->assertDatabaseHas('profiles',['id'=>1,'role'=>'reader','is_admin'=>false,'owner_id'=>1,'tenant_id'=>1]);
++    }
+ }

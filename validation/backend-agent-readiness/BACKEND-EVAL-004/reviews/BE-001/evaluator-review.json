@@ -1,0 +1,626 @@
+{
+  "evaluation_id": "BE-001",
+  "evaluator_context": "/root/evaluator",
+  "candidate_revision": "BE-001-C01",
+  "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+  "candidate_artifact": "reviews/BE-001/candidate-source-manifest.json",
+  "original_case_executed": true,
+  "adapted_scenario": false,
+  "adapted_scenario_result": "NOT APPLICABLE",
+  "independent_verification_result": "PASS",
+  "status": "PARTIAL",
+  "missing_requirement": "Separate mandatory Security review and final evidence assembly are coordinator gates; evaluator execution complete.",
+  "first_pass_result": "PASS",
+  "criteria": [
+    {
+      "id": "BE-001-crud",
+      "result": "MET",
+      "assertions": 22,
+      "tests": [
+        "test_BE001_crud_owner_scope_and_missing_resources"
+      ],
+      "rationale": "All four operations and missing-resource contract; exact DB and response checks. Actual JUnit method assertion counts are shared coverage, not additive across criteria."
+    },
+    {
+      "id": "BE-001-ownership",
+      "result": "MET",
+      "assertions": 99,
+      "tests": [
+        "test_BE001_crud_owner_scope_and_missing_resources",
+        "test_BE001_input_initial_state_and_regression_controls"
+      ],
+      "rationale": "Allowed and denied actors; no protected-field output or foreign effects. Actual JUnit method assertion counts are shared coverage, not additive across criteria."
+    },
+    {
+      "id": "BE-001-regression",
+      "result": "MET",
+      "assertions": 613,
+      "tests": [
+        "test_BE001_crud_owner_scope_and_missing_resources",
+        "test_BE001_input_initial_state_and_regression_controls",
+        "test_negative_unauthenticated",
+        "test_negative_unauthorized",
+        "test_negative_ownership",
+        "test_negative_invalid",
+        "test_negative_malicious",
+        "test_negative_sensitive_fields",
+        "test_created_note_is_owned_private_and_deletable",
+        "test_administrator_receives_exact_schema_and_default_pagination",
+        "test_missing_credentials_are_denied_before_customer_query",
+        "test_invalid_password_is_denied",
+        "test_unknown_identity_is_denied",
+        "test_previous_authentication_does_not_authorize_next_request",
+        "test_non_administrator_is_denied_before_customer_query",
+        "test_admin_flag_is_not_mass_assignable_and_defaults_false",
+        "test_second_page_has_stable_order_and_preserves_page_size",
+        "test_maximum_page_size_is_bounded",
+        "test_empty_collection_is_valid",
+        "test_maximum_page_is_valid_and_out_of_data_is_empty",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #0",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #1",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #2",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #3",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #4",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #5",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #6",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #7",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #8",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #9",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #10",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #11",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #12",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #13",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #14",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #15",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #16",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #17",
+        "test_invalid_pagination_is_rejected_without_customer_queries with data set #18",
+        "test_hostile_or_protected_parameters_cannot_change_state with data set #0",
+        "test_hostile_or_protected_parameters_cannot_change_state with data set #1",
+        "test_hostile_or_protected_parameters_cannot_change_state with data set #2",
+        "test_hostile_or_protected_parameters_cannot_change_state with data set #3",
+        "test_hostile_or_protected_parameters_cannot_change_state with data set #4",
+        "test_hostile_or_protected_parameters_cannot_change_state with data set #5",
+        "test_hostile_or_protected_parameters_cannot_change_state with data set #6",
+        "test_hostile_or_protected_parameters_cannot_change_state with data set #7",
+        "test_hostile_or_protected_parameters_cannot_change_state with data set #8",
+        "test_hostile_or_protected_parameters_cannot_change_state with data set #9",
+        "test_get_body_is_rejected",
+        "test_rate_limit_precedes_authentication",
+        "test_denial_logs_have_no_request_or_credentials",
+        "test_customer_query_count_does_not_grow_with_page_size",
+        "test_cross_origin_access_is_not_enabled",
+        "test_write_method_is_not_available"
+      ],
+      "rationale": "Existing regressions pass and changed files map to criteria. Actual JUnit method assertion counts are shared coverage, not additive across criteria."
+    }
+  ],
+  "executed_tests": [
+    {
+      "name": "test_BE001_crud_owner_scope_and_missing_resources",
+      "assertions": 22,
+      "class": "Reviewer\\BE001Test"
+    },
+    {
+      "name": "test_BE001_input_initial_state_and_regression_controls",
+      "assertions": 77,
+      "class": "Reviewer\\BE001Test"
+    },
+    {
+      "name": "test_negative_unauthenticated",
+      "assertions": 5,
+      "class": "Tests\\Feature\\BackendNegativeTest"
+    },
+    {
+      "name": "test_negative_unauthorized",
+      "assertions": 5,
+      "class": "Tests\\Feature\\BackendNegativeTest"
+    },
+    {
+      "name": "test_negative_ownership",
+      "assertions": 6,
+      "class": "Tests\\Feature\\BackendNegativeTest"
+    },
+    {
+      "name": "test_negative_invalid",
+      "assertions": 6,
+      "class": "Tests\\Feature\\BackendNegativeTest"
+    },
+    {
+      "name": "test_negative_malicious",
+      "assertions": 6,
+      "class": "Tests\\Feature\\BackendNegativeTest"
+    },
+    {
+      "name": "test_negative_sensitive_fields",
+      "assertions": 6,
+      "class": "Tests\\Feature\\BackendNegativeTest"
+    },
+    {
+      "name": "test_created_note_is_owned_private_and_deletable",
+      "assertions": 15,
+      "class": "Tests\\Feature\\CampaignImplementationTest"
+    },
+    {
+      "name": "test_administrator_receives_exact_schema_and_default_pagination",
+      "assertions": 115,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_missing_credentials_are_denied_before_customer_query",
+      "assertions": 9,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_password_is_denied",
+      "assertions": 5,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_unknown_identity_is_denied",
+      "assertions": 5,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_previous_authentication_does_not_authorize_next_request",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_non_administrator_is_denied_before_customer_query",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_admin_flag_is_not_mass_assignable_and_defaults_false",
+      "assertions": 4,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_second_page_has_stable_order_and_preserves_page_size",
+      "assertions": 9,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_maximum_page_size_is_bounded",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_empty_collection_is_valid",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_maximum_page_is_valid_and_out_of_data_is_empty",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #0",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #1",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #2",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #3",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #4",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #5",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #6",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #7",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #8",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #9",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #10",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #11",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #12",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #13",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #14",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #15",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #16",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #17",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_invalid_pagination_is_rejected_without_customer_queries with data set #18",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_hostile_or_protected_parameters_cannot_change_state with data set #0",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_hostile_or_protected_parameters_cannot_change_state with data set #1",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_hostile_or_protected_parameters_cannot_change_state with data set #2",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_hostile_or_protected_parameters_cannot_change_state with data set #3",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_hostile_or_protected_parameters_cannot_change_state with data set #4",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_hostile_or_protected_parameters_cannot_change_state with data set #5",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_hostile_or_protected_parameters_cannot_change_state with data set #6",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_hostile_or_protected_parameters_cannot_change_state with data set #7",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_hostile_or_protected_parameters_cannot_change_state with data set #8",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_hostile_or_protected_parameters_cannot_change_state with data set #9",
+      "assertions": 7,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_get_body_is_rejected",
+      "assertions": 5,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_rate_limit_precedes_authentication",
+      "assertions": 67,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_denial_logs_have_no_request_or_credentials",
+      "assertions": 8,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_customer_query_count_does_not_grow_with_page_size",
+      "assertions": 11,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_cross_origin_access_is_not_enabled",
+      "assertions": 6,
+      "class": "Tests\\Feature\\CustomerListTest"
+    },
+    {
+      "name": "test_write_method_is_not_available",
+      "assertions": 5,
+      "class": "Tests\\Feature\\CustomerListTest"
+    }
+  ],
+  "assertion_count_note": "Counts are exact per JUnit method; shared methods map multiple criteria and must not be summed across criteria.",
+  "score_dimensions": [
+    {
+      "dimension": "Functional correctness",
+      "rating": 4,
+      "maximum": 20,
+      "points": 20.0,
+      "rationale": "Frozen original clean behavior and persistence assertions pass in initial, post-fault and fresh-workspace runs."
+    },
+    {
+      "dimension": "Architecture compliance",
+      "rating": 4,
+      "maximum": 15,
+      "points": 15.0,
+      "rationale": "Scoped actual diff follows existing Laravel controller, FormRequest, Gate/model and Action boundaries; no new framework or infrastructure."
+    },
+    {
+      "dimension": "Security",
+      "rating": 4,
+      "maximum": 25,
+      "points": 25.0,
+      "rationale": "Real guard, server-side authorization, validation, denied-state and safe-output checks pass; exact mandatory faults detected. Required separate Security decision must also clear."
+    },
+    {
+      "dimension": "Tests",
+      "rating": 4,
+      "maximum": 15,
+      "points": 15.0,
+      "rationale": "Independent unchanged frozen assertions execute without errors/skips, all relevant mutants fail, and candidate-owned scoped tests exist with executed implementer evidence."
+    },
+    {
+      "dimension": "Scope discipline",
+      "rating": 4,
+      "maximum": 10,
+      "points": 10.0,
+      "rationale": "Actual source inventory and diff match permitted candidate scope; original candidate unchanged after review."
+    },
+    {
+      "dimension": "Documentation",
+      "rating": 4,
+      "maximum": 5,
+      "points": 5.0,
+      "rationale": "Analysis, explicit scaffold provenance, changed-file diff, own test commands/results, self-review and exact candidate freeze are present."
+    },
+    {
+      "dimension": "Maintainability",
+      "rating": 3,
+      "maximum": 10,
+      "points": 7.5,
+      "rationale": "Small focused changes reuse established code; compact synthetic fixture code and adapter-specific mutation anchors limit transferability beyond this scaffold."
+    }
+  ],
+  "score": 97.5,
+  "findings": [],
+  "clean": {
+    "command": [
+      "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+      "-n",
+      "-d",
+      "allow_url_fopen=0",
+      "-d",
+      "ffi.enable=0",
+      "vendor/bin/phpunit",
+      "-c",
+      "reviewer/phpunit.xml",
+      "--colors=never",
+      "--log-junit",
+      "/private/tmp/laravel-adapter-k1db9y66/evidence/clean-1.xml"
+    ],
+    "cwd": "/private/tmp/laravel-adapter-k1db9y66/app",
+    "exit_code": 0,
+    "log_sha256": "fe3dd095a38869b22051d96563dab048b55f7f51439ffefca6a59d427cfd6e78",
+    "elapsed_seconds": 14.874270915985107,
+    "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+    "fault": null,
+    "log_path": "evidence/clean-1.txt",
+    "junit_path": "evidence/clean-1.xml",
+    "adapter_freeze": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+    "calibration_only": false,
+    "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-004/cases/BE-001/candidate",
+    "tests": 55,
+    "assertions": 613,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "failed_tests": [],
+    "candidate_negative_tests": [
+      "test_negative_unauthenticated",
+      "test_negative_unauthorized",
+      "test_negative_ownership",
+      "test_negative_invalid",
+      "test_negative_malicious",
+      "test_negative_sensitive_fields"
+    ],
+    "candidate_negative_failures": [],
+    "junit_sha256": "c486b655a8933740e106b413a2fab9e512a678155daf50911292406d6fce8ef9",
+    "status": "PASS"
+  },
+  "faults": [
+    {
+      "command": [
+        "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+        "-n",
+        "-d",
+        "allow_url_fopen=0",
+        "-d",
+        "ffi.enable=0",
+        "vendor/bin/phpunit",
+        "-c",
+        "reviewer/phpunit.xml",
+        "--colors=never",
+        "--log-junit",
+        "/private/tmp/laravel-adapter-85luzgj3/evidence/BE-001-F1.xml"
+      ],
+      "cwd": "/private/tmp/laravel-adapter-85luzgj3/app",
+      "exit_code": 1,
+      "log_sha256": "0e0232616b3e5c047a0d4d00d5599bb65e531509f1f43bfa9a10f629e84bbc4f",
+      "elapsed_seconds": 14.937737941741943,
+      "candidate_hash": "aea7044ade70a172ed5e6b7c608cae5905e8a36264aa016c2aac619a83498e8c",
+      "fault": "BE-001-F1",
+      "log_path": "evidence/BE-001-F1.txt",
+      "junit_path": "evidence/BE-001-F1.xml",
+      "adapter_freeze": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+      "calibration_only": false,
+      "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-004/cases/BE-001/candidate",
+      "tests": 55,
+      "assertions": 588,
+      "failures": 3,
+      "errors": 0,
+      "skipped": 0,
+      "failed_tests": [
+        "test_BE001_crud_owner_scope_and_missing_resources",
+        "test_negative_ownership",
+        "test_created_note_is_owned_private_and_deletable"
+      ],
+      "candidate_negative_tests": [
+        "test_negative_unauthenticated",
+        "test_negative_unauthorized",
+        "test_negative_ownership",
+        "test_negative_invalid",
+        "test_negative_malicious",
+        "test_negative_sensitive_fields"
+      ],
+      "candidate_negative_failures": [
+        "test_negative_ownership"
+      ],
+      "junit_sha256": "141afe8dc65286855e06e68fca74a9ec28400311b3fe86eca448d77d246e2b58",
+      "status": "FAIL",
+      "clean_candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+      "sensitivity": "PASS",
+      "mutant_source_hash": "aea7044ade70a172ed5e6b7c608cae5905e8a36264aa016c2aac619a83498e8c",
+      "tests_unchanged": true,
+      "clean_unchanged": true
+    }
+  ],
+  "clean_rerun": {
+    "command": [
+      "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+      "-n",
+      "-d",
+      "allow_url_fopen=0",
+      "-d",
+      "ffi.enable=0",
+      "vendor/bin/phpunit",
+      "-c",
+      "reviewer/phpunit.xml",
+      "--colors=never",
+      "--log-junit",
+      "/private/tmp/laravel-adapter-k1db9y66/evidence/clean-2.xml"
+    ],
+    "cwd": "/private/tmp/laravel-adapter-k1db9y66/app",
+    "exit_code": 0,
+    "log_sha256": "441794d6dc0fc0be2db20ac45f3bd8525e2cf3c9aa0ffdd240a121f0b326a0c9",
+    "elapsed_seconds": 15.1495680809021,
+    "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+    "fault": null,
+    "log_path": "evidence/clean-2.txt",
+    "junit_path": "evidence/clean-2.xml",
+    "adapter_freeze": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+    "calibration_only": false,
+    "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-004/cases/BE-001/candidate",
+    "tests": 55,
+    "assertions": 613,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "failed_tests": [],
+    "candidate_negative_tests": [
+      "test_negative_unauthenticated",
+      "test_negative_unauthorized",
+      "test_negative_ownership",
+      "test_negative_invalid",
+      "test_negative_malicious",
+      "test_negative_sensitive_fields"
+    ],
+    "candidate_negative_failures": [],
+    "junit_sha256": "f12106fec54aae8d388b4150fb395d4f3bc25bf5e140f21fa098b5059ccf3256",
+    "status": "PASS"
+  },
+  "fresh_repeat": {
+    "command": [
+      "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+      "-n",
+      "-d",
+      "allow_url_fopen=0",
+      "-d",
+      "ffi.enable=0",
+      "vendor/bin/phpunit",
+      "-c",
+      "reviewer/phpunit.xml",
+      "--colors=never",
+      "--log-junit",
+      "/private/tmp/laravel-adapter-tcotdl94/evidence/clean-1.xml"
+    ],
+    "cwd": "/private/tmp/laravel-adapter-tcotdl94/app",
+    "exit_code": 0,
+    "log_sha256": "29b332427d51c2b1f9f4dbc93c01ccb932c0bbe45ced03998febf311aea6dde0",
+    "elapsed_seconds": 15.015228033065796,
+    "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+    "fault": null,
+    "log_path": "evidence/clean-1.txt",
+    "junit_path": "evidence/clean-1.xml",
+    "adapter_freeze": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+    "calibration_only": false,
+    "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-004/cases/BE-001/candidate",
+    "tests": 55,
+    "assertions": 613,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "failed_tests": [],
+    "candidate_negative_tests": [
+      "test_negative_unauthenticated",
+      "test_negative_unauthorized",
+      "test_negative_ownership",
+      "test_negative_invalid",
+      "test_negative_malicious",
+      "test_negative_sensitive_fields"
+    ],
+    "candidate_negative_failures": [],
+    "junit_sha256": "8d35587bedceaa3ba9718f81111bd0ed90ac7665902d8f7e0bf0d78e4ac5fd7e",
+    "status": "PASS"
+  },
+  "candidate_unchanged": true,
+  "limitations": [
+    "Scaffold-assisted canonical implementation: substantial existing correct behavior reused; does not demonstrate greenfield construction or general autonomy.",
+    "SQLite-only synthetic in-process framework tests; PostgreSQL NOT EXECUTED and target-engine validation REQUIRED BEFORE POSTGRESQL PILOT.",
+    "Harness supports inspected trusted synthetic source and is not an OS hostile-code security boundary."
+  ],
+  "completion_declaration": "I independently inspected the actual candidate/diff, executed clean, all mandatory faults, post-fault clean and fresh-workspace repeat with reviewer-owned frozen adapters; I did not author or remediate candidate code. Governed pin checked at boundaries.",
+  "completed_at": "2026-09-21T09:18:04.696322+00:00"
+}

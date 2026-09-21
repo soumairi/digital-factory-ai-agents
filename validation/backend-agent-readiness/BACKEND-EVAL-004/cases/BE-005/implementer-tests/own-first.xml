@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\CampaignImplementationTest" file="/private/tmp/laravel-adapter-hpgi4qlu/app/tests/Feature/CampaignImplementationTest.php" tests="1" assertions="20" errors="0" failures="0" skipped="0" time="0.085309">
+    <testcase name="test_profile_allowlist_keeps_every_protected_value" file="/private/tmp/laravel-adapter-hpgi4qlu/app/tests/Feature/CampaignImplementationTest.php" line="6" class="Tests\Feature\CampaignImplementationTest" classname="Tests.Feature.CampaignImplementationTest" assertions="20" time="0.085309"/>
+  </testsuite>
+</testsuites>

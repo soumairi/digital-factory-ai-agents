@@ -1,0 +1,1 @@
+BE-001 first own and clean runs failed: post-update reused query builder returned a projection without title. Fix: re-read through a fresh owner-scoped query after update. AI self-remediation cycles: 1. Architecture corrections: 0. No human code correction. No frozen candidate existed yet. Original own and adapter logs retained in implementer-first-attempt/.

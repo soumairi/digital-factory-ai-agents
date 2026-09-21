@@ -1,0 +1,77 @@
+{
+  "campaign_id": "BACKEND-EVAL-004",
+  "evaluation_id": "BE-008",
+  "reviewer_context": "/root/security",
+  "role": "Security Reviewer",
+  "candidate_revision": "BE-008-C01",
+  "candidate_hash": "f34e2575d65a830fa86e0000b5fc8f6c96ce13ea4691c500d7e6deec2c629dd0",
+  "source_hash_verified": true,
+  "security_review_required": true,
+  "status": "PASS",
+  "security_review_result": "PASS",
+  "assessment": "Article and eager-loaded author/category queries are tenant-constrained; relationship ID keys needed for ORM assembly remain selected and output reveals only allowed summaries. Pagination precedes collection materialization and relationship loading. Independent query-budget, foreign relationship visibility and PDO-row measurements at specified dataset/page sizes pass; both N+1 and unbounded-read faults fail relevant assertions. Query/materialized-row evidence does not establish PostgreSQL plans or total database scan cost.",
+  "inspected_paths": [
+    "app/Http/Controllers/EvalController.php",
+    "app/Http/Requests/EvalInput.php",
+    "app/Http/Middleware/EvalAuthenticate.php",
+    "routes/api.php",
+    "app/Providers/AppServiceProvider.php",
+    "tests/Feature/CampaignImplementationTest.php",
+    "app/Models/EvalArticle.php"
+  ],
+  "executed_test_names": [
+    "test_BE008_relationship_query_budget_and_correct_serialization",
+    "test_BE008_pagination_types_and_query_limit",
+    "test_BE008_bounded_database_reads_and_growth"
+  ],
+  "independent_evaluator_context": "/root/evaluator",
+  "evidence_paths": [
+    "reviews/BE-008/execution/clean-1.txt",
+    "reviews/BE-008/execution/clean-1.xml",
+    "reviews/BE-008/execution/clean-2.txt",
+    "reviews/BE-008/execution/clean-2.xml",
+    "reviews/BE-008/repeat/clean-1.txt",
+    "reviews/BE-008/repeat/clean-1.xml",
+    "reviews/BE-008/execution/BE-008-F1.txt",
+    "reviews/BE-008/execution/BE-008-F1.xml",
+    "reviews/BE-008/execution/BE-008-F2.txt",
+    "reviews/BE-008/execution/BE-008-F2.xml"
+  ],
+  "clean_tests": 3,
+  "clean_assertions": 953,
+  "faults": [
+    {
+      "id": "BE-008-F1",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE008_relationship_query_budget_and_correct_serialization",
+        "test_BE008_bounded_database_reads_and_growth"
+      ]
+    },
+    {
+      "id": "BE-008-F2",
+      "status": "FAIL",
+      "sensitivity": "PASS",
+      "failed_tests": [
+        "test_BE008_bounded_database_reads_and_growth"
+      ]
+    }
+  ],
+  "findings": [],
+  "unresolved_severities": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0
+  },
+  "limitations": [
+    "Approved synthetic local SQLite case only; not hostile-code containment or production assurance.",
+    "Canonical scaffold and fault bindings reused; no claim of unconstrained greenfield capability.",
+    "No external dependency vulnerability service or broad penetration test performed.",
+    "PostgreSQL NOT EXECUTED; target-engine validation REQUIRED BEFORE POSTGRESQL PILOT.",
+    "Human integration approval and Audit remain separate policy gates; this review does not provide either."
+  ],
+  "completed_at": "2026-09-21T09:18:54.669669+00:00",
+  "completion_declaration": "Read-only actual source/diff and independent executed evidence inspected; source and evidence hashes independently checked. No code modification or remediation authorship."
+}

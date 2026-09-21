@@ -1,0 +1,38 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/laravel-adapter-9jyx4ihj/app/reviewer/phpunit.xml
+
+
+QUERY_EVIDENCE size=5 domain=4 relationships=2
+
+QUERY_EVIDENCE size=50 domain=4 relationships=2
+..
+READ_EVIDENCE {"path":"articles?per_page=5","page_size":5,"total_rows":9,"reads":[{"sql":"select * from \"users\" where \"email\" = ? limit 1","rows":1},{"sql":"select count(*) as \"aggregate\" from \"articles\" where \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"title\", \"author_id\", \"category_id\" from \"articles\" where \"tenant_id\" = ? order by \"id\" asc limit 5 offset 0","rows":5},{"sql":"select \"id\", \"name\" from \"authors\" where \"authors\".\"id\" in (1) and \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"name\" from \"categories\" where \"categories\".\"id\" in (1) and \"tenant_id\" = ?","rows":1}]}
+
+GROWTH_EVIDENCE dataset=120 page=5 statements=5
+
+READ_EVIDENCE {"path":"articles?per_page=50","page_size":50,"total_rows":54,"reads":[{"sql":"select * from \"users\" where \"email\" = ? limit 1","rows":1},{"sql":"select count(*) as \"aggregate\" from \"articles\" where \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"title\", \"author_id\", \"category_id\" from \"articles\" where \"tenant_id\" = ? order by \"id\" asc limit 50 offset 0","rows":50},{"sql":"select \"id\", \"name\" from \"authors\" where \"authors\".\"id\" in (1) and \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"name\" from \"categories\" where \"categories\".\"id\" in (1) and \"tenant_id\" = ?","rows":1}]}
+
+GROWTH_EVIDENCE dataset=120 page=50 statements=5
+
+READ_EVIDENCE {"path":"articles?per_page=100","page_size":100,"total_rows":104,"reads":[{"sql":"select * from \"users\" where \"email\" = ? limit 1","rows":1},{"sql":"select count(*) as \"aggregate\" from \"articles\" where \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"title\", \"author_id\", \"category_id\" from \"articles\" where \"tenant_id\" = ? order by \"id\" asc limit 100 offset 0","rows":100},{"sql":"select \"id\", \"name\" from \"authors\" where \"authors\".\"id\" in (1) and \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"name\" from \"categories\" where \"categories\".\"id\" in (1) and \"tenant_id\" = ?","rows":1}]}
+
+GROWTH_EVIDENCE dataset=120 page=100 statements=5
+
+READ_EVIDENCE {"path":"articles?per_page=5","page_size":5,"total_rows":9,"reads":[{"sql":"select * from \"users\" where \"email\" = ? limit 1","rows":1},{"sql":"select count(*) as \"aggregate\" from \"articles\" where \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"title\", \"author_id\", \"category_id\" from \"articles\" where \"tenant_id\" = ? order by \"id\" asc limit 5 offset 0","rows":5},{"sql":"select \"id\", \"name\" from \"authors\" where \"authors\".\"id\" in (1) and \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"name\" from \"categories\" where \"categories\".\"id\" in (1) and \"tenant_id\" = ?","rows":1}]}
+
+GROWTH_EVIDENCE dataset=600 page=5 statements=5
+
+READ_EVIDENCE {"path":"articles?per_page=50","page_size":50,"total_rows":54,"reads":[{"sql":"select * from \"users\" where \"email\" = ? limit 1","rows":1},{"sql":"select count(*) as \"aggregate\" from \"articles\" where \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"title\", \"author_id\", \"category_id\" from \"articles\" where \"tenant_id\" = ? order by \"id\" asc limit 50 offset 0","rows":50},{"sql":"select \"id\", \"name\" from \"authors\" where \"authors\".\"id\" in (1) and \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"name\" from \"categories\" where \"categories\".\"id\" in (1) and \"tenant_id\" = ?","rows":1}]}
+
+GROWTH_EVIDENCE dataset=600 page=50 statements=5
+
+READ_EVIDENCE {"path":"articles?per_page=100","page_size":100,"total_rows":104,"reads":[{"sql":"select * from \"users\" where \"email\" = ? limit 1","rows":1},{"sql":"select count(*) as \"aggregate\" from \"articles\" where \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"title\", \"author_id\", \"category_id\" from \"articles\" where \"tenant_id\" = ? order by \"id\" asc limit 100 offset 0","rows":100},{"sql":"select \"id\", \"name\" from \"authors\" where \"authors\".\"id\" in (1) and \"tenant_id\" = ?","rows":1},{"sql":"select \"id\", \"name\" from \"categories\" where \"categories\".\"id\" in (1) and \"tenant_id\" = ?","rows":1}]}
+
+GROWTH_EVIDENCE dataset=600 page=100 statements=5
+.                                                                 3 / 3 (100%)
+
+Time: 00:00.404, Memory: 42.50 MB
+
+OK (3 tests, 953 assertions)

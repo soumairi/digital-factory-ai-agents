@@ -1,0 +1,55 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+    "-n",
+    "-d",
+    "allow_url_fopen=0",
+    "-d",
+    "ffi.enable=0",
+    "vendor/bin/phpunit",
+    "-c",
+    "reviewer/phpunit.xml",
+    "--colors=never",
+    "--log-junit",
+    "/private/tmp/laravel-adapter-85luzgj3/evidence/BE-001-F1.xml"
+  ],
+  "cwd": "/private/tmp/laravel-adapter-85luzgj3/app",
+  "exit_code": 1,
+  "log_sha256": "0e0232616b3e5c047a0d4d00d5599bb65e531509f1f43bfa9a10f629e84bbc4f",
+  "elapsed_seconds": 14.937737941741943,
+  "candidate_hash": "aea7044ade70a172ed5e6b7c608cae5905e8a36264aa016c2aac619a83498e8c",
+  "fault": "BE-001-F1",
+  "log_path": "evidence/BE-001-F1.txt",
+  "junit_path": "evidence/BE-001-F1.xml",
+  "adapter_freeze": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+  "calibration_only": false,
+  "candidate_source": "/Users/mouhssinesoumairi/digital-factory-ai-agents/validation/backend-agent-readiness/BACKEND-EVAL-004/cases/BE-001/candidate",
+  "tests": 55,
+  "assertions": 588,
+  "failures": 3,
+  "errors": 0,
+  "skipped": 0,
+  "failed_tests": [
+    "test_BE001_crud_owner_scope_and_missing_resources",
+    "test_negative_ownership",
+    "test_created_note_is_owned_private_and_deletable"
+  ],
+  "candidate_negative_tests": [
+    "test_negative_unauthenticated",
+    "test_negative_unauthorized",
+    "test_negative_ownership",
+    "test_negative_invalid",
+    "test_negative_malicious",
+    "test_negative_sensitive_fields"
+  ],
+  "candidate_negative_failures": [
+    "test_negative_ownership"
+  ],
+  "junit_sha256": "141afe8dc65286855e06e68fca74a9ec28400311b3fe86eca448d77d246e2b58",
+  "status": "FAIL",
+  "clean_candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+  "sensitivity": "PASS",
+  "mutant_source_hash": "aea7044ade70a172ed5e6b7c608cae5905e8a36264aa016c2aac619a83498e8c",
+  "tests_unchanged": true,
+  "clean_unchanged": true
+}

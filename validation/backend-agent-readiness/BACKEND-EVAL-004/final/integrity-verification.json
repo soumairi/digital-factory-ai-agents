@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-09-21T09:20:57.300243+00:00",
+  "governed_assets": 283,
+  "governed_inventory_sha256": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+  "governed_assets_check": "PASS",
+  "historical_files": 500,
+  "historical_mismatches": [],
+  "candidate_checks": [
+    {
+      "evaluation_id": "BE-001",
+      "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+      "candidate_source": "PASS",
+      "raw_log_junit_hashes": "PASS",
+      "faults": 1
+    },
+    {
+      "evaluation_id": "BE-002",
+      "candidate_hash": "057184389d484dc5c05a945189fe186a995026d46ac1ab8491834904a42a8305",
+      "candidate_source": "PASS",
+      "raw_log_junit_hashes": "PASS",
+      "faults": 3
+    },
+    {
+      "evaluation_id": "BE-003",
+      "candidate_hash": "7742f0336ef98073f372c36b0dfa2208cdd9059eea9f61391b2d09683591db56",
+      "candidate_source": "PASS",
+      "raw_log_junit_hashes": "PASS",
+      "faults": 1
+    },
+    {
+      "evaluation_id": "BE-004",
+      "candidate_hash": "458186741501b9636132fd6350ed9d0d8d197e1fdc6763ca02d174b557c8d7ed",
+      "candidate_source": "PASS",
+      "raw_log_junit_hashes": "PASS",
+      "faults": 3
+    },
+    {
+      "evaluation_id": "BE-005",
+      "candidate_hash": "d97afe8a0d056123d6c88fd353fdef40090711dabcb8f43f745fd71019935989",
+      "candidate_source": "PASS",
+      "raw_log_junit_hashes": "PASS",
+      "faults": 1
+    },
+    {
+      "evaluation_id": "BE-006",
+      "candidate_hash": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39",
+      "candidate_source": "PASS",
+      "raw_log_junit_hashes": "PASS",
+      "faults": 2
+    },
+    {
+      "evaluation_id": "BE-007",
+      "candidate_hash": "c2d0a400f9b423d40ef338fc47dbd7fbe6f7dd1d01e214dee0b17609fc165cbb",
+      "candidate_source": "PASS",
+      "raw_log_junit_hashes": "PASS",
+      "faults": 4
+    },
+    {
+      "evaluation_id": "BE-008",
+      "candidate_hash": "f34e2575d65a830fa86e0000b5fc8f6c96ce13ea4691c500d7e6deec2c629dd0",
+      "candidate_source": "PASS",
+      "raw_log_junit_hashes": "PASS",
+      "faults": 2
+    },
+    {
+      "evaluation_id": "BE-009",
+      "candidate_hash": "2d45888c6cd1aff7d77877824bd55ea03d68c959fda75ef4c74fc5de9a0c7771",
+      "candidate_source": "PASS",
+      "raw_log_junit_hashes": "PASS",
+      "faults": 2
+    }
+  ],
+  "working_tree_status": "?? validation/backend-agent-readiness/BACKEND-EVAL-004/\n",
+  "limitations": "Boundary hash checks and coordinator provenance do not prove cryptographic independence or exclude transient restored mutations."
+}

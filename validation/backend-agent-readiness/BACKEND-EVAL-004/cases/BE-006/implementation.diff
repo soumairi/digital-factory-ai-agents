@@ -1,0 +1,65 @@
+--- baseline/app/Actions/EvalReserve.php
++++ candidate/app/Actions/EvalReserve.php
+@@ -3,11 +3,15 @@
+ use Illuminate\Support\Facades\DB;
+ class EvalReserve {
+     public function execute(int $quantity): int {
+-        if($quantity<1||$quantity>1000) throw new \InvalidArgumentException('Invalid quantity');
++        if ($quantity < 1 || $quantity > 1000) throw new \InvalidArgumentException('Invalid quantity');
+         return DB::transaction(function() use($quantity) {
+-            if(DB::table('inventory')->where('id',1)->where('stock','>=',$quantity)->decrement('stock',$quantity)!==1) throw new \DomainException('Insufficient stock');
+-            if(app()->bound('eval.fail-between-writes')&&app('eval.fail-between-writes')===true) throw new \RuntimeException('Synthetic injected failure');
+-            return DB::table('reservations')->insertGetId(['inventory_id'=>1,'quantity'=>$quantity]);
++            $inventory = DB::table('inventory')->where('id', 1)->where('stock', '>=', $quantity);
++            $changed = $inventory->decrement('stock', $quantity);
++            if ($changed !== 1) throw new \DomainException('Insufficient stock');
++            if (app()->bound('eval.fail-between-writes') && app('eval.fail-between-writes') === true) {
++                throw new \RuntimeException('Synthetic injected failure');
++            }
++            return DB::table('reservations')->insertGetId(['inventory_id'=>1, 'quantity'=>$quantity]);
+         });
+     }
+ }
+--- baseline/app/Http/Controllers/EvalController.php
++++ candidate/app/Http/Controllers/EvalController.php
+@@ -47,10 +47,15 @@
+         $p->fill($data)->save(); return response()->json(['display_name'=>$p->display_name]);
+     }
+     public function reserve(Request $r,EvalReserve $reserve) {
+-        $data=EvalInput::fields($r,['quantity'=>'required|integer|min:1|max:1000'],['quantity']);
+-        try { return response()->json(['id'=>$reserve->execute($data['quantity'])],201); }
+-        catch(\DomainException $e) { return response()->json(['message'=>'Insufficient stock.'],409); }
+-        catch(\RuntimeException $e) { return response()->json(['message'=>'Reservation failed.'],500); }
++        $input = EvalInput::fields($r, ['quantity'=>'required|integer|min:1|max:1000'], ['quantity']);
++        try {
++            $reservationId = $reserve->execute($input['quantity']);
++            return response()->json(['id'=>$reservationId], 201);
++        } catch (\DomainException $failure) {
++            return response()->json(['message'=>'Insufficient stock.'], 409);
++        } catch (\RuntimeException $failure) {
++            return response()->json(['message'=>'Reservation failed.'],500);
++        }
+     }
+     public function records(Request $r) {
+         [$page,$size]=EvalInput::page($r); $q=DB::table('records')->where('owner_id',$r->user()->id);
+--- baseline/tests/Feature/CampaignImplementationTest.php
++++ candidate/tests/Feature/CampaignImplementationTest.php
+@@ -0,0 +1,18 @@
++<?php
++namespace Tests\Feature;
++require_once __DIR__.'/../../reviewer/common/AdapterTestCase.php';
++use Illuminate\Support\Facades\DB;
++class CampaignImplementationTest extends \Reviewer\AdapterTestCase {
++    public function test_reservation_failure_then_success_preserves_atomicity(): void {
++        app()->instance('eval.fail-between-writes',true);
++        $this->req('POST','reservations',['quantity'=>4])->assertStatus(500)->assertExactJson(['message'=>'Reservation failed.']);
++        $this->assertDatabaseHas('inventory',['id'=>1,'stock'=>10]);
++        $this->assertDatabaseCount('reservations',0);
++        app()->instance('eval.fail-between-writes',false);
++        $this->req('POST','reservations',['quantity'=>10])->assertCreated();
++        $this->assertDatabaseHas('inventory',['id'=>1,'stock'=>0]);
++        $this->assertDatabaseHas('reservations',['inventory_id'=>1,'quantity'=>10]);
++        $this->req('POST','reservations',['quantity'=>1])->assertStatus(409);
++        $this->assertDatabaseCount('reservations',1);
++    }
++}

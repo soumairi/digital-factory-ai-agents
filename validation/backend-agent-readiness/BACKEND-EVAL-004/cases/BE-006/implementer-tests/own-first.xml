@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\CampaignImplementationTest" file="/private/tmp/laravel-adapter-7mhnqb9q/app/tests/Feature/CampaignImplementationTest.php" tests="1" assertions="12" errors="0" failures="0" skipped="0" time="0.083129">
+    <testcase name="test_reservation_failure_then_success_preserves_atomicity" file="/private/tmp/laravel-adapter-7mhnqb9q/app/tests/Feature/CampaignImplementationTest.php" line="6" class="Tests\Feature\CampaignImplementationTest" classname="Tests.Feature.CampaignImplementationTest" assertions="12" time="0.083129"/>
+  </testsuite>
+</testsuites>

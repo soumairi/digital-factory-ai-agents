@@ -1,0 +1,41 @@
+test_adapted_result_never_promotes_unexecuted_original (test_backend_framework.FrameworkTests.test_adapted_result_never_promotes_unexecuted_original) ... ok
+test_all_nine_original_contracts (test_backend_framework.FrameworkTests.test_all_nine_original_contracts) ... ok
+test_cannot_waive_required_security_or_catalog_case (test_backend_framework.FrameworkTests.test_cannot_waive_required_security_or_catalog_case) ... ok
+test_duplicate_ids_and_unknown_fields_fail_closed (test_backend_framework.FrameworkTests.test_duplicate_ids_and_unknown_fields_fail_closed) ... ok
+test_each_required_evidence_gate_blocks_pass (test_backend_framework.FrameworkTests.test_each_required_evidence_gate_blocks_pass) ... ok
+test_escaped_mutant_fails_even_with_green_clean_tests (test_backend_framework.FrameworkTests.test_escaped_mutant_fails_even_with_green_clean_tests) ... ok
+test_every_schema_field_is_required (test_backend_framework.FrameworkTests.test_every_schema_field_is_required) ... ok
+test_hash_tamper_and_path_escape (test_backend_framework.FrameworkTests.test_hash_tamper_and_path_escape) ... ok
+test_human_vs_ai_corrections (test_backend_framework.FrameworkTests.test_human_vs_ai_corrections) ... ok
+test_infrastructure_error_is_not_fault_detection (test_backend_framework.FrameworkTests.test_infrastructure_error_is_not_fault_detection) ... ok
+test_no_useful_evidence_is_not_partial_and_weights_cannot_change (test_backend_framework.FrameworkTests.test_no_useful_evidence_is_not_partial_and_weights_cannot_change) ... ok
+test_self_review_cannot_pass_and_partial_needs_actions (test_backend_framework.FrameworkTests.test_self_review_cannot_pass_and_partial_needs_actions) ... ok
+test_unrelated_failure_and_changed_assertions_do_not_detect_fault (test_backend_framework.FrameworkTests.test_unrelated_failure_and_changed_assertions_do_not_detect_fault) ... ok
+test_unsafe_mutation_and_hard_fail_override_score (test_backend_framework.FrameworkTests.test_unsafe_mutation_and_hard_fail_override_score) ... ok
+test_unsupported_states_and_types_rejected (test_backend_framework.FrameworkTests.test_unsupported_states_and_types_rejected) ... ok
+test_adapter_mutation (test_governed_freeze.GovernedFreezeTests.test_adapter_mutation) ... ok
+test_deleted_governed_file (test_governed_freeze.GovernedFreezeTests.test_deleted_governed_file) ... ok
+test_expected_results_mutation (test_governed_freeze.GovernedFreezeTests.test_expected_results_mutation) ... ok
+test_external_generated_evidence_is_not_mutation (test_governed_freeze.GovernedFreezeTests.test_external_generated_evidence_is_not_mutation) ... ok
+test_fault_mutation (test_governed_freeze.GovernedFreezeTests.test_fault_mutation) ... ok
+test_fixture_mutation (test_governed_freeze.GovernedFreezeTests.test_fixture_mutation) ... ok
+test_foundation_rule_mutation (test_governed_freeze.GovernedFreezeTests.test_foundation_rule_mutation) ... ok
+test_inventory_rewrite_cannot_override_campaign_pin (test_governed_freeze.GovernedFreezeTests.test_inventory_rewrite_cannot_override_campaign_pin) ... ok
+test_manifest_mutation (test_governed_freeze.GovernedFreezeTests.test_manifest_mutation) ... ok
+test_no_source_hidden_in_runtime_directories (test_governed_freeze.GovernedFreezeTests.test_no_source_hidden_in_runtime_directories) ... ok
+test_omitted_asset_is_rejected (test_governed_freeze.GovernedFreezeTests.test_omitted_asset_is_rejected) ... ok
+test_other_narrow_runtime_artifacts (test_governed_freeze.GovernedFreezeTests.test_other_narrow_runtime_artifacts) ... ok
+test_pycache_creation_is_not_mutation (test_governed_freeze.GovernedFreezeTests.test_pycache_creation_is_not_mutation) ... ok
+test_real_repository_inventory (test_governed_freeze.GovernedFreezeTests.test_real_repository_inventory) ... ok
+test_runtime_directory_is_not_a_blanket_exclusion (test_governed_freeze.GovernedFreezeTests.test_runtime_directory_is_not_a_blanket_exclusion) ... ok
+test_spec_mutation (test_governed_freeze.GovernedFreezeTests.test_spec_mutation) ... ok
+test_standalone_pyc_is_not_mutation (test_governed_freeze.GovernedFreezeTests.test_standalone_pyc_is_not_mutation) ... ok
+test_symlink_disguised_as_runtime_is_rejected (test_governed_freeze.GovernedFreezeTests.test_symlink_disguised_as_runtime_is_rejected) ... ok
+test_symlinked_parent_is_rejected (test_governed_freeze.GovernedFreezeTests.test_symlinked_parent_is_rejected) ... ok
+test_temporary_output_is_not_mutation (test_governed_freeze.GovernedFreezeTests.test_temporary_output_is_not_mutation) ... ok
+test_verifier_mutation (test_governed_freeze.GovernedFreezeTests.test_verifier_mutation) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.417s
+
+OK

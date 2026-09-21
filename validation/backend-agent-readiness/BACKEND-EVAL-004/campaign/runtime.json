@@ -1,0 +1,29 @@
+{
+  "recorded_at": "2026-09-21T09:12:11.984517+00:00",
+  "python": "3.14.4",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "model_identity": "Not separately exposed by agent runtime; no unverified model/version claim",
+  "orchestration": "Codex collaboration tool with authentic /root role task IDs; coordinator-verified",
+  "commands": [
+    {
+      "command": [
+        "/opt/homebrew/opt/php@8.3/bin/php",
+        "-n",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "PHP 8.3.33 (cli) (built: Jul 28 2026 17:56:10) (NTS)\nCopyright (c) The PHP Group\nZend Engine v4.3.33, Copyright (c) Zend Technologies\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "4136f9112b84eeed6c4cba28b5cd5b114266d215\n",
+      "stderr": ""
+    }
+  ]
+}

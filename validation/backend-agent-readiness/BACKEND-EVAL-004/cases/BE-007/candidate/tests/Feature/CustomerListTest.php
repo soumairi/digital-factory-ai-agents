@@ -1,0 +1,249 @@
+<?php
+
+namespace Tests\Feature;
+
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use PHPUnit\Framework\Attributes\DataProvider;
+use Tests\TestCase;
+
+class CustomerListTest extends TestCase
+{
+    private string $password;
+
+    private User $admin;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->assertSame(':memory:', config('database.connections.sqlite.database'));
+        $this->assertSame('sqlite', config('database.default'));
+        $this->assertFalse(config('app.debug'));
+        (require database_path('migrations/0001_01_01_000000_create_users_table.php'))->up();
+        (require database_path('migrations/2026_09_19_000001_add_customer_listing.php'))->up();
+        $this->password = bin2hex(random_bytes(24));
+        $this->admin = new User;
+        $this->admin->name = 'Synthetic Administrator';
+        $this->admin->email = 'admin@example.test';
+        $this->admin->password = $this->password;
+        $this->admin->is_admin = true;
+        $this->admin->save();
+    }
+
+    private function listing(string $query = '')
+    {
+        return $this->call('GET', '/api/customers'.$query, [], [], [], [
+            'PHP_AUTH_USER' => $this->admin->email,
+            'PHP_AUTH_PW' => $this->password,
+        ]);
+    }
+
+    private function customers(int $count): void
+    {
+        for ($i = 1; $i <= $count; $i++) {
+            DB::table('customers')->insert([
+                'name' => 'Synthetic Customer '.$i,
+                'email' => 'customer'.$i.'@example.test',
+                'internal_notes' => 'PRIVATE-SYNTHETIC-MARKER',
+                'created_at' => '2026-09-19 00:00:00',
+                'updated_at' => '2026-09-19 00:00:00',
+            ]);
+        }
+    }
+
+    public function test_administrator_receives_exact_schema_and_default_pagination(): void
+    {
+        $this->customers(25);
+        $response = $this->listing()->assertOk()->assertJsonCount(20, 'data')
+            ->assertJsonPath('meta.total', 25)->assertJsonPath('meta.per_page', 20)
+            ->assertJsonPath('meta.current_page', 1);
+        foreach ($response->json('data') as $customer) {
+            $this->assertSame(['id', 'name', 'email', 'created_at'], array_keys($customer));
+            $this->assertIsInt($customer['id']);
+            $this->assertIsString($customer['name']);
+            $this->assertIsString($customer['email']);
+            $this->assertSame('2026-09-19T00:00:00.000000Z', $customer['created_at']);
+        }
+        $response->assertDontSee('PRIVATE-SYNTHETIC-MARKER')->assertDontSee('internal_notes')
+            ->assertDontSee('password')->assertDontSee('remember_token')->assertDontSee('is_admin')
+            ->assertDontSee('updated_at');
+        $this->assertStringContainsString('no-store', $response->headers->get('Cache-Control'));
+    }
+
+    public function test_missing_credentials_are_denied_before_customer_query(): void
+    {
+        DB::enableQueryLog();
+        $this->get('/api/customers')->assertUnauthorized()->assertJsonStructure(['message'])
+            ->assertHeader('WWW-Authenticate')->assertJsonMissingPath('data')->assertDontSee('trace');
+        $this->assertNoCustomerQuery();
+    }
+
+    public function test_invalid_password_is_denied(): void
+    {
+        $this->call('GET', '/api/customers', [], [], [], [
+            'PHP_AUTH_USER' => $this->admin->email,
+            'PHP_AUTH_PW' => bin2hex(random_bytes(24)),
+        ])->assertUnauthorized()->assertJsonMissingPath('data');
+    }
+
+    public function test_unknown_identity_is_denied(): void
+    {
+        $this->call('GET', '/api/customers', [], [], [], [
+            'PHP_AUTH_USER' => 'absent@example.test',
+            'PHP_AUTH_PW' => $this->password,
+        ])->assertUnauthorized()->assertJsonMissingPath('data');
+    }
+
+    public function test_previous_authentication_does_not_authorize_next_request(): void
+    {
+        $this->listing()->assertOk();
+        $this->get('/api/customers')->assertUnauthorized()->assertJsonMissingPath('data');
+    }
+
+    public function test_non_administrator_is_denied_before_customer_query(): void
+    {
+        $this->admin->is_admin = false;
+        $this->admin->save();
+        DB::enableQueryLog();
+        $this->listing('?is_admin=1&role=admin')->assertForbidden()->assertJsonMissingPath('data');
+        $this->assertNoCustomerQuery();
+        $this->assertFalse($this->admin->fresh()->is_admin);
+    }
+
+    public function test_admin_flag_is_not_mass_assignable_and_defaults_false(): void
+    {
+        $user = new User(['name' => 'Synthetic User', 'email' => 'user@example.test', 'password' => $this->password, 'is_admin' => true]);
+        $user->save();
+        $this->assertFalse($user->fresh()->is_admin);
+    }
+
+    public function test_second_page_has_stable_order_and_preserves_page_size(): void
+    {
+        $this->customers(25);
+        $response = $this->listing('?page=2&per_page=10')->assertOk()->assertJsonCount(10, 'data')
+            ->assertJsonPath('meta.current_page', 2)->assertJsonPath('meta.total', 25);
+        $this->assertSame(range(11, 20), array_column($response->json('data'), 'id'));
+        $this->assertStringContainsString('per_page=10', $response->json('links.next'));
+    }
+
+    public function test_maximum_page_size_is_bounded(): void
+    {
+        $this->customers(101);
+        $this->listing('?per_page=100')->assertOk()->assertJsonCount(100, 'data')->assertJsonPath('meta.total', 101);
+    }
+
+    public function test_empty_collection_is_valid(): void
+    {
+        $this->listing()->assertOk()->assertJsonCount(0, 'data')->assertJsonPath('meta.total', 0);
+    }
+
+    public function test_maximum_page_is_valid_and_out_of_data_is_empty(): void
+    {
+        $this->customers(1);
+        $this->listing('?page=1000&per_page=100')->assertOk()->assertJsonCount(0, 'data')
+            ->assertJsonPath('meta.current_page', 1000)->assertJsonPath('meta.total', 1);
+    }
+
+    #[DataProvider('invalidPagination')]
+    public function test_invalid_pagination_is_rejected_without_customer_queries(string $query): void
+    {
+        DB::enableQueryLog();
+        $this->listing($query)->assertStatus(422)->assertExactJson(['message' => 'Invalid pagination parameters.']);
+        $this->assertNoCustomerQuery();
+    }
+
+    public static function invalidPagination(): array
+    {
+        return array_map(fn ($query) => [$query], [
+            '?page=0', '?page=-1', '?page=1001', '?page=1.5', '?page=abc', '?page=',
+            '?page[]=1', '?page[x]=1', '?page=1e2', '?page=01', '?page=%201%20',
+            '?page=999999999999999999999999', '?per_page=0', '?per_page=-1', '?per_page=101',
+            '?per_page=1.5', '?per_page[]=20', '?per_page=', '?per_page=true',
+        ]);
+    }
+
+    #[DataProvider('hostileParameters')]
+    public function test_hostile_or_protected_parameters_cannot_change_state(string $query): void
+    {
+        $this->customers(1);
+        $before = DB::table('customers')->first();
+        $this->listing($query)->assertStatus(422)->assertExactJson(['message' => 'Invalid pagination parameters.']);
+        $this->assertEquals($before, DB::table('customers')->first());
+        $this->assertTrue($this->admin->fresh()->is_admin);
+    }
+
+    public static function hostileParameters(): array
+    {
+        return array_map(fn ($query) => [$query], [
+            '?page=1%20OR%201%3D1', '?per_page=%3Cscript%3Ealert(1)%3C/script%3E',
+            '?sort=password', '?is_admin=0', '?role=admin', '?owner_id=2', '?tenant_id=2',
+            '?id=2', '?include=internal_notes', '?token=SYNTHETIC-TOKEN-MARKER',
+        ]);
+    }
+
+    public function test_get_body_is_rejected(): void
+    {
+        $this->call('GET', '/api/customers', [], [], [], [
+            'PHP_AUTH_USER' => $this->admin->email,
+            'PHP_AUTH_PW' => $this->password,
+            'CONTENT_TYPE' => 'application/json',
+        ], '{"is_admin":true}')->assertStatus(422)->assertJsonMissingPath('data');
+    }
+
+    public function test_rate_limit_precedes_authentication(): void
+    {
+        for ($i = 0; $i < 60; $i++) {
+            $this->get('/api/customers')->assertUnauthorized();
+        }
+        DB::enableQueryLog();
+        $this->listing()->assertStatus(429)->assertHeader('Retry-After')->assertJsonMissingPath('data');
+        $this->assertSame([], DB::getQueryLog());
+    }
+
+    public function test_denial_logs_have_no_request_or_credentials(): void
+    {
+        Log::spy();
+        $this->get('/api/customers?token=SYNTHETIC-TOKEN-MARKER')->assertUnauthorized();
+        $this->admin->is_admin = false;
+        $this->admin->save();
+        $this->listing('?secret=SYNTHETIC-SECRET-MARKER')->assertForbidden();
+        Log::shouldHaveReceived('warning')->with('customers.authentication_denied')->once();
+        Log::shouldHaveReceived('warning')->with('customers.authorization_denied')->once();
+        Log::shouldHaveReceived('warning')->twice();
+    }
+
+    public function test_customer_query_count_does_not_grow_with_page_size(): void
+    {
+        $this->customers(25);
+        foreach ([1, 20] as $size) {
+            DB::flushQueryLog();
+            DB::enableQueryLog();
+            $this->listing('?per_page='.$size)->assertOk();
+            $queries = array_values(array_filter(DB::getQueryLog(), fn ($query) => str_contains($query['query'], '"customers"')));
+            $this->assertCount(2, $queries);
+            $this->assertStringContainsString('"id", "name", "email", "created_at"', $queries[1]['query']);
+            $this->assertStringNotContainsString('internal_notes', $queries[1]['query']);
+        }
+    }
+
+    public function test_cross_origin_access_is_not_enabled(): void
+    {
+        $this->withHeader('Origin', 'https://untrusted.example.test');
+        $this->listing()->assertOk()->assertHeaderMissing('Access-Control-Allow-Origin')
+            ->assertHeaderMissing('Access-Control-Allow-Credentials');
+    }
+
+    public function test_write_method_is_not_available(): void
+    {
+        $this->postJson('/api/customers', ['is_admin' => true])->assertStatus(405);
+        $this->assertSame(0, DB::table('customers')->count());
+    }
+
+    private function assertNoCustomerQuery(): void
+    {
+        foreach (DB::getQueryLog() as $query) {
+            $this->assertStringNotContainsString('"customers"', $query['query']);
+        }
+    }
+}

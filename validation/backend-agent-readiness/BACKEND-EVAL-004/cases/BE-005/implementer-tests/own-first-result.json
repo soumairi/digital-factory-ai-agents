@@ -1,0 +1,28 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+    "-n",
+    "-d",
+    "allow_url_fopen=0",
+    "-d",
+    "ffi.enable=0",
+    "vendor/bin/phpunit",
+    "--no-configuration",
+    "--bootstrap",
+    "vendor/autoload.php",
+    "--do-not-cache-result",
+    "--log-junit",
+    "/private/tmp/laravel-adapter-hpgi4qlu/evidence/own-first.xml",
+    "tests/Feature/CampaignImplementationTest.php"
+  ],
+  "cwd": "/private/tmp/laravel-adapter-hpgi4qlu/app",
+  "exit_code": 0,
+  "context": "/root/implementer",
+  "timestamp": "2026-09-21T09:15:35.677287+00:00",
+  "status": "PASS",
+  "tests": 1,
+  "assertions": 20,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+}

@@ -1,0 +1,103 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/laravel-adapter-wl1vq8lx/app/reviewer/phpunit.xml
+
+F.......F..............................................           55 / 55 (100%)
+
+Time: 00:14.958, Memory: 48.50 MB
+
+There were 2 failures:
+
+1) Reviewer\BE001Test::test_BE001_crud_owner_scope_and_missing_resources
+Expected response status code [200] but received 500.
+Failed asserting that 500 is identical to 200.
+
+The following exception occurred during the last request:
+
+ErrorException: Undefined property: stdClass::$title in /private/tmp/laravel-adapter-wl1vq8lx/app/app/Http/Controllers/EvalController.php:34
+Stack trace:
+#0 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'Undefined prope...', '/private/tmp/la...', 34)
+#1 /private/tmp/laravel-adapter-wl1vq8lx/app/app/Http/Controllers/EvalController.php(34): Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}(2, 'Undefined prope...', '/private/tmp/la...', 34)
+#2 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App\Http\Controllers\EvalController->note(Object(Illuminate\Http\Request), 3)
+#3 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Route.php(276): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\EvalController), 'note')
+#4 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Route.php(216): Illuminate\Routing\Route->runController()
+#5 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate\Routing\Route->run()
+#6 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#7 /private/tmp/laravel-adapter-wl1vq8lx/app/app/Http/Middleware/EvalAuthenticate.php(10): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#8 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): App\Http\Middleware\EvalAuthenticate->handle(Object(Illuminate\Http\Request), Object(Closure))
+#9 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(52): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#10 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#12 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#13 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#14 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate\Routing\Router->runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#15 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#16 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#17 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#18 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#19 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#20 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance->handle(Object(Illuminate\Http\Request), Object(Closure))
+#28 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Http\Middleware\HandleCors->handle(Object(Illuminate\Http\Request), Object(Closure))
+#30 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#31 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#32 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#33 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks->handle(Object(Illuminate\Http\Request), Object(Closure))
+#34 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(28): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#35 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding->handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#37 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#38 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#39 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(638): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#40 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(604): Illuminate\Foundation\Testing\TestCase->call('PATCH', '/api/eval/notes...', Array, Array, Array, Array, '{"title":"Updat...')
+#41 /private/tmp/laravel-adapter-wl1vq8lx/app/reviewer/common/AdapterTestCase.php(55): Illuminate\Foundation\Testing\TestCase->json('PATCH', '/api/eval/notes...', Array, Array)
+#42 /private/tmp/laravel-adapter-wl1vq8lx/app/reviewer/BE-001/tests/BE001Test.php(14): Reviewer\AdapterTestCase->req('PATCH', 'notes/3', Array)
+#43 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestCase.php(1318): Reviewer\BE001Test->test_BE001_crud_owner_scope_and_missing_resources()
+#44 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestCase.php(1355): PHPUnit\Framework\TestCase->invokeTestMethod('test_BE001_crud...', Array)
+#45 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestCase.php(521): PHPUnit\Framework\TestCase->runTest()
+#46 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(99): PHPUnit\Framework\TestCase->runBare()
+#47 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestCase.php(361): PHPUnit\Framework\TestRunner->run(Object(Reviewer\BE001Test))
+#48 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestSuite.php(374): PHPUnit\Framework\TestCase->run()
+#49 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestSuite.php(374): PHPUnit\Framework\TestSuite->run()
+#50 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestSuite.php(374): PHPUnit\Framework\TestSuite->run()
+#51 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/TextUI/TestRunner.php(64): PHPUnit\Framework\TestSuite->run()
+#52 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/TextUI/Application.php(229): PHPUnit\TextUI\TestRunner->run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\NullResultCache), Object(PHPUnit\Framework\TestSuite))
+#53 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/phpunit(104): PHPUnit\TextUI\Application->run(Array)
+#54 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/bin/phpunit(122): include('/private/tmp/la...')
+#55 {main}
+
+----------------------------------------------------------------------------------
+
+Undefined property: stdClass::$title
+
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponseAssert.php:45
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:183
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/Concerns/AssertsStatusCodes.php:16
+/private/tmp/laravel-adapter-wl1vq8lx/app/reviewer/BE-001/tests/BE001Test.php:14
+
+2) Tests\Feature\CampaignImplementationTest::test_created_note_is_owned_private_and_deletable
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+ '{\n
+-    "body": "New",\n
+-    "id": 3,\n
+-    "title": "Revised"\n
++    "message": "Server Error"\n
+ }'
+
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/AssertableJsonString.php:102
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:937
+/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CampaignImplementationTest.php:13
+
+FAILURES!
+Tests: 55, Assertions: 600, Failures: 2.

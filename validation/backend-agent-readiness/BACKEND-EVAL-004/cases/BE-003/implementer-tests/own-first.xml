@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\Feature\CampaignImplementationTest" file="/private/tmp/laravel-adapter-pmyc1hzb/app/tests/Feature/CampaignImplementationTest.php" tests="1" assertions="10" errors="0" failures="0" skipped="0" time="0.310091">
+    <testcase name="test_report_permissions_are_server_owned_and_durable" file="/private/tmp/laravel-adapter-pmyc1hzb/app/tests/Feature/CampaignImplementationTest.php" line="6" class="Tests\Feature\CampaignImplementationTest" classname="Tests.Feature.CampaignImplementationTest" assertions="10" time="0.310091"/>
+  </testsuite>
+</testsuites>

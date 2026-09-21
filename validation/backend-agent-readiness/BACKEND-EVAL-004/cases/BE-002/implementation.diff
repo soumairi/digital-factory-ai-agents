@@ -1,0 +1,35 @@
+--- baseline/app/Http/Controllers/EvalController.php
++++ candidate/app/Http/Controllers/EvalController.php
+@@ -22,7 +22,13 @@
+     }
+     public function product(Request $r) {
+         $data=EvalInput::fields($r,['name'=>'required|string|min:1|max:100','quantity'=>'required|integer|min:0|max:1000','description'=>'sometimes|string|max:500'],['quantity']);
+-        $id=DB::table('products')->insertGetId($data); return response()->json(['id'=>$id]+$data,201);
++        // The validated payload is the write boundary; omitted description stays omitted in the response.
++        $productId = DB::table('products')->insertGetId($data);
++        $response = ['id' => $productId];
++        foreach (['name', 'quantity', 'description'] as $field) {
++            if (array_key_exists($field, $data)) $response[$field] = $data[$field];
++        }
++        return response()->json($response, 201);
+     }
+     public function report(Request $r,int $id) {
+         Gate::authorize($r->isMethod('PATCH')?'eval-edit-report':'eval-read-report');
+--- baseline/tests/Feature/CampaignImplementationTest.php
++++ candidate/tests/Feature/CampaignImplementationTest.php
+@@ -0,0 +1,15 @@
++<?php
++namespace Tests\Feature;
++require_once __DIR__.'/../../reviewer/common/AdapterTestCase.php';
++use Illuminate\Support\Facades\DB;
++class CampaignImplementationTest extends \Reviewer\AdapterTestCase {
++    public function test_product_schema_matrix_and_literal_text(): void {
++        foreach ([[],['name'=>null,'quantity'=>1],['name'=>'   ','quantity'=>1],['name'=>'x','quantity'=>'1'],['name'=>'x','quantity'=>1001],['name'=>'x','quantity'=>1,'extra'=>['role'=>'editor']]] as $payload) {
++            $this->reject('POST','products',$payload,'products');
++        }
++        $title = "' OR 1=1 --";
++        $id=$this->req('POST','products',['name'=>$title,'quantity'=>0,'description'=>''])->assertCreated()->assertJsonPath('description','')->json('id');
++        $this->assertDatabaseHas('products',['id'=>$id,'name'=>$title,'quantity'=>0]);
++        $this->assertDatabaseCount('products',1);
++    }
++}

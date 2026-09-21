@@ -1,0 +1,9 @@
+# BE-006 implementation analysis
+
+Context: /root/implementer. Start: 2026-09-21T09:11:42.725647+00:00. Coordinator confirmed /root/evaluator adapter adoption before implementation. User authorizes synthetic disposable campaign, no merge/deploy. Foundation 0.6.1; governed pin 41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92.
+
+Read shared policies, Backend Core, Laravel profile, original evaluation and frozen adapter/fixtures/faults. Reuse explicitly: calibration/application is an inspected consuming-project scaffold (Laravel 13.24.0/PHP 8.3); existing schema, Basic web guard, shared FormRequest, models, routes and other endpoint implementations remain baseline dependencies. This is a scaffold-assisted implementation exercise, not a greenfield autonomy claim. Original BE-009 is its six-category test-authoring task, never a substituted scenario.
+
+Plan: author the case-required behavior within existing controller/Action boundaries (BE-009 authors its test suite), preserving reviewer-frozen mutation snippets exactly. Add own behavioral HTTP/state tests; execute these and frozen adapter clean assertions; self-review; freeze unique C01 with compact sorted source inventory hash. Case implementation diff will identify exact changes; no Foundation/adapters/history writes.
+
+Safety inspection: application boot hooks, Composer scripts, config, routes, controllers, requests, models, migrations and tests examined; Composer scripts will not execute. Use copied pinned vendor, runner's sanitized environment, in-memory SQLite, local array cache/mail/session and owned temp storage. Fresh synthetic schema only; no shared reset. BE-006 separate processes use marked /private/tmp SQLite race files. Runner is not a hostile-code jail; only this reviewed synthetic source is authorized. PostgreSQL NOT EXECUTED. Required independent Security/evaluator review remains pending; implementer cannot approve.

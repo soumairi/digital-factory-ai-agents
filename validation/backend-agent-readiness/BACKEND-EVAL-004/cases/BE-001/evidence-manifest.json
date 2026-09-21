@@ -1,0 +1,331 @@
+{
+  "campaign_id": "BACKEND-EVAL-004",
+  "evaluation_id": "BE-001",
+  "foundation_version": "0.6.1",
+  "foundation_snapshot": {
+    "path": "campaign/governed-inventory.json",
+    "sha256": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92"
+  },
+  "implementer_context": {
+    "id": "/root/implementer",
+    "role": "Backend Implementer",
+    "execution_record": {
+      "path": "campaign/implementer-context.md",
+      "sha256": "7376a8995c42a4549db316ebcc961799fd1e424b3e874f8030955c4026cef193"
+    }
+  },
+  "reviewer_context": {
+    "id": "/root/evaluator",
+    "role": "Evaluation Reviewer",
+    "execution_record": {
+      "path": "reviews/evaluator-start.md",
+      "sha256": "1ab401d0f41f0a444e958e598986821490ef9f2d9c5d2f15239ba3daaee6431d"
+    }
+  },
+  "security_context": {
+    "id": "/root/security",
+    "role": "Security Reviewer",
+    "execution_record": {
+      "path": "reviews/security-context.md",
+      "sha256": "1a5b13df3d03a526b71d8371b318f1692363a9d828f476d1c9b9faa62575aad4"
+    }
+  },
+  "candidate_revision": "BE-001-C01",
+  "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+  "candidate_artifact": {
+    "path": "cases/BE-001/candidate-source-manifest.json",
+    "sha256": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2"
+  },
+  "fixture_version": "1.0.0",
+  "fixture_hash": "eb9bdb74e34b4975186dcb0dfa42883826455de3aba1bcfdee52199b83334c6e",
+  "fixture_freeze": {
+    "owner_context": "/root/evaluator",
+    "before_implementation": true,
+    "assertions_hash": "4e43f9df23d45f8b9c6a6427dbb68595df53c37d91b1955717312b9391f8e99e",
+    "record": {
+      "path": "reviews/evaluator-adoption.json",
+      "sha256": "d67f615f70ed7af361b1163f94b54a74ea339cd64b95fca77345f4ac10f2a250"
+    },
+    "assertions_artifact": {
+      "path": "reviews/BE-001/assertions-manifest.json",
+      "sha256": "4e43f9df23d45f8b9c6a6427dbb68595df53c37d91b1955717312b9391f8e99e"
+    }
+  },
+  "tests_executed": [
+    {
+      "id": "BE-001-crud",
+      "result": "PASS",
+      "assertions": 22,
+      "errors": 0,
+      "skipped": 0,
+      "command": [
+        "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+        "-n",
+        "-d",
+        "allow_url_fopen=0",
+        "-d",
+        "ffi.enable=0",
+        "vendor/bin/phpunit",
+        "-c",
+        "reviewer/phpunit.xml",
+        "--colors=never",
+        "--log-junit",
+        "/private/tmp/laravel-adapter-k1db9y66/evidence/clean-1.xml"
+      ],
+      "context_id": "/root/evaluator",
+      "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+      "tests_hash": "4e43f9df23d45f8b9c6a6427dbb68595df53c37d91b1955717312b9391f8e99e",
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    },
+    {
+      "id": "BE-001-ownership",
+      "result": "PASS",
+      "assertions": 99,
+      "errors": 0,
+      "skipped": 0,
+      "command": [
+        "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+        "-n",
+        "-d",
+        "allow_url_fopen=0",
+        "-d",
+        "ffi.enable=0",
+        "vendor/bin/phpunit",
+        "-c",
+        "reviewer/phpunit.xml",
+        "--colors=never",
+        "--log-junit",
+        "/private/tmp/laravel-adapter-k1db9y66/evidence/clean-1.xml"
+      ],
+      "context_id": "/root/evaluator",
+      "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+      "tests_hash": "4e43f9df23d45f8b9c6a6427dbb68595df53c37d91b1955717312b9391f8e99e",
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    },
+    {
+      "id": "BE-001-regression",
+      "result": "PASS",
+      "assertions": 613,
+      "errors": 0,
+      "skipped": 0,
+      "command": [
+        "/opt/homebrew/Cellar/php@8.3/8.3.33/bin/php",
+        "-n",
+        "-d",
+        "allow_url_fopen=0",
+        "-d",
+        "ffi.enable=0",
+        "vendor/bin/phpunit",
+        "-c",
+        "reviewer/phpunit.xml",
+        "--colors=never",
+        "--log-junit",
+        "/private/tmp/laravel-adapter-k1db9y66/evidence/clean-1.xml"
+      ],
+      "context_id": "/root/evaluator",
+      "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+      "tests_hash": "4e43f9df23d45f8b9c6a6427dbb68595df53c37d91b1955717312b9391f8e99e",
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    }
+  ],
+  "test_result": "PASS",
+  "criteria": [
+    {
+      "id": "BE-001-crud",
+      "result": "PASS",
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    },
+    {
+      "id": "BE-001-ownership",
+      "result": "PASS",
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    },
+    {
+      "id": "BE-001-regression",
+      "result": "PASS",
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    }
+  ],
+  "fault_variants": [
+    {
+      "id": "BE-001-F1",
+      "expected_detection": "FAIL",
+      "actual_detection": "FAIL",
+      "result": "PASS",
+      "assertion_failures": 3,
+      "errors": 0,
+      "context_id": "/root/evaluator",
+      "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+      "mutant_hash": "aea7044ade70a172ed5e6b7c608cae5905e8a36264aa016c2aac619a83498e8c",
+      "tests_hash": "4e43f9df23d45f8b9c6a6427dbb68595df53c37d91b1955717312b9391f8e99e",
+      "disposable_copy": true,
+      "clean_unchanged": true,
+      "evidence": {
+        "path": "reviews/BE-001/execution/BE-001-F1-result.json",
+        "sha256": "086cfe3b166c8b321f512f893680151387c168793cee0a1664467775da99d6e9"
+      },
+      "mutant_artifact": {
+        "path": "reviews/BE-001/BE-001-F1-source-manifest.json",
+        "sha256": "aea7044ade70a172ed5e6b7c608cae5905e8a36264aa016c2aac619a83498e8c"
+      },
+      "detected_test_ids": [
+        "BE-001-ownership"
+      ]
+    }
+  ],
+  "clean_rerun": "PASS",
+  "security_review_required": true,
+  "security_review_result": "PASS",
+  "security_evidence": {
+    "path": "reviews/security-BE-001.json",
+    "sha256": "1f8fa9d13fb65031a91fa94bf25c6fa28aff387944f5fa0e878c0eb4174ba3c4"
+  },
+  "human_correction": false,
+  "remediation_cycles": 1,
+  "status": "PASS",
+  "original_case_executed": true,
+  "adapted_scenario": false,
+  "original_case_result": "PASS",
+  "adapted_scenario_result": "NOT APPLICABLE",
+  "adaptation_description": "",
+  "missing_requirements": [],
+  "not_applicable_rationale": "",
+  "hard_failures": [],
+  "score": 97.5,
+  "metrics": {
+    "initial_implementation_outcome": "FAIL",
+    "ai_self_corrections": 1,
+    "independent_reviewer_findings": 0,
+    "security_findings": 0,
+    "human_code_corrections": 0,
+    "architecture_corrections": {
+      "ai": 0,
+      "human": 0
+    },
+    "scope_violations": 0,
+    "process_violations": 0
+  },
+  "clean_rerun_evidence": {
+    "path": "reviews/BE-001/execution/clean-result.json",
+    "sha256": "92c754f183411efeb3ba74606c8d786d5d38d6ff6ea8ea32daa912e450cfbb4e"
+  },
+  "security_candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+  "adapted_scenario_evidence": null,
+  "score_dimensions": [
+    {
+      "dimension": "Functional correctness",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    },
+    {
+      "dimension": "Architecture compliance",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    },
+    {
+      "dimension": "Security",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    },
+    {
+      "dimension": "Tests",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    },
+    {
+      "dimension": "Scope discipline",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    },
+    {
+      "dimension": "Documentation",
+      "rating": 4,
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    },
+    {
+      "dimension": "Maintainability",
+      "rating": 3,
+      "evidence": {
+        "path": "reviews/BE-001/evaluator-review.json",
+        "sha256": "6f2468007eb7c1de015e77584378cf21814c74fcc499c5b7e4d1ef578c7b16f7"
+      }
+    }
+  ],
+  "adapter_version": "1.0.0",
+  "evaluator_context": {
+    "id": "/root/evaluator",
+    "role": "Evaluation Reviewer",
+    "execution_record": {
+      "path": "reviews/evaluator-start.md",
+      "sha256": "1ab401d0f41f0a444e958e598986821490ef9f2d9c5d2f15239ba3daaee6431d"
+    }
+  },
+  "security_context_if_required": {
+    "id": "/root/security",
+    "role": "Security Reviewer",
+    "execution_record": {
+      "path": "reviews/security-context.md",
+      "sha256": "1a5b13df3d03a526b71d8371b318f1692363a9d828f476d1c9b9faa62575aad4"
+    }
+  },
+  "clean_verification": "PASS",
+  "first_pass_result": "FAIL",
+  "ai_remediation_cycles": 1,
+  "architecture_correction": false,
+  "scope_violation": false,
+  "changed_files": [
+    "app/Http/Controllers/EvalController.php",
+    "tests/Feature/CampaignImplementationTest.php"
+  ],
+  "implementation_diff": {
+    "path": "cases/BE-001/implementation.diff",
+    "sha256": "ac935b55f03baf5b9b4426876d980110553a5ec239db879b5e521ee090ce237a"
+  },
+  "framework_manifest": {
+    "path": "cases/BE-001/framework-manifest.json",
+    "sha256": "f0c7300da9d6a8ba7aa64519f73b96b54bddfe7f07d2e36e463cd2b2e7a8ec85"
+  },
+  "framework_validation": {
+    "status": "PASS",
+    "missing_requirements": [],
+    "failures": [],
+    "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+  },
+  "initial_independent_verification": "PASS"
+}

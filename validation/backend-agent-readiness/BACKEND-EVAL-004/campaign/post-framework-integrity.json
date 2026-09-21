@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-09-21T09:09:10.043168+00:00",
+  "governed_check": {
+    "status": "PASS",
+    "freeze": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92"
+  },
+  "historical_mismatches": [],
+  "framework_evals_log": "d44efa67b9b8f964d898bb43179bf188a1b377f7c85249dba69ca20f66682b3f",
+  "framework_adapters_log": "acdd58fac1f5859f7de26452f1072adc6c3b82a2a8e2090d8601c598c33c8b31"
+}

@@ -1,0 +1,29 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+Configuration: /private/tmp/laravel-adapter-sw_j2nr8/app/reviewer/phpunit.xml
+
+F.                                                                  2 / 2 (100%)
+
+Time: 00:00.338, Memory: 42.50 MB
+
+There was 1 failure:
+
+1) Reviewer\BE006Test::test_BE006_success_shortage_rollback_and_repeat
+Failed asserting that a row in the table [inventory] matches the attributes {
+    "id": 1,
+    "stock": 7
+}.
+
+Found similar results: [
+    {
+        "id": 1,
+        "stock": 5
+    }
+].
+
+/private/tmp/laravel-adapter-sw_j2nr8/app/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/InteractsWithDatabase.php:51
+/private/tmp/laravel-adapter-sw_j2nr8/app/reviewer/BE-006/tests/BE006Test.php:13
+
+FAILURES!
+Tests: 2, Assertions: 50, Failures: 1.

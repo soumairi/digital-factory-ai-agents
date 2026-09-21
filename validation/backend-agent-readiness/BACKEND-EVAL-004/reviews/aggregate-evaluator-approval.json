@@ -1,0 +1,18 @@
+{
+  "context_id": "/root/evaluator",
+  "status": "PASS",
+  "recommendation": "CONTROLLED PILOT READY",
+  "scope": "Supervised canonical Laravel/SQLite work only; readiness recommendation does not authorize a real pilot or deployment.",
+  "metrics_assessment": "9/9 original PASS;19/19 mandatory faults;8/9 conservative first-pass,9/9 initial independent clean;1/9 AI cycle average;zero independent findings or human code corrections.",
+  "limitations": [
+    "Scaffold-assisted correlated samples and exact frozen mutation anchors constrain generalization.",
+    "PostgreSQL NOT EXECUTED; target-engine validation REQUIRED BEFORE POSTGRESQL PILOT.",
+    "Human review and policy Security/Audit gates remain required."
+  ],
+  "report_hashes": {
+    "summary/evaluation-summary.md": "dc772b7f3ec7fcab588e815288d083276abead6540c0496974ef391560c5ce88",
+    "detailed/evaluation-detailed-report.md": "d50a4c3923b43ea8f18f32658e61f3c2fd106fff882f8ec66b28459348f2fdf3",
+    "final/eval-results.json": "0347b902371262e00aa76dea80bae7882329c8318754e5641a898665a6bd82fa",
+    "final/readiness-assessment.md": "3b4a0551f5693b52270ad90e57a8e7278bc9d065ea3cd2fb2a50b7928f79fc0b"
+  }
+}

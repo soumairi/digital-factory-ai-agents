@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/private/tmp/laravel-adapter-wl1vq8lx/app/reviewer/phpunit.xml" tests="55" assertions="600" errors="0" failures="2" skipped="0" time="14.951766">
+    <testsuite name="Reviewer-BE-001" tests="55" assertions="600" errors="0" failures="2" skipped="0" time="14.951766">
+      <testsuite name="Reviewer\BE001Test" file="/private/tmp/laravel-adapter-wl1vq8lx/app/reviewer/BE-001/tests/BE001Test.php" tests="2" assertions="92" errors="0" failures="1" skipped="0" time="0.956007">
+        <testcase name="test_BE001_crud_owner_scope_and_missing_resources" file="/private/tmp/laravel-adapter-wl1vq8lx/app/reviewer/BE-001/tests/BE001Test.php" line="7" class="Reviewer\BE001Test" classname="Reviewer.BE001Test" assertions="15" time="0.081992">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Reviewer\BE001Test::test_BE001_crud_owner_scope_and_missing_resources
+Expected response status code [200] but received 500.
+Failed asserting that 500 is identical to 200.
+
+The following exception occurred during the last request:
+
+ErrorException: Undefined property: stdClass::$title in /private/tmp/laravel-adapter-wl1vq8lx/app/app/Http/Controllers/EvalController.php:34
+Stack trace:
+#0 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\Foundation\Bootstrap\HandleExceptions-&gt;handleError(2, 'Undefined prope...', '/private/tmp/la...', 34)
+#1 /private/tmp/laravel-adapter-wl1vq8lx/app/app/Http/Controllers/EvalController.php(34): Illuminate\Foundation\Bootstrap\HandleExceptions-&gt;Illuminate\Foundation\Bootstrap\{closure}(2, 'Undefined prope...', '/private/tmp/la...', 34)
+#2 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(46): App\Http\Controllers\EvalController-&gt;note(Object(Illuminate\Http\Request), 3)
+#3 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Route.php(276): Illuminate\Routing\ControllerDispatcher-&gt;dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\EvalController), 'note')
+#4 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Route.php(216): Illuminate\Routing\Route-&gt;runController()
+#5 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Router.php(822): Illuminate\Routing\Route-&gt;run()
+#6 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Routing\Router-&gt;Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#7 /private/tmp/laravel-adapter-wl1vq8lx/app/app/Http/Middleware/EvalAuthenticate.php(10): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#8 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): App\Http\Middleware\EvalAuthenticate-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#9 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(52): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#10 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Routing\Middleware\SubstituteBindings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#12 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Router.php(821): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#13 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\Routing\Router-&gt;runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#14 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Router.php(764): Illuminate\Routing\Router-&gt;runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#15 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Routing/Router.php(753): Illuminate\Routing\Router-&gt;dispatchToRoute(Object(Illuminate\Http\Request))
+#16 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\Routing\Router-&gt;dispatch(Object(Illuminate\Http\Request))
+#17 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Kernel-&gt;Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#18 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#19 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#20 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Foundation\Http\Middleware\TrimStrings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Http\Middleware\ValidatePostSize-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(109): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#28 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(74): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Http\Middleware\HandleCors-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#30 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#31 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Http\Middleware\TrustProxies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#32 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#33 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Foundation\Http\Middleware\InvokeDeferredCallbacks-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#34 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePathEncoding.php(28): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#35 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(219): Illuminate\Http\Middleware\ValidatePathEncoding-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(137): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#37 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#38 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\Foundation\Http\Kernel-&gt;sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#39 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(638): Illuminate\Foundation\Http\Kernel-&gt;handle(Object(Illuminate\Http\Request))
+#40 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(604): Illuminate\Foundation\Testing\TestCase-&gt;call('PATCH', '/api/eval/notes...', Array, Array, Array, Array, '{"title":"Updat...')
+#41 /private/tmp/laravel-adapter-wl1vq8lx/app/reviewer/common/AdapterTestCase.php(55): Illuminate\Foundation\Testing\TestCase-&gt;json('PATCH', '/api/eval/notes...', Array, Array)
+#42 /private/tmp/laravel-adapter-wl1vq8lx/app/reviewer/BE-001/tests/BE001Test.php(14): Reviewer\AdapterTestCase-&gt;req('PATCH', 'notes/3', Array)
+#43 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestCase.php(1318): Reviewer\BE001Test-&gt;test_BE001_crud_owner_scope_and_missing_resources()
+#44 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestCase.php(1355): PHPUnit\Framework\TestCase-&gt;invokeTestMethod('test_BE001_crud...', Array)
+#45 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestCase.php(521): PHPUnit\Framework\TestCase-&gt;runTest()
+#46 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php(99): PHPUnit\Framework\TestCase-&gt;runBare()
+#47 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestCase.php(361): PHPUnit\Framework\TestRunner-&gt;run(Object(Reviewer\BE001Test))
+#48 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestSuite.php(374): PHPUnit\Framework\TestCase-&gt;run()
+#49 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestSuite.php(374): PHPUnit\Framework\TestSuite-&gt;run()
+#50 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/Framework/TestSuite.php(374): PHPUnit\Framework\TestSuite-&gt;run()
+#51 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/TextUI/TestRunner.php(64): PHPUnit\Framework\TestSuite-&gt;run()
+#52 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/src/TextUI/Application.php(229): PHPUnit\TextUI\TestRunner-&gt;run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\NullResultCache), Object(PHPUnit\Framework\TestSuite))
+#53 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/phpunit/phpunit/phpunit(104): PHPUnit\TextUI\Application-&gt;run(Array)
+#54 /private/tmp/laravel-adapter-wl1vq8lx/app/vendor/bin/phpunit(122): include('/private/tmp/la...')
+#55 {main}
+
+----------------------------------------------------------------------------------
+
+Undefined property: stdClass::$title
+
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponseAssert.php:45
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:183
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/Concerns/AssertsStatusCodes.php:16
+/private/tmp/laravel-adapter-wl1vq8lx/app/reviewer/BE-001/tests/BE001Test.php:14</failure>
+        </testcase>
+        <testcase name="test_BE001_input_initial_state_and_regression_controls" file="/private/tmp/laravel-adapter-wl1vq8lx/app/reviewer/BE-001/tests/BE001Test.php" line="20" class="Reviewer\BE001Test" classname="Reviewer.BE001Test" assertions="77" time="0.874015"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\BackendNegativeTest" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/BackendNegativeTest.php" tests="6" assertions="34" errors="0" failures="0" skipped="0" time="0.283181">
+        <testcase name="test_negative_unauthenticated" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/BackendNegativeTest.php" line="5" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="5" time="0.217407"/>
+        <testcase name="test_negative_unauthorized" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/BackendNegativeTest.php" line="6" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="5" time="0.014996"/>
+        <testcase name="test_negative_ownership" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/BackendNegativeTest.php" line="7" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="6" time="0.014110"/>
+        <testcase name="test_negative_invalid" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/BackendNegativeTest.php" line="8" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="6" time="0.013408"/>
+        <testcase name="test_negative_malicious" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/BackendNegativeTest.php" line="9" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="6" time="0.011266"/>
+        <testcase name="test_negative_sensitive_fields" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/BackendNegativeTest.php" line="10" class="Tests\Feature\BackendNegativeTest" classname="Tests.Feature.BackendNegativeTest" assertions="6" time="0.011994"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\CampaignImplementationTest" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CampaignImplementationTest.php" tests="1" assertions="9" errors="0" failures="1" skipped="0" time="0.017943">
+        <testcase name="test_created_note_is_owned_private_and_deletable" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CampaignImplementationTest.php" line="6" class="Tests\Feature\CampaignImplementationTest" classname="Tests.Feature.CampaignImplementationTest" assertions="9" time="0.017943">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\CampaignImplementationTest::test_created_note_is_owned_private_and_deletable
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+ '{\n
+-    "body": "New",\n
+-    "id": 3,\n
+-    "title": "Revised"\n
++    "message": "Server Error"\n
+ }'
+
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/AssertableJsonString.php:102
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:937
+/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CampaignImplementationTest.php:13</failure>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Feature\CustomerListTest" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" tests="46" assertions="465" errors="0" failures="0" skipped="0" time="13.694635">
+        <testcase name="test_administrator_receives_exact_schema_and_default_pagination" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="55" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="115" time="0.013089"/>
+        <testcase name="test_missing_credentials_are_denied_before_customer_query" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="74" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="9" time="0.213958"/>
+        <testcase name="test_invalid_password_is_denied" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="82" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="5" time="0.217844"/>
+        <testcase name="test_unknown_identity_is_denied" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="90" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="5" time="0.224373"/>
+        <testcase name="test_previous_authentication_does_not_authorize_next_request" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="98" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.017234"/>
+        <testcase name="test_non_administrator_is_denied_before_customer_query" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="104" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.012196"/>
+        <testcase name="test_admin_flag_is_not_mass_assignable_and_defaults_false" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="114" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="4" time="0.010172"/>
+        <testcase name="test_second_page_has_stable_order_and_preserves_page_size" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="121" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="9" time="0.012357"/>
+        <testcase name="test_maximum_page_size_is_bounded" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="130" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.016099"/>
+        <testcase name="test_empty_collection_is_valid" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="136" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.008957"/>
+        <testcase name="test_maximum_page_is_valid_and_out_of_data_is_empty" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="141" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.008592"/>
+        <testsuite name="Tests\Feature\CustomerListTest::test_invalid_pagination_is_rejected_without_customer_queries" tests="19" assertions="114" errors="0" failures="0" skipped="0" time="0.157358">
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #0" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.008089"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #1" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.008238"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #2" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.008599"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #3" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.011590"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #4" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.008660"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #5" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.007898"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #6" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.008032"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #7" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.007829"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #8" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.008590"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #9" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.008711"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #10" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.008203"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #11" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.008198"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #12" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.008022"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #13" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.007903"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #14" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.007822"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #15" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.007786"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #16" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.007662"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #17" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.007906"/>
+          <testcase name="test_invalid_pagination_is_rejected_without_customer_queries with data set #18" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="149" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.007620"/>
+        </testsuite>
+        <testsuite name="Tests\Feature\CustomerListTest::test_hostile_or_protected_parameters_cannot_change_state" tests="10" assertions="70" errors="0" failures="0" skipped="0" time="0.076321">
+          <testcase name="test_hostile_or_protected_parameters_cannot_change_state with data set #0" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="167" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.007691"/>
+          <testcase name="test_hostile_or_protected_parameters_cannot_change_state with data set #1" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="167" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.007837"/>
+          <testcase name="test_hostile_or_protected_parameters_cannot_change_state with data set #2" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="167" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.007654"/>
+          <testcase name="test_hostile_or_protected_parameters_cannot_change_state with data set #3" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="167" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.007974"/>
+          <testcase name="test_hostile_or_protected_parameters_cannot_change_state with data set #4" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="167" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.007768"/>
+          <testcase name="test_hostile_or_protected_parameters_cannot_change_state with data set #5" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="167" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.007694"/>
+          <testcase name="test_hostile_or_protected_parameters_cannot_change_state with data set #6" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="167" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.007672"/>
+          <testcase name="test_hostile_or_protected_parameters_cannot_change_state with data set #7" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="167" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.007319"/>
+          <testcase name="test_hostile_or_protected_parameters_cannot_change_state with data set #8" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="167" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.007285"/>
+          <testcase name="test_hostile_or_protected_parameters_cannot_change_state with data set #9" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="167" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="7" time="0.007427"/>
+        </testsuite>
+        <testcase name="test_get_body_is_rejected" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="185" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="5" time="0.007103"/>
+        <testcase name="test_rate_limit_precedes_authentication" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="194" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="67" time="12.415410"/>
+        <testcase name="test_denial_logs_have_no_request_or_credentials" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="204" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="8" time="0.237986"/>
+        <testcase name="test_customer_query_count_does_not_grow_with_page_size" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="216" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="11" time="0.023227"/>
+        <testcase name="test_cross_origin_access_is_not_enabled" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="230" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="6" time="0.013261"/>
+        <testcase name="test_write_method_is_not_available" file="/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CustomerListTest.php" line="237" class="Tests\Feature\CustomerListTest" classname="Tests.Feature.CustomerListTest" assertions="5" time="0.009098"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

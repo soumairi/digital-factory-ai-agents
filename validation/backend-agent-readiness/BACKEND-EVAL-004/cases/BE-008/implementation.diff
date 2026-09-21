@@ -1,0 +1,51 @@
+--- baseline/app/Http/Controllers/EvalController.php
++++ candidate/app/Http/Controllers/EvalController.php
+@@ -57,10 +57,17 @@
+         return response()->json(['data'=>$q->orderBy('id')->forPage($page,$size)->get(['id','title']),'total'=>DB::table('records')->where('owner_id',$r->user()->id)->count(),'page'=>$page,'per_page'=>$size]);
+     }
+     public function articles(Request $r) {
+-        [$page,$size]=EvalInput::page($r); $tenant=$r->user()->tenant_id;
+-        $q=EvalArticle::where('tenant_id',$tenant)->with(['author'=>fn($q)=>$q->where('tenant_id',$tenant)->select('id','name'),'category'=>fn($q)=>$q->where('tenant_id',$tenant)->select('id','name')]);
+-        $total=(clone $q)->count();
+-        $data=$q->orderBy('id')->forPage($page,$size)->get(['id','title','author_id','category_id'])->map(fn($a)=>['id'=>$a->id,'title'=>$a->title,'author'=>$a->author?->only(['id','name']),'category'=>$a->category?->only(['id','name'])]);
+-        return response()->json(['data'=>$data,'total'=>$total]);
++        [$page,$size]=EvalInput::page($r);
++        $tenant = $r->user()->tenant_id;
++        $q = EvalArticle::where('tenant_id',$tenant)->with(['author'=>fn($q)=>$q->where('tenant_id',$tenant)->select('id','name'),'category'=>fn($q)=>$q->where('tenant_id',$tenant)->select('id','name')]);
++        $total = (clone $q)->count();
++        $pageRows = $q->orderBy('id')->forPage($page,$size)->get(['id','title','author_id','category_id']);
++        $data = $pageRows->map(function ($article) {
++            return ['id'=>$article->id, 'title'=>$article->title,
++                'author'=>$article->author?->only(['id','name']),
++                'category'=>$article->category?->only(['id','name'])];
++        });
++        return response()->json(['data'=>$data, 'total'=>$total]);
+     }
++
+ }
+--- baseline/tests/Feature/CampaignImplementationTest.php
++++ candidate/tests/Feature/CampaignImplementationTest.php
+@@ -0,0 +1,23 @@
++<?php
++namespace Tests\Feature;
++require_once __DIR__.'/../../reviewer/common/AdapterTestCase.php';
++use Illuminate\Support\Facades\DB;
++class CampaignImplementationTest extends \Reviewer\AdapterTestCase {
++    public function test_article_relationship_visibility_and_fixed_query_growth(): void {
++        foreach ([1,2] as $tenant) {
++            DB::table('authors')->insert(['id'=>$tenant,'tenant_id'=>$tenant,'name'=>'Author'.$tenant]);
++            DB::table('categories')->insert(['id'=>$tenant,'tenant_id'=>$tenant,'name'=>'Category'.$tenant]);
++        }
++        for ($i=1;$i<=55;$i++) DB::table('articles')->insert(['tenant_id'=>1,'title'=>'Article','author_id'=>1,'category_id'=>1]);
++        DB::table('articles')->insert(['tenant_id'=>1,'title'=>'Foreign relation','author_id'=>2,'category_id'=>2]);
++        foreach ([5,50] as $size) {
++            DB::enableQueryLog(); DB::flushQueryLog();
++            $r=$this->req('GET','articles?per_page='.$size)->assertOk()->assertJsonCount($size,'data');
++            $queries=array_filter(DB::getQueryLog(),fn($q)=>str_contains($q['query'],'"authors"')||str_contains($q['query'],'"categories"'));
++            $this->assertCount(2,$queries);
++            $r->assertJsonPath('data.0.author',['id'=>1,'name'=>'Author1']);
++            DB::disableQueryLog();
++        }
++        $this->req('GET','articles?per_page=50&page=2')->assertJsonPath('data.5.author',null)->assertJsonPath('data.5.category',null);
++    }
++}

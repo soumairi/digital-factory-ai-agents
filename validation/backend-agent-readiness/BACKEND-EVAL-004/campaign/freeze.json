@@ -1,0 +1,8 @@
+{
+  "campaign_id": "BACKEND-EVAL-004",
+  "foundation_version": "0.6.1",
+  "inventory_sha256": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+  "assets": 283,
+  "frozen_at": "2026-09-21T09:06:49.851257+00:00",
+  "historical_files": 500
+}

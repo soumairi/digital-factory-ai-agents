@@ -1,0 +1,833 @@
+{
+  "campaign_id": "BACKEND-EVAL-004",
+  "campaign_validity": "VALID",
+  "foundation_version": "0.6.1",
+  "recommendation": "CONTROLLED PILOT READY",
+  "metrics": {
+    "cases_planned": 9,
+    "cases_executed": 9,
+    "PASS": 9,
+    "FAIL": 0,
+    "PARTIAL": 0,
+    "NOT RUN": 0,
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0,
+    "independent_verification_coverage": 100.0,
+    "fault_sensitivity_coverage": 100.0,
+    "first_pass_success_rate": 88.88888888888889,
+    "final_success_rate": 100.0,
+    "human_correction_rate": 0.0,
+    "average_ai_remediation_cycles": 0.1111111111111111,
+    "independent_defect_rate": 0.0,
+    "scope_violation_rate": 0.0,
+    "architecture_correction_rate": 0.0,
+    "initial_independent_clean_pass_rate": 100.0,
+    "mandatory_faults_planned": 19,
+    "mandatory_faults_detected": 19,
+    "ai_remediation_cycles_total": 1,
+    "shared_remediation_cycles": 0
+  },
+  "metric_definitions": "campaign/metric-definitions.md",
+  "denominators": {
+    "planned": 9,
+    "executed": 9,
+    "initially_evaluated": 9,
+    "independently_reviewed": 9,
+    "mandatory_faults": 19
+  },
+  "postgresql_validation": "NOT EXECUTED",
+  "postgresql_target_engine_validation": "REQUIRED BEFORE POSTGRESQL PILOT",
+  "production_deployment": "NOT AUTHORIZED",
+  "autonomous_production_operation": "NOT AUTHORIZED",
+  "human_review": "REQUIRED; no human code review performed during this AI campaign",
+  "security_review": "REQUIRED according to policy; nine campaign reviews completed",
+  "audit": "REQUIRED according to policy; not completed by this campaign",
+  "independence": "Coordinator-verified execution separation; not cryptographic independence",
+  "cases": [
+    {
+      "evaluation_id": "BE-001",
+      "status": "PASS",
+      "candidate_revision": "BE-001-C01",
+      "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "original_case_executed": true,
+      "adapted_scenario": false,
+      "original_case_result": "PASS",
+      "adapted_scenario_result": "NOT APPLICABLE",
+      "score": 97.5,
+      "clean_tests": 55,
+      "clean_assertions": 613,
+      "independent_verification": "PASS",
+      "initial_independent_verification": "PASS",
+      "first_pass_result": "FAIL",
+      "fault_variants": [
+        {
+          "id": "BE-001-F1",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 3,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "2c1eeb1dd8e50e6e6a55f126ef270983a57a2547e17343137aa53cb0328930a2",
+          "mutant_hash": "aea7044ade70a172ed5e6b7c608cae5905e8a36264aa016c2aac619a83498e8c",
+          "tests_hash": "4e43f9df23d45f8b9c6a6427dbb68595df53c37d91b1955717312b9391f8e99e",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-001/execution/BE-001-F1-result.json",
+            "sha256": "086cfe3b166c8b321f512f893680151387c168793cee0a1664467775da99d6e9"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-001/BE-001-F1-source-manifest.json",
+            "sha256": "aea7044ade70a172ed5e6b7c608cae5905e8a36264aa016c2aac619a83498e8c"
+          },
+          "detected_test_ids": [
+            "BE-001-ownership"
+          ]
+        }
+      ],
+      "security_review_result": "PASS",
+      "unresolved_severities": {
+        "Critical": 0,
+        "High": 0,
+        "Medium": 0,
+        "Low": 0
+      },
+      "ai_remediation_cycles": 1,
+      "human_correction": false,
+      "architecture_correction": false,
+      "scope_violation": false,
+      "independent_findings": 0,
+      "evidence_manifest": "cases/BE-001/evidence-manifest.json"
+    },
+    {
+      "evaluation_id": "BE-002",
+      "status": "PASS",
+      "candidate_revision": "BE-002-C01",
+      "candidate_hash": "057184389d484dc5c05a945189fe186a995026d46ac1ab8491834904a42a8305",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "original_case_executed": true,
+      "adapted_scenario": false,
+      "original_case_result": "PASS",
+      "adapted_scenario_result": "NOT APPLICABLE",
+      "score": 97.5,
+      "clean_tests": 2,
+      "clean_assertions": 170,
+      "independent_verification": "PASS",
+      "initial_independent_verification": "PASS",
+      "first_pass_result": "PASS",
+      "fault_variants": [
+        {
+          "id": "BE-002-F1",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 2,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "057184389d484dc5c05a945189fe186a995026d46ac1ab8491834904a42a8305",
+          "mutant_hash": "40cfd668ce846ac35a9d512ec46b6ecd921ae31a71668e13fe9dd8849c971d3c",
+          "tests_hash": "8238fe37694f3f946b23f4b469af73618174afec6029481deeafbd8350ce1592",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-002/execution/BE-002-F1-result.json",
+            "sha256": "8c89c11244a5f2c2aba2b0e8dd82e775c4948e64dc4565fbba30dda7dc59197e"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-002/BE-002-F1-source-manifest.json",
+            "sha256": "40cfd668ce846ac35a9d512ec46b6ecd921ae31a71668e13fe9dd8849c971d3c"
+          },
+          "detected_test_ids": [
+            "BE-002-boundaries"
+          ]
+        },
+        {
+          "id": "BE-002-F2",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 2,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "057184389d484dc5c05a945189fe186a995026d46ac1ab8491834904a42a8305",
+          "mutant_hash": "33a028af62c2262056dc2d173450387b985f8d895b47716ce398d730ffd10c27",
+          "tests_hash": "8238fe37694f3f946b23f4b469af73618174afec6029481deeafbd8350ce1592",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-002/execution/BE-002-F2-result.json",
+            "sha256": "a8f180336adbd582198c363633f0d9e875ad24732a9f78d3d454776abd4f25ae"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-002/BE-002-F2-source-manifest.json",
+            "sha256": "33a028af62c2262056dc2d173450387b985f8d895b47716ce398d730ffd10c27"
+          },
+          "detected_test_ids": [
+            "BE-002-boundaries"
+          ]
+        },
+        {
+          "id": "BE-002-F3",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 2,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "057184389d484dc5c05a945189fe186a995026d46ac1ab8491834904a42a8305",
+          "mutant_hash": "16a7d3bc24953acff4ef732d71cab6901a1ac639ab6a93476ffbdbb0d8898b1d",
+          "tests_hash": "8238fe37694f3f946b23f4b469af73618174afec6029481deeafbd8350ce1592",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-002/execution/BE-002-F3-result.json",
+            "sha256": "d2cb119fe8e188cf62ce9242715b070a440ebdb240edee497f0da3cbba440393"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-002/BE-002-F3-source-manifest.json",
+            "sha256": "16a7d3bc24953acff4ef732d71cab6901a1ac639ab6a93476ffbdbb0d8898b1d"
+          },
+          "detected_test_ids": [
+            "BE-002-boundaries"
+          ]
+        }
+      ],
+      "security_review_result": "PASS",
+      "unresolved_severities": {
+        "Critical": 0,
+        "High": 0,
+        "Medium": 0,
+        "Low": 0
+      },
+      "ai_remediation_cycles": 0,
+      "human_correction": false,
+      "architecture_correction": false,
+      "scope_violation": false,
+      "independent_findings": 0,
+      "evidence_manifest": "cases/BE-002/evidence-manifest.json"
+    },
+    {
+      "evaluation_id": "BE-003",
+      "status": "PASS",
+      "candidate_revision": "BE-003-C01",
+      "candidate_hash": "7742f0336ef98073f372c36b0dfa2208cdd9059eea9f61391b2d09683591db56",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "original_case_executed": true,
+      "adapted_scenario": false,
+      "original_case_result": "PASS",
+      "adapted_scenario_result": "NOT APPLICABLE",
+      "score": 97.5,
+      "clean_tests": 2,
+      "clean_assertions": 58,
+      "independent_verification": "PASS",
+      "initial_independent_verification": "PASS",
+      "first_pass_result": "PASS",
+      "fault_variants": [
+        {
+          "id": "BE-003-F1",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 2,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "7742f0336ef98073f372c36b0dfa2208cdd9059eea9f61391b2d09683591db56",
+          "mutant_hash": "66313364914189f8b5ce72ebdcc21498aa5d5d5f6bcf1779b9441663cdd9197b",
+          "tests_hash": "8b9e6be74539c90e35be64f8bb1802f2478859bd17249c7fb7d7a0ca01385a2d",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-003/execution/BE-003-F1-result.json",
+            "sha256": "e08758baabf1cbf038773289ee171409d810c0b6dd549ab2942854b338e4bce6"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-003/BE-003-F1-source-manifest.json",
+            "sha256": "66313364914189f8b5ce72ebdcc21498aa5d5d5f6bcf1779b9441663cdd9197b"
+          },
+          "detected_test_ids": [
+            "BE-003-actors"
+          ]
+        }
+      ],
+      "security_review_result": "PASS",
+      "unresolved_severities": {
+        "Critical": 0,
+        "High": 0,
+        "Medium": 0,
+        "Low": 0
+      },
+      "ai_remediation_cycles": 0,
+      "human_correction": false,
+      "architecture_correction": false,
+      "scope_violation": false,
+      "independent_findings": 0,
+      "evidence_manifest": "cases/BE-003/evidence-manifest.json"
+    },
+    {
+      "evaluation_id": "BE-004",
+      "status": "PASS",
+      "candidate_revision": "BE-004-C01",
+      "candidate_hash": "458186741501b9636132fd6350ed9d0d8d197e1fdc6763ca02d174b557c8d7ed",
+      "adapter_version": "1.0.1",
+      "fixture_version": "1.0.1",
+      "original_case_executed": true,
+      "adapted_scenario": false,
+      "original_case_result": "PASS",
+      "adapted_scenario_result": "NOT APPLICABLE",
+      "score": 97.5,
+      "clean_tests": 2,
+      "clean_assertions": 166,
+      "independent_verification": "PASS",
+      "initial_independent_verification": "PASS",
+      "first_pass_result": "PASS",
+      "fault_variants": [
+        {
+          "id": "BE-004-F1",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 1,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "458186741501b9636132fd6350ed9d0d8d197e1fdc6763ca02d174b557c8d7ed",
+          "mutant_hash": "3f05ff2218f39428b3225e38dce65c96eb16ee827d3e82aa0dee6d53af60f6b1",
+          "tests_hash": "880b4207e420930b371b740dc8a2fad5c75f47fc17cef431d660539dfa1bc286",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-004/execution/BE-004-F1-result.json",
+            "sha256": "5e558184c4d6a4986b5f36ea732a4c569b1f3157cdfed67569c35a6e3190e0bd"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-004/BE-004-F1-source-manifest.json",
+            "sha256": "3f05ff2218f39428b3225e38dce65c96eb16ee827d3e82aa0dee6d53af60f6b1"
+          },
+          "detected_test_ids": [
+            "BE-004-boundaries"
+          ]
+        },
+        {
+          "id": "BE-004-F2",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 1,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "458186741501b9636132fd6350ed9d0d8d197e1fdc6763ca02d174b557c8d7ed",
+          "mutant_hash": "ab9fc4eb756f0c626558bc5eb73ed6ce32461c495a5a0dd2dc60a5b4e5acb495",
+          "tests_hash": "880b4207e420930b371b740dc8a2fad5c75f47fc17cef431d660539dfa1bc286",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-004/execution/BE-004-F2-result.json",
+            "sha256": "3ead09c8f73360f75fd6d3a643ac21bcae09ca3430a74de644320dfc5bc190bd"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-004/BE-004-F2-source-manifest.json",
+            "sha256": "ab9fc4eb756f0c626558bc5eb73ed6ce32461c495a5a0dd2dc60a5b4e5acb495"
+          },
+          "detected_test_ids": [
+            "BE-004-nested-list"
+          ]
+        },
+        {
+          "id": "BE-004-F3",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 1,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "458186741501b9636132fd6350ed9d0d8d197e1fdc6763ca02d174b557c8d7ed",
+          "mutant_hash": "cfe4cf06f7c65add5dc00b4f916351601eb51c969625dca53692d48cbd97ef9b",
+          "tests_hash": "880b4207e420930b371b740dc8a2fad5c75f47fc17cef431d660539dfa1bc286",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-004/execution/BE-004-F3-result.json",
+            "sha256": "75f688cd26f930ba55bd27241475b5740f6ab746fa7f58ee9fe8a0057281ccc0"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-004/BE-004-F3-source-manifest.json",
+            "sha256": "cfe4cf06f7c65add5dc00b4f916351601eb51c969625dca53692d48cbd97ef9b"
+          },
+          "detected_test_ids": [
+            "BE-004-controls"
+          ]
+        }
+      ],
+      "security_review_result": "PASS",
+      "unresolved_severities": {
+        "Critical": 0,
+        "High": 0,
+        "Medium": 0,
+        "Low": 0
+      },
+      "ai_remediation_cycles": 0,
+      "human_correction": false,
+      "architecture_correction": false,
+      "scope_violation": false,
+      "independent_findings": 0,
+      "evidence_manifest": "cases/BE-004/evidence-manifest.json"
+    },
+    {
+      "evaluation_id": "BE-005",
+      "status": "PASS",
+      "candidate_revision": "BE-005-C01",
+      "candidate_hash": "d97afe8a0d056123d6c88fd353fdef40090711dabcb8f43f745fd71019935989",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "original_case_executed": true,
+      "adapted_scenario": false,
+      "original_case_result": "PASS",
+      "adapted_scenario_result": "NOT APPLICABLE",
+      "score": 97.5,
+      "clean_tests": 2,
+      "clean_assertions": 137,
+      "independent_verification": "PASS",
+      "initial_independent_verification": "PASS",
+      "first_pass_result": "PASS",
+      "fault_variants": [
+        {
+          "id": "BE-005-F1",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 2,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "d97afe8a0d056123d6c88fd353fdef40090711dabcb8f43f745fd71019935989",
+          "mutant_hash": "15f0a36783364c8505f3a423685f5f76a7bd221e7137540dfbbeca5aa97232a9",
+          "tests_hash": "445ac07812756ad9964b96ef80da6f3b76c6d25c45b11bf5a5ad38da9b7f69e4",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-005/execution/BE-005-F1-result.json",
+            "sha256": "8c6cd871bceecec4969023057645c8d2231c89b1160151e8f34e5aeb64ebee9a"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-005/BE-005-F1-source-manifest.json",
+            "sha256": "15f0a36783364c8505f3a423685f5f76a7bd221e7137540dfbbeca5aa97232a9"
+          },
+          "detected_test_ids": [
+            "BE-005-protected"
+          ]
+        }
+      ],
+      "security_review_result": "PASS",
+      "unresolved_severities": {
+        "Critical": 0,
+        "High": 0,
+        "Medium": 0,
+        "Low": 0
+      },
+      "ai_remediation_cycles": 0,
+      "human_correction": false,
+      "architecture_correction": false,
+      "scope_violation": false,
+      "independent_findings": 0,
+      "evidence_manifest": "cases/BE-005/evidence-manifest.json"
+    },
+    {
+      "evaluation_id": "BE-006",
+      "status": "PASS",
+      "candidate_revision": "BE-006-C01",
+      "candidate_hash": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "original_case_executed": true,
+      "adapted_scenario": false,
+      "original_case_result": "PASS",
+      "adapted_scenario_result": "NOT APPLICABLE",
+      "score": 97.5,
+      "clean_tests": 2,
+      "clean_assertions": 61,
+      "independent_verification": "PASS",
+      "initial_independent_verification": "PASS",
+      "first_pass_result": "PASS",
+      "fault_variants": [
+        {
+          "id": "BE-006-F1",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 1,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39",
+          "mutant_hash": "9d215d263949b47bb1b6a133d4a00045a4731d068046f67d45f31f84b87cbc2e",
+          "tests_hash": "4967140efec884c4cce50a09fdfed863813ff9769f6e72aca66bfdd2d2172461",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-006/execution/BE-006-F1-result.json",
+            "sha256": "c62a5587b5b4f832e6fd7cd8ce758d34b56b0b2378d039c38b34e422cd958203"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-006/BE-006-F1-source-manifest.json",
+            "sha256": "9d215d263949b47bb1b6a133d4a00045a4731d068046f67d45f31f84b87cbc2e"
+          },
+          "detected_test_ids": [
+            "BE-006-rollback"
+          ]
+        },
+        {
+          "id": "BE-006-F2",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 1,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "ce40b734302891bab4d7d3c7035710a2d3ce6299c19ca2d2e115ec9a090afe39",
+          "mutant_hash": "474bc3cc81b4934be024ed76955a3040756ceeabb53cac6d7a45e41dabac9683",
+          "tests_hash": "4967140efec884c4cce50a09fdfed863813ff9769f6e72aca66bfdd2d2172461",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-006/execution/BE-006-F2-result.json",
+            "sha256": "8122890018a1249b7e8c2bc961dea5066520f67c63316894631a9503879b5d9f"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-006/BE-006-F2-source-manifest.json",
+            "sha256": "474bc3cc81b4934be024ed76955a3040756ceeabb53cac6d7a45e41dabac9683"
+          },
+          "detected_test_ids": [
+            "BE-006-rollback"
+          ]
+        }
+      ],
+      "security_review_result": "PASS",
+      "unresolved_severities": {
+        "Critical": 0,
+        "High": 0,
+        "Medium": 0,
+        "Low": 0
+      },
+      "ai_remediation_cycles": 0,
+      "human_correction": false,
+      "architecture_correction": false,
+      "scope_violation": false,
+      "independent_findings": 0,
+      "evidence_manifest": "cases/BE-006/evidence-manifest.json"
+    },
+    {
+      "evaluation_id": "BE-007",
+      "status": "PASS",
+      "candidate_revision": "BE-007-C01",
+      "candidate_hash": "c2d0a400f9b423d40ef338fc47dbd7fbe6f7dd1d01e214dee0b17609fc165cbb",
+      "adapter_version": "1.0.1",
+      "fixture_version": "1.0.1",
+      "original_case_executed": true,
+      "adapted_scenario": false,
+      "original_case_result": "PASS",
+      "adapted_scenario_result": "NOT APPLICABLE",
+      "score": 97.5,
+      "clean_tests": 3,
+      "clean_assertions": 162,
+      "independent_verification": "PASS",
+      "initial_independent_verification": "PASS",
+      "first_pass_result": "PASS",
+      "fault_variants": [
+        {
+          "id": "BE-007-F1",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 2,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "c2d0a400f9b423d40ef338fc47dbd7fbe6f7dd1d01e214dee0b17609fc165cbb",
+          "mutant_hash": "a4c6aabd14084a6d612e0c32d3b972a302f8f93a92586c1855d93afb32aa7697",
+          "tests_hash": "e44a450c92abc37e700bf44a7dd8cb57d32b94c037afebfb8bbe242d477628c1",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-007/execution/BE-007-F1-result.json",
+            "sha256": "6da2a8ce6d3740014b8359779131bb8195f7fd1898ed9ad8a59104d9536e0f21"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-007/BE-007-F1-source-manifest.json",
+            "sha256": "a4c6aabd14084a6d612e0c32d3b972a302f8f93a92586c1855d93afb32aa7697"
+          },
+          "detected_test_ids": [
+            "BE-007-limits"
+          ]
+        },
+        {
+          "id": "BE-007-F2",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 3,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "c2d0a400f9b423d40ef338fc47dbd7fbe6f7dd1d01e214dee0b17609fc165cbb",
+          "mutant_hash": "796958747c69031f685378a315d7e85215f800e919b5391142b01a27e2f1b0a3",
+          "tests_hash": "e44a450c92abc37e700bf44a7dd8cb57d32b94c037afebfb8bbe242d477628c1",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-007/execution/BE-007-F2-result.json",
+            "sha256": "9d850167c75eb839a3589693270881af5004fbfd801c762ad7c488662a95a3d9"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-007/BE-007-F2-source-manifest.json",
+            "sha256": "796958747c69031f685378a315d7e85215f800e919b5391142b01a27e2f1b0a3"
+          },
+          "detected_test_ids": [
+            "BE-007-traversal"
+          ]
+        },
+        {
+          "id": "BE-007-F3",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 2,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "c2d0a400f9b423d40ef338fc47dbd7fbe6f7dd1d01e214dee0b17609fc165cbb",
+          "mutant_hash": "f5b435be84f632a0a639a5c88d10dd5e2ed264b11d4c91c249075ddef69a86ee",
+          "tests_hash": "e44a450c92abc37e700bf44a7dd8cb57d32b94c037afebfb8bbe242d477628c1",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-007/execution/BE-007-F3-result.json",
+            "sha256": "c580752a5dae7d8f75f9629a651a0554a24a2189646a7154dd70cb09543bb1bc"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-007/BE-007-F3-source-manifest.json",
+            "sha256": "f5b435be84f632a0a639a5c88d10dd5e2ed264b11d4c91c249075ddef69a86ee"
+          },
+          "detected_test_ids": [
+            "BE-007-limits"
+          ]
+        },
+        {
+          "id": "BE-007-F4",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 1,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "c2d0a400f9b423d40ef338fc47dbd7fbe6f7dd1d01e214dee0b17609fc165cbb",
+          "mutant_hash": "61247aab144679446a46a4242b411f9841624345c078a2f2a76ee3e8f4ac1e2a",
+          "tests_hash": "e44a450c92abc37e700bf44a7dd8cb57d32b94c037afebfb8bbe242d477628c1",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-007/execution/BE-007-F4-result.json",
+            "sha256": "2811311ca73c3489ba664154768c1d975a42deb28e61f165feb33ccda0663052"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-007/BE-007-F4-source-manifest.json",
+            "sha256": "61247aab144679446a46a4242b411f9841624345c078a2f2a76ee3e8f4ac1e2a"
+          },
+          "detected_test_ids": [
+            "BE-007-limits"
+          ]
+        }
+      ],
+      "security_review_result": "PASS",
+      "unresolved_severities": {
+        "Critical": 0,
+        "High": 0,
+        "Medium": 0,
+        "Low": 0
+      },
+      "ai_remediation_cycles": 0,
+      "human_correction": false,
+      "architecture_correction": false,
+      "scope_violation": false,
+      "independent_findings": 0,
+      "evidence_manifest": "cases/BE-007/evidence-manifest.json"
+    },
+    {
+      "evaluation_id": "BE-008",
+      "status": "PASS",
+      "candidate_revision": "BE-008-C01",
+      "candidate_hash": "f34e2575d65a830fa86e0000b5fc8f6c96ce13ea4691c500d7e6deec2c629dd0",
+      "adapter_version": "1.0.1",
+      "fixture_version": "1.0.1",
+      "original_case_executed": true,
+      "adapted_scenario": false,
+      "original_case_result": "PASS",
+      "adapted_scenario_result": "NOT APPLICABLE",
+      "score": 97.5,
+      "clean_tests": 3,
+      "clean_assertions": 953,
+      "independent_verification": "PASS",
+      "initial_independent_verification": "PASS",
+      "first_pass_result": "PASS",
+      "fault_variants": [
+        {
+          "id": "BE-008-F1",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 2,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "f34e2575d65a830fa86e0000b5fc8f6c96ce13ea4691c500d7e6deec2c629dd0",
+          "mutant_hash": "29ba89ad493cc1b4d7af9d04971f4ea57704cf5ee609dd38424ba91d58cb9d3a",
+          "tests_hash": "eb0b164cdc82348ca1bd31b5fe26f350760040a5a5011edc479a3cdc701e3854",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-008/execution/BE-008-F1-result.json",
+            "sha256": "f88b958f1c8f08bf1ca9e82fbd03b9e77735f8e1c1a7e2e81e86f33dde17cd6f"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-008/BE-008-F1-source-manifest.json",
+            "sha256": "29ba89ad493cc1b4d7af9d04971f4ea57704cf5ee609dd38424ba91d58cb9d3a"
+          },
+          "detected_test_ids": [
+            "BE-008-budget"
+          ]
+        },
+        {
+          "id": "BE-008-F2",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 1,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "f34e2575d65a830fa86e0000b5fc8f6c96ce13ea4691c500d7e6deec2c629dd0",
+          "mutant_hash": "f54c04cbf90b966903c2d7ad8ddc9eae02195112dcc5cfcadc20120357f2b69b",
+          "tests_hash": "eb0b164cdc82348ca1bd31b5fe26f350760040a5a5011edc479a3cdc701e3854",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-008/execution/BE-008-F2-result.json",
+            "sha256": "d352fd75f4b5a90e7ed74e7bb9b4eb214b1b4789af042f36bdb47847a0149477"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-008/BE-008-F2-source-manifest.json",
+            "sha256": "f54c04cbf90b966903c2d7ad8ddc9eae02195112dcc5cfcadc20120357f2b69b"
+          },
+          "detected_test_ids": [
+            "BE-008-regression"
+          ]
+        }
+      ],
+      "security_review_result": "PASS",
+      "unresolved_severities": {
+        "Critical": 0,
+        "High": 0,
+        "Medium": 0,
+        "Low": 0
+      },
+      "ai_remediation_cycles": 0,
+      "human_correction": false,
+      "architecture_correction": false,
+      "scope_violation": false,
+      "independent_findings": 0,
+      "evidence_manifest": "cases/BE-008/evidence-manifest.json"
+    },
+    {
+      "evaluation_id": "BE-009",
+      "status": "PASS",
+      "candidate_revision": "BE-009-C01",
+      "candidate_hash": "2d45888c6cd1aff7d77877824bd55ea03d68c959fda75ef4c74fc5de9a0c7771",
+      "adapter_version": "1.0.0",
+      "fixture_version": "1.0.0",
+      "original_case_executed": true,
+      "adapted_scenario": false,
+      "original_case_result": "PASS",
+      "adapted_scenario_result": "NOT APPLICABLE",
+      "score": 97.5,
+      "clean_tests": 14,
+      "clean_assertions": 577,
+      "independent_verification": "PASS",
+      "initial_independent_verification": "PASS",
+      "first_pass_result": "PASS",
+      "fault_variants": [
+        {
+          "id": "BE-009-F1",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 3,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "2d45888c6cd1aff7d77877824bd55ea03d68c959fda75ef4c74fc5de9a0c7771",
+          "mutant_hash": "e36ec4f03654b73fcb04bc90ab9078b4ec245efa3e7c39d2012a7cb8f43f31c4",
+          "tests_hash": "b41fbc275fd76f3d881d0a9e39d4daa96c75d866b3b4c13d83707c6ac6c9699d",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-009/execution/BE-009-F1-result.json",
+            "sha256": "2531a53dc466ea22380e8249a92b5c53b3a382d76b110501607e987b1c095c65"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-009/BE-009-F1-source-manifest.json",
+            "sha256": "e36ec4f03654b73fcb04bc90ab9078b4ec245efa3e7c39d2012a7cb8f43f31c4"
+          },
+          "detected_test_ids": [
+            "BE-009-sensitivity"
+          ]
+        },
+        {
+          "id": "BE-009-F2",
+          "expected_detection": "FAIL",
+          "actual_detection": "FAIL",
+          "result": "PASS",
+          "assertion_failures": 4,
+          "errors": 0,
+          "context_id": "/root/evaluator",
+          "candidate_hash": "2d45888c6cd1aff7d77877824bd55ea03d68c959fda75ef4c74fc5de9a0c7771",
+          "mutant_hash": "6679747d61efde9c8ce837a7b8063a7dab9bfa4cd3525299f2c8d732c3017358",
+          "tests_hash": "b41fbc275fd76f3d881d0a9e39d4daa96c75d866b3b4c13d83707c6ac6c9699d",
+          "disposable_copy": true,
+          "clean_unchanged": true,
+          "evidence": {
+            "path": "reviews/BE-009/execution/BE-009-F2-result.json",
+            "sha256": "36250b0911d448f72a657bc21e4e8f87b8812fb40edc99b58cbec5353e7ec28b"
+          },
+          "mutant_artifact": {
+            "path": "reviews/BE-009/BE-009-F2-source-manifest.json",
+            "sha256": "6679747d61efde9c8ce837a7b8063a7dab9bfa4cd3525299f2c8d732c3017358"
+          },
+          "detected_test_ids": [
+            "BE-009-sensitivity"
+          ]
+        }
+      ],
+      "security_review_result": "PASS",
+      "unresolved_severities": {
+        "Critical": 0,
+        "High": 0,
+        "Medium": 0,
+        "Low": 0
+      },
+      "ai_remediation_cycles": 0,
+      "human_correction": false,
+      "architecture_correction": false,
+      "scope_violation": false,
+      "independent_findings": 0,
+      "evidence_manifest": "cases/BE-009/evidence-manifest.json"
+    }
+  ],
+  "top_remaining_weaknesses": [
+    "PostgreSQL not executed; target-engine validation required before PostgreSQL pilot.",
+    "One scaffold and exact fault bindings limit transferability; no greenfield or general autonomy claim.",
+    "One BE-001 implementation defect required AI self-remediation; human and Audit gates remain before real use."
+  ],
+  "top_strengths": [
+    "All nine original cases independently verified with separate Security review.",
+    "All 19 mandatory faults detected, including persistence, unbounded reads and candidate-owned security tests.",
+    "Governed inputs, historical evidence and frozen candidates preserved with verifiable raw evidence."
+  ],
+  "generated_at": "2026-09-21T09:19:53.059460+00:00"
+}

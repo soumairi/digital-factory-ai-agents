@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "missing_requirements": [],
+  "failures": [],
+  "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+}

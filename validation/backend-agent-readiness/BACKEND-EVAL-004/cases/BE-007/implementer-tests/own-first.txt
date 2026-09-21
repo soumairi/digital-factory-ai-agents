@@ -1,0 +1,9 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+
+.                                                                   1 / 1 (100%)
+
+Time: 00:00.086, Memory: 40.50 MB
+
+OK (1 test, 13 assertions)

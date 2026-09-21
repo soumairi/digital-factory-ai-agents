@@ -1,0 +1,28 @@
+PHPUnit 12.5.33 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.33
+
+F                                                                   1 / 1 (100%)
+
+Time: 00:00.085, Memory: 42.50 MB
+
+There was 1 failure:
+
+1) Tests\Feature\CampaignImplementationTest::test_created_note_is_owned_private_and_deletable
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+ '{\n
+-    "body": "New",\n
+-    "id": 3,\n
+-    "title": "Revised"\n
++    "message": "Server Error"\n
+ }'
+
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/AssertableJsonString.php:102
+/private/tmp/laravel-adapter-wl1vq8lx/app/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:937
+/private/tmp/laravel-adapter-wl1vq8lx/app/tests/Feature/CampaignImplementationTest.php:13
+
+FAILURES!
+Tests: 1, Assertions: 9, Failures: 1.

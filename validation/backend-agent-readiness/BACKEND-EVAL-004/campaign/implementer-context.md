@@ -1,0 +1,12 @@
+# Backend Implementer context
+
+- Role: Backend Implementer, first line only.
+- Context ID: `/root/implementer`, actual separate agent context assigned by Coordinator `/root`.
+- Scope: BE-001 through BE-009 original evaluations, Foundation 0.6.1 and frozen Laravel adapters; implementation/tests/self-review/candidate freeze.
+- Start declaration: on receiving assignment, declared analysis-only preparation to Coordinator before implementation. Read shared policies, Backend Core, Laravel profile, original cases, adapters/faults and inspected baseline source/boot/config/test safety. Coordinator then conveyed `/root/evaluator` adoption completion before any candidate implementation. Per-case analysis timestamps record implementation start.
+- Permissions: read governed assets; author only campaign candidate/evidence and disposable `/private/tmp` workspaces. No production, real customer data/secrets, network deployment, infrastructure mutation, merge, push, Foundation/adapter/history modification, reviewer approval or human acceptance.
+- Runtime: reviewed synthetic source with pinned vendor bytes; runner sanitized environment, PHP8.3, SQLite memory and BE006 marked temporary SQLite race files. Only fresh synthetic databases. Composer scripts not run. Runner is not a hostile-code jail.
+- Separation: Coordinator-verified role/context separation, no claim of cryptographic independence. Independent evaluator `/root/evaluator`; Security `/root/security`; neither authored candidate fixes.
+- Provenance: frozen calibration application disclosed as baseline scaffold. Each case has authored scoped code/tests and exact diff. BE009 authors original six-category negative suite. This is not greenfield/general autonomy evidence.
+- Governing pin: `41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92`, checked before/after each case.
+- Completion declaration (2026-09-21T09:17:01.909573+00:00): All nine scoped candidates implemented, own tests executed, clean self-verification passed, self-review complete and C01 source snapshots frozen and handed off to evaluator and Security. BE001 original first attempt failed and required one AI self-remediation before freeze; original actual source and logs retained. Other eight first attempts passed. Human code corrections, architecture corrections and scope violations: zero. All candidate hashes and governed pin reverified after handoff. Independent review/clearance remains outside implementer authority; no approval claimed.

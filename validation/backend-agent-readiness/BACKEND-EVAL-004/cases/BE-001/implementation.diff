@@ -1,0 +1,58 @@
+--- baseline/app/Http/Controllers/EvalController.php
++++ candidate/app/Http/Controllers/EvalController.php
+@@ -11,14 +11,27 @@
+     private function notes(Request $r) { return DB::table('notes')->where('owner_id',$r->user()->id); }
+     private function noteFields(Request $r): array { return EvalInput::fields($r,['title'=>'required|string|min:1|max:100','body'=>'required|string|max:500']); }
+     public function noteCreate(Request $r) {
+-        $data=$this->noteFields($r); $id=DB::table('notes')->insertGetId($data+['owner_id'=>$r->user()->id]);
+-        return response()->json(['id'=>$id]+$data,201);
++        $payload = $this->noteFields($r);
++        $noteId = DB::table('notes')->insertGetId([
++            'title' => $payload['title'], 'body' => $payload['body'],
++            'owner_id' => $r->user()->id,
++        ]);
++        return response()->json(['id'=>$noteId, 'title'=>$payload['title'], 'body'=>$payload['body']], 201);
+     }
+     public function note(Request $r,int $id) {
+-        $q=$this->notes($r)->where('id',$id); $n=$q->first(['id','title','body']); abort_unless($n,404);
+-        if($r->isMethod('DELETE')) { $q->delete(); return response()->noContent(); }
+-        if($r->isMethod('PATCH')) { $q->update($this->noteFields($r)); $n=$q->first(['id','title','body']); }
+-        return response()->json($n);
++        $query = $this->notes($r)->where('id', $id);
++        $note = $query->first(['id', 'title', 'body']);
++        abort_unless($note, 404);
++        if ($r->isMethod('DELETE')) {
++            $query->delete();
++            return response()->noContent();
++        }
++        if ($r->isMethod('PATCH')) {
++            $payload = $this->noteFields($r);
++            $query->update(['title'=>$payload['title'], 'body'=>$payload['body']]);
++            $note = $this->notes($r)->where('id', $id)->first(['id', 'title', 'body']);
++        }
++        return response()->json(['id'=>$note->id, 'title'=>$note->title, 'body'=>$note->body]);
+     }
+     public function product(Request $r) {
+         $data=EvalInput::fields($r,['name'=>'required|string|min:1|max:100','quantity'=>'required|integer|min:0|max:1000','description'=>'sometimes|string|max:500'],['quantity']);
+--- baseline/tests/Feature/CampaignImplementationTest.php
++++ candidate/tests/Feature/CampaignImplementationTest.php
+@@ -0,0 +1,19 @@
++<?php
++namespace Tests\Feature;
++require_once __DIR__.'/../../reviewer/common/AdapterTestCase.php';
++use Illuminate\Support\Facades\DB;
++class CampaignImplementationTest extends \Reviewer\AdapterTestCase {
++    public function test_created_note_is_owned_private_and_deletable(): void {
++        $created = $this->req('POST','notes',['title'=>'Campaign note','body'=>'Body'])->assertCreated();
++        $id = $created->json('id');
++        $this->assertDatabaseHas('notes',['id'=>$id,'owner_id'=>1,'title'=>'Campaign note']);
++        $before = $this->state('notes');
++        $this->req('DELETE',"notes/$id",[],2)->assertNotFound()->assertJsonMissingPath('title');
++        $this->assertSame($before,$this->state('notes'));
++        $this->req('PATCH',"notes/$id",['title'=>'Revised','body'=>'New'])->assertExactJson(['id'=>$id,'title'=>'Revised','body'=>'New']);
++        $this->req('GET',"notes/$id")->assertJsonMissingPath('owner_id')->assertJsonPath('title','Revised');
++        $this->req('DELETE',"notes/$id")->assertNoContent();
++        $this->assertDatabaseMissing('notes',['id'=>$id]);
++        $this->req('GET',"notes/$id")->assertNotFound();
++    }
++}

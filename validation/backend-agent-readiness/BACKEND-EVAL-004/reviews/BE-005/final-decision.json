@@ -1,0 +1,16 @@
+{
+  "evaluation_id": "BE-005",
+  "status": "PASS",
+  "candidate_hash": "d97afe8a0d056123d6c88fd353fdef40090711dabcb8f43f745fd71019935989",
+  "score": 97.5,
+  "evaluator_context": "/root/evaluator",
+  "security_context": "/root/security",
+  "framework_manifest_sha256": "e730956b7b2024339fb2860dea64863000904d5d4261ed245b6c304ebda69d58",
+  "gate": {
+    "status": "PASS",
+    "missing_requirements": [],
+    "failures": [],
+    "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+  },
+  "rationale": "Original criteria, independent clean/reclean/fresh repeat, mandatory fault sensitivity, separate Security clearance and required evidence complete. No hard failures. This final decision supersedes the earlier provisional PARTIAL pending Security/evidence gate, without altering earlier review bytes."
+}
