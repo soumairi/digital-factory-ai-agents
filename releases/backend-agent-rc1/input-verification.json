@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-09-21T09:28:28.323458+00:00",
+  "source_commit": "c6161d2ee10f9c103d620eca1d9f4f6438e2fb3a",
+  "foundation_version": "0.6.1",
+  "campaign_valid": true,
+  "case_pass_count": 9,
+  "critical_count": 0,
+  "high_count": 0,
+  "independent_verification_coverage": 100,
+  "fault_sensitivity_coverage": 100,
+  "governed_assets": 283,
+  "governed_inventory_sha256": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+  "campaign_historical_hashes_verified": 500,
+  "campaign_evidence_hashes_verified": 1581,
+  "adapter_manifest_matches_campaign": true,
+  "history_snapshot_files": 2875,
+  "verification_scope": "Read-only byte/hash and result verification. No campaign rerun, new independent review, human acceptance or Audit clearance claimed."
+}
