@@ -1,0 +1,15 @@
+{
+  "evaluation_id": "BE-006",
+  "adapter_version": "1.0.0",
+  "clean_verification": "NOT RUN",
+  "ai_remediation_cycles": 0,
+  "campaign_status": "INVALID",
+  "status": "NOT RUN",
+  "candidate_hash": null,
+  "score": null,
+  "fault_verification": {
+    "BE-006-F1": "NOT RUN",
+    "BE-006-F2": "NOT RUN"
+  },
+  "shared_campaign_incident": "EVAL-003-IMMUTABILITY-001"
+}

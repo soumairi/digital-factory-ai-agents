@@ -1,0 +1,7 @@
+{
+  "vendor": "/private/tmp/backend-eval-001-0v7ydh55/app/vendor",
+  "vendor_pin_match": true,
+  "php": "/opt/homebrew/opt/php@8.3/bin/php",
+  "php_version": "PHP 8.3.33 (cli) (built: Jul 28 2026 17:56:10) (NTS)\nCopyright (c) The PHP Group\nZend Engine v4.3.33, Copyright (c) Zend Technologies\n",
+  "freeze": "15c729443169c68fe8969b8abd48a18182587a81d94e4e405185ce635952a448"
+}

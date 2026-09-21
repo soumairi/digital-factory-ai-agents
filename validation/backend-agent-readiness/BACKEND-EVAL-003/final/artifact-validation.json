@@ -1,0 +1,208 @@
+{
+  "verified_at": "2026-09-20T11:38:45.851684+00:00",
+  "manifest_checks": [
+    {
+      "case": "BE-001",
+      "exit_code": 0,
+      "result": {
+        "status": "NOT RUN",
+        "missing_requirements": [
+          "Reviewer assertion ownership frozen before implementation",
+          "Frozen candidate revision/hash evidence",
+          "All original required tests executed",
+          "Criterion evidence: BE-001-crud",
+          "Criterion evidence: BE-001-ownership",
+          "Criterion evidence: BE-001-regression",
+          "Passing clean baseline and post-mutation rerun",
+          "All required fault variants",
+          "Independent required Security review",
+          "Seven original score dimensions with evidence",
+          "Original Foundation score"
+        ],
+        "failures": [],
+        "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+      }
+    },
+    {
+      "case": "BE-002",
+      "exit_code": 0,
+      "result": {
+        "status": "NOT RUN",
+        "missing_requirements": [
+          "Reviewer assertion ownership frozen before implementation",
+          "Frozen candidate revision/hash evidence",
+          "All original required tests executed",
+          "Criterion evidence: BE-002-boundaries",
+          "Criterion evidence: BE-002-hostile",
+          "Criterion evidence: BE-002-no-writes",
+          "Passing clean baseline and post-mutation rerun",
+          "All required fault variants",
+          "Independent required Security review",
+          "Seven original score dimensions with evidence",
+          "Original Foundation score"
+        ],
+        "failures": [],
+        "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+      }
+    },
+    {
+      "case": "BE-003",
+      "exit_code": 0,
+      "result": {
+        "status": "NOT RUN",
+        "missing_requirements": [
+          "Reviewer assertion ownership frozen before implementation",
+          "Frozen candidate revision/hash evidence",
+          "All original required tests executed",
+          "Criterion evidence: BE-003-actors",
+          "Criterion evidence: BE-003-no-writes",
+          "Criterion evidence: BE-003-real-enforcement",
+          "Passing clean baseline and post-mutation rerun",
+          "All required fault variants",
+          "Independent required Security review",
+          "Seven original score dimensions with evidence",
+          "Original Foundation score"
+        ],
+        "failures": [],
+        "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+      }
+    },
+    {
+      "case": "BE-004",
+      "exit_code": 0,
+      "result": {
+        "status": "NOT RUN",
+        "missing_requirements": [
+          "Reviewer assertion ownership frozen before implementation",
+          "Frozen candidate revision/hash evidence",
+          "All original required tests executed",
+          "Criterion evidence: BE-004-boundaries",
+          "Criterion evidence: BE-004-nested-list",
+          "Criterion evidence: BE-004-controls",
+          "Passing clean baseline and post-mutation rerun",
+          "All required fault variants",
+          "Independent required Security review",
+          "Seven original score dimensions with evidence",
+          "Original Foundation score"
+        ],
+        "failures": [],
+        "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+      }
+    },
+    {
+      "case": "BE-005",
+      "exit_code": 0,
+      "result": {
+        "status": "NOT RUN",
+        "missing_requirements": [
+          "Reviewer assertion ownership frozen before implementation",
+          "Frozen candidate revision/hash evidence",
+          "All original required tests executed",
+          "Criterion evidence: BE-005-legitimate",
+          "Criterion evidence: BE-005-protected",
+          "Criterion evidence: BE-005-paths",
+          "Passing clean baseline and post-mutation rerun",
+          "All required fault variants",
+          "Independent required Security review",
+          "Seven original score dimensions with evidence",
+          "Original Foundation score"
+        ],
+        "failures": [],
+        "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+      }
+    },
+    {
+      "case": "BE-006",
+      "exit_code": 0,
+      "result": {
+        "status": "NOT RUN",
+        "missing_requirements": [
+          "Reviewer assertion ownership frozen before implementation",
+          "Frozen candidate revision/hash evidence",
+          "All original required tests executed",
+          "Criterion evidence: BE-006-success",
+          "Criterion evidence: BE-006-rollback",
+          "Criterion evidence: BE-006-competition",
+          "Passing clean baseline and post-mutation rerun",
+          "All required fault variants",
+          "Independent required Security review",
+          "Seven original score dimensions with evidence",
+          "Original Foundation score"
+        ],
+        "failures": [],
+        "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+      }
+    },
+    {
+      "case": "BE-007",
+      "exit_code": 0,
+      "result": {
+        "status": "NOT RUN",
+        "missing_requirements": [
+          "Reviewer assertion ownership frozen before implementation",
+          "Frozen candidate revision/hash evidence",
+          "All original required tests executed",
+          "Criterion evidence: BE-007-limits",
+          "Criterion evidence: BE-007-traversal",
+          "Criterion evidence: BE-007-scope-schema",
+          "Passing clean baseline and post-mutation rerun",
+          "All required fault variants",
+          "Independent required Security review",
+          "Seven original score dimensions with evidence",
+          "Original Foundation score"
+        ],
+        "failures": [],
+        "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+      }
+    },
+    {
+      "case": "BE-008",
+      "exit_code": 0,
+      "result": {
+        "status": "NOT RUN",
+        "missing_requirements": [
+          "Reviewer assertion ownership frozen before implementation",
+          "Frozen candidate revision/hash evidence",
+          "All original required tests executed",
+          "Criterion evidence: BE-008-relations",
+          "Criterion evidence: BE-008-budget",
+          "Criterion evidence: BE-008-regression",
+          "Passing clean baseline and post-mutation rerun",
+          "All required fault variants",
+          "Independent required Security review",
+          "Seven original score dimensions with evidence",
+          "Original Foundation score"
+        ],
+        "failures": [],
+        "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+      }
+    },
+    {
+      "case": "BE-009",
+      "exit_code": 0,
+      "result": {
+        "status": "NOT RUN",
+        "missing_requirements": [
+          "Reviewer assertion ownership frozen before implementation",
+          "Frozen candidate revision/hash evidence",
+          "All original required tests executed",
+          "Criterion evidence: BE-009-six-categories",
+          "Criterion evidence: BE-009-sensitivity",
+          "Criterion evidence: BE-009-provenance",
+          "Passing clean baseline and post-mutation rerun",
+          "All required fault variants",
+          "Independent required Security review",
+          "Seven original score dimensions with evidence",
+          "Original Foundation score"
+        ],
+        "failures": [],
+        "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+      }
+    }
+  ],
+  "required_artifacts_present": true,
+  "all_json_parse": true,
+  "tracked_input_bytes_unchanged": true,
+  "campaign_validity": "INVALID",
+  "candidate_or_framework_tests_executed_by_this_check": false
+}

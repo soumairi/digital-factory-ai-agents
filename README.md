@@ -2,7 +2,7 @@
 
 Reusable, versioned policies and agent-definition foundations for software projects across a Digital Factory.
 
-This repository is currently a policy and agent-definition foundation, not a collection of executable agents. Version `0.6.0` includes shared policies, Backend, Security, and Audit Agent foundations, a Laravel Backend profile, reusable project integration templates, and backend evaluation specifications with reviewer-owned fixture definitions and a local evidence validator. It includes no orchestration framework, runtime integration, project-specific rules, or dependencies.
+This repository is currently a policy and agent-definition foundation, not a collection of executable agents. Version `0.6.1` includes shared policies, Backend, Security, and Audit Agent foundations, a Laravel Backend profile, reusable project integration templates, and backend evaluation specifications with reviewer-owned fixture definitions and a local evidence validator. It includes no orchestration framework, runtime integration, project-specific rules, or dependencies.
 
 ## Inheritance model
 

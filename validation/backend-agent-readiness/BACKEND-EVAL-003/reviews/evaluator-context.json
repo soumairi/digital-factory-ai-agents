@@ -1,0 +1,17 @@
+{
+  "role": "Independent Evaluation Reviewer",
+  "context_id": "/root/evaluator",
+  "context_id_source": "Runtime-issued collaboration canonical task identifier",
+  "session_uuid": null,
+  "started_at": "2026-09-20T11:35:27.317613+00:00",
+  "adoption_completed_at": "2026-09-20T11:35:27.317613+00:00",
+  "candidate_authorship": false,
+  "adapter_authorship": false,
+  "limitations": [
+    "Task ID is authentic routing identity, not external human provenance; coordinator must enforce permissions."
+  ],
+  "freeze": "15c729443169c68fe8969b8abd48a18182587a81d94e4e405185ce635952a448",
+  "completed_at": "2026-09-20T11:37:08.938878+00:00",
+  "completion": "STOPPED: campaign INVALID; no candidate implementation or execution",
+  "adoption_valid": false
+}

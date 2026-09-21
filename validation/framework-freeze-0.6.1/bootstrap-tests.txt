@@ -1,0 +1,19 @@
+PASS help
+PASS fresh initialization from another working directory
+PASS selected content and dependencies only
+PASS all project templates installed
+PASS configuration-only manifest and authoritative Foundation VERSION
+PASS repeat without force refused
+PASS force refresh preserves project content/legacy version file and adds missing template
+PASS dry run writes nothing
+PASS force dry run lists preserved files
+PASS unsupported configuration rejected
+PASS invalid, empty and root targets rejected
+PASS spaces in target supported
+PASS no external/project commands; secret sentinel untouched and not copied
+PASS linked .ai rejected
+PASS nested destination symlink rejected
+PASS missing template fails before any target creation
+PASS type conflict preflight prevents partial refresh
+
+17 tests passed. All test targets were temporary directories.

@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-09-20T11:37:40.282500+00:00",
+  "tracked_inputs_unchanged": true,
+  "changed_or_missing": [],
+  "campaign_validity": "INVALID",
+  "reason": "Evaluator import temporarily added adapter __pycache__/runner.cpython-314.pyc; inventory mismatch triggered mandatory stop. Cache subsequently removed; restoration does not restore campaign validity.",
+  "historical_integrity": "PASS",
+  "candidate_execution": "NOT RUN"
+}

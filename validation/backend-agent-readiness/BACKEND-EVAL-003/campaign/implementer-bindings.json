@@ -1,0 +1,102 @@
+{
+  "purpose": "Public canonical anchors only; no mutation replacements or hidden assertion expectations",
+  "mutation_anchors": [
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "return DB::table('notes')->where('owner_id',$r->user()->id);",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "'name'=>'required|string|min:1|max:100'",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "$data=EvalInput::fields($r,['name'",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Requests/EvalInput.php",
+      "literal": "if(array_diff(array_keys($data),array_keys($rules))) self::invalid();",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Providers/AppServiceProvider.php",
+      "literal": "$user->role === 'editor'",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "return DB::table('documents')->where('owner_id',$r->user()->id)->where('tenant_id',$r->user()->tenant_id);",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "DB::table('attachments')->where('document_id',$id)->where('id',$child)",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "$q=$this->documents($r)->where('id',$id); abort_unless($q->exists(),404);\n        if($r->isMethod('PATCH')) $q->update(EvalInput::fields($r,['title'=>'required|string|max:100']));",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "$data=EvalInput::fields($r,['display_name'=>'required|string|max:100']);",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "$p->fill($data)->save();",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Actions/EvalReserve.php",
+      "literal": "return DB::transaction(function() use($quantity) {",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Actions/EvalReserve.php",
+      "literal": "        });",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "return response()->json(['message'=>'Reservation failed.'],500);",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Requests/EvalInput.php",
+      "literal": "'per_page'=>[20,100]",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "$q->orderBy('id')->forPage($page,$size)->get(['id','title'])",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Requests/EvalInput.php",
+      "literal": "$value=array_key_exists($key,$query)?$query[$key]:(string)$default;",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "->with(['author'=>fn($q)=>$q->where('tenant_id',$tenant)->select('id','name'),'category'=>fn($q)=>$q->where('tenant_id',$tenant)->select('id','name')])",
+      "exact_occurrences": 1
+    },
+    {
+      "path": "app/Http/Controllers/EvalController.php",
+      "literal": "$q->orderBy('id')->forPage($page,$size)->get(['id','title','author_id','category_id'])",
+      "exact_occurrences": 1
+    }
+  ],
+  "runtime": {
+    "vendor": "/private/tmp/backend-eval-001-0v7ydh55/app/vendor",
+    "vendor_pin_match": true,
+    "php": "/opt/homebrew/opt/php@8.3/bin/php",
+    "php_version": "PHP 8.3.33 (cli) (built: Jul 28 2026 17:56:10) (NTS)\nCopyright (c) The PHP Group\nZend Engine v4.3.33, Copyright (c) Zend Technologies\n",
+    "freeze": "15c729443169c68fe8969b8abd48a18182587a81d94e4e405185ce635952a448"
+  }
+}

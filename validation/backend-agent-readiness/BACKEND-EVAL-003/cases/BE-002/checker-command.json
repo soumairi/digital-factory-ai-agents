@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "evals/backend/verify.py",
+    "validation/backend-agent-readiness/BACKEND-EVAL-003/cases/BE-002/evidence-manifest.json",
+    "validation/backend-agent-readiness/BACKEND-EVAL-003"
+  ],
+  "exit_code": 0,
+  "stderr": ""
+}

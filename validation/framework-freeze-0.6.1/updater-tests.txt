@@ -1,0 +1,688 @@
+PASS fresh installation detected; same version no-op
+
+DEMONSTRATION --dry-run:
+Digital Factory AI Foundation Update
+Target project: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces
+Installed Foundation: 0.1.0
+Available Foundation: 0.2.0
+Agent: backend
+Stack: laravel
+Security Agent: enabled
+Audit Agent: enabled
+Review Foundation changes before adoption: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/source/CHANGELOG.md
+Legacy manifest foundation_version is ignored; foundation/VERSION is authoritative. The legacy field will be removed on replacement.
+Installed Foundation integrity verified.
+Foundation backup: would create /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces/.ai/backups/foundation-0.1.0-20260921-090146
+Foundation: would replace /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces/.ai/foundation
+Version authority: would replace foundation/VERSION with 0.2.0
+Manifest: would remove legacy foundation_version (configuration retained).
+Project context: PRESERVED / NOT MODIFIED (.ai/project/)
+No files were modified because --dry-run was used.
+
+PASS dry-run changes no files or directory entries
+DEMONSTRATION update:
+Digital Factory AI Foundation Update
+Target project: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces
+Installed Foundation: 0.1.0
+Available Foundation: 0.2.0
+Agent: backend
+Stack: laravel
+Security Agent: enabled
+Audit Agent: enabled
+Review Foundation changes before adoption: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/source/CHANGELOG.md
+Legacy manifest foundation_version is ignored; foundation/VERSION is authoritative. The legacy field will be removed on replacement.
+Installed Foundation integrity verified.
+Foundation backup: would create /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces/.ai/backups/foundation-0.1.0-20260921-090146
+Foundation: would replace /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces/.ai/foundation
+Version authority: would replace foundation/VERSION with 0.2.0
+Manifest: would remove legacy foundation_version (configuration retained).
+Project context: PRESERVED / NOT MODIFIED (.ai/project/)
+Foundation update completed successfully.
+Backup: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces/.ai/backups/foundation-0.1.0-20260921-090146
+Project context: PRESERVED / NOT MODIFIED
+
+PASS upgrade succeeds with spaces and dot from another working directory
+PASS all project bytes and modes preserved, including customized context and legacy version file
+PASS Foundation VERSION updated
+PASS legacy version removed; unknown scalar fields preserved
+PASS complete previous Foundation backup only
+PASS expected content: backend/core/agent.md
+PASS expected content: backend/laravel/README.md
+PASS expected content: security/agent.md
+PASS expected content: audit/agent.md
+PASS expected content: backend/prompts/analyze.md
+PASS second update is an immutable no-op
+DEMONSTRATION local modification detection:
+Digital Factory AI Foundation Update
+Target project: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces
+Installed Foundation: 0.2.0
+Available Foundation: 0.2.0
+Agent: backend
+Stack: laravel
+Security Agent: enabled
+Audit Agent: enabled
+Review Foundation changes before adoption: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/source/CHANGELOG.md
+Local modifications were detected inside .ai/foundation/.
+12a13
+> 6403f32be25c19bae97333afe812fdac173eed8abdfe70eb2dac84e69c30b55a  ./backend/core/agent.md
+34d34
+< ce8ffc18d08f0f101d1a9704f1cd88b3e52d79b88f0441e5b3c6b7e18559d0f7  ./backend/core/agent.md
+Project-specific customization must live under .ai/project/.
+1. Move project-specific changes into .ai/project/.
+2. Contribute reusable changes back to digital-factory-ai-agents.
+3. Retry the update.
+Error: Update blocked; use --force only after reviewing changes.
+
+PASS local edits detected and block update without writes
+DEMONSTRATION force:
+Digital Factory AI Foundation Update
+Target project: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces
+Installed Foundation: 0.2.0
+Available Foundation: 0.2.0
+Agent: backend
+Stack: laravel
+Security Agent: enabled
+Audit Agent: enabled
+Review Foundation changes before adoption: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/source/CHANGELOG.md
+Local modifications were detected inside .ai/foundation/.
+12a13
+> 6403f32be25c19bae97333afe812fdac173eed8abdfe70eb2dac84e69c30b55a  ./backend/core/agent.md
+34d34
+< ce8ffc18d08f0f101d1a9704f1cd88b3e52d79b88f0441e5b3c6b7e18559d0f7  ./backend/core/agent.md
+Project-specific customization must live under .ai/project/.
+1. Move project-specific changes into .ai/project/.
+2. Contribute reusable changes back to digital-factory-ai-agents.
+3. Retry the update.
+WARNING: local Foundation modifications will not be preserved in the active Foundation; a complete backup will be kept.
+Foundation backup: would create /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces/.ai/backups/foundation-0.2.0-20260921-090147
+Foundation: would replace /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces/.ai/foundation
+Version authority: would replace foundation/VERSION with 0.2.0
+Manifest: preserved (configuration only).
+Project context: PRESERVED / NOT MODIFIED (.ai/project/)
+Foundation update completed successfully.
+Backup: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/project with spaces/.ai/backups/foundation-0.2.0-20260921-090147
+Project context: PRESERVED / NOT MODIFIED
+
+PASS force reinstall retains edited backup and project bytes
+PASS invalid JSON rejected without writes
+PASS nested metadata rejected without writes
+PASS escaped key rejected without writes
+PASS trailing comma rejected without writes
+PASS unsupported stack rejected without writes
+PASS wrong foundation rejected without writes
+PASS duplicate fields rejected without writes
+PASS invalid role rejected without writes
+PASS missing or invalid authoritative VERSION never falls back to legacy metadata
+PASS missing manifest safely rejected
+PASS missing project layer safely rejected
+PASS source preflight failure leaves installation unchanged
+PASS symlink rejected: foundation
+PASS symlink rejected: project
+PASS symlink rejected: backups
+PASS dangerous targets rejected
+PASS legacy installation upgrades with warning and new checksums
+PASS downgrade needs force
+PASS replacement failure restores previous Foundation/version and preserves manifest/project
+PASS manifest failure restores previous Foundation/version and preserves manifest/project
+PASS signal failure restores previous Foundation/version and preserves manifest/project
+PASS failed rollback explicitly reports recovery and retains recoverable bytes
+PASS added checksum discrepancy rejected without writes or unsafe path reads
+PASS missing checksum discrepancy rejected without writes or unsafe path reads
+PASS malformed checksum discrepancy rejected without writes or unsafe path reads
+PASS Foundation .env rejected by name without opening contents
+PASS initialization succeeds with Python/Node/PHP/Composer/jq absent from PATH
+DEMONSTRATION update with Unix-only PATH (no Python/jq):
+Digital Factory AI Foundation Update
+Target project: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/unix only project
+Installed Foundation: 0.3.0
+Available Foundation: 0.4.0
+Agent: backend
+Stack: laravel
+Security Agent: enabled
+Audit Agent: enabled
+Review Foundation changes before adoption: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/source/CHANGELOG.md
+Installed Foundation integrity verified.
+Foundation backup: would create /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/unix only project/.ai/backups/foundation-0.3.0-20260921-090153
+Foundation: would replace /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/unix only project/.ai/foundation
+Version authority: would replace foundation/VERSION with 0.4.0
+Manifest: preserved (configuration only).
+Project context: PRESERVED / NOT MODIFIED (.ai/project/)
+Foundation update completed successfully.
+Backup: /private/var/folders/sc/0d94pnfd2yb3xkn_gx78505c0000gn/T/df-update-tests-aw6gaz7c/unix only project/.ai/backups/foundation-0.3.0-20260921-090153
+Project context: PRESERVED / NOT MODIFIED
+
+PASS update succeeds with Python/Node/PHP/Composer/jq absent; project preserved
+PASS missing SHA utility fails before any modification
+PASS checksum command failure cannot silently bypass verification
+PASS unreadable FIFO .env untouched; no application/Git/network/database commands invoked
+
+DEMONSTRATION resulting .ai/ tree:
+  .ai/README.md
+  .ai/agent-manifest.json
+  .ai/backups/
+  .ai/backups/foundation-0.1.0-20260921-090146/
+  .ai/backups/foundation-0.1.0-20260921-090146/README.md
+  .ai/backups/foundation-0.1.0-20260921-090146/VERSION
+  .ai/backups/foundation-0.1.0-20260921-090146/audit/
+  .ai/backups/foundation-0.1.0-20260921-090146/audit/README.md
+  .ai/backups/foundation-0.1.0-20260921-090146/audit/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090146/audit/audit-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090146/audit/audit-report-template.md
+  .ai/backups/foundation-0.1.0-20260921-090146/audit/evidence-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090146/audit/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090146/audit/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/README.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/core/
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/core/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/core/definition-of-done.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/core/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/core/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/core/responsibilities.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/core/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/laravel/
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/laravel/README.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/laravel/api-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/laravel/architecture.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/laravel/coding-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/laravel/commands.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/laravel/database-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/laravel/security-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/laravel/testing-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/prompts/
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/prompts/analyze.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/prompts/implement.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/prompts/plan.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/prompts/self-review.md
+  .ai/backups/foundation-0.1.0-20260921-090146/backend/prompts/test.md
+  .ai/backups/foundation-0.1.0-20260921-090146/checksums.sha256
+  .ai/backups/foundation-0.1.0-20260921-090146/security/
+  .ai/backups/foundation-0.1.0-20260921-090146/security/README.md
+  .ai/backups/foundation-0.1.0-20260921-090146/security/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090146/security/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090146/security/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090146/security/vulnerability-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090146/security/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090146/shared/
+  .ai/backups/foundation-0.1.0-20260921-090146/shared/audit-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090146/shared/engineering-principles.md
+  .ai/backups/foundation-0.1.0-20260921-090146/shared/git-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090146/shared/human-approval-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090146/shared/output-standards.md
+  .ai/backups/foundation-0.1.0-20260921-090146/shared/security-baseline.md
+  .ai/backups/foundation-0.1.0-20260921-090146/shared/security-development-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090149/
+  .ai/backups/foundation-0.1.0-20260921-090149/README.md
+  .ai/backups/foundation-0.1.0-20260921-090149/VERSION
+  .ai/backups/foundation-0.1.0-20260921-090149/audit/
+  .ai/backups/foundation-0.1.0-20260921-090149/audit/README.md
+  .ai/backups/foundation-0.1.0-20260921-090149/audit/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090149/audit/audit-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090149/audit/audit-report-template.md
+  .ai/backups/foundation-0.1.0-20260921-090149/audit/evidence-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090149/audit/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090149/audit/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/README.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/core/
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/core/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/core/definition-of-done.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/core/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/core/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/core/responsibilities.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/core/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/laravel/
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/laravel/README.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/laravel/api-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/laravel/architecture.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/laravel/coding-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/laravel/commands.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/laravel/database-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/laravel/security-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/laravel/testing-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/prompts/
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/prompts/analyze.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/prompts/implement.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/prompts/plan.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/prompts/self-review.md
+  .ai/backups/foundation-0.1.0-20260921-090149/backend/prompts/test.md
+  .ai/backups/foundation-0.1.0-20260921-090149/checksums.sha256
+  .ai/backups/foundation-0.1.0-20260921-090149/security/
+  .ai/backups/foundation-0.1.0-20260921-090149/security/README.md
+  .ai/backups/foundation-0.1.0-20260921-090149/security/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090149/security/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090149/security/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090149/security/vulnerability-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090149/security/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090149/shared/
+  .ai/backups/foundation-0.1.0-20260921-090149/shared/audit-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090149/shared/engineering-principles.md
+  .ai/backups/foundation-0.1.0-20260921-090149/shared/git-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090149/shared/human-approval-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090149/shared/output-standards.md
+  .ai/backups/foundation-0.1.0-20260921-090149/shared/security-baseline.md
+  .ai/backups/foundation-0.1.0-20260921-090149/shared/security-development-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090150/
+  .ai/backups/foundation-0.1.0-20260921-090150/README.md
+  .ai/backups/foundation-0.1.0-20260921-090150/VERSION
+  .ai/backups/foundation-0.1.0-20260921-090150/audit/
+  .ai/backups/foundation-0.1.0-20260921-090150/audit/README.md
+  .ai/backups/foundation-0.1.0-20260921-090150/audit/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090150/audit/audit-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090150/audit/audit-report-template.md
+  .ai/backups/foundation-0.1.0-20260921-090150/audit/evidence-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090150/audit/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090150/audit/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/README.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/core/
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/core/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/core/definition-of-done.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/core/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/core/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/core/responsibilities.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/core/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/laravel/
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/laravel/README.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/laravel/api-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/laravel/architecture.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/laravel/coding-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/laravel/commands.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/laravel/database-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/laravel/security-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/laravel/testing-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/prompts/
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/prompts/analyze.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/prompts/implement.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/prompts/plan.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/prompts/self-review.md
+  .ai/backups/foundation-0.1.0-20260921-090150/backend/prompts/test.md
+  .ai/backups/foundation-0.1.0-20260921-090150/checksums.sha256
+  .ai/backups/foundation-0.1.0-20260921-090150/security/
+  .ai/backups/foundation-0.1.0-20260921-090150/security/README.md
+  .ai/backups/foundation-0.1.0-20260921-090150/security/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090150/security/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090150/security/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090150/security/vulnerability-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090150/security/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090150/shared/
+  .ai/backups/foundation-0.1.0-20260921-090150/shared/audit-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090150/shared/engineering-principles.md
+  .ai/backups/foundation-0.1.0-20260921-090150/shared/git-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090150/shared/human-approval-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090150/shared/output-standards.md
+  .ai/backups/foundation-0.1.0-20260921-090150/shared/security-baseline.md
+  .ai/backups/foundation-0.1.0-20260921-090150/shared/security-development-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/
+  .ai/backups/foundation-0.1.0-20260921-090150-1/README.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/VERSION
+  .ai/backups/foundation-0.1.0-20260921-090150-1/audit/
+  .ai/backups/foundation-0.1.0-20260921-090150-1/audit/README.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/audit/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/audit/audit-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/audit/audit-report-template.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/audit/evidence-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/audit/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/audit/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/README.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/core/
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/core/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/core/definition-of-done.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/core/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/core/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/core/responsibilities.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/core/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/laravel/
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/laravel/README.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/laravel/api-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/laravel/architecture.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/laravel/coding-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/laravel/commands.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/laravel/database-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/laravel/security-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/laravel/testing-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/prompts/
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/prompts/analyze.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/prompts/implement.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/prompts/plan.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/prompts/self-review.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/backend/prompts/test.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/checksums.sha256
+  .ai/backups/foundation-0.1.0-20260921-090150-1/security/
+  .ai/backups/foundation-0.1.0-20260921-090150-1/security/README.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/security/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/security/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/security/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/security/vulnerability-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/security/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/shared/
+  .ai/backups/foundation-0.1.0-20260921-090150-1/shared/audit-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/shared/engineering-principles.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/shared/git-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/shared/human-approval-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/shared/output-standards.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/shared/security-baseline.md
+  .ai/backups/foundation-0.1.0-20260921-090150-1/shared/security-development-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090151/
+  .ai/backups/foundation-0.1.0-20260921-090151/README.md
+  .ai/backups/foundation-0.1.0-20260921-090151/VERSION
+  .ai/backups/foundation-0.1.0-20260921-090151/audit/
+  .ai/backups/foundation-0.1.0-20260921-090151/audit/README.md
+  .ai/backups/foundation-0.1.0-20260921-090151/audit/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090151/audit/audit-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090151/audit/audit-report-template.md
+  .ai/backups/foundation-0.1.0-20260921-090151/audit/evidence-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090151/audit/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090151/audit/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/README.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/core/
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/core/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/core/definition-of-done.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/core/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/core/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/core/responsibilities.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/core/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/laravel/
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/laravel/README.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/laravel/api-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/laravel/architecture.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/laravel/coding-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/laravel/commands.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/laravel/database-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/laravel/security-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/laravel/testing-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/prompts/
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/prompts/analyze.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/prompts/implement.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/prompts/plan.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/prompts/self-review.md
+  .ai/backups/foundation-0.1.0-20260921-090151/backend/prompts/test.md
+  .ai/backups/foundation-0.1.0-20260921-090151/checksums.sha256
+  .ai/backups/foundation-0.1.0-20260921-090151/security/
+  .ai/backups/foundation-0.1.0-20260921-090151/security/README.md
+  .ai/backups/foundation-0.1.0-20260921-090151/security/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090151/security/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090151/security/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090151/security/vulnerability-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090151/security/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090151/shared/
+  .ai/backups/foundation-0.1.0-20260921-090151/shared/audit-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090151/shared/engineering-principles.md
+  .ai/backups/foundation-0.1.0-20260921-090151/shared/git-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090151/shared/human-approval-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090151/shared/output-standards.md
+  .ai/backups/foundation-0.1.0-20260921-090151/shared/security-baseline.md
+  .ai/backups/foundation-0.1.0-20260921-090151/shared/security-development-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090152/
+  .ai/backups/foundation-0.1.0-20260921-090152/README.md
+  .ai/backups/foundation-0.1.0-20260921-090152/VERSION
+  .ai/backups/foundation-0.1.0-20260921-090152/audit/
+  .ai/backups/foundation-0.1.0-20260921-090152/audit/README.md
+  .ai/backups/foundation-0.1.0-20260921-090152/audit/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090152/audit/audit-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090152/audit/audit-report-template.md
+  .ai/backups/foundation-0.1.0-20260921-090152/audit/evidence-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090152/audit/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090152/audit/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/README.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/core/
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/core/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/core/definition-of-done.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/core/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/core/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/core/responsibilities.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/core/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/laravel/
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/laravel/README.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/laravel/api-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/laravel/architecture.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/laravel/coding-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/laravel/commands.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/laravel/database-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/laravel/security-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/laravel/testing-rules.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/prompts/
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/prompts/analyze.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/prompts/implement.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/prompts/plan.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/prompts/self-review.md
+  .ai/backups/foundation-0.1.0-20260921-090152/backend/prompts/test.md
+  .ai/backups/foundation-0.1.0-20260921-090152/checksums.sha256
+  .ai/backups/foundation-0.1.0-20260921-090152/security/
+  .ai/backups/foundation-0.1.0-20260921-090152/security/README.md
+  .ai/backups/foundation-0.1.0-20260921-090152/security/agent.md
+  .ai/backups/foundation-0.1.0-20260921-090152/security/guardrails.md
+  .ai/backups/foundation-0.1.0-20260921-090152/security/output-contract.md
+  .ai/backups/foundation-0.1.0-20260921-090152/security/vulnerability-checklist.md
+  .ai/backups/foundation-0.1.0-20260921-090152/security/workflow.md
+  .ai/backups/foundation-0.1.0-20260921-090152/shared/
+  .ai/backups/foundation-0.1.0-20260921-090152/shared/audit-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090152/shared/engineering-principles.md
+  .ai/backups/foundation-0.1.0-20260921-090152/shared/git-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090152/shared/human-approval-policy.md
+  .ai/backups/foundation-0.1.0-20260921-090152/shared/output-standards.md
+  .ai/backups/foundation-0.1.0-20260921-090152/shared/security-baseline.md
+  .ai/backups/foundation-0.1.0-20260921-090152/shared/security-development-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090147/
+  .ai/backups/foundation-0.2.0-20260921-090147/README.md
+  .ai/backups/foundation-0.2.0-20260921-090147/VERSION
+  .ai/backups/foundation-0.2.0-20260921-090147/audit/
+  .ai/backups/foundation-0.2.0-20260921-090147/audit/README.md
+  .ai/backups/foundation-0.2.0-20260921-090147/audit/agent.md
+  .ai/backups/foundation-0.2.0-20260921-090147/audit/audit-checklist.md
+  .ai/backups/foundation-0.2.0-20260921-090147/audit/audit-report-template.md
+  .ai/backups/foundation-0.2.0-20260921-090147/audit/evidence-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090147/audit/guardrails.md
+  .ai/backups/foundation-0.2.0-20260921-090147/audit/workflow.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/README.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/core/
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/core/agent.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/core/definition-of-done.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/core/guardrails.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/core/output-contract.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/core/responsibilities.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/core/workflow.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/laravel/
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/laravel/README.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/laravel/api-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/laravel/architecture.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/laravel/coding-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/laravel/commands.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/laravel/database-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/laravel/security-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/laravel/testing-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/prompts/
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/prompts/analyze.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/prompts/implement.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/prompts/plan.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/prompts/self-review.md
+  .ai/backups/foundation-0.2.0-20260921-090147/backend/prompts/test.md
+  .ai/backups/foundation-0.2.0-20260921-090147/checksums.sha256
+  .ai/backups/foundation-0.2.0-20260921-090147/security/
+  .ai/backups/foundation-0.2.0-20260921-090147/security/README.md
+  .ai/backups/foundation-0.2.0-20260921-090147/security/agent.md
+  .ai/backups/foundation-0.2.0-20260921-090147/security/guardrails.md
+  .ai/backups/foundation-0.2.0-20260921-090147/security/output-contract.md
+  .ai/backups/foundation-0.2.0-20260921-090147/security/vulnerability-checklist.md
+  .ai/backups/foundation-0.2.0-20260921-090147/security/workflow.md
+  .ai/backups/foundation-0.2.0-20260921-090147/shared/
+  .ai/backups/foundation-0.2.0-20260921-090147/shared/audit-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090147/shared/engineering-principles.md
+  .ai/backups/foundation-0.2.0-20260921-090147/shared/git-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090147/shared/human-approval-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090147/shared/output-standards.md
+  .ai/backups/foundation-0.2.0-20260921-090147/shared/security-baseline.md
+  .ai/backups/foundation-0.2.0-20260921-090147/shared/security-development-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090148/
+  .ai/backups/foundation-0.2.0-20260921-090148/README.md
+  .ai/backups/foundation-0.2.0-20260921-090148/VERSION
+  .ai/backups/foundation-0.2.0-20260921-090148/audit/
+  .ai/backups/foundation-0.2.0-20260921-090148/audit/README.md
+  .ai/backups/foundation-0.2.0-20260921-090148/audit/agent.md
+  .ai/backups/foundation-0.2.0-20260921-090148/audit/audit-checklist.md
+  .ai/backups/foundation-0.2.0-20260921-090148/audit/audit-report-template.md
+  .ai/backups/foundation-0.2.0-20260921-090148/audit/evidence-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090148/audit/guardrails.md
+  .ai/backups/foundation-0.2.0-20260921-090148/audit/workflow.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/README.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/core/
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/core/agent.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/core/definition-of-done.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/core/guardrails.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/core/output-contract.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/core/responsibilities.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/core/workflow.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/laravel/
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/laravel/README.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/laravel/api-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/laravel/architecture.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/laravel/coding-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/laravel/commands.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/laravel/database-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/laravel/security-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/laravel/testing-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/prompts/
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/prompts/analyze.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/prompts/implement.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/prompts/plan.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/prompts/self-review.md
+  .ai/backups/foundation-0.2.0-20260921-090148/backend/prompts/test.md
+  .ai/backups/foundation-0.2.0-20260921-090148/security/
+  .ai/backups/foundation-0.2.0-20260921-090148/security/README.md
+  .ai/backups/foundation-0.2.0-20260921-090148/security/agent.md
+  .ai/backups/foundation-0.2.0-20260921-090148/security/guardrails.md
+  .ai/backups/foundation-0.2.0-20260921-090148/security/output-contract.md
+  .ai/backups/foundation-0.2.0-20260921-090148/security/vulnerability-checklist.md
+  .ai/backups/foundation-0.2.0-20260921-090148/security/workflow.md
+  .ai/backups/foundation-0.2.0-20260921-090148/shared/
+  .ai/backups/foundation-0.2.0-20260921-090148/shared/audit-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090148/shared/engineering-principles.md
+  .ai/backups/foundation-0.2.0-20260921-090148/shared/git-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090148/shared/human-approval-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090148/shared/output-standards.md
+  .ai/backups/foundation-0.2.0-20260921-090148/shared/security-baseline.md
+  .ai/backups/foundation-0.2.0-20260921-090148/shared/security-development-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/
+  .ai/backups/foundation-0.2.0-20260921-090148-1/README.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/VERSION
+  .ai/backups/foundation-0.2.0-20260921-090148-1/audit/
+  .ai/backups/foundation-0.2.0-20260921-090148-1/audit/README.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/audit/agent.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/audit/audit-checklist.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/audit/audit-report-template.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/audit/evidence-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/audit/guardrails.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/audit/workflow.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/README.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/core/
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/core/agent.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/core/definition-of-done.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/core/guardrails.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/core/output-contract.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/core/responsibilities.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/core/workflow.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/laravel/
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/laravel/README.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/laravel/api-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/laravel/architecture.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/laravel/coding-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/laravel/commands.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/laravel/database-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/laravel/security-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/laravel/testing-rules.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/prompts/
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/prompts/analyze.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/prompts/implement.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/prompts/plan.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/prompts/self-review.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/backend/prompts/test.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/checksums.sha256
+  .ai/backups/foundation-0.2.0-20260921-090148-1/security/
+  .ai/backups/foundation-0.2.0-20260921-090148-1/security/README.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/security/agent.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/security/guardrails.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/security/output-contract.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/security/vulnerability-checklist.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/security/workflow.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/shared/
+  .ai/backups/foundation-0.2.0-20260921-090148-1/shared/audit-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/shared/engineering-principles.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/shared/git-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/shared/human-approval-policy.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/shared/output-standards.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/shared/security-baseline.md
+  .ai/backups/foundation-0.2.0-20260921-090148-1/shared/security-development-policy.md
+  .ai/foundation/
+  .ai/foundation/README.md
+  .ai/foundation/VERSION
+  .ai/foundation/audit/
+  .ai/foundation/audit/README.md
+  .ai/foundation/audit/agent.md
+  .ai/foundation/audit/audit-checklist.md
+  .ai/foundation/audit/audit-report-template.md
+  .ai/foundation/audit/evidence-policy.md
+  .ai/foundation/audit/guardrails.md
+  .ai/foundation/audit/workflow.md
+  .ai/foundation/backend/
+  .ai/foundation/backend/README.md
+  .ai/foundation/backend/core/
+  .ai/foundation/backend/core/agent.md
+  .ai/foundation/backend/core/definition-of-done.md
+  .ai/foundation/backend/core/guardrails.md
+  .ai/foundation/backend/core/output-contract.md
+  .ai/foundation/backend/core/responsibilities.md
+  .ai/foundation/backend/core/workflow.md
+  .ai/foundation/backend/laravel/
+  .ai/foundation/backend/laravel/README.md
+  .ai/foundation/backend/laravel/api-rules.md
+  .ai/foundation/backend/laravel/architecture.md
+  .ai/foundation/backend/laravel/coding-rules.md
+  .ai/foundation/backend/laravel/commands.md
+  .ai/foundation/backend/laravel/database-rules.md
+  .ai/foundation/backend/laravel/security-rules.md
+  .ai/foundation/backend/laravel/testing-rules.md
+  .ai/foundation/backend/prompts/
+  .ai/foundation/backend/prompts/analyze.md
+  .ai/foundation/backend/prompts/implement.md
+  .ai/foundation/backend/prompts/plan.md
+  .ai/foundation/backend/prompts/self-review.md
+  .ai/foundation/backend/prompts/test.md
+  .ai/foundation/checksums.sha256
+  .ai/foundation/security/
+  .ai/foundation/security/README.md
+  .ai/foundation/security/agent.md
+  .ai/foundation/security/guardrails.md
+  .ai/foundation/security/output-contract.md
+  .ai/foundation/security/vulnerability-checklist.md
+  .ai/foundation/security/workflow.md
+  .ai/foundation/shared/
+  .ai/foundation/shared/audit-policy.md
+  .ai/foundation/shared/engineering-principles.md
+  .ai/foundation/shared/git-policy.md
+  .ai/foundation/shared/human-approval-policy.md
+  .ai/foundation/shared/output-standards.md
+  .ai/foundation/shared/security-baseline.md
+  .ai/foundation/shared/security-development-policy.md
+  .ai/project/
+  .ai/project/FOUNDATION_VERSION
+  .ai/project/README.md
+  .ai/project/agent-overrides.md
+  .ai/project/architecture.md
+  .ai/project/coding-conventions.md
+  .ai/project/commands.md
+  .ai/project/compliance-context.md
+  .ai/project/definition-of-done.md
+  .ai/project/project-context.md
+  .ai/project/security-context.md
+  .ai/project/tech-stack.md
+
+Project layer byte-for-byte preserved: True
+Final Foundation version: 0.3.0
+
+46 update checks passed. All fixtures were temporary and cleaned up.

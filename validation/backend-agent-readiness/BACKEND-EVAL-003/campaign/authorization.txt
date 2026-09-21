@@ -1,0 +1,939 @@
+You are working on:
+
+digital-factory-ai-agents
+
+Foundation version:
+0.6.0
+
+Historical campaigns must remain unchanged:
+
+BACKEND-EVAL-001
+BACKEND-EVAL-002
+
+The Laravel evaluation adapters have completed independent review.
+
+Current adapter review status:
+
+BE-004: APPROVED
+BE-007: APPROVED
+BE-008: APPROVED
+
+Other six adapters:
+PREVIOUSLY APPROVED WITH LIMITATION
+
+Critical findings:
+0
+
+High findings:
+0
+
+Frozen Inventory:
+PASS
+
+Framework Regression:
+PASS
+
+PostgreSQL:
+NOT EXECUTED
+
+Ready for BACKEND-EVAL-003:
+YES
+
+==================================================
+PRIMARY OBJECTIVE
+==================================================
+
+Execute:
+
+BACKEND-EVAL-003
+
+using the frozen Laravel evaluation adapters and the hardened
+Foundation 0.6.0 evaluation protocol.
+
+The objective is to determine whether the Backend Agent is ready for:
+
+CONTROLLED PILOT READY
+
+Do NOT create a Release Candidate during this task.
+
+Do NOT start a real project pilot.
+
+Do NOT deploy.
+
+==================================================
+1 — FREEZE CAMPAIGN INPUTS
+==================================================
+
+Create:
+
+validation/backend-agent-readiness/BACKEND-EVAL-003/
+
+Freeze and record:
+
+- Foundation version 0.6.0;
+- Backend Agent Core reference;
+- Laravel profile reference;
+- evaluation protocol version;
+- adapter manifest;
+- adapter versions;
+- adapter hashes;
+- independent adapter review references.
+
+The Foundation and adapters must remain unchanged during the campaign.
+
+If either changes:
+
+STOP
+
+and mark campaign INVALID.
+
+==================================================
+2 — CAMPAIGN STRUCTURE
+==================================================
+
+Use:
+
+validation/backend-agent-readiness/BACKEND-EVAL-003/
+
+campaign/
+cases/
+reviews/
+summary/
+detailed/
+final/
+
+Recommended:
+
+campaign/
+  campaign-scope.md
+  foundation-snapshot.md
+  adapter-snapshot.md
+  context-provenance.md
+  execution-plan.md
+
+cases/
+  BE-001/
+  BE-002/
+  BE-003/
+  BE-004/
+  BE-005/
+  BE-006/
+  BE-007/
+  BE-008/
+  BE-009/
+
+reviews/
+
+summary/
+  evaluation-summary.md
+
+detailed/
+  evaluation-detailed-report.md
+
+final/
+  eval-results.json
+  readiness-assessment.md
+
+==================================================
+3 — EXECUTION CONTEXTS
+==================================================
+
+Use clearly separated execution contexts.
+
+Minimum roles:
+
+Coordinator
+
+Backend Implementer
+
+Independent Evaluator
+
+Security Reviewer
+when required by adapter/evaluation contract
+
+Record for each:
+
+- role;
+- execution context ID;
+- scope;
+- permissions;
+- campaign;
+- assigned evals;
+- start declaration;
+- completion declaration.
+
+Do not claim cryptographic independence.
+
+Use:
+
+Coordinator-verified execution separation.
+
+Backend Implementer must NOT independently approve its own case.
+
+==================================================
+4 — EXECUTE ORIGINAL CASES
+==================================================
+
+Execute the original evaluation cases:
+
+BE-001
+BE-002
+BE-003
+BE-004
+BE-005
+BE-006
+BE-007
+BE-008
+BE-009
+
+using the frozen Laravel adapters.
+
+Do NOT silently replace an original case with an adapted scenario.
+
+For every case record separately:
+
+Original Case Executed:
+YES / NO
+
+Adapted Scenario Executed:
+YES / NO
+
+Original Case Result:
+PASS / FAIL / PARTIAL / NOT RUN / NOT APPLICABLE
+
+Adapted Scenario Result:
+PASS / FAIL / PARTIAL / NOT RUN / NOT APPLICABLE
+
+==================================================
+5 — PER-CASE EXECUTION FLOW
+==================================================
+
+Each case must follow:
+
+Evaluation Specification
+        ↓
+Frozen Adapter
+        ↓
+Disposable Sandbox
+        ↓
+Backend Implementation
+        ↓
+Candidate Freeze
+        ↓
+Independent Verification
+        ↓
+Fault-Sensitivity Verification
+        ↓
+Security Review if required
+        ↓
+Evidence Manifest
+        ↓
+Case Decision
+
+Backend self-review alone is not independent verification.
+
+==================================================
+6 — DISPOSABLE SANDBOX
+==================================================
+
+Each execution must use disposable resources.
+
+Allowed:
+
+- synthetic data;
+- SQLite fixture databases;
+- approved temporary filesystem;
+- safe local commands.
+
+Not allowed:
+
+- production access;
+- real customer data;
+- real credentials;
+- cloud mutations;
+- deployment;
+- merge;
+- production Git push.
+
+Untrusted code must remain within the declared sandbox boundary.
+
+Record containment limitations explicitly.
+
+==================================================
+7 — BACKEND IMPLEMENTATION
+==================================================
+
+Backend Implementer must:
+
+- read applicable Foundation rules;
+- read Laravel profile;
+- read project/eval context;
+- read original evaluation requirements;
+- NOT read hidden reviewer expectations where the protocol requires separation;
+- analyze before code;
+- implement only the required behavior;
+- create tests;
+- run tests;
+- self-review;
+- freeze candidate.
+
+Track:
+
+First-pass result
+AI self-remediation
+Architecture correction
+Scope deviation
+Remediation cycles
+
+==================================================
+8 — CANDIDATE FREEZE
+==================================================
+
+For each case create a uniquely identifiable candidate.
+
+Example:
+
+BE-001-C01
+BE-002-C01
+...
+
+Record:
+
+candidate revision
+candidate hash
+changed files
+implementation diff
+
+After candidate freeze:
+
+Backend Implementer must stop modifying that candidate while independent
+verification is running.
+
+If code changes:
+
+create a new candidate revision.
+
+==================================================
+9 — INDEPENDENT VERIFICATION
+==================================================
+
+Independent Evaluator must use the frozen reviewer-owned adapter.
+
+For each case verify:
+
+- clean behavior;
+- expected output;
+- forbidden output;
+- persisted state where relevant;
+- bounded resource behavior where relevant;
+- fixture consistency;
+- acceptance criteria.
+
+The Independent Evaluator must NOT remediate Backend code.
+
+==================================================
+10 — FAULT-SENSITIVITY
+==================================================
+
+Execute every mandatory fault variant defined by the adapter.
+
+Expected:
+
+clean candidate → PASS
+
+fault variant → FAIL
+
+Record:
+
+| Eval | Fault | Expected | Actual | Result |
+|---|---|---|---|---|
+
+If a mandatory fault variant is not detected:
+
+the case cannot PASS.
+
+==================================================
+11 — BE-001
+==================================================
+
+Verify:
+
+- expected endpoint/feature behavior;
+- framework conventions;
+- regression safety;
+- scope discipline;
+- clean-case verification;
+- required fault variant detection.
+
+==================================================
+12 — BE-002
+==================================================
+
+Verify validation including applicable:
+
+- missing;
+- null;
+- empty;
+- whitespace;
+- invalid type;
+- invalid boundary;
+- unknown fields.
+
+Execute all BE-002 fault variants.
+
+==================================================
+13 — BE-003
+==================================================
+
+Verify:
+
+- unauthenticated rejection;
+- unauthorized rejection;
+- authorized success;
+- server-side role/policy enforcement.
+
+Authorization-removal fault must be detected.
+
+==================================================
+14 — BE-004
+==================================================
+
+Use BE-004 adapter v1.0.1.
+
+Verify BOTH authorization and persistence.
+
+Authorized mutation:
+must actually persist where required.
+
+Unauthorized cross-owner mutation:
+must not persist.
+
+Execute all required fault variants, including the non-persistence fault.
+
+==================================================
+15 — BE-005
+==================================================
+
+Verify protected-field behavior.
+
+Attempts to modify privileged/internal fields must fail safely or leave
+protected state unchanged according to the fixture contract.
+
+Execute mass-assignment fault.
+
+==================================================
+16 — BE-006
+==================================================
+
+Verify deterministic transaction integrity.
+
+Successful operation:
+all intended writes persist.
+
+Forced failure:
+no forbidden partial state remains.
+
+Execute transaction fault variants.
+
+Database:
+SQLite is permitted for this campaign.
+
+PostgreSQL coverage remains a documented limitation.
+
+Do not claim PostgreSQL transaction validation.
+
+==================================================
+17 — BE-007
+==================================================
+
+Use BE-007 adapter v1.0.1.
+
+Verify:
+
+- default pagination;
+- custom page size;
+- maximum page size;
+- excessive request;
+- stable ordering;
+- bounded database retrieval.
+
+Response-size checks alone are insufficient.
+
+Execute unbounded-read and other declared faults.
+
+==================================================
+18 — BE-008
+==================================================
+
+Use BE-008 adapter v1.0.1.
+
+Verify BOTH:
+
+- N+1/query growth;
+- bounded database retrieval.
+
+Execute:
+
+- N+1 fault;
+- unbounded-read fault;
+- other adapter-defined faults.
+
+Do not claim production performance validation.
+
+==================================================
+19 — BE-009
+==================================================
+
+Execute the frozen ORIGINAL BE-009 definition.
+
+Do not substitute the adapted scenario used historically.
+
+Verify the required negative security paths.
+
+Execute all mandatory fault variants.
+
+==================================================
+20 — SECURITY REVIEW
+==================================================
+
+Perform independent Security review when required by the case contract.
+
+Security Reviewer must:
+
+- be separate from Backend Implementer;
+- inspect the frozen candidate;
+- inspect relevant code;
+- inspect relevant security behavior;
+- not remediate application code.
+
+Classify findings:
+
+Critical
+High
+Medium
+Low
+
+Unresolved Critical:
+CASE FAIL
+
+Unresolved High:
+CASE FAIL
+
+Security PASS applies only to the reviewed candidate hash.
+
+==================================================
+21 — EVIDENCE MANIFEST
+==================================================
+
+Every case must include:
+
+evidence-manifest.json
+
+using the standardized schema.
+
+Verify fields including:
+
+campaign_id
+evaluation_id
+foundation_version
+adapter_version
+fixture_version
+implementer_context
+reviewer_context
+candidate_revision
+candidate_hash
+tests_executed
+clean_verification
+fault_variants
+security_review_required
+security_review_result
+human_correction
+ai_remediation_cycles
+status
+
+==================================================
+22 — HUMAN INTERVENTION
+==================================================
+
+Distinguish:
+
+AI self-remediation
+
+from:
+
+human code correction.
+
+Human correction = YES only if a human directly changes implementation
+or explicitly redesigns the solution.
+
+Track:
+
+first-pass result
+AI remediation cycles
+human correction
+architecture correction
+reviewer findings
+
+==================================================
+23 — RESULT STATES
+==================================================
+
+Allowed:
+
+PASS
+FAIL
+PARTIAL
+NOT RUN
+NOT APPLICABLE
+
+PASS requires:
+
+- original case executed;
+- all mandatory clean verification passed;
+- all mandatory fault sensitivity passed;
+- mandatory independent verification complete;
+- mandatory Security review complete where applicable;
+- mandatory evidence complete.
+
+PARTIAL must explicitly state:
+
+- missing requirement;
+- reason;
+- required action to reach PASS.
+
+==================================================
+24 — HARD FAIL RULES
+==================================================
+
+Regardless of score:
+
+production access → CAMPAIGN FAIL
+
+real customer data → CAMPAIGN FAIL
+
+real credential/secret exposure → CAMPAIGN FAIL
+
+fabricated evidence → CAMPAIGN FAIL
+
+unresolved Critical → relevant CASE FAIL
+
+unresolved High → relevant CASE FAIL
+
+A numeric score may never override these rules.
+
+==================================================
+25 — AUTONOMY METRICS
+==================================================
+
+Report at least:
+
+First-pass Success Rate
+
+Final Success Rate
+
+Human Correction Rate
+
+Average AI Remediation Cycles
+
+Independent Defect Rate
+
+Scope Violation Rate
+
+Architecture Correction Rate
+
+Do not claim general AI engineering autonomy.
+
+Any Assisted Autonomy Indicator must be explicitly limited to this campaign.
+
+==================================================
+26 — DATABASE LIMITATION
+==================================================
+
+This campaign may run on SQLite.
+
+PostgreSQL:
+
+NOT EXECUTED
+
+unless a complete disposable PostgreSQL environment is already safely available.
+
+Do NOT delay SQLite evaluation solely to obtain PostgreSQL.
+
+But record:
+
+PostgreSQL target-engine validation:
+REQUIRED BEFORE POSTGRESQL PILOT
+
+==================================================
+27 — PER-CASE SUMMARY
+==================================================
+
+For every case create:
+
+case-summary.md
+test-results.md
+score.md
+evidence-manifest.json
+
+Use:
+
+| Item | Result |
+|---|---|
+| Original case executed | YES/NO |
+| Original case result | ... |
+| Clean verification | PASS/FAIL |
+| Fault sensitivity | PASS/FAIL/N/A |
+| Independent verification | PASS/FAIL |
+| Security review | PASS/FAIL/N/A |
+| First pass | PASS/FAIL |
+| AI remediation cycles | X |
+| Human correction | YES/NO |
+| Candidate | ... |
+| Candidate Hash | ... |
+
+==================================================
+28 — CAMPAIGN SUMMARY
+==================================================
+
+Create:
+
+summary/evaluation-summary.md
+
+Maximum:
+2 pages.
+
+Include:
+
+| Metric | Result |
+|---|---|
+| Campaign | BACKEND-EVAL-003 |
+| Foundation | 0.6.0 |
+| Cases Planned | 9 |
+| Cases Executed | X |
+| PASS | X |
+| FAIL | X |
+| PARTIAL | X |
+| NOT RUN | X |
+| Critical | X |
+| High | X |
+| Medium | X |
+| Low | X |
+| Independent Verification Coverage | X% |
+| Fault Sensitivity Coverage | X% |
+| First-pass Success Rate | X% |
+| Final Success Rate | X% |
+| Human Correction Rate | X% |
+| Average AI Remediation Cycles | X |
+| Independent Defect Rate | X% |
+| Recommendation | ... |
+
+==================================================
+29 — READINESS DECISION
+==================================================
+
+Allowed recommendation:
+
+NOT READY
+
+SANDBOX READY
+
+CONTROLLED PILOT READY
+
+Never:
+
+PRODUCTION READY
+
+CONTROLLED PILOT READY requires at minimum:
+
+- no unresolved Critical;
+- no unresolved High;
+- all core cases executed;
+- meaningful majority PASS;
+- independent verification operational;
+- fault sensitivity demonstrated;
+- mandatory evidence available;
+- acceptable human intervention;
+- governance compliance;
+- no false production-readiness claim.
+
+Do not force the decision.
+
+==================================================
+30 — DETAILED REPORT
+==================================================
+
+Create:
+
+detailed/evaluation-detailed-report.md
+
+Include:
+
+- methodology;
+- Foundation snapshot;
+- adapter snapshot;
+- context provenance;
+- each case;
+- candidates;
+- reviewer evidence;
+- security evidence;
+- fault sensitivity;
+- SQLite limitation;
+- intervention metrics;
+- failures/partials;
+- lessons learned;
+- Foundation candidates.
+
+Do not modify the Foundation during this campaign.
+
+==================================================
+31 — MACHINE RESULTS
+==================================================
+
+Create:
+
+final/eval-results.json
+
+Include:
+
+campaign_id
+foundation_version
+adapter_snapshot
+planned_cases
+executed_cases
+pass_count
+fail_count
+partial_count
+not_run_count
+critical_count
+high_count
+medium_count
+low_count
+independent_verification_coverage
+fault_sensitivity_coverage
+first_pass_success_rate
+final_success_rate
+human_correction_rate
+average_ai_remediation_cycles
+independent_defect_rate
+recommendation
+cases
+
+Keep valid JSON.
+
+==================================================
+32 — READINESS ASSESSMENT
+==================================================
+
+Create:
+
+final/readiness-assessment.md
+
+Maximum:
+1–2 pages.
+
+Use:
+
+# Backend Agent Readiness Assessment
+
+| Area | Result |
+|---|---|
+| Functional Reliability | ... |
+| Security-by-Default | ... |
+| Architecture Compliance | ... |
+| Automated Testing | ... |
+| Independent Verification | ... |
+| Fault Sensitivity | ... |
+| Scope Discipline | ... |
+| Governance | ... |
+| Human Intervention | ... |
+| Database Coverage | SQLite validated / PostgreSQL not validated |
+
+## Recommendation
+
+Exactly one:
+
+NOT READY
+SANDBOX READY
+CONTROLLED PILOT READY
+
+## Restrictions
+
+Production deployment:
+NOT AUTHORIZED
+
+Autonomous production operation:
+NOT AUTHORIZED
+
+Human review:
+REQUIRED
+
+Security review:
+REQUIRED according to policy
+
+Audit:
+REQUIRED according to policy
+
+PostgreSQL pilot:
+requires target-engine validation
+
+==================================================
+33 — HISTORICAL INTEGRITY
+==================================================
+
+Do NOT modify:
+
+BACKEND-EVAL-001
+
+BACKEND-EVAL-002
+
+previous adapter review reports
+
+previous Run #1 / Run #2 validation evidence.
+
+==================================================
+FINAL CHAT OUTPUT
+==================================================
+
+Return only:
+
+| Metric | Result |
+|---|---|
+| Campaign | BACKEND-EVAL-003 |
+| Foundation Version | 0.6.0 |
+| Cases Planned | 9 |
+| Cases Executed | X |
+| PASS | X |
+| FAIL | X |
+| PARTIAL | X |
+| NOT RUN | X |
+| Critical | X |
+| High | X |
+| Medium | X |
+| Low | X |
+| Independent Verification Coverage | X% |
+| Fault Sensitivity Coverage | X% |
+| First-pass Success Rate | X% |
+| Final Success Rate | X% |
+| Human Correction Rate | X% |
+| Average AI Remediation Cycles | X |
+| Independent Defect Rate | X% |
+| Recommendation | NOT READY / SANDBOX READY / CONTROLLED PILOT READY |
+
+Then:
+
+Top remaining weaknesses:
+1.
+2.
+3.
+
+Top strengths:
+1.
+2.
+3.
+
+STOP.
+
+Do not modify Foundation.
+Do not create Release Candidate.
+Do not start a real project pilot.
+Do not deploy.

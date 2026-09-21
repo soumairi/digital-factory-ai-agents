@@ -1,6 +1,7 @@
 """Safety/contract tests for the adapter runner, not a Backend evaluation campaign."""
 import importlib.util
 import json
+import shutil
 from pathlib import Path
 import tempfile
 import unittest
@@ -70,8 +71,12 @@ class RunnerTests(unittest.TestCase):
     def test_external_review_output_preserves_exact_asset_inventory(self):
         with tempfile.TemporaryDirectory() as name:
             root=Path(name);assets=root/'evals/backend/adapters/laravel';assets.mkdir(parents=True)
-            owned=assets/'owned.php';owned.write_text('frozen evaluator')
-            (assets/'checksums.json').write_text(json.dumps(R.inventory(assets)))
+            snapshot=json.loads((ROOT/'evals/backend/governed-inventory.json').read_text())
+            for entry in snapshot['assets']:
+                target=root/entry['path'];target.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copyfile(ROOT/entry['path'],target)
+            shutil.copyfile(ROOT/'evals/backend/governed-inventory.json',root/'evals/backend/governed-inventory.json')
+            owned=assets/'runner.py'
             with patch.object(R,'ASSETS',assets):
                 before=R.check_assets()
                 output=root/'validation/adapter-reviews/REVIEW-TEST';output.mkdir(parents=True)

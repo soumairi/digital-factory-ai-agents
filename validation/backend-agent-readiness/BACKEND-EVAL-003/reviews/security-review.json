@@ -1,0 +1,99 @@
+{
+  "campaign_id": "BACKEND-EVAL-003",
+  "reviewer_context": "/root/security",
+  "role": "Security Reviewer",
+  "completed_at": "2026-09-20T11:36:25.409060+00:00",
+  "status": "NOT RUN",
+  "gate": "INCOMPLETE",
+  "original_case_executed": false,
+  "adapted_scenario": false,
+  "candidate_hash": null,
+  "reason": "STOP received from evaluator after frozen adapter inventory changed through generated Python bytecode cache. Coordinator applies strict campaign INVALID rule. No candidate received or executed.",
+  "severity_counts": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0
+  },
+  "findings": [],
+  "coverage": "Policy, original specification, immutable adapter test/setup source and campaign scope inspection only; no candidate technical assessment or active security verification.",
+  "cases": [
+    {
+      "evaluation_id": "BE-001",
+      "status": "NOT RUN",
+      "candidate_hash": null,
+      "original_case_executed": false,
+      "adapted_scenario": false,
+      "adapted_scenario_result": "NOT APPLICABLE"
+    },
+    {
+      "evaluation_id": "BE-002",
+      "status": "NOT RUN",
+      "candidate_hash": null,
+      "original_case_executed": false,
+      "adapted_scenario": false,
+      "adapted_scenario_result": "NOT APPLICABLE"
+    },
+    {
+      "evaluation_id": "BE-003",
+      "status": "NOT RUN",
+      "candidate_hash": null,
+      "original_case_executed": false,
+      "adapted_scenario": false,
+      "adapted_scenario_result": "NOT APPLICABLE"
+    },
+    {
+      "evaluation_id": "BE-004",
+      "status": "NOT RUN",
+      "candidate_hash": null,
+      "original_case_executed": false,
+      "adapted_scenario": false,
+      "adapted_scenario_result": "NOT APPLICABLE"
+    },
+    {
+      "evaluation_id": "BE-005",
+      "status": "NOT RUN",
+      "candidate_hash": null,
+      "original_case_executed": false,
+      "adapted_scenario": false,
+      "adapted_scenario_result": "NOT APPLICABLE"
+    },
+    {
+      "evaluation_id": "BE-006",
+      "status": "NOT RUN",
+      "candidate_hash": null,
+      "original_case_executed": false,
+      "adapted_scenario": false,
+      "adapted_scenario_result": "NOT APPLICABLE"
+    },
+    {
+      "evaluation_id": "BE-007",
+      "status": "NOT RUN",
+      "candidate_hash": null,
+      "original_case_executed": false,
+      "adapted_scenario": false,
+      "adapted_scenario_result": "NOT APPLICABLE"
+    },
+    {
+      "evaluation_id": "BE-008",
+      "status": "NOT RUN",
+      "candidate_hash": null,
+      "original_case_executed": false,
+      "adapted_scenario": false,
+      "adapted_scenario_result": "NOT APPLICABLE"
+    },
+    {
+      "evaluation_id": "BE-009",
+      "status": "NOT RUN",
+      "candidate_hash": null,
+      "original_case_executed": false,
+      "adapted_scenario": false,
+      "adapted_scenario_result": "NOT APPLICABLE"
+    }
+  ],
+  "independence": "Separate runtime context /root/security; no candidate implementation/remediation; shared filesystem does not enforce role ACLs.",
+  "containment": "No application code executed, no database created, no network or production interaction, no credentials used. Files written only under campaign reviews.",
+  "completion": "Assignment closed on mandatory campaign stop, not technical clearance. Zero observed findings; candidate not assessed.",
+  "severity_count_interpretation": "Zero observed/classified findings with 0% candidate review coverage; not assessed vulnerability absence or clearance.",
+  "independent_security_coverage": 0
+}

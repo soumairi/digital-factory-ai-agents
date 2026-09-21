@@ -11,6 +11,16 @@
 
 No runtime integration, remote synchronization or policy changes. VERSION remains the source for installed manifests.
 
+## 0.6.1 — 2026-09-21
+
+### Fixed
+
+- Replaced arbitrary Laravel directory freeze checks with a declared, typed SHA-256 governed inventory covering evaluation specifications, adapters, fixtures, verifiers, faults, manifests, expected results and relevant Foundation policies.
+- Narrow runtime-cache/temporary-output exceptions tolerate incidental Python bytecode without excluding source, JSON or Markdown in runtime directories. Missing/changed governed files, prohibited additions and pinned-inventory rewrites still fail.
+- Python execution hygiene disables bytecode where applicable; framework tests cover cache tolerance and governed mutation detection without running a Backend campaign.
+
+This compatible evaluation-governance correction uses a patch version under the repository versioning policy. VERSION and the shipped project-template reference become 0.6.1. Existing case/oracle/fixture versions and assertions remain unchanged; the current runner/verification hashes and inventories are refreshed prospectively. Previous adapter reviews do not certify changed framework bytes. BACKEND-EVAL-001/002/003 and all prior review/run evidence remain unchanged; BACKEND-EVAL-003 remains INVALID. No new campaign, Release Candidate, release tag, pilot or deployment is initiated.
+
 ## 0.6.0 — 2026-09-19
 
 ### Added

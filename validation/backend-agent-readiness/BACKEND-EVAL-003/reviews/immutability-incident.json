@@ -1,0 +1,39 @@
+{
+  "incident_id": "EVAL-003-IMMUTABILITY-001",
+  "recorded_at": "2026-09-20T11:37:08.938878+00:00",
+  "context_id": "/root/evaluator",
+  "campaign_decision": "INVALID",
+  "sequence": [
+    {
+      "step": 1,
+      "command": "python3 -B evals/backend/adapters/laravel/runner.py check-freeze",
+      "observed": "PASS; freeze 15c729443169c68fe8969b8abd48a18182587a81d94e4e405185ce635952a448"
+    },
+    {
+      "step": 2,
+      "command": "python3 - <<'PY' ... sys.path.insert(0,'evals/backend/adapters/laravel'); import runner ... runner.check_assets() ... PY",
+      "observed": "Import generated __pycache__/runner.cpython-314.pyc; check_assets raised ValueError Frozen adapter inventory/hash mismatch before planned evidence writes."
+    },
+    {
+      "step": 3,
+      "command": "python3 -B - <<'PY' from pathlib import Path; import shutil; p=Path('evals/backend/adapters/laravel/__pycache__'); print([str(x) for x in p.glob('*')]); shutil.rmtree(p) PY",
+      "observed": "Listed only runner.cpython-314.pyc and removed generated directory. Removal preceded coordinator instruction to preserve evidence."
+    },
+    {
+      "step": 4,
+      "command": "python3 -B adoption script importing runner; runner.check_assets(); vendor inventory comparison; PHP -n -v",
+      "observed": "Original inventory restored PASS; pinned vendor True; PHP 8.3.33; adoption draft generated, no candidate execution."
+    },
+    {
+      "step": 5,
+      "observed": "Coordinator confirmed strict campaign INVALID; implementer and Security told STOP."
+    }
+  ],
+  "timing_limit": "Individual command UTC timestamps were not recorded; order and commands are supported by tool transcript. recorded_at is report time, not incident time. Multiline script entries identify executed statements; ellipses are disclosed excerpts, not claimed full transcript.",
+  "affected_path": "evals/backend/adapters/laravel/__pycache__/runner.cpython-314.pyc",
+  "affected_bytes": "New transient compiled bytecode; no preexisting adapter source/checksum bytes changed. Bytecode was removed before content/hash capture, so none is claimed.",
+  "candidate_execution": false,
+  "candidate_authored": false,
+  "original_tests_executed": false,
+  "restoration_does_not_cure_campaign": true
+}

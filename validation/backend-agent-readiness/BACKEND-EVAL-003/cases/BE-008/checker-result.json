@@ -1,0 +1,18 @@
+{
+  "status": "NOT RUN",
+  "missing_requirements": [
+    "Reviewer assertion ownership frozen before implementation",
+    "Frozen candidate revision/hash evidence",
+    "All original required tests executed",
+    "Criterion evidence: BE-008-relations",
+    "Criterion evidence: BE-008-budget",
+    "Criterion evidence: BE-008-regression",
+    "Passing clean baseline and post-mutation rerun",
+    "All required fault variants",
+    "Independent required Security review",
+    "Seven original score dimensions with evidence",
+    "Original Foundation score"
+  ],
+  "failures": [],
+  "assurance": "Local evidence checks only; context provenance and assertions still require reviewer/human authentication."
+}

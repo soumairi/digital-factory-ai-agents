@@ -1,0 +1,122 @@
+{
+  "campaign_id": "BACKEND-EVAL-003",
+  "evaluation_id": "BE-003",
+  "foundation_version": "0.6.0",
+  "foundation_snapshot": {
+    "path": "campaign/input-inventory.json",
+    "sha256": "84e21da1a98aaeabf5e81d6fbb2b411533309f336740d481e256eaeafc7fc0a9"
+  },
+  "implementer_context": {
+    "id": "/root/implementer",
+    "role": "Backend Implementer",
+    "execution_record": {
+      "path": "implementation/context.md",
+      "sha256": "ab3f41205ac8f7d1e88b26796f6f84c96531795fc3396d73bc66664c15b7a288"
+    }
+  },
+  "reviewer_context": {
+    "id": "/root/evaluator",
+    "role": "Evaluation Reviewer",
+    "execution_record": {
+      "path": "reviews/evaluator-context.json",
+      "sha256": "8b17d17d2877f9718b1f9492c25c166aa7095a8c787593a14c6c0b347135e118"
+    }
+  },
+  "security_context": {
+    "id": "/root/security",
+    "role": "Security Reviewer",
+    "execution_record": {
+      "path": "reviews/security-context.md",
+      "sha256": "d350bb4da46af08d6369f023b9877375afb8a5dfcbe05897a3d37f582e026bf1"
+    }
+  },
+  "candidate_revision": null,
+  "candidate_hash": null,
+  "candidate_artifact": null,
+  "fixture_version": "1.0.0",
+  "fixture_hash": "7df8356babb91208e7c58d56092a4586e3acbc117817b50488ccf21f5a06cdea",
+  "fixture_freeze": {
+    "owner_context": "/root/evaluator",
+    "before_implementation": false,
+    "assertions_hash": "6d6420c6705916bd549d42c085a9296ac7ae71d729863b2bfb87ced2093099da",
+    "record": {
+      "path": "campaign/reviewer-adoption.md",
+      "sha256": "1aeccbf5437ee0bed89247220f52e3beb4754baf6939b68d29b1b6abdebb078c"
+    },
+    "assertions_artifact": {
+      "path": "cases/BE-003/frozen-assertions.tar",
+      "sha256": "6d6420c6705916bd549d42c085a9296ac7ae71d729863b2bfb87ced2093099da"
+    }
+  },
+  "tests_executed": [],
+  "test_result": "NOT RUN",
+  "criteria": [
+    {
+      "id": "BE-003-actors",
+      "result": "NOT RUN",
+      "evidence": {
+        "path": "cases/BE-003/case-summary.md",
+        "sha256": "a89f1f98f1a5fb8c769df5017efe85af427302bd77975f9a8d33a557abce05d8"
+      }
+    },
+    {
+      "id": "BE-003-no-writes",
+      "result": "NOT RUN",
+      "evidence": {
+        "path": "cases/BE-003/case-summary.md",
+        "sha256": "a89f1f98f1a5fb8c769df5017efe85af427302bd77975f9a8d33a557abce05d8"
+      }
+    },
+    {
+      "id": "BE-003-real-enforcement",
+      "result": "NOT RUN",
+      "evidence": {
+        "path": "cases/BE-003/case-summary.md",
+        "sha256": "a89f1f98f1a5fb8c769df5017efe85af427302bd77975f9a8d33a557abce05d8"
+      }
+    }
+  ],
+  "fault_variants": [],
+  "clean_rerun": "NOT RUN",
+  "security_review_required": true,
+  "security_review_result": "NOT RUN",
+  "security_evidence": null,
+  "human_correction": false,
+  "remediation_cycles": 0,
+  "status": "NOT RUN",
+  "original_case_executed": false,
+  "adapted_scenario": false,
+  "original_case_result": "NOT RUN",
+  "adapted_scenario_result": "NOT APPLICABLE",
+  "adaptation_description": "",
+  "missing_requirements": [
+    {
+      "requirement": "Authorized new campaign and complete original execution",
+      "reason": "Current campaign INVALID before implementation due to shared frozen-inventory violation; no candidate execution",
+      "required_action": "Obtain new campaign authorization, adopt immutable adapters before implementation, freeze actual candidate, independently execute clean/fault/rerun/Security checks and score original criteria."
+    }
+  ],
+  "not_applicable_rationale": "",
+  "hard_failures": [],
+  "score": null,
+  "metrics": {
+    "initial_implementation_outcome": "NOT RUN",
+    "ai_self_corrections": 0,
+    "independent_reviewer_findings": null,
+    "security_findings": null,
+    "human_code_corrections": 0,
+    "architecture_corrections": {
+      "ai": 0,
+      "human": 0
+    },
+    "scope_violations": 0,
+    "process_violations": 0
+  },
+  "clean_rerun_evidence": {
+    "path": "cases/BE-003/test-results.md",
+    "sha256": "ac5fe58da6d44b9cfc442a35bd1b22441c2948db4da929f7c13163571cbffc0d"
+  },
+  "security_candidate_hash": null,
+  "adapted_scenario_evidence": null,
+  "score_dimensions": []
+}

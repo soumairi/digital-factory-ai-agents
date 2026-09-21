@@ -42,15 +42,13 @@ def tree_hash(values):
 
 
 def check_assets():
-    freeze = ASSETS / 'checksums.json'
-    if not freeze.exists():
-        raise ValueError('Assets are not frozen; build/freeze before executing')
-    expected = json.loads(freeze.read_text())
-    actual = inventory(ASSETS)
-    actual.pop('checksums.json', None)
-    if actual != expected:
-        raise ValueError('Frozen adapter inventory/hash mismatch')
-    return digest(freeze)
+    # The campaign pins this inventory digest; runtime cache is not a governed asset.
+    import importlib.util
+    sys.dont_write_bytecode = True
+    spec = importlib.util.spec_from_file_location('evaluation_freeze', ASSETS.parents[1] / 'freeze.py')
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.validate(ASSETS.parents[3])
 
 
 def workspace(value, evaluation=None):
@@ -70,6 +68,7 @@ def workspace(value, evaluation=None):
 def environment(root):
     # Never inherit database endpoints, proxies, tokens, HOME configuration or ini.
     return {'PATH':'/usr/bin:/bin', 'HOME':str(root), 'TMPDIR':str(root),
+            'PYTHONDONTWRITEBYTECODE':'1',
             'APP_ENV':'testing', 'APP_DEBUG':'false', 'APP_URL':'http://localhost',
             'APP_KEY':'base64:'+base64.b64encode(b'0'*32).decode(),
             'DB_CONNECTION':'sqlite', 'DB_DATABASE':':memory:', 'DB_URL':'',

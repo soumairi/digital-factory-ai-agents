@@ -92,7 +92,7 @@
   "BE-009/setup.sh": "9647cb5daaa1466cfe9afbc725e489386b58bf7fb6a3f2525ecb0bb7c3566d5b",
   "BE-009/tests/BE009Test.php": "66ba06d9983cec26ca3ee6eac481ee48393d377d599c1e6820b4fde272bfa8ec",
   "BE-009/verify.sh": "2e1075f20cccba24613293193f154d8a02e630a6a02e6d9d58adffed3288ae4e",
-  "REVIEW.md": "291c443b989e6b4ead532c401f981c7ead4531d0270159c845620bc7e54a3cc9",
+  "REVIEW.md": "0e3c4acfcc3a036612ec7f61d1a139213c94d52a273d7b7458230087c6e7d817",
   "calibration/README.md": "060218413fc41fd46f3be525bfd4ef450f34a2014c1f2739e1eb3281679eb685",
   "calibration/application/.ai/agent-manifest.json": "a9705b16357c9b19d0cd8f8054209d179dbc9ec728fae7d73bc4083538d6aaab",
   "calibration/application/.ai/foundation/VERSION": "a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8",
@@ -211,8 +211,8 @@
   "common/concurrency.php": "6f97fe13ecda19856d88d84a0e5636ef0d7daa7162b122c3f15460ad118f250d",
   "common/postgres-probe.php": "37046e8b3495540deea575e24a31bf158a5defa39b7777ffb112da3f08579e00",
   "common/vendor-sha256.json": "cbd0a6aa7b49c978dcd99fc654b2b39be5284b17c485855c8af385661668e522",
-  "manifest.json": "492cc3839d05dd5811063aab4170f6b98e0dc22d01ae6c43856311c18f35672e",
+  "manifest.json": "016f8acbc210a2d9e412e776501f8fb3af7118bd86495c3ee5023e6710972032",
   "postgres.py": "5ed3f8531a5d177f5d8b0edc75732e833a2df4a2e28f1e95adf6e1fbb4a2cf3a",
-  "runner.py": "037f75b8ee4dbe0421753e7e03a12d1470237581a7febee6849a5590cea4bf7d",
+  "runner.py": "c02002ec8338c50b75e8466f1f1d5fff63934e8c76128ef0cae4d4706fe85f44",
   "selftest.py": "ad7fecb2c45fed29dc425356d949ca38578d70d8956a9d0ddb33814dfd1d7fcb"
 }

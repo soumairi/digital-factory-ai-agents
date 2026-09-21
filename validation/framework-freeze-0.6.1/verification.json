@@ -1,0 +1,37 @@
+{
+  "foundation_version": "0.6.1",
+  "checked_at": "2026-09-21T09:02:24.610996+00:00",
+  "governed_inventory": {
+    "path": "evals/backend/governed-inventory.json",
+    "sha256": "41948468644c73d9791729354b3abb2e63bc04fc8d25812d96ac22ea0296af92",
+    "asset_count": 283
+  },
+  "framework_tests": {
+    "evaluation": 36,
+    "adapters": 8,
+    "bootstrap": 17,
+    "updater": 46,
+    "status": "PASS"
+  },
+  "history": {
+    "baseline_file_count": 1287,
+    "changed_files": [],
+    "BACKEND-EVAL-003": "INVALID; PRESERVED"
+  },
+  "new_backend_campaign_executed": false,
+  "release_candidate_created": false,
+  "logs": {
+    "updater-tests.txt": {
+      "sha256": "d2fbb24b25f9b0a09e4f298f970d00ad2957faddfde55191c920f675659e8295"
+    },
+    "evaluation-tests.txt": {
+      "sha256": "d6650f13b1dd3f0618ae8409ec8d98a5793d1fd493b2260422a22daf6979e5dc"
+    },
+    "adapter-tests.txt": {
+      "sha256": "126f8ce5a508e328e1d93bc73b1838e4e736d9614018c69dfa3b3e5939f304a9"
+    },
+    "bootstrap-tests.txt": {
+      "sha256": "392c7615bd3172aa71446aeff102782361a72e896f2affa5687e710f8aeaf768"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+# Implementer context
+
+Authentic execution context: `/root/implementer`, spawned by coordinator `/root` for BACKEND-EVAL-003. Task receipt and first inspection occurred before 2026-09-20T11:34:32Z (first recorded UTC clock observation); no fabricated exact start timestamp is asserted.
+
+Read Backend Core, Laravel profile, all shared policies, Foundation VERSION (0.6.0), original BE-001–009 markdown specifications, common evaluation README and docs/14 protocol. Initial repository filename discovery displayed adapter fault filenames and historical evidence filenames, but none of those contents were opened. Reviewer tests, expected-results, faults and calibration Eval/BackendNegativeTest solution contents are excluded from this context.
+
+Authority: coordinator delegates user-authorized synthetic campaign implementation, own tests and disposable local validation. Writes restricted by task to this campaign and /private/tmp. Tools technically permit broader workspace reads/writes; separation is procedural, not hostile-code containment. No network, shared services, deployment, merge, or Foundation/adapter/history edits authorized. Independent reviewer approval and Security/Audit decisions cannot be supplied by implementer.
+
+Current branch observed: validation/run-002-us-be-001. Only untracked campaign directory was reported by git status. Coordinator asked to resolve dedicated-branch policy before candidate editing. Evaluator adoption/public binding requested before implementation; no candidate code written yet.
+
+Planned analysis: inspect reviewer-supplied public interface and framework-only skeleton; derive minimal owner-scoped CRUD, strict structured validation, actual authorization, guarded profile writes, atomic inventory reservation, bounded stable lists and constrained eager relationships; author six-category security tests independently; preserve failed self-test runs; review final diff and freeze source inventories with per-case references. Shared candidate correlations will be explicit.
+
+Coordinator subsequently instructed pause before implementation after Security observed unexpected adapter `__pycache__` freeze inventory mismatch. Implementer complied: no candidate code authored, no candidate runtime invoked, no tests executed. Coordinator allowed retaining current branch for campaign artifacts while investigating mandatory STOP/INVALID disposition. No adapter bytes were edited by this implementer.
+
+Completion observation: 2026-09-20T11:36:05Z. Evaluator explicitly instructed STOP and withheld binding/adoption clearance, reporting evaluator import created frozen-adapter cache files and later removal restored freeze. These are evaluator-reported facts, not implementer-verified inspection. Implementation status: NOT RUN for BE-001 through BE-009. No runnable candidate, candidate revision/hash/diff, own test execution, self-remediation, or completed code self-review exists. No successful behavior or score claimed. Preparation record is handed back to coordinator for STOP/INVALID campaign disposition.
